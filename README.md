@@ -31,4 +31,11 @@ Workflow manager :: <br>
 .... <br>
 Process manager :: <br>
 enable tracing and logging and run/stop/restart process <br>
-  
+ 
+ UI : 1.1 Screens <br>
+    1.2 config tool <br>
+ Workflow Manager 2.1 Workflows list  <br>
+              2.2 prepare environment by workflow (Backup handler ,xml handler, process handler) <br>
+              2.3 collect data by workflow (package / EV /Trces Handler) <br>
+              
+              
