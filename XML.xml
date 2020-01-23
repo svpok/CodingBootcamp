@@ -4,7 +4,7 @@
     <name>European Central Bank</name>
   </Sender>
   <Cube>
-    <Cube time="2020-1-19">
+    <Cube time="2019-1-19">
       <Cube currency="USD" rate="1.1108" />
       <Cube currency="JPY" rate="122.31" />
       <Cube currency="BGN" rate="1.9558" />
