@@ -77,7 +77,33 @@ namespace SupportTroubleshootingTool.Core.Contracts
 
         }
     }
+    interface IWorkflow
+    {
+        List<Workflowinfo> Workflowslist { get; }
+    }
+    class Workflowinfo : IWorkflow
+    {
+        List<Workflowinfo> IWorkflow.Workflowslist { get; }
+        string Name;
+        string Configfile;
+        List<EVLogInfo> EVLogs;
+        List<FileLogInfo> FileLogs;
+        List<TraceInfo> Traces;
 
+
+    }
+    class EVLogInfo
+    {
+
+    }
+    class FileLogInfo
+    {
+
+    }
+    class TraceInfo
+    {
+
+    }
 
 
     enum LogLevelEnum
