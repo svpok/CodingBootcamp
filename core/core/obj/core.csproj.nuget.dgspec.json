@@ -43,6 +43,10 @@
               "target": "Package",
               "version": "[2.0.3, )",
               "autoReferenced": true
+            },
+            "log4net": {
+              "target": "Package",
+              "version": "[2.0.8, )"
             }
           },
           "imports": [

@@ -1,9 +1,9 @@
 ﻿using System;
+using log4net;
 using System.Collections.Generic;
 
 namespace SupportTroubleshootingTool.Core.Contracts
 {
-
     interface ISession
     {
         string SeesionRootFolderPath();
@@ -22,9 +22,9 @@ namespace SupportTroubleshootingTool.Core.Contracts
         DateTime From;
         DateTime To;
         LogLevelEnum LogLevel;
-        List<EVLogInfo> SelectedEVLogs;
-        List<FileLogInfo> SelectedFileLogs;
-        List<TraceInfo> SelectedTraces;
+        List<string> SelectedEVLogs;
+        List<string> SelectedFileLogs;
+        List<string> SelectedTraces;
         string SessionFolderPath;
         string SessionOtputFolderPath;
         string ISession.SeesionRootFolderPath()
@@ -74,7 +74,8 @@ namespace SupportTroubleshootingTool.Core.Contracts
     {
         Information,
         Warning,
-        Error
+        Error,
+        All
     }
 
     internal class WorkflowInfo
