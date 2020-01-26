@@ -1,5 +1,4 @@
 ﻿using System;
-using log4net;
 using System.Collections.Generic;
 
 namespace SupportTroubleshootingTool.Core.Contracts
@@ -27,14 +26,34 @@ namespace SupportTroubleshootingTool.Core.Contracts
         List<string> SelectedTraces;
         string SessionFolderPath;
         string SessionOtputFolderPath;
+        void addEVLogs(string EVLogs)
+        {
+            this.SelectedEVLogs.Add(EVLogs);
+        }
+        void addFileLogs(string FileLogs)
+        {
+            this.SelectedFileLogs.Add(FileLogs);
+        }
+        void addTraces(string Traces)
+        {
+            this.SelectedTraces.Add(Traces);
+        }
+        void addWorkflow(WorkflowInfo workflow)
+        {
+            this.Workflow = workflow;
+        }
+        void addTimeFromTo(DateTime from,DateTime to)
+        {
+            this.From = from;
+            this.To = to;
+        }
         string ISession.SeesionRootFolderPath()
         {
             return SessionOtputFolderPath;
         }
         SessionInfo ISession.CurrentSession()
         {
-            SessionInfo a =new SessionInfo();
-            return a;
+            return this;
         }
         void ISession.StartSession(SessionInfo session)
         {
@@ -53,22 +72,13 @@ namespace SupportTroubleshootingTool.Core.Contracts
 
         }
 
+        private class WorkflowInfo
+        {
+
+        }
     }
 
-    internal class TraceInfo
-    {
 
-    }
-
-    internal class FileLogInfo
-    {
-
-    }
-
-    internal class EVLogInfo
-    {
-
-    }
 
     enum LogLevelEnum
     {
@@ -76,10 +86,5 @@ namespace SupportTroubleshootingTool.Core.Contracts
         Warning,
         Error,
         All
-    }
-
-    internal class WorkflowInfo
-    {
-
     }
 }
