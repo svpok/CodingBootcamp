@@ -1,0 +1,8 @@
+C:\Users\Yehya\Desktop\dbmotion\CodingBootcamp\core\core\bin\Debug\netstandard2.0\core.deps.json
+C:\Users\Yehya\Desktop\dbmotion\CodingBootcamp\core\core\bin\Debug\netstandard2.0\core.dll
+C:\Users\Yehya\Desktop\dbmotion\CodingBootcamp\core\core\bin\Debug\netstandard2.0\core.pdb
+C:\Users\Yehya\Desktop\dbmotion\CodingBootcamp\core\core\obj\Debug\netstandard2.0\core.csprojAssemblyReference.cache
+C:\Users\Yehya\Desktop\dbmotion\CodingBootcamp\core\core\obj\Debug\netstandard2.0\core.AssemblyInfoInputs.cache
+C:\Users\Yehya\Desktop\dbmotion\CodingBootcamp\core\core\obj\Debug\netstandard2.0\core.AssemblyInfo.cs
+C:\Users\Yehya\Desktop\dbmotion\CodingBootcamp\core\core\obj\Debug\netstandard2.0\core.dll
+C:\Users\Yehya\Desktop\dbmotion\CodingBootcamp\core\core\obj\Debug\netstandard2.0\core.pdb
