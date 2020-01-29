@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace core
+namespace SupportTroubleshootingTool.Core
 {
-    class Class1
+    class FileLogInfo
     {
     }
 }

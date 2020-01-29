@@ -1,23 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace SupportTroubleshootingTool.Core.Contracts
+namespace SupportTroubleshootingTool.Core
 {
-    interface ISession
+    
+    public class SessionInfo : ISession
     {
-        string SeesionRootFolderPath();
-        SessionInfo CurrentSession();
-        void StartSession(SessionInfo session);
-        void StopSession(SessionInfo session);
-        void CollectData(SessionInfo session);
-
-    }
-    class SessionInfo : ISession
-    {
-
-
-        string SessionID;
-        WorkflowInfo Workflow;
+        public string SessionID;
+        Workflowinfo Workflow;
         DateTime From;
         DateTime To;
         LogLevelEnum LogLevel;
@@ -38,7 +28,7 @@ namespace SupportTroubleshootingTool.Core.Contracts
         {
             this.SelectedTraces.Add(Traces);
         }
-        void addWorkflow(WorkflowInfo workflow)
+        void addWorkflow(Workflowinfo workflow)
         {
             this.Workflow = workflow;
         }
@@ -58,6 +48,7 @@ namespace SupportTroubleshootingTool.Core.Contracts
         void ISession.StartSession(SessionInfo session)
         {
 
+
         }
         void ISession.StopSession(SessionInfo session)
         {
@@ -71,39 +62,8 @@ namespace SupportTroubleshootingTool.Core.Contracts
         {
 
         }
-
-        private class WorkflowInfo
-        {
-
-        }
     }
-    interface IWorkflow
-    {
-        List<Workflowinfo> Workflowslist { get; }
-    }
-    class Workflowinfo : IWorkflow
-    {
-        List<Workflowinfo> IWorkflow.Workflowslist { get; }
-        string Name;
-        string Configfile;
-        List<EVLogInfo> EVLogs;
-        List<FileLogInfo> FileLogs;
-        List<TraceInfo> Traces;
-
-
-    }
-    class EVLogInfo
-    {
-
-    }
-    class FileLogInfo
-    {
-
-    }
-    class TraceInfo
-    {
-
-    }
+  
 
 
     enum LogLevelEnum
