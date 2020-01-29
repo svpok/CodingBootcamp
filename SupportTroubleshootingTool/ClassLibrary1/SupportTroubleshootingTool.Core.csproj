@@ -63,7 +63,9 @@
     <Folder Include="Handlers\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Utilities\log4net.config.xml" />
+    <Content Include="Utilities\log4net.config.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
