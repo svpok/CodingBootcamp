@@ -1,0 +1,5 @@
+C:\Users\Yehya\Desktop\dbmotion\CodingBootcamp\SupportTroubleshootingTool\ClassLibrary1\obj\Debug\SupportTroubleshootingTool.Core.csprojAssemblyReference.cache
+C:\Users\Yehya\Desktop\dbmotion\CodingBootcamp\SupportTroubleshootingTool\ClassLibrary1\bin\Debug\SupportTroubleshootingTool.Core.dll
+C:\Users\Yehya\Desktop\dbmotion\CodingBootcamp\SupportTroubleshootingTool\ClassLibrary1\bin\Debug\SupportTroubleshootingTool.Core.pdb
+C:\Users\Yehya\Desktop\dbmotion\CodingBootcamp\SupportTroubleshootingTool\ClassLibrary1\obj\Debug\SupportTroubleshootingTool.Core.dll
+C:\Users\Yehya\Desktop\dbmotion\CodingBootcamp\SupportTroubleshootingTool\ClassLibrary1\obj\Debug\SupportTroubleshootingTool.Core.pdb
