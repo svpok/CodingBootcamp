@@ -21,20 +21,20 @@ namespace SupportTroubleshootingTool.Core.Contracts
         DateTime From;
         DateTime To;
         LogLevelEnum LogLevel;
-        List<string> SelectedEVLogs;
-        List<string> SelectedFileLogs;
-        List<string> SelectedTraces;
+        List<EVLogInfo> SelectedEVLogs;
+        List<FileLogInfo> SelectedFileLogs;
+        List<TraceInfo> SelectedTraces;
         string SessionFolderPath;
         string SessionOtputFolderPath;
-        void addEVLogs(string EVLogs)
+        void addEVLogs(EVLogInfo EVLogs)
         {
             this.SelectedEVLogs.Add(EVLogs);
         }
-        void addFileLogs(string FileLogs)
+        void addFileLogs(FileLogInfo FileLogs)
         {
             this.SelectedFileLogs.Add(FileLogs);
         }
-        void addTraces(string Traces)
+        void addTraces(TraceInfo Traces)
         {
             this.SelectedTraces.Add(Traces);
         }
