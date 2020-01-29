@@ -1,0 +1,8 @@
+C:\Users\Yehya\Desktop\dbmotion\CodingBootcamp\core\core\bin\Release\netstandard2.1\SupportTroubleshootingTool.Core.deps.json
+C:\Users\Yehya\Desktop\dbmotion\CodingBootcamp\core\core\bin\Release\netstandard2.1\SupportTroubleshootingTool.Core.dll
+C:\Users\Yehya\Desktop\dbmotion\CodingBootcamp\core\core\bin\Release\netstandard2.1\SupportTroubleshootingTool.Core.pdb
+C:\Users\Yehya\Desktop\dbmotion\CodingBootcamp\core\core\obj\Release\netstandard2.1\SupportTroubleshootingTool.Core.csprojAssemblyReference.cache
+C:\Users\Yehya\Desktop\dbmotion\CodingBootcamp\core\core\obj\Release\netstandard2.1\SupportTroubleshootingTool.Core.AssemblyInfoInputs.cache
+C:\Users\Yehya\Desktop\dbmotion\CodingBootcamp\core\core\obj\Release\netstandard2.1\SupportTroubleshootingTool.Core.AssemblyInfo.cs
+C:\Users\Yehya\Desktop\dbmotion\CodingBootcamp\core\core\obj\Release\netstandard2.1\SupportTroubleshootingTool.Core.dll
+C:\Users\Yehya\Desktop\dbmotion\CodingBootcamp\core\core\obj\Release\netstandard2.1\SupportTroubleshootingTool.Core.pdb

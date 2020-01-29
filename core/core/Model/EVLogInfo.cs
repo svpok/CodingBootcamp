@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace SupportTroubleshootingTool.Core
+namespace SupportTroubleshootingTool.Core.Model
 {
-    class EVLogInfo
+    public class EVLogInfo
     {
 
 

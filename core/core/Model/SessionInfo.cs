@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using SupportTroubleshootingTool.Core.Contract;
 
-namespace SupportTroubleshootingTool.Core
+namespace SupportTroubleshootingTool.Core.Model
 {
     
     public class SessionInfo : ISession
     {
-        public string SessionID;
+        string SessionID;
         Workflowinfo Workflow;
         DateTime From;
         DateTime To;
@@ -16,6 +17,15 @@ namespace SupportTroubleshootingTool.Core
         List<TraceInfo> SelectedTraces;
         string SessionFolderPath;
         string SessionOtputFolderPath;
+
+        void addSessionID(string Sessionid)
+        {
+            this.SessionID = Sessionid;
+        }
+        void addLogLevel(LogLevelEnum LogLvl)
+        {
+            this.LogLevel = LogLvl;
+        }
         void addEVLogs(EVLogInfo EVLogs)
         {
             this.SelectedEVLogs.Add(EVLogs);
@@ -37,6 +47,10 @@ namespace SupportTroubleshootingTool.Core
             this.From = from;
             this.To = to;
         }
+
+
+
+
         string ISession.SeesionRootFolderPath()
         {
             return SessionOtputFolderPath;
@@ -45,6 +59,7 @@ namespace SupportTroubleshootingTool.Core
         {
             return this;
         }
+
         void ISession.StartSession(SessionInfo session)
         {
 
@@ -63,10 +78,7 @@ namespace SupportTroubleshootingTool.Core
 
         }
     }
-  
-
-
-    enum LogLevelEnum
+    public enum LogLevelEnum
     {
         Information,
         Warning,
