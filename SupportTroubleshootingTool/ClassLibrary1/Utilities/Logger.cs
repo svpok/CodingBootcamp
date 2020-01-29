@@ -5,18 +5,18 @@ namespace SupportTroubleshootingTool.Core.Utilities
 {
     public class Logger
     {
-        static void WriteInfo (string message){
+        public static void WriteInfo (string message){
             // write to log file message text with information body
         }
-        static void WriteWarning(string message )
+        public static void WriteWarning(string message )
         {
             
         }
-        static void WriteError(string message)
+        public static void WriteError(string message)
         {
             
         }
-        static void WriteError(Exception exeption)
+        public static void WriteError(Exception exeption)
         {
             
         }

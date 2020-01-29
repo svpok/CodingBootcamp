@@ -1,56 +1,45 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using SupportTroubleshootingTool.Core.Contract;
 
 namespace SupportTroubleshootingTool.Core.Model
 {
-    
+    //Read about XML serialization and implement it for this class
+    [Serializable]
     public class SessionInfo
     {
-        string SessionID;
-        Workflowinfo Workflow;
-        DateTime From;
-        DateTime To;
-        LogLevelEnum LogLevel;
+        public SessionInfo()
+        {
+            SessionID = Guid.NewGuid().ToString();
+            SessionFolderPath = $"{DateTime.Now.ToString("yyyy-MM-dd-hh-mm")}_{SessionID}_open";
+            SelectedEVLogs = new List<EVLogInfo>();
+            SelectedFileLogs = new List<FileLogInfo>();
+            SelectedTraces = new List<TraceInfo>();
+        }
+
+        public string SessionID { get; private set; }
+        public Workflowinfo Workflow { get; set; }
+        public DateTime From { get; set; }
+        public DateTime To { get; set; }
+        public LogLevelEnum LogLevel { get; set; }
         List<EVLogInfo> SelectedEVLogs;
         List<FileLogInfo> SelectedFileLogs;
         List<TraceInfo> SelectedTraces;
-        string SessionFolderPath;
-        string SessionOtputFolderPath;
+        public string SessionFolderPath { get; private set; }
+        public string SessionOtputFolderPath { get; set; }
 
-        void addSessionID(string Sessionid)
+        void ResetToDefaults()
         {
-            this.SessionID = Sessionid;
-        }
-        void addLogLevel(LogLevelEnum LogLvl)
-        {
-            this.LogLevel = LogLvl;
-        }
-        void addEVLogs(EVLogInfo EVLogs)
-        {
-            this.SelectedEVLogs.Add(EVLogs);
-        }
-        void addFileLogs(FileLogInfo FileLogs)
-        {
-            this.SelectedFileLogs.Add(FileLogs);
-        }
-        void addTraces(TraceInfo Traces)
-        {
-            this.SelectedTraces.Add(Traces);
-        }
-        void addWorkflow(Workflowinfo workflow)
-        {
-            this.Workflow = workflow;
-        }
-        void addTimeFromTo(DateTime from,DateTime to)
-        {
-            this.From = from;
-            this.To = to;
-        }
-
-        void reResetToDefaults()
-        {
-
+            Workflow = null;
+            SelectedEVLogs = new List<EVLogInfo>();
+            SelectedFileLogs = new List<FileLogInfo>();
+            SelectedTraces = new List<TraceInfo>();
+            From = new DateTime();
+            To = new DateTime();
+            LogLevel = LogLevelEnum.All;
+            //TODO: complete
+            SessionOtputFolderPath = "";
         }
     }
     public enum LogLevelEnum

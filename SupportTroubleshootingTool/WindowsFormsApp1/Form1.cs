@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using SupportTroubleshootingTool.Core.Contract;
+using SupportTroubleshootingTool.Core.Model;
 
 namespace WindowsFormsApp1
 {
@@ -18,8 +19,7 @@ namespace WindowsFormsApp1
         {
             InitializeComponent();
 
-            var session = new SessionProvider();
-            var workflow = new WorkflowProvider();
+            
 
 
         }
@@ -27,6 +27,12 @@ namespace WindowsFormsApp1
         private void Form1_Load(object sender, EventArgs e)
         {
             
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            var s = new SessionProvider();
+            label1.Text = s.SessionRootFolderPath().ToString();
         }
     }
 }
