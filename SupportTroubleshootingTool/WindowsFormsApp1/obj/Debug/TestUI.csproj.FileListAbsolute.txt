@@ -22,3 +22,16 @@ C:\Users\john\Desktop\dbmotion\CodingBootcamp\SupportTroubleshootingTool\Windows
 C:\Users\john\Desktop\dbmotion\CodingBootcamp\SupportTroubleshootingTool\WindowsFormsApp1\bin\Debug\SupportTroubleshootingTool.Core.dll
 C:\Users\john\Desktop\dbmotion\CodingBootcamp\SupportTroubleshootingTool\WindowsFormsApp1\bin\Debug\SupportTroubleshootingTool.Core.pdb
 C:\Users\john\Desktop\dbmotion\CodingBootcamp\SupportTroubleshootingTool\WindowsFormsApp1\obj\Debug\TestUI.csproj.CopyComplete
+C:\Users\Jake\Desktop\CodingBootcamp\SupportTroubleshootingTool\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe.config
+C:\Users\Jake\Desktop\CodingBootcamp\SupportTroubleshootingTool\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe
+C:\Users\Jake\Desktop\CodingBootcamp\SupportTroubleshootingTool\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.pdb
+C:\Users\Jake\Desktop\CodingBootcamp\SupportTroubleshootingTool\WindowsFormsApp1\bin\Debug\SupportTroubleshootingTool.Core.dll
+C:\Users\Jake\Desktop\CodingBootcamp\SupportTroubleshootingTool\WindowsFormsApp1\bin\Debug\SupportTroubleshootingTool.Core.pdb
+C:\Users\Jake\Desktop\CodingBootcamp\SupportTroubleshootingTool\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.ExistingSessionFormUi.resources
+C:\Users\Jake\Desktop\CodingBootcamp\SupportTroubleshootingTool\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.NewSessionFormUi.resources
+C:\Users\Jake\Desktop\CodingBootcamp\SupportTroubleshootingTool\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Properties.Resources.resources
+C:\Users\Jake\Desktop\CodingBootcamp\SupportTroubleshootingTool\WindowsFormsApp1\obj\Debug\TestUI.csproj.GenerateResource.cache
+C:\Users\Jake\Desktop\CodingBootcamp\SupportTroubleshootingTool\WindowsFormsApp1\obj\Debug\TestUI.csproj.CopyComplete
+C:\Users\Jake\Desktop\CodingBootcamp\SupportTroubleshootingTool\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.exe
+C:\Users\Jake\Desktop\CodingBootcamp\SupportTroubleshootingTool\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.pdb
+C:\Users\Jake\Desktop\CodingBootcamp\SupportTroubleshootingTool\WindowsFormsApp1\obj\Debug\TestUI.csprojAssemblyReference.cache

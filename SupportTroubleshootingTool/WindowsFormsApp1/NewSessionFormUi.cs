@@ -16,5 +16,18 @@ namespace WindowsFormsApp1
         {
             InitializeComponent();
         }
+
+        private void butStart_Click(object sender, EventArgs e)
+        {
+
+            ExistingSessionFormUi window1=new ExistingSessionFormUi();
+            this.Hide();
+            
+           window1.ShowDialog();
+           this.Close();
+
+
+                }
+
     }
 }
