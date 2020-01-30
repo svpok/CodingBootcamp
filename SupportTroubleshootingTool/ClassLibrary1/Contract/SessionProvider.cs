@@ -23,18 +23,24 @@ namespace SupportTroubleshootingTool.Core.Contract
         public SessionInfo CurrentSession()
         {
 
-       
-            //Search in this.SessionRootFolderPath the session folder that is opened.
-            //yyyy-MM-dd-hh-mm_workflowName_open - open session
+            string[] s= Directory.GetDirectories(path,"*open",SearchOption.AllDirectories);
+            //Search in this.SessionRootFolderPath the session folder that is opened. - done
+            //yyyy-MM-dd-hh-mm_workflowName_open - open session 
             //yyyy-MM-dd-hh-mm_workflowName_close - closed session
-            //if such folder exists create SessionInfo object from the SessionInfo.xml and return it.
-            //Otherwise return null;
+            //if such folder exists create SessionInfo object from the SessionInfo.xml and return it. - done
+            //Otherwise return null; - done 
+            if (s.Length!=0)
+            {
+                SessionInfo sessionInfo = new SessionInfo();
+                sessionInfo = sessionInfo.Load(s[0] + "\\SessionInfo.xml");
+                return sessionInfo;
+            }
             return null;
         }
 
         public string SessionRootFolderPath()
         {
-            //check if folder does not exist and create it 
+            //check if folder does not exist and create it - done
             if (!Directory.Exists(path))
             {
                 System.IO.Directory.CreateDirectory(path);
@@ -48,9 +54,9 @@ namespace SupportTroubleshootingTool.Core.Contract
             {
                 System.IO.Directory.CreateDirectory($"{path}\\{session.SessionFolderPath}_open");
                 session.Save();
-                //Build session folder name yyyy-MM-dd-hh-mm_workflowName_open
-                //Create the folder under this.SessionRootFolderPath
-                //Save SessionInfo.xml
+                //Build session folder name yyyy-MM-dd-hh-mm_workflowName_open -done
+                //Create the folder under this.SessionRootFolderPath - done 
+                //Save SessionInfo.xml - done
                 //Crete backup (BackupHandler)
                 //Open log levels (XmlHandler)
                 //Open traces (XmlHanlder)
@@ -60,19 +66,18 @@ namespace SupportTroubleshootingTool.Core.Contract
             catch(Exception ex)
             {
                 Logger.WriteError(ex);
-                //throw new Exception($"Failed to start session: {ex.Message}");
+                throw new Exception($"Failed to start session: {ex.Message}");
             }
 
         }
 
         public void StopSession(SessionInfo session)
         {
-            //Rename session folder from open to close
-            //Restore from backups
             try
             {
                 System.IO.Directory.Move($"{path}\\{session.SessionFolderPath}_open", $"{path}\\{session.SessionFolderPath}_close");
-                //Rename session folder from open to close
+               
+                //Rename session folder from open to close - done
                 //Resore from backup (BackupHandler)
 
                 //Restart processes (ProcessHandler)

@@ -68,7 +68,7 @@ namespace SupportTroubleshootingTool.Core.Model
         {
             SessionProvider sessionProvider = new SessionProvider();
             SessionInfo sessionInfo = null;
-            string path = @"C:\SupportTroubleshootingTool\Session\2020-01-30-02-34_1e7b59de-a00f-48cf-8d1e-b9f1d3ba4ac4_open\SessionInfo.xml";
+            string path = xmlPath;
 
             XmlSerializer serializer = new XmlSerializer(typeof(SessionInfo));
 

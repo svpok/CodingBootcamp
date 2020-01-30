@@ -308,3 +308,4 @@ System.IO.DirectoryNotFoundException: Could not find a part of the path 'C:\Supp
 *INFO       2020-01-30 14:15:25,029        program exited [SupportTroubleshootingTool.Core.Utilities.Logger] [1] 
 *INFO       2020-01-30 14:29:46,403        program exited [SupportTroubleshootingTool.Core.Utilities.Logger] [1] 
 *INFO       2020-01-30 14:34:13,612        program exited [SupportTroubleshootingTool.Core.Utilities.Logger] [1] 
+*INFO       2020-01-30 21:04:07,581        program exited [SupportTroubleshootingTool.Core.Utilities.Logger] [1] 
