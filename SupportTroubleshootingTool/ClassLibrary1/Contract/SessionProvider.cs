@@ -68,11 +68,13 @@ namespace SupportTroubleshootingTool.Core.Contract
             //Restore from backups
             try
             {
-                //Rename session folder from open to close
-                //Resore from backup (BackupHandler)
-                
-                //Restart processes (ProcessHandler)
-            }
+                if (!Directory.Exists(path))
+                {
+                    //Rename session folder from open to close
+                    //Resore from backup (BackupHandler)
+
+                    //Restart processes (ProcessHandler)
+                }
             catch (Exception ex)
             {
                 Logger.WriteError(ex);
