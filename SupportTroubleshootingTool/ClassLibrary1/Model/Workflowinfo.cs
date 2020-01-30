@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Xml.Serialization;
 
 namespace SupportTroubleshootingTool.Core.Model
 {
@@ -16,8 +17,11 @@ namespace SupportTroubleshootingTool.Core.Model
 
         public string Name { get; set; }
         public string ConfigFile { get; set; }
+        [XmlArrayItem]
         public List<EVLogInfo> EVLogs { get; set; }
+        [XmlArrayItem]
         public List<FileLogInfo> FileLogs { get; set; }
+        [XmlArrayItem]
         public List<TraceInfo> Traces { get; set; }
 
     }

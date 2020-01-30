@@ -5,7 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using SupportTroubleshootingTool.Core.Utilities;
 namespace SupportTroubleshootingTool.Core.Contract
 {
     public class WorkflowProvider : IWorkflow
@@ -27,6 +27,7 @@ namespace SupportTroubleshootingTool.Core.Contract
             catch (Exception ex)
             {
                 //Log
+                Logger.WriteError(ex);
             }
         }
 

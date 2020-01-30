@@ -11,6 +11,7 @@ namespace SupportTroubleshootingTool.Core.Model
     {
         public BaseLogInfo() : base()
         {
+
         }
 
         public string LogLevelXPath { get; set; }

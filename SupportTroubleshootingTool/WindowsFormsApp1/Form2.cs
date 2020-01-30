@@ -18,12 +18,13 @@ namespace WindowsFormsApp1
             InitializeComponent();
         }
 
-        private void Form2_Load(object sender, EventArgs e)
+        public void Form2_Load(object sender, EventArgs e)
         {
             SessionInfo sessionInfo = new SessionInfo();
             sessionInfo.SessionOtputFolderPath = @"C:\SupportTroubleshootingTool\Session";
             SessionProvider sessionProvider = new SessionProvider();
             sessionProvider.StartSession(sessionInfo);
+            //sessionProvider.StopSession(sessionInfo);
         }
     }
 }

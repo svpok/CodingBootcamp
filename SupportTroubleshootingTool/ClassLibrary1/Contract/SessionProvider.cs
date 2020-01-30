@@ -17,11 +17,13 @@ namespace SupportTroubleshootingTool.Core.Contract
         public SessionProvider()
         {
             path = ConfigurationManager.AppSettings["SessionRootFolderPath"];
+
         }
 
         public SessionInfo CurrentSession()
         {
 
+       
             //Search in this.SessionRootFolderPath the session folder that is opened.
             //yyyy-MM-dd-hh-mm_workflowName_open - open session
             //yyyy-MM-dd-hh-mm_workflowName_close - closed session
@@ -44,7 +46,8 @@ namespace SupportTroubleshootingTool.Core.Contract
         {
             try
             {
-                System.IO.Directory.CreateDirectory($"{session.SessionOtputFolderPath}\\{DateTime.Now.ToString("yyyy-MM-dd-hh-mm")}_{session.SessionID}_open");
+                System.IO.Directory.CreateDirectory($"{path}\\{session.SessionFolderPath}_open");
+                session.Save();
                 //Build session folder name yyyy-MM-dd-hh-mm_workflowName_open
                 //Create the folder under this.SessionRootFolderPath
                 //Save SessionInfo.xml
@@ -57,7 +60,7 @@ namespace SupportTroubleshootingTool.Core.Contract
             catch(Exception ex)
             {
                 Logger.WriteError(ex);
-                throw new Exception($"Failed to start session: {ex.Message}");
+                //throw new Exception($"Failed to start session: {ex.Message}");
             }
 
         }
@@ -68,13 +71,12 @@ namespace SupportTroubleshootingTool.Core.Contract
             //Restore from backups
             try
             {
-                if (!Directory.Exists(path))
-                {
-                    //Rename session folder from open to close
-                    //Resore from backup (BackupHandler)
+                System.IO.Directory.Move($"{path}\\{session.SessionFolderPath}_open", $"{path}\\{session.SessionFolderPath}_close");
+                //Rename session folder from open to close
+                //Resore from backup (BackupHandler)
 
-                    //Restart processes (ProcessHandler)
-                }
+                //Restart processes (ProcessHandler)
+
             }
             catch (Exception ex)
             {
