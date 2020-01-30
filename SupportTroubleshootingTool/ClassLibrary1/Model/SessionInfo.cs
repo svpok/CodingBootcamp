@@ -14,13 +14,13 @@ namespace SupportTroubleshootingTool.Core.Model
         public SessionInfo()
         {
             SessionID = Guid.NewGuid().ToString();
-            SessionFolderPath = $"{DateTime.Now.ToString("yyyy-MM-dd-hh-mm")}_{SessionID}";
             Workflow = new WorkflowInfo();
             SelectedEVLogs = new List<EVLogInfo>();
             SelectedFileLogs = new List<FileLogInfo>();
             SelectedTraces = new List<TraceInfo>();
             From = new DateTime();
             To = new DateTime();
+            SessionFolderPath = $"{DateTime.Now.ToString("yyyy-MM-dd-hh-mm")}_{SessionID}";
             SessionOtputFolderPath = "";
         }
 
@@ -64,9 +64,18 @@ namespace SupportTroubleshootingTool.Core.Model
             writer.Serialize(s, this);
             s.Close();
         }
-        public void Load()
+        public SessionInfo Load(string xmlPath)
         {
+            SessionProvider sessionProvider = new SessionProvider();
+            SessionInfo sessionInfo = null;
+            string path = @"C:\SupportTroubleshootingTool\Session\2020-01-30-02-34_1e7b59de-a00f-48cf-8d1e-b9f1d3ba4ac4_open\SessionInfo.xml";
 
+            XmlSerializer serializer = new XmlSerializer(typeof(SessionInfo));
+
+            StreamReader reader = new StreamReader(path);
+            sessionInfo = (SessionInfo)serializer.Deserialize(reader);
+            reader.Close();
+            return sessionInfo;
         }
     }
     
