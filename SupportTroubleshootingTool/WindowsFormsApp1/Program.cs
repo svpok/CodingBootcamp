@@ -16,7 +16,7 @@ namespace WindowsFormsApp1
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new NewSessionFormUi());
+            Application.Run(new Form2());
             SupportTroubleshootingTool.Core.Utilities.Logger.WriteInfo("program exited");
         }
     }

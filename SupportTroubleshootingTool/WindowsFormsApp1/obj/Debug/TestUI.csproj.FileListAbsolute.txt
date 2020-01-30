@@ -4,7 +4,6 @@ C:\Users\Yehya\Desktop\dbmotion\CodingBootcamp\SupportTroubleshootingTool\Window
 C:\Users\Yehya\Desktop\dbmotion\CodingBootcamp\SupportTroubleshootingTool\WindowsFormsApp1\bin\Debug\SupportTroubleshootingTool.Core.dll
 C:\Users\Yehya\Desktop\dbmotion\CodingBootcamp\SupportTroubleshootingTool\WindowsFormsApp1\bin\Debug\SupportTroubleshootingTool.Core.pdb
 C:\Users\Yehya\Desktop\dbmotion\CodingBootcamp\SupportTroubleshootingTool\WindowsFormsApp1\obj\Debug\TestUI.csprojAssemblyReference.cache
-C:\Users\Yehya\Desktop\dbmotion\CodingBootcamp\SupportTroubleshootingTool\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Form1.resources
 C:\Users\Yehya\Desktop\dbmotion\CodingBootcamp\SupportTroubleshootingTool\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Properties.Resources.resources
 C:\Users\Yehya\Desktop\dbmotion\CodingBootcamp\SupportTroubleshootingTool\WindowsFormsApp1\obj\Debug\TestUI.csproj.GenerateResource.cache
 C:\Users\Yehya\Desktop\dbmotion\CodingBootcamp\SupportTroubleshootingTool\WindowsFormsApp1\obj\Debug\TestUI.csproj.CopyComplete
@@ -52,3 +51,10 @@ C:\Users\Aakf\Desktop\Dbmotion\CodingBootcamp\SupportTroubleshootingTool\Windows
 C:\Users\Aakf\Desktop\Dbmotion\CodingBootcamp\SupportTroubleshootingTool\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.pdb
 C:\Users\Aakf\Desktop\Dbmotion\CodingBootcamp\SupportTroubleshootingTool\WindowsFormsApp1\bin\Debug\Utilities\log4net.config.xml
 C:\Users\Aakf\Desktop\Dbmotion\CodingBootcamp\SupportTroubleshootingTool\WindowsFormsApp1\bin\Debug\log4net.config.xml
+C:\Users\Yehya\Desktop\dbmotion\CodingBootcamp\SupportTroubleshootingTool\WindowsFormsApp1\bin\Debug\Utilities\log4net.config.xml
+C:\Users\Yehya\Desktop\dbmotion\CodingBootcamp\SupportTroubleshootingTool\WindowsFormsApp1\bin\Debug\log4net.config.xml
+C:\Users\Yehya\Desktop\dbmotion\CodingBootcamp\SupportTroubleshootingTool\WindowsFormsApp1\bin\Debug\log4net.dll
+C:\Users\Yehya\Desktop\dbmotion\CodingBootcamp\SupportTroubleshootingTool\WindowsFormsApp1\bin\Debug\log4net.xml
+C:\Users\Yehya\Desktop\dbmotion\CodingBootcamp\SupportTroubleshootingTool\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.ExistingSessionFormUi.resources
+C:\Users\Yehya\Desktop\dbmotion\CodingBootcamp\SupportTroubleshootingTool\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.NewSessionFormUi.resources
+C:\Users\Yehya\Desktop\dbmotion\CodingBootcamp\SupportTroubleshootingTool\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Form2.resources
