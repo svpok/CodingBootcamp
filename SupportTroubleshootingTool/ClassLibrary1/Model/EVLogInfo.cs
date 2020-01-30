@@ -4,9 +4,15 @@ using System.Text;
 
 namespace SupportTroubleshootingTool.Core.Model
 {
-    public class EVLogInfo
+    [Serializable]
+    public class EVLogInfo : BaseLogInfo
     {
+        public EVLogInfo() : base()
+        {
+            Sources = new List<string>();
+        }
 
-
+        public string LogName { get; set; }
+        public List<string> Sources { get; set; }
     }
 }
