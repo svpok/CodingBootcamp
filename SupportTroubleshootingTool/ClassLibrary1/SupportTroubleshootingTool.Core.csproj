@@ -56,8 +56,8 @@
     <Compile Include="Model\EVLogInfo.cs" />
     <Compile Include="Model\FileLogInfo.cs" />
     <Compile Include="Model\SessionInfo.cs" />
+    <Compile Include="Model\WorkflowInfo.cs" />
     <Compile Include="Model\TraceInfo.cs" />
-    <Compile Include="Model\Workflowinfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utilities\Logger.cs" />
   </ItemGroup>

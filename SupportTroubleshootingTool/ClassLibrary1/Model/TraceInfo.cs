@@ -4,7 +4,7 @@ using System.Text;
 
 namespace SupportTroubleshootingTool.Core.Model
 {
-    public class Workflowinfo
+    public class TraceInfo
     {
         public string Name { get; private set; }
         public string Configfile { get; private set; }

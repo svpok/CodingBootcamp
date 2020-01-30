@@ -23,7 +23,7 @@ namespace SupportTroubleshootingTool.Core.Model
         }
 
         public string SessionID { get;  set; }
-        public Workflowinfo Workflow { get; set; }
+        public TraceInfo Workflow { get; set; }
         public DateTime From { get; set; }
         public DateTime To { get; set; }
         public LogLevelEnum LogLevel { get; set; }

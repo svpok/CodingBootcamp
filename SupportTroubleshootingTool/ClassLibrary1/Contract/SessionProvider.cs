@@ -75,6 +75,7 @@ namespace SupportTroubleshootingTool.Core.Contract
 
                     //Restart processes (ProcessHandler)
                 }
+            }
             catch (Exception ex)
             {
                 Logger.WriteError(ex);
