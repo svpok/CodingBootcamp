@@ -51,6 +51,8 @@
     <Compile Include="Contract\IWorkflow.cs" />
     <Compile Include="Contract\SessionProvider.cs" />
     <Compile Include="Contract\WorkflowProvider.cs" />
+    <Compile Include="Model\BaseLogInfo.cs" />
+    <Compile Include="Model\ConfigItemInfo.cs" />
     <Compile Include="Model\EVLogInfo.cs" />
     <Compile Include="Model\FileLogInfo.cs" />
     <Compile Include="Model\SessionInfo.cs" />
@@ -60,6 +62,7 @@
     <Compile Include="Utilities\Logger.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Configurations\Workflows\" />
     <Folder Include="Handlers\" />
   </ItemGroup>
   <ItemGroup>
