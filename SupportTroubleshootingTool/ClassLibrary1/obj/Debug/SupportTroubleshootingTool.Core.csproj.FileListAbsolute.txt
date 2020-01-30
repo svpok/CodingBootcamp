@@ -1,4 +1,3 @@
-C:\Users\Yehya\Desktop\dbmotion\CodingBootcamp\SupportTroubleshootingTool\ClassLibrary1\obj\Debug\SupportTroubleshootingTool.Core.csprojAssemblyReference.cache
 C:\Users\Yehya\Desktop\dbmotion\CodingBootcamp\SupportTroubleshootingTool\ClassLibrary1\bin\Debug\SupportTroubleshootingTool.Core.dll
 C:\Users\Yehya\Desktop\dbmotion\CodingBootcamp\SupportTroubleshootingTool\ClassLibrary1\bin\Debug\SupportTroubleshootingTool.Core.pdb
 C:\Users\Yehya\Desktop\dbmotion\CodingBootcamp\SupportTroubleshootingTool\ClassLibrary1\obj\Debug\SupportTroubleshootingTool.Core.dll
@@ -12,3 +11,7 @@ C:\Users\Aakf\Desktop\Dbmotion\CodingBootcamp\SupportTroubleshootingTool\ClassLi
 C:\Users\Aakf\Desktop\Dbmotion\CodingBootcamp\SupportTroubleshootingTool\ClassLibrary1\bin\Debug\log4net.xml
 C:\Users\Aakf\Desktop\Dbmotion\CodingBootcamp\SupportTroubleshootingTool\ClassLibrary1\obj\Debug\SupportTroubleshootingTool.Core.csproj.CopyComplete
 C:\Users\Aakf\Desktop\Dbmotion\CodingBootcamp\SupportTroubleshootingTool\ClassLibrary1\bin\Debug\Utilities\log4net.config.xml
+C:\Users\Yehya\Desktop\dbmotion\CodingBootcamp\SupportTroubleshootingTool\ClassLibrary1\bin\Debug\Utilities\log4net.config.xml
+C:\Users\Yehya\Desktop\dbmotion\CodingBootcamp\SupportTroubleshootingTool\ClassLibrary1\bin\Debug\log4net.dll
+C:\Users\Yehya\Desktop\dbmotion\CodingBootcamp\SupportTroubleshootingTool\ClassLibrary1\bin\Debug\log4net.xml
+C:\Users\Yehya\Desktop\dbmotion\CodingBootcamp\SupportTroubleshootingTool\ClassLibrary1\obj\Debug\SupportTroubleshootingTool.Core.csproj.CopyComplete

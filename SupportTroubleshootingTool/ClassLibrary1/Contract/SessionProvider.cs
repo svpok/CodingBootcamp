@@ -21,6 +21,7 @@ namespace SupportTroubleshootingTool.Core.Contract
 
         public SessionInfo CurrentSession()
         {
+
             //Search in this.SessionRootFolderPath the session folder that is opened.
             //yyyy-MM-dd-hh-mm_workflowName_open - open session
             //yyyy-MM-dd-hh-mm_workflowName_close - closed session
@@ -43,6 +44,7 @@ namespace SupportTroubleshootingTool.Core.Contract
         {
             try
             {
+                System.IO.Directory.CreateDirectory($"{session.SessionOtputFolderPath}\\{DateTime.Now.ToString("yyyy-MM-dd-hh-mm")}_{session.SessionID}_open");
                 //Build session folder name yyyy-MM-dd-hh-mm_workflowName_open
                 //Create the folder under this.SessionRootFolderPath
                 //Save SessionInfo.xml
@@ -66,11 +68,13 @@ namespace SupportTroubleshootingTool.Core.Contract
             //Restore from backups
             try
             {
-                //Rename session folder from open to close
-                //Resore from backup (BackupHandler)
-                
-                //Restart processes (ProcessHandler)
-            }
+                if (!Directory.Exists(path))
+                {
+                    //Rename session folder from open to close
+                    //Resore from backup (BackupHandler)
+
+                    //Restart processes (ProcessHandler)
+                }
             catch (Exception ex)
             {
                 Logger.WriteError(ex);

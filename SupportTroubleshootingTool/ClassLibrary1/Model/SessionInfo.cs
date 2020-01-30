@@ -16,9 +16,13 @@ namespace SupportTroubleshootingTool.Core.Model
             SelectedEVLogs = new List<EVLogInfo>();
             SelectedFileLogs = new List<FileLogInfo>();
             SelectedTraces = new List<TraceInfo>();
+            From = new DateTime();
+            To = new DateTime();
+            //SessionFolderPath = "";
+            SessionOtputFolderPath = "";
         }
 
-        public string SessionID { get; private set; }
+        public string SessionID { get;  set; }
         public Workflowinfo Workflow { get; set; }
         public DateTime From { get; set; }
         public DateTime To { get; set; }
@@ -26,7 +30,7 @@ namespace SupportTroubleshootingTool.Core.Model
         List<EVLogInfo> SelectedEVLogs;
         List<FileLogInfo> SelectedFileLogs;
         List<TraceInfo> SelectedTraces;
-        public string SessionFolderPath { get; private set; }
+        public string SessionFolderPath { get; set; }
         public string SessionOtputFolderPath { get; set; }
 
         void ResetToDefaults()
@@ -38,6 +42,7 @@ namespace SupportTroubleshootingTool.Core.Model
             From = new DateTime();
             To = new DateTime();
             LogLevel = LogLevelEnum.All;
+            SessionFolderPath = "";
             //TODO: complete
             SessionOtputFolderPath = "";
         }
