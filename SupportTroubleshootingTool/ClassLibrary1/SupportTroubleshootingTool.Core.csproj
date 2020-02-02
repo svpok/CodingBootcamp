@@ -38,6 +38,8 @@
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.IO.Compression.FileSystem" />
+    <Reference Include="System.ServiceProcess" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -51,6 +53,8 @@
     <Compile Include="Contract\IWorkflow.cs" />
     <Compile Include="Contract\SessionProvider.cs" />
     <Compile Include="Contract\WorkflowProvider.cs" />
+    <Compile Include="Handlers\PackageHandler.cs" />
+    <Compile Include="Handlers\ProcessHandler.cs" />
     <Compile Include="Model\BaseLogInfo.cs" />
     <Compile Include="Model\ConfigItemInfo.cs" />
     <Compile Include="Model\EVLogInfo.cs" />
@@ -63,7 +67,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Configurations\Workflows\" />
-    <Folder Include="Handlers\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Utilities\log4net.config.xml">
