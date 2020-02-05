@@ -14,7 +14,7 @@ namespace SupportTroubleshootingTool.Core.Model
         public SessionInfo()
         {
             SessionID = Guid.NewGuid().ToString();
-            Workflow = new WorkflowInfo();
+            Workflow = null;
             SelectedEVLogs = new List<EVLogInfo>();
             SelectedFileLogs = new List<FileLogInfo>();
             SelectedTraces = new List<TraceInfo>();
@@ -23,26 +23,34 @@ namespace SupportTroubleshootingTool.Core.Model
             SessionFolderPath = $"{DateTime.Now.ToString("yyyy-MM-dd-hh-mm")}_{SessionID}";
             SessionOtputFolderPath = "";
         }
-
+        [XmlElement]
         public string SessionID { get; set; }
-        
-        public WorkflowInfo Workflow { get; set; }
-        public DateTime From { get; set; }
-        public DateTime To { get; set; }
+        [XmlElement]
        
+        public WorkflowInfo Workflow { get; set; }
+        [XmlElement]
+        public DateTime From { get; set; }
+        [XmlElement]
+        public DateTime To { get; set; }
+        [XmlElement]
         public LogLevelEnum LogLevel { get; set; }
+        [XmlArray]
         [XmlArrayItem]
         public List<EVLogInfo> SelectedEVLogs { get; set; }
+        [XmlArray]
         [XmlArrayItem]
         public List<FileLogInfo> SelectedFileLogs { get; set; }
+        [XmlArray]
         [XmlArrayItem]
         public List<TraceInfo> SelectedTraces { get; set; }
+        [XmlElement]
         public string SessionFolderPath { get; set; }
+        [XmlElement]
         public string SessionOtputFolderPath { get; set; }
 
         void ResetToDefaults()
         {
-            Workflow = null;
+            Workflow = new WorkflowInfo(); 
             SelectedEVLogs = new List<EVLogInfo>();
             SelectedFileLogs = new List<FileLogInfo>();
             SelectedTraces = new List<TraceInfo>();

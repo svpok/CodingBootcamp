@@ -1,0 +1,311 @@
+*INFO       2020-01-29 23:50:52,913        program exited [SupportTroubleshootingTool.Core.Utilities.Logger] [1] 
+*INFO       2020-01-30 10:00:52,043        program exited [SupportTroubleshootingTool.Core.Utilities.Logger] [1] 
+*INFO       2020-01-30 10:05:38,884        program exited [SupportTroubleshootingTool.Core.Utilities.Logger] [1] 
+*INFO       2020-01-30 10:07:13,664        program exited [SupportTroubleshootingTool.Core.Utilities.Logger] [1] 
+*INFO       2020-01-30 10:36:22,274        program exited [SupportTroubleshootingTool.Core.Utilities.Logger] [1] 
+*INFO       2020-01-30 11:16:26,399        program exited [SupportTroubleshootingTool.Core.Utilities.Logger] [1] 
+*INFO       2020-01-30 11:16:57,364        program exited [SupportTroubleshootingTool.Core.Utilities.Logger] [1] 
+*INFO       2020-01-30 11:19:41,150        program exited [SupportTroubleshootingTool.Core.Utilities.Logger] [1] 
+*INFO       2020-01-30 11:20:15,317        program exited [SupportTroubleshootingTool.Core.Utilities.Logger] [1] 
+*INFO       2020-01-30 11:24:59,942        program exited [SupportTroubleshootingTool.Core.Utilities.Logger] [1] 
+*INFO       2020-01-30 11:26:40,848        program exited [SupportTroubleshootingTool.Core.Utilities.Logger] [1] 
+*INFO       2020-01-30 11:27:06,208        program exited [SupportTroubleshootingTool.Core.Utilities.Logger] [1] 
+*INFO       2020-01-30 11:27:15,043        program exited [SupportTroubleshootingTool.Core.Utilities.Logger] [1] 
+*INFO       2020-01-30 11:31:43,045        program exited [SupportTroubleshootingTool.Core.Utilities.Logger] [1] 
+*ERROR      2020-01-30 12:39:10,141        Error with this exeption message  [SupportTroubleshootingTool.Core.Utilities.Logger] [1] 
+System.InvalidOperationException: Cannot deserialize type 'SupportTroubleshootingTool.Core.Model.TraceInfo' because it contains property 'Name' which has no public setter.
+   at System.Xml.Serialization.TypeScope.GetSettableMembers(StructMapping mapping, ArrayList list)
+   at System.Xml.Serialization.TypeScope.GetSettableMembers(StructMapping structMapping)
+   at System.Xml.Serialization.TypeScope.GetSettableMembers(StructMapping mapping, Dictionary`2 memberInfos)
+   at System.Xml.Serialization.XmlSerializationReaderILGen.WriteLiteralStructMethod(StructMapping structMapping)
+   at System.Xml.Serialization.XmlSerializationReaderILGen.GenerateMethod(TypeMapping mapping)
+   at System.Xml.Serialization.XmlSerializationILGen.GenerateReferencedMethods()
+   at System.Xml.Serialization.XmlSerializationReaderILGen.GenerateEnd(String[] methods, XmlMapping[] xmlMappings, Type[] types)
+   at System.Xml.Serialization.TempAssembly.GenerateRefEmitAssembly(XmlMapping[] xmlMappings, Type[] types, String defaultNamespace, Evidence evidence)
+   at System.Xml.Serialization.TempAssembly..ctor(XmlMapping[] xmlMappings, Type[] types, String defaultNamespace, String location, Evidence evidence)
+   at System.Xml.Serialization.XmlSerializer.GenerateTempAssembly(XmlMapping xmlMapping, Type type, String defaultNamespace)
+   at System.Xml.Serialization.XmlSerializer..ctor(Type type, String defaultNamespace)
+   at System.Xml.Serialization.XmlSerializer..ctor(Type type)
+   at SupportTroubleshootingTool.Core.Model.SessionInfo.Save() in C:\Users\Yehya\Desktop\dbmotion\CodingBootcamp\SupportTroubleshootingTool\ClassLibrary1\Model\SessionInfo.cs:line 54
+   at SupportTroubleshootingTool.Core.Contract.SessionProvider.StartSession(SessionInfo session) in C:\Users\Yehya\Desktop\dbmotion\CodingBootcamp\SupportTroubleshootingTool\ClassLibrary1\Contract\SessionProvider.cs:line 50
+*ERROR      2020-01-30 12:40:12,368        Error with this exeption message  [SupportTroubleshootingTool.Core.Utilities.Logger] [1] 
+System.InvalidOperationException: Cannot deserialize type 'SupportTroubleshootingTool.Core.Model.TraceInfo' because it contains property 'Name' which has no public setter.
+   at System.Xml.Serialization.TypeScope.GetSettableMembers(StructMapping mapping, ArrayList list)
+   at System.Xml.Serialization.TypeScope.GetSettableMembers(StructMapping structMapping)
+   at System.Xml.Serialization.TypeScope.GetSettableMembers(StructMapping mapping, Dictionary`2 memberInfos)
+   at System.Xml.Serialization.XmlSerializationReaderILGen.WriteLiteralStructMethod(StructMapping structMapping)
+   at System.Xml.Serialization.XmlSerializationReaderILGen.GenerateMethod(TypeMapping mapping)
+   at System.Xml.Serialization.XmlSerializationILGen.GenerateReferencedMethods()
+   at System.Xml.Serialization.XmlSerializationReaderILGen.GenerateEnd(String[] methods, XmlMapping[] xmlMappings, Type[] types)
+   at System.Xml.Serialization.TempAssembly.GenerateRefEmitAssembly(XmlMapping[] xmlMappings, Type[] types, String defaultNamespace, Evidence evidence)
+   at System.Xml.Serialization.TempAssembly..ctor(XmlMapping[] xmlMappings, Type[] types, String defaultNamespace, String location, Evidence evidence)
+   at System.Xml.Serialization.XmlSerializer.GenerateTempAssembly(XmlMapping xmlMapping, Type type, String defaultNamespace)
+   at System.Xml.Serialization.XmlSerializer..ctor(Type type, String defaultNamespace)
+   at System.Xml.Serialization.XmlSerializer..ctor(Type type)
+   at SupportTroubleshootingTool.Core.Model.SessionInfo.Save() in C:\Users\Yehya\Desktop\dbmotion\CodingBootcamp\SupportTroubleshootingTool\ClassLibrary1\Model\SessionInfo.cs:line 54
+   at SupportTroubleshootingTool.Core.Contract.SessionProvider.StartSession(SessionInfo session) in C:\Users\Yehya\Desktop\dbmotion\CodingBootcamp\SupportTroubleshootingTool\ClassLibrary1\Contract\SessionProvider.cs:line 50
+*ERROR      2020-01-30 12:41:09,586        Error with this exeption message  [SupportTroubleshootingTool.Core.Utilities.Logger] [1] 
+System.InvalidOperationException: Cannot deserialize type 'SupportTroubleshootingTool.Core.Model.TraceInfo' because it contains property 'Name' which has no public setter.
+   at System.Xml.Serialization.TypeScope.GetSettableMembers(StructMapping mapping, ArrayList list)
+   at System.Xml.Serialization.TypeScope.GetSettableMembers(StructMapping structMapping)
+   at System.Xml.Serialization.TypeScope.GetSettableMembers(StructMapping mapping, Dictionary`2 memberInfos)
+   at System.Xml.Serialization.XmlSerializationReaderILGen.WriteLiteralStructMethod(StructMapping structMapping)
+   at System.Xml.Serialization.XmlSerializationReaderILGen.GenerateMethod(TypeMapping mapping)
+   at System.Xml.Serialization.XmlSerializationILGen.GenerateReferencedMethods()
+   at System.Xml.Serialization.XmlSerializationReaderILGen.GenerateEnd(String[] methods, XmlMapping[] xmlMappings, Type[] types)
+   at System.Xml.Serialization.TempAssembly.GenerateRefEmitAssembly(XmlMapping[] xmlMappings, Type[] types, String defaultNamespace, Evidence evidence)
+   at System.Xml.Serialization.TempAssembly..ctor(XmlMapping[] xmlMappings, Type[] types, String defaultNamespace, String location, Evidence evidence)
+   at System.Xml.Serialization.XmlSerializer.GenerateTempAssembly(XmlMapping xmlMapping, Type type, String defaultNamespace)
+   at System.Xml.Serialization.XmlSerializer..ctor(Type type, String defaultNamespace)
+   at System.Xml.Serialization.XmlSerializer..ctor(Type type)
+   at SupportTroubleshootingTool.Core.Model.SessionInfo.Save() in C:\Users\Yehya\Desktop\dbmotion\CodingBootcamp\SupportTroubleshootingTool\ClassLibrary1\Model\SessionInfo.cs:line 54
+   at SupportTroubleshootingTool.Core.Contract.SessionProvider.StartSession(SessionInfo session) in C:\Users\Yehya\Desktop\dbmotion\CodingBootcamp\SupportTroubleshootingTool\ClassLibrary1\Contract\SessionProvider.cs:line 50
+*ERROR      2020-01-30 12:47:14,609        Error with this exeption message  [SupportTroubleshootingTool.Core.Utilities.Logger] [1] 
+System.InvalidOperationException: Cannot deserialize type 'SupportTroubleshootingTool.Core.Model.TraceInfo' because it contains property 'Name' which has no public setter.
+   at System.Xml.Serialization.TypeScope.GetSettableMembers(StructMapping mapping, ArrayList list)
+   at System.Xml.Serialization.TypeScope.GetSettableMembers(StructMapping structMapping)
+   at System.Xml.Serialization.TypeScope.GetSettableMembers(StructMapping mapping, Dictionary`2 memberInfos)
+   at System.Xml.Serialization.XmlSerializationReaderILGen.WriteLiteralStructMethod(StructMapping structMapping)
+   at System.Xml.Serialization.XmlSerializationReaderILGen.GenerateMethod(TypeMapping mapping)
+   at System.Xml.Serialization.XmlSerializationILGen.GenerateReferencedMethods()
+   at System.Xml.Serialization.XmlSerializationReaderILGen.GenerateEnd(String[] methods, XmlMapping[] xmlMappings, Type[] types)
+   at System.Xml.Serialization.TempAssembly.GenerateRefEmitAssembly(XmlMapping[] xmlMappings, Type[] types, String defaultNamespace, Evidence evidence)
+   at System.Xml.Serialization.TempAssembly..ctor(XmlMapping[] xmlMappings, Type[] types, String defaultNamespace, String location, Evidence evidence)
+   at System.Xml.Serialization.XmlSerializer.GenerateTempAssembly(XmlMapping xmlMapping, Type type, String defaultNamespace)
+   at System.Xml.Serialization.XmlSerializer..ctor(Type type, String defaultNamespace)
+   at System.Xml.Serialization.XmlSerializer..ctor(Type type)
+   at SupportTroubleshootingTool.Core.Model.SessionInfo.Save() in C:\Users\Yehya\Desktop\dbmotion\CodingBootcamp\SupportTroubleshootingTool\ClassLibrary1\Model\SessionInfo.cs:line 54
+   at SupportTroubleshootingTool.Core.Contract.SessionProvider.StartSession(SessionInfo session) in C:\Users\Yehya\Desktop\dbmotion\CodingBootcamp\SupportTroubleshootingTool\ClassLibrary1\Contract\SessionProvider.cs:line 50
+*ERROR      2020-01-30 12:51:44,040        Error with this exeption message  [SupportTroubleshootingTool.Core.Utilities.Logger] [1] 
+System.InvalidOperationException: Cannot deserialize type 'SupportTroubleshootingTool.Core.Model.TraceInfo' because it contains property 'Name' which has no public setter.
+   at System.Xml.Serialization.TypeScope.GetSettableMembers(StructMapping mapping, ArrayList list)
+   at System.Xml.Serialization.TypeScope.GetSettableMembers(StructMapping structMapping)
+   at System.Xml.Serialization.TypeScope.GetSettableMembers(StructMapping mapping, Dictionary`2 memberInfos)
+   at System.Xml.Serialization.XmlSerializationReaderILGen.WriteLiteralStructMethod(StructMapping structMapping)
+   at System.Xml.Serialization.XmlSerializationReaderILGen.GenerateMethod(TypeMapping mapping)
+   at System.Xml.Serialization.XmlSerializationILGen.GenerateReferencedMethods()
+   at System.Xml.Serialization.XmlSerializationReaderILGen.GenerateEnd(String[] methods, XmlMapping[] xmlMappings, Type[] types)
+   at System.Xml.Serialization.TempAssembly.GenerateRefEmitAssembly(XmlMapping[] xmlMappings, Type[] types, String defaultNamespace, Evidence evidence)
+   at System.Xml.Serialization.TempAssembly..ctor(XmlMapping[] xmlMappings, Type[] types, String defaultNamespace, String location, Evidence evidence)
+   at System.Xml.Serialization.XmlSerializer.GenerateTempAssembly(XmlMapping xmlMapping, Type type, String defaultNamespace)
+   at System.Xml.Serialization.XmlSerializer..ctor(Type type, String defaultNamespace)
+   at System.Xml.Serialization.XmlSerializer..ctor(Type type)
+   at SupportTroubleshootingTool.Core.Model.SessionInfo.Save() in C:\Users\Yehya\Desktop\dbmotion\CodingBootcamp\SupportTroubleshootingTool\ClassLibrary1\Model\SessionInfo.cs:line 52
+   at SupportTroubleshootingTool.Core.Contract.SessionProvider.StartSession(SessionInfo session) in C:\Users\Yehya\Desktop\dbmotion\CodingBootcamp\SupportTroubleshootingTool\ClassLibrary1\Contract\SessionProvider.cs:line 50
+*ERROR      2020-01-30 12:52:10,248        Error with this exeption message  [SupportTroubleshootingTool.Core.Utilities.Logger] [1] 
+System.InvalidOperationException: Cannot deserialize type 'SupportTroubleshootingTool.Core.Model.TraceInfo' because it contains property 'Name' which has no public setter.
+   at System.Xml.Serialization.TypeScope.GetSettableMembers(StructMapping mapping, ArrayList list)
+   at System.Xml.Serialization.TypeScope.GetSettableMembers(StructMapping structMapping)
+   at System.Xml.Serialization.TypeScope.GetSettableMembers(StructMapping mapping, Dictionary`2 memberInfos)
+   at System.Xml.Serialization.XmlSerializationReaderILGen.WriteLiteralStructMethod(StructMapping structMapping)
+   at System.Xml.Serialization.XmlSerializationReaderILGen.GenerateMethod(TypeMapping mapping)
+   at System.Xml.Serialization.XmlSerializationILGen.GenerateReferencedMethods()
+   at System.Xml.Serialization.XmlSerializationReaderILGen.GenerateEnd(String[] methods, XmlMapping[] xmlMappings, Type[] types)
+   at System.Xml.Serialization.TempAssembly.GenerateRefEmitAssembly(XmlMapping[] xmlMappings, Type[] types, String defaultNamespace, Evidence evidence)
+   at System.Xml.Serialization.TempAssembly..ctor(XmlMapping[] xmlMappings, Type[] types, String defaultNamespace, String location, Evidence evidence)
+   at System.Xml.Serialization.XmlSerializer.GenerateTempAssembly(XmlMapping xmlMapping, Type type, String defaultNamespace)
+   at System.Xml.Serialization.XmlSerializer..ctor(Type type, String defaultNamespace)
+   at System.Xml.Serialization.XmlSerializer..ctor(Type type)
+   at SupportTroubleshootingTool.Core.Model.SessionInfo.Save() in C:\Users\Yehya\Desktop\dbmotion\CodingBootcamp\SupportTroubleshootingTool\ClassLibrary1\Model\SessionInfo.cs:line 52
+   at SupportTroubleshootingTool.Core.Contract.SessionProvider.StartSession(SessionInfo session) in C:\Users\Yehya\Desktop\dbmotion\CodingBootcamp\SupportTroubleshootingTool\ClassLibrary1\Contract\SessionProvider.cs:line 50
+*INFO       2020-01-30 12:52:14,274        program exited [SupportTroubleshootingTool.Core.Utilities.Logger] [1] 
+*ERROR      2020-01-30 12:53:00,687        Error with this exeption message  [SupportTroubleshootingTool.Core.Utilities.Logger] [1] 
+System.InvalidOperationException: Cannot deserialize type 'SupportTroubleshootingTool.Core.Model.TraceInfo' because it contains property 'Name' which has no public setter.
+   at System.Xml.Serialization.TypeScope.GetSettableMembers(StructMapping mapping, ArrayList list)
+   at System.Xml.Serialization.TypeScope.GetSettableMembers(StructMapping structMapping)
+   at System.Xml.Serialization.TypeScope.GetSettableMembers(StructMapping mapping, Dictionary`2 memberInfos)
+   at System.Xml.Serialization.XmlSerializationReaderILGen.WriteLiteralStructMethod(StructMapping structMapping)
+   at System.Xml.Serialization.XmlSerializationReaderILGen.GenerateMethod(TypeMapping mapping)
+   at System.Xml.Serialization.XmlSerializationILGen.GenerateReferencedMethods()
+   at System.Xml.Serialization.XmlSerializationReaderILGen.GenerateEnd(String[] methods, XmlMapping[] xmlMappings, Type[] types)
+   at System.Xml.Serialization.TempAssembly.GenerateRefEmitAssembly(XmlMapping[] xmlMappings, Type[] types, String defaultNamespace, Evidence evidence)
+   at System.Xml.Serialization.TempAssembly..ctor(XmlMapping[] xmlMappings, Type[] types, String defaultNamespace, String location, Evidence evidence)
+   at System.Xml.Serialization.XmlSerializer.GenerateTempAssembly(XmlMapping xmlMapping, Type type, String defaultNamespace)
+   at System.Xml.Serialization.XmlSerializer..ctor(Type type, String defaultNamespace)
+   at System.Xml.Serialization.XmlSerializer..ctor(Type type)
+   at SupportTroubleshootingTool.Core.Model.SessionInfo.Save() in C:\Users\Yehya\Desktop\dbmotion\CodingBootcamp\SupportTroubleshootingTool\ClassLibrary1\Model\SessionInfo.cs:line 52
+   at SupportTroubleshootingTool.Core.Contract.SessionProvider.StartSession(SessionInfo session) in C:\Users\Yehya\Desktop\dbmotion\CodingBootcamp\SupportTroubleshootingTool\ClassLibrary1\Contract\SessionProvider.cs:line 50
+*INFO       2020-01-30 12:53:02,223        program exited [SupportTroubleshootingTool.Core.Utilities.Logger] [1] 
+*ERROR      2020-01-30 12:55:05,397        Error with this exeption message  [SupportTroubleshootingTool.Core.Utilities.Logger] [1] 
+System.InvalidOperationException: Cannot deserialize type 'SupportTroubleshootingTool.Core.Model.TraceInfo' because it contains property 'Name' which has no public setter.
+   at System.Xml.Serialization.TypeScope.GetSettableMembers(StructMapping mapping, ArrayList list)
+   at System.Xml.Serialization.TypeScope.GetSettableMembers(StructMapping structMapping)
+   at System.Xml.Serialization.TypeScope.GetSettableMembers(StructMapping mapping, Dictionary`2 memberInfos)
+   at System.Xml.Serialization.XmlSerializationReaderILGen.WriteLiteralStructMethod(StructMapping structMapping)
+   at System.Xml.Serialization.XmlSerializationReaderILGen.GenerateMethod(TypeMapping mapping)
+   at System.Xml.Serialization.XmlSerializationILGen.GenerateReferencedMethods()
+   at System.Xml.Serialization.XmlSerializationReaderILGen.GenerateEnd(String[] methods, XmlMapping[] xmlMappings, Type[] types)
+   at System.Xml.Serialization.TempAssembly.GenerateRefEmitAssembly(XmlMapping[] xmlMappings, Type[] types, String defaultNamespace, Evidence evidence)
+   at System.Xml.Serialization.TempAssembly..ctor(XmlMapping[] xmlMappings, Type[] types, String defaultNamespace, String location, Evidence evidence)
+   at System.Xml.Serialization.XmlSerializer.GenerateTempAssembly(XmlMapping xmlMapping, Type type, String defaultNamespace)
+   at System.Xml.Serialization.XmlSerializer..ctor(Type type, String defaultNamespace)
+   at System.Xml.Serialization.XmlSerializer..ctor(Type type)
+   at SupportTroubleshootingTool.Core.Model.SessionInfo.Save() in C:\Users\Yehya\Desktop\dbmotion\CodingBootcamp\SupportTroubleshootingTool\ClassLibrary1\Model\SessionInfo.cs:line 52
+   at SupportTroubleshootingTool.Core.Contract.SessionProvider.StartSession(SessionInfo session) in C:\Users\Yehya\Desktop\dbmotion\CodingBootcamp\SupportTroubleshootingTool\ClassLibrary1\Contract\SessionProvider.cs:line 50
+*ERROR      2020-01-30 12:58:23,322        Error with this exeption message  [SupportTroubleshootingTool.Core.Utilities.Logger] [1] 
+System.InvalidOperationException: Cannot deserialize type 'SupportTroubleshootingTool.Core.Model.TraceInfo' because it contains property 'Name' which has no public setter.
+   at System.Xml.Serialization.TypeScope.GetSettableMembers(StructMapping mapping, ArrayList list)
+   at System.Xml.Serialization.TypeScope.GetSettableMembers(StructMapping structMapping)
+   at System.Xml.Serialization.TypeScope.GetSettableMembers(StructMapping mapping, Dictionary`2 memberInfos)
+   at System.Xml.Serialization.XmlSerializationReaderILGen.WriteLiteralStructMethod(StructMapping structMapping)
+   at System.Xml.Serialization.XmlSerializationReaderILGen.GenerateMethod(TypeMapping mapping)
+   at System.Xml.Serialization.XmlSerializationILGen.GenerateReferencedMethods()
+   at System.Xml.Serialization.XmlSerializationReaderILGen.GenerateEnd(String[] methods, XmlMapping[] xmlMappings, Type[] types)
+   at System.Xml.Serialization.TempAssembly.GenerateRefEmitAssembly(XmlMapping[] xmlMappings, Type[] types, String defaultNamespace, Evidence evidence)
+   at System.Xml.Serialization.TempAssembly..ctor(XmlMapping[] xmlMappings, Type[] types, String defaultNamespace, String location, Evidence evidence)
+   at System.Xml.Serialization.XmlSerializer.GenerateTempAssembly(XmlMapping xmlMapping, Type type, String defaultNamespace)
+   at System.Xml.Serialization.XmlSerializer..ctor(Type type, String defaultNamespace)
+   at System.Xml.Serialization.XmlSerializer..ctor(Type type)
+   at SupportTroubleshootingTool.Core.Model.SessionInfo.Save() in C:\Users\Yehya\Desktop\dbmotion\CodingBootcamp\SupportTroubleshootingTool\ClassLibrary1\Model\SessionInfo.cs:line 52
+   at SupportTroubleshootingTool.Core.Contract.SessionProvider.StartSession(SessionInfo session) in C:\Users\Yehya\Desktop\dbmotion\CodingBootcamp\SupportTroubleshootingTool\ClassLibrary1\Contract\SessionProvider.cs:line 50
+*ERROR      2020-01-30 12:58:55,828        Error with this exeption message  [SupportTroubleshootingTool.Core.Utilities.Logger] [1] 
+System.InvalidOperationException: Cannot deserialize type 'SupportTroubleshootingTool.Core.Model.TraceInfo' because it contains property 'Name' which has no public setter.
+   at System.Xml.Serialization.TypeScope.GetSettableMembers(StructMapping mapping, ArrayList list)
+   at System.Xml.Serialization.TypeScope.GetSettableMembers(StructMapping structMapping)
+   at System.Xml.Serialization.TypeScope.GetSettableMembers(StructMapping mapping, Dictionary`2 memberInfos)
+   at System.Xml.Serialization.XmlSerializationReaderILGen.WriteLiteralStructMethod(StructMapping structMapping)
+   at System.Xml.Serialization.XmlSerializationReaderILGen.GenerateMethod(TypeMapping mapping)
+   at System.Xml.Serialization.XmlSerializationILGen.GenerateReferencedMethods()
+   at System.Xml.Serialization.XmlSerializationReaderILGen.GenerateEnd(String[] methods, XmlMapping[] xmlMappings, Type[] types)
+   at System.Xml.Serialization.TempAssembly.GenerateRefEmitAssembly(XmlMapping[] xmlMappings, Type[] types, String defaultNamespace, Evidence evidence)
+   at System.Xml.Serialization.TempAssembly..ctor(XmlMapping[] xmlMappings, Type[] types, String defaultNamespace, String location, Evidence evidence)
+   at System.Xml.Serialization.XmlSerializer.GenerateTempAssembly(XmlMapping xmlMapping, Type type, String defaultNamespace)
+   at System.Xml.Serialization.XmlSerializer..ctor(Type type, String defaultNamespace)
+   at System.Xml.Serialization.XmlSerializer..ctor(Type type)
+   at SupportTroubleshootingTool.Core.Model.SessionInfo.Save() in C:\Users\Yehya\Desktop\dbmotion\CodingBootcamp\SupportTroubleshootingTool\ClassLibrary1\Model\SessionInfo.cs:line 52
+   at SupportTroubleshootingTool.Core.Contract.SessionProvider.StartSession(SessionInfo session) in C:\Users\Yehya\Desktop\dbmotion\CodingBootcamp\SupportTroubleshootingTool\ClassLibrary1\Contract\SessionProvider.cs:line 50
+*ERROR      2020-01-30 12:59:46,164        Error with this exeption message  [SupportTroubleshootingTool.Core.Utilities.Logger] [1] 
+System.InvalidOperationException: Cannot deserialize type 'SupportTroubleshootingTool.Core.Model.TraceInfo' because it contains property 'Name' which has no public setter.
+   at System.Xml.Serialization.TypeScope.GetSettableMembers(StructMapping mapping, ArrayList list)
+   at System.Xml.Serialization.TypeScope.GetSettableMembers(StructMapping structMapping)
+   at System.Xml.Serialization.TypeScope.GetSettableMembers(StructMapping mapping, Dictionary`2 memberInfos)
+   at System.Xml.Serialization.XmlSerializationReaderILGen.WriteLiteralStructMethod(StructMapping structMapping)
+   at System.Xml.Serialization.XmlSerializationReaderILGen.GenerateMethod(TypeMapping mapping)
+   at System.Xml.Serialization.XmlSerializationILGen.GenerateReferencedMethods()
+   at System.Xml.Serialization.XmlSerializationReaderILGen.GenerateEnd(String[] methods, XmlMapping[] xmlMappings, Type[] types)
+   at System.Xml.Serialization.TempAssembly.GenerateRefEmitAssembly(XmlMapping[] xmlMappings, Type[] types, String defaultNamespace, Evidence evidence)
+   at System.Xml.Serialization.TempAssembly..ctor(XmlMapping[] xmlMappings, Type[] types, String defaultNamespace, String location, Evidence evidence)
+   at System.Xml.Serialization.XmlSerializer.GenerateTempAssembly(XmlMapping xmlMapping, Type type, String defaultNamespace)
+   at System.Xml.Serialization.XmlSerializer..ctor(Type type, String defaultNamespace)
+   at System.Xml.Serialization.XmlSerializer..ctor(Type type)
+   at SupportTroubleshootingTool.Core.Model.SessionInfo.Save() in C:\Users\Yehya\Desktop\dbmotion\CodingBootcamp\SupportTroubleshootingTool\ClassLibrary1\Model\SessionInfo.cs:line 52
+   at SupportTroubleshootingTool.Core.Contract.SessionProvider.StartSession(SessionInfo session) in C:\Users\Yehya\Desktop\dbmotion\CodingBootcamp\SupportTroubleshootingTool\ClassLibrary1\Contract\SessionProvider.cs:line 50
+*ERROR      2020-01-30 13:02:23,745        Error with this exeption message  [SupportTroubleshootingTool.Core.Utilities.Logger] [1] 
+System.InvalidOperationException: Cannot deserialize type 'SupportTroubleshootingTool.Core.Model.TraceInfo' because it contains property 'Name' which has no public setter.
+   at System.Xml.Serialization.TypeScope.GetSettableMembers(StructMapping mapping, ArrayList list)
+   at System.Xml.Serialization.TypeScope.GetSettableMembers(StructMapping structMapping)
+   at System.Xml.Serialization.TypeScope.GetSettableMembers(StructMapping mapping, Dictionary`2 memberInfos)
+   at System.Xml.Serialization.XmlSerializationReaderILGen.WriteLiteralStructMethod(StructMapping structMapping)
+   at System.Xml.Serialization.XmlSerializationReaderILGen.GenerateMethod(TypeMapping mapping)
+   at System.Xml.Serialization.XmlSerializationILGen.GenerateReferencedMethods()
+   at System.Xml.Serialization.XmlSerializationReaderILGen.GenerateEnd(String[] methods, XmlMapping[] xmlMappings, Type[] types)
+   at System.Xml.Serialization.TempAssembly.GenerateRefEmitAssembly(XmlMapping[] xmlMappings, Type[] types, String defaultNamespace, Evidence evidence)
+   at System.Xml.Serialization.TempAssembly..ctor(XmlMapping[] xmlMappings, Type[] types, String defaultNamespace, String location, Evidence evidence)
+   at System.Xml.Serialization.XmlSerializer.GenerateTempAssembly(XmlMapping xmlMapping, Type type, String defaultNamespace)
+   at System.Xml.Serialization.XmlSerializer..ctor(Type type, String defaultNamespace)
+   at System.Xml.Serialization.XmlSerializer..ctor(Type type)
+   at SupportTroubleshootingTool.Core.Model.SessionInfo.Save() in C:\Users\Yehya\Desktop\dbmotion\CodingBootcamp\SupportTroubleshootingTool\ClassLibrary1\Model\SessionInfo.cs:line 52
+   at SupportTroubleshootingTool.Core.Contract.SessionProvider.StartSession(SessionInfo session) in C:\Users\Yehya\Desktop\dbmotion\CodingBootcamp\SupportTroubleshootingTool\ClassLibrary1\Contract\SessionProvider.cs:line 50
+*INFO       2020-01-30 13:02:27,723        program exited [SupportTroubleshootingTool.Core.Utilities.Logger] [1] 
+*ERROR      2020-01-30 13:04:43,853        Error with this exeption message  [SupportTroubleshootingTool.Core.Utilities.Logger] [1] 
+System.InvalidOperationException: Cannot deserialize type 'SupportTroubleshootingTool.Core.Model.TraceInfo' because it contains property 'Name' which has no public setter.
+   at System.Xml.Serialization.TypeScope.GetSettableMembers(StructMapping mapping, ArrayList list)
+   at System.Xml.Serialization.TypeScope.GetSettableMembers(StructMapping structMapping)
+   at System.Xml.Serialization.TypeScope.GetSettableMembers(StructMapping mapping, Dictionary`2 memberInfos)
+   at System.Xml.Serialization.XmlSerializationReaderILGen.WriteLiteralStructMethod(StructMapping structMapping)
+   at System.Xml.Serialization.XmlSerializationReaderILGen.GenerateMethod(TypeMapping mapping)
+   at System.Xml.Serialization.XmlSerializationILGen.GenerateReferencedMethods()
+   at System.Xml.Serialization.XmlSerializationReaderILGen.GenerateEnd(String[] methods, XmlMapping[] xmlMappings, Type[] types)
+   at System.Xml.Serialization.TempAssembly.GenerateRefEmitAssembly(XmlMapping[] xmlMappings, Type[] types, String defaultNamespace, Evidence evidence)
+   at System.Xml.Serialization.TempAssembly..ctor(XmlMapping[] xmlMappings, Type[] types, String defaultNamespace, String location, Evidence evidence)
+   at System.Xml.Serialization.XmlSerializer.GenerateTempAssembly(XmlMapping xmlMapping, Type type, String defaultNamespace)
+   at System.Xml.Serialization.XmlSerializer..ctor(Type type, String defaultNamespace)
+   at System.Xml.Serialization.XmlSerializer..ctor(Type type)
+   at SupportTroubleshootingTool.Core.Model.SessionInfo.Save() in C:\Users\Yehya\Desktop\dbmotion\CodingBootcamp\SupportTroubleshootingTool\ClassLibrary1\Model\SessionInfo.cs:line 52
+   at SupportTroubleshootingTool.Core.Contract.SessionProvider.StartSession(SessionInfo session) in C:\Users\Yehya\Desktop\dbmotion\CodingBootcamp\SupportTroubleshootingTool\ClassLibrary1\Contract\SessionProvider.cs:line 50
+*INFO       2020-01-30 13:04:48,756        program exited [SupportTroubleshootingTool.Core.Utilities.Logger] [1] 
+*ERROR      2020-01-30 13:12:42,524        Error with this exeption message  [SupportTroubleshootingTool.Core.Utilities.Logger] [1] 
+System.InvalidOperationException: Cannot deserialize type 'SupportTroubleshootingTool.Core.Model.TraceInfo' because it contains property 'Name' which has no public setter.
+   at System.Xml.Serialization.TypeScope.GetSettableMembers(StructMapping mapping, ArrayList list)
+   at System.Xml.Serialization.TypeScope.GetSettableMembers(StructMapping structMapping)
+   at System.Xml.Serialization.TypeScope.GetSettableMembers(StructMapping mapping, Dictionary`2 memberInfos)
+   at System.Xml.Serialization.XmlSerializationReaderILGen.WriteLiteralStructMethod(StructMapping structMapping)
+   at System.Xml.Serialization.XmlSerializationReaderILGen.GenerateMethod(TypeMapping mapping)
+   at System.Xml.Serialization.XmlSerializationILGen.GenerateReferencedMethods()
+   at System.Xml.Serialization.XmlSerializationReaderILGen.GenerateEnd(String[] methods, XmlMapping[] xmlMappings, Type[] types)
+   at System.Xml.Serialization.TempAssembly.GenerateRefEmitAssembly(XmlMapping[] xmlMappings, Type[] types, String defaultNamespace, Evidence evidence)
+   at System.Xml.Serialization.TempAssembly..ctor(XmlMapping[] xmlMappings, Type[] types, String defaultNamespace, String location, Evidence evidence)
+   at System.Xml.Serialization.XmlSerializer.GenerateTempAssembly(XmlMapping xmlMapping, Type type, String defaultNamespace)
+   at System.Xml.Serialization.XmlSerializer..ctor(Type type, String defaultNamespace)
+   at System.Xml.Serialization.XmlSerializer..ctor(Type type)
+   at SupportTroubleshootingTool.Core.Model.SessionInfo.Save() in C:\Users\Yehya\Desktop\dbmotion\CodingBootcamp\SupportTroubleshootingTool\ClassLibrary1\Model\SessionInfo.cs:line 53
+   at SupportTroubleshootingTool.Core.Contract.SessionProvider.StartSession(SessionInfo session) in C:\Users\Yehya\Desktop\dbmotion\CodingBootcamp\SupportTroubleshootingTool\ClassLibrary1\Contract\SessionProvider.cs:line 50
+*INFO       2020-01-30 13:12:45,261        program exited [SupportTroubleshootingTool.Core.Utilities.Logger] [1] 
+*ERROR      2020-01-30 13:13:35,162        Error with this exeption message  [SupportTroubleshootingTool.Core.Utilities.Logger] [1] 
+System.InvalidOperationException: Cannot deserialize type 'SupportTroubleshootingTool.Core.Model.TraceInfo' because it contains property 'Name' which has no public setter.
+   at System.Xml.Serialization.TypeScope.GetSettableMembers(StructMapping mapping, ArrayList list)
+   at System.Xml.Serialization.TypeScope.GetSettableMembers(StructMapping structMapping)
+   at System.Xml.Serialization.TypeScope.GetSettableMembers(StructMapping mapping, Dictionary`2 memberInfos)
+   at System.Xml.Serialization.XmlSerializationReaderILGen.WriteLiteralStructMethod(StructMapping structMapping)
+   at System.Xml.Serialization.XmlSerializationReaderILGen.GenerateMethod(TypeMapping mapping)
+   at System.Xml.Serialization.XmlSerializationILGen.GenerateReferencedMethods()
+   at System.Xml.Serialization.XmlSerializationReaderILGen.GenerateEnd(String[] methods, XmlMapping[] xmlMappings, Type[] types)
+   at System.Xml.Serialization.TempAssembly.GenerateRefEmitAssembly(XmlMapping[] xmlMappings, Type[] types, String defaultNamespace, Evidence evidence)
+   at System.Xml.Serialization.TempAssembly..ctor(XmlMapping[] xmlMappings, Type[] types, String defaultNamespace, String location, Evidence evidence)
+   at System.Xml.Serialization.XmlSerializer.GenerateTempAssembly(XmlMapping xmlMapping, Type type, String defaultNamespace)
+   at System.Xml.Serialization.XmlSerializer..ctor(Type type, String defaultNamespace)
+   at System.Xml.Serialization.XmlSerializer..ctor(Type type)
+   at SupportTroubleshootingTool.Core.Model.SessionInfo.Save() in C:\Users\Yehya\Desktop\dbmotion\CodingBootcamp\SupportTroubleshootingTool\ClassLibrary1\Model\SessionInfo.cs:line 53
+   at SupportTroubleshootingTool.Core.Contract.SessionProvider.StartSession(SessionInfo session) in C:\Users\Yehya\Desktop\dbmotion\CodingBootcamp\SupportTroubleshootingTool\ClassLibrary1\Contract\SessionProvider.cs:line 50
+*INFO       2020-01-30 13:13:37,740        program exited [SupportTroubleshootingTool.Core.Utilities.Logger] [1] 
+*ERROR      2020-01-30 13:30:57,462        Error with this exeption message  [SupportTroubleshootingTool.Core.Utilities.Logger] [1] 
+System.InvalidOperationException: Cannot deserialize type 'SupportTroubleshootingTool.Core.Model.TraceInfo' because it contains property 'Name' which has no public setter.
+   at System.Xml.Serialization.TypeScope.GetSettableMembers(StructMapping mapping, ArrayList list)
+   at System.Xml.Serialization.TypeScope.GetSettableMembers(StructMapping structMapping)
+   at System.Xml.Serialization.TypeScope.GetSettableMembers(StructMapping mapping, Dictionary`2 memberInfos)
+   at System.Xml.Serialization.XmlSerializationReaderILGen.WriteLiteralStructMethod(StructMapping structMapping)
+   at System.Xml.Serialization.XmlSerializationReaderILGen.GenerateMethod(TypeMapping mapping)
+   at System.Xml.Serialization.XmlSerializationILGen.GenerateReferencedMethods()
+   at System.Xml.Serialization.XmlSerializationReaderILGen.GenerateEnd(String[] methods, XmlMapping[] xmlMappings, Type[] types)
+   at System.Xml.Serialization.TempAssembly.GenerateRefEmitAssembly(XmlMapping[] xmlMappings, Type[] types, String defaultNamespace, Evidence evidence)
+   at System.Xml.Serialization.TempAssembly..ctor(XmlMapping[] xmlMappings, Type[] types, String defaultNamespace, String location, Evidence evidence)
+   at System.Xml.Serialization.XmlSerializer.GenerateTempAssembly(XmlMapping xmlMapping, Type type, String defaultNamespace)
+   at System.Xml.Serialization.XmlSerializer..ctor(Type type, String defaultNamespace)
+   at System.Xml.Serialization.XmlSerializer..ctor(Type type)
+   at SupportTroubleshootingTool.Core.Model.SessionInfo.Save() in C:\Users\Yehya\Desktop\dbmotion\CodingBootcamp\SupportTroubleshootingTool\ClassLibrary1\Model\SessionInfo.cs:line 53
+   at SupportTroubleshootingTool.Core.Contract.SessionProvider.StartSession(SessionInfo session) in C:\Users\Yehya\Desktop\dbmotion\CodingBootcamp\SupportTroubleshootingTool\ClassLibrary1\Contract\SessionProvider.cs:line 50
+*INFO       2020-01-30 13:30:58,729        program exited [SupportTroubleshootingTool.Core.Utilities.Logger] [1] 
+*ERROR      2020-01-30 13:37:59,425        Error with this exeption message  [SupportTroubleshootingTool.Core.Utilities.Logger] [1] 
+System.InvalidOperationException: Cannot deserialize type 'SupportTroubleshootingTool.Core.Model.TraceInfo' because it contains property 'Name' which has no public setter.
+   at System.Xml.Serialization.TypeScope.GetSettableMembers(StructMapping mapping, ArrayList list)
+   at System.Xml.Serialization.TypeScope.GetSettableMembers(StructMapping structMapping)
+   at System.Xml.Serialization.TypeScope.GetSettableMembers(StructMapping mapping, Dictionary`2 memberInfos)
+   at System.Xml.Serialization.XmlSerializationReaderILGen.WriteLiteralStructMethod(StructMapping structMapping)
+   at System.Xml.Serialization.XmlSerializationReaderILGen.GenerateMethod(TypeMapping mapping)
+   at System.Xml.Serialization.XmlSerializationILGen.GenerateReferencedMethods()
+   at System.Xml.Serialization.XmlSerializationReaderILGen.GenerateEnd(String[] methods, XmlMapping[] xmlMappings, Type[] types)
+   at System.Xml.Serialization.TempAssembly.GenerateRefEmitAssembly(XmlMapping[] xmlMappings, Type[] types, String defaultNamespace, Evidence evidence)
+   at System.Xml.Serialization.TempAssembly..ctor(XmlMapping[] xmlMappings, Type[] types, String defaultNamespace, String location, Evidence evidence)
+   at System.Xml.Serialization.XmlSerializer.GenerateTempAssembly(XmlMapping xmlMapping, Type type, String defaultNamespace)
+   at System.Xml.Serialization.XmlSerializer..ctor(Type type, String defaultNamespace)
+   at System.Xml.Serialization.XmlSerializer..ctor(Type type)
+   at SupportTroubleshootingTool.Core.Model.SessionInfo.Save() in C:\Users\Yehya\Desktop\dbmotion\CodingBootcamp\SupportTroubleshootingTool\ClassLibrary1\Model\SessionInfo.cs:line 53
+   at SupportTroubleshootingTool.Core.Contract.SessionProvider.StartSession(SessionInfo session) in C:\Users\Yehya\Desktop\dbmotion\CodingBootcamp\SupportTroubleshootingTool\ClassLibrary1\Contract\SessionProvider.cs:line 50
+*INFO       2020-01-30 13:43:16,694        program exited [SupportTroubleshootingTool.Core.Utilities.Logger] [1] 
+*INFO       2020-01-30 13:50:42,112        program exited [SupportTroubleshootingTool.Core.Utilities.Logger] [1] 
+*ERROR      2020-01-30 13:54:59,758        Error with this exeption message  [SupportTroubleshootingTool.Core.Utilities.Logger] [1] 
+System.IO.DirectoryNotFoundException: Could not find a part of the path 'C:\SupportTroubleshootingTool\Session_open\SessionInfo.xml'.
+   at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   at System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   at System.IO.StreamWriter.CreateFile(String path, Boolean append, Boolean checkHost)
+   at System.IO.StreamWriter..ctor(String path, Boolean append, Encoding encoding, Int32 bufferSize, Boolean checkHost)
+   at System.IO.StreamWriter..ctor(String path)
+   at SupportTroubleshootingTool.Core.Model.SessionInfo.Save() in C:\Users\Yehya\Desktop\dbmotion\CodingBootcamp\SupportTroubleshootingTool\ClassLibrary1\Model\SessionInfo.cs:line 56
+   at SupportTroubleshootingTool.Core.Contract.SessionProvider.StartSession(SessionInfo session) in C:\Users\Yehya\Desktop\dbmotion\CodingBootcamp\SupportTroubleshootingTool\ClassLibrary1\Contract\SessionProvider.cs:line 50
+*INFO       2020-01-30 13:55:48,700        program exited [SupportTroubleshootingTool.Core.Utilities.Logger] [1] 
+*INFO       2020-01-30 14:14:17,536        program exited [SupportTroubleshootingTool.Core.Utilities.Logger] [1] 
+*INFO       2020-01-30 14:15:25,029        program exited [SupportTroubleshootingTool.Core.Utilities.Logger] [1] 
+*INFO       2020-01-30 14:29:46,403        program exited [SupportTroubleshootingTool.Core.Utilities.Logger] [1] 
+*INFO       2020-01-30 14:34:13,612        program exited [SupportTroubleshootingTool.Core.Utilities.Logger] [1] 
+*INFO       2020-01-30 21:04:07,581        program exited [SupportTroubleshootingTool.Core.Utilities.Logger] [1] 

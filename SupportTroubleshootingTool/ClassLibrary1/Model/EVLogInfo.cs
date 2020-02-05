@@ -10,10 +10,11 @@ namespace SupportTroubleshootingTool.Core.Model
     {
         public EVLogInfo() : base()
         {
-            Sources = new List<string>();
+            Sources = new List<string>();   
         }
-
+        [XmlElement]
         public string LogName { get; set; }
+        [XmlArray]
         [XmlArrayItem]
         public List<string> Sources { get; set; }
     }

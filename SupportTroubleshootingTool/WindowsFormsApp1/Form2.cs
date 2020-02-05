@@ -21,14 +21,20 @@ namespace WindowsFormsApp1
         public void Form2_Load(object sender, EventArgs e)
         {
             SessionInfo sessionInfo = new SessionInfo();
-           // sessionInfo = sessionInfo.Load("");
-            //sessionInfo.SessionOtputFolderPath = @"C:\SupportTroubleshootingTool\Session";
+           //sessionInfo = sessionInfo.Load("");
+           sessionInfo.SessionOtputFolderPath = @"C:\SupportTroubleshootingTool\Session";
            SessionProvider sessionProvider = new SessionProvider();
+
             WorkflowProvider workflowProvider = new WorkflowProvider();
             //sessionProvider.StartSession(sessionInfo);
             //sessionProvider.StopSession(sessionInfo);
             //sessionInfo = sessionProvider.CurrentSession();
+
+           // sessionProvider.StartSession(sessionInfo);
+            //sessionProvider.StopSession(sessionInfo);
+            sessionInfo = sessionProvider.CurrentSession();
+            sessionProvider.StopSession(sessionInfo);
+
         }
     }
 }
-

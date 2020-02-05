@@ -34,6 +34,7 @@ namespace SupportTroubleshootingTool.Core.Contract
                 SessionInfo sessionInfo = new SessionInfo();
                 sessionInfo = sessionInfo.Load(s[0] + "\\SessionInfo.xml");
                 return sessionInfo;
+
             }
             return null;
         }
@@ -61,12 +62,11 @@ namespace SupportTroubleshootingTool.Core.Contract
                 //Open log levels (XmlHandler)
                 //Open traces (XmlHanlder)
                 //Restart processes (ProcessHandler)
-
             }
             catch(Exception ex)
             {
                 Logger.WriteError(ex);
-                throw new Exception($"Failed to start session: {ex.Message}");
+                throw new Exception($"Failed to start session: {ex.Message.ToString()}");
             }
 
         }

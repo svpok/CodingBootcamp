@@ -76,3 +76,4 @@ C:\Users\Mhmod Osah\Documents\GitHub\CodingBootcamp\SupportTroubleshootingTool\W
 C:\Users\Mhmod Osah\Documents\GitHub\CodingBootcamp\SupportTroubleshootingTool\WindowsFormsApp1\obj\Debug\TestUI.csproj.CopyComplete
 C:\Users\Mhmod Osah\Documents\GitHub\CodingBootcamp\SupportTroubleshootingTool\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.exe
 C:\Users\Mhmod Osah\Documents\GitHub\CodingBootcamp\SupportTroubleshootingTool\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.pdb
+C:\Users\Aakf\Desktop\Dbmotion\CodingBootcamp\SupportTroubleshootingTool\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Form2.resources
