@@ -58,3 +58,4 @@ C:\Users\Yehya\Desktop\dbmotion\CodingBootcamp\SupportTroubleshootingTool\Window
 C:\Users\Yehya\Desktop\dbmotion\CodingBootcamp\SupportTroubleshootingTool\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.ExistingSessionFormUi.resources
 C:\Users\Yehya\Desktop\dbmotion\CodingBootcamp\SupportTroubleshootingTool\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.NewSessionFormUi.resources
 C:\Users\Yehya\Desktop\dbmotion\CodingBootcamp\SupportTroubleshootingTool\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Form2.resources
+C:\Users\Aakf\Desktop\Dbmotion\CodingBootcamp\SupportTroubleshootingTool\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Form2.resources
