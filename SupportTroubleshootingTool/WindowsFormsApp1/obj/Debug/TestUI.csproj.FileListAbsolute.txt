@@ -49,8 +49,6 @@ C:\Users\Aakf\Desktop\Dbmotion\CodingBootcamp\SupportTroubleshootingTool\Windows
 C:\Users\Aakf\Desktop\Dbmotion\CodingBootcamp\SupportTroubleshootingTool\WindowsFormsApp1\obj\Debug\TestUI.csproj.CopyComplete
 C:\Users\Aakf\Desktop\Dbmotion\CodingBootcamp\SupportTroubleshootingTool\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.exe
 C:\Users\Aakf\Desktop\Dbmotion\CodingBootcamp\SupportTroubleshootingTool\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.pdb
-C:\Users\Aakf\Desktop\Dbmotion\CodingBootcamp\SupportTroubleshootingTool\WindowsFormsApp1\bin\Debug\Utilities\log4net.config.xml
-C:\Users\Aakf\Desktop\Dbmotion\CodingBootcamp\SupportTroubleshootingTool\WindowsFormsApp1\bin\Debug\log4net.config.xml
 C:\Users\Yehya\Desktop\dbmotion\CodingBootcamp\SupportTroubleshootingTool\WindowsFormsApp1\bin\Debug\Utilities\log4net.config.xml
 C:\Users\Yehya\Desktop\dbmotion\CodingBootcamp\SupportTroubleshootingTool\WindowsFormsApp1\bin\Debug\log4net.config.xml
 C:\Users\Yehya\Desktop\dbmotion\CodingBootcamp\SupportTroubleshootingTool\WindowsFormsApp1\bin\Debug\log4net.dll
@@ -77,3 +75,4 @@ C:\Users\Mhmod Osah\Documents\GitHub\CodingBootcamp\SupportTroubleshootingTool\W
 C:\Users\Mhmod Osah\Documents\GitHub\CodingBootcamp\SupportTroubleshootingTool\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.exe
 C:\Users\Mhmod Osah\Documents\GitHub\CodingBootcamp\SupportTroubleshootingTool\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.pdb
 C:\Users\Aakf\Desktop\Dbmotion\CodingBootcamp\SupportTroubleshootingTool\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Form2.resources
+C:\Users\Aakf\Desktop\Dbmotion\CodingBootcamp\SupportTroubleshootingTool\WindowsFormsApp1\bin\Debug\SupportTroubleshootingTool.Core.dll.config

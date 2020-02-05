@@ -32,8 +32,9 @@ namespace WindowsFormsApp1
 
            // sessionProvider.StartSession(sessionInfo);
             //sessionProvider.StopSession(sessionInfo);
-            sessionInfo = sessionProvider.GetCurrentSession();
-            sessionProvider.StopSession(sessionInfo);
+
+            //sessionInfo = sessionProvider.GetCurrentSession();
+            //sessionProvider.StopSession(sessionInfo);
 
         }
     }

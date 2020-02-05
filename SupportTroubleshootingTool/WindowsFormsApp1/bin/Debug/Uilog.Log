@@ -37,3 +37,7 @@ System.NullReferenceException: Object reference not set to an instance of an obj
 *ERROR      2020-02-05 13:50:13,324        Error with this exeption message  [SupportTroubleshootingTool.Core.Utilities.Logger] [1] 
 System.NullReferenceException: Object reference not set to an instance of an object.
    at SupportTroubleshootingTool.Core.Contract.SessionProvider.StopSession(SessionInfo session) in C:\Users\Yehya\Desktop\dbmotion\CodingBootcamp\SupportTroubleshootingTool\ClassLibrary1\Contract\SessionProvider.cs:line 86
+*ERROR      2020-02-05 13:56:08,304        Error with this exeption message  [SupportTroubleshootingTool.Core.Utilities.Logger] [1] 
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at SupportTroubleshootingTool.Core.Contract.SessionProvider.StopSession(SessionInfo session) in C:\Users\Yehya\Desktop\dbmotion\CodingBootcamp\SupportTroubleshootingTool\ClassLibrary1\Contract\SessionProvider.cs:line 86
+*INFO       2020-02-05 13:58:24,823        program exited [SupportTroubleshootingTool.Core.Utilities.Logger] [1] 
