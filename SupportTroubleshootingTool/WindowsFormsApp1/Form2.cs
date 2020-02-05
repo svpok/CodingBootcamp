@@ -22,11 +22,11 @@ namespace WindowsFormsApp1
         {
             SessionInfo sessionInfo = new SessionInfo();
            // sessionInfo = sessionInfo.Load("");
-            //sessionInfo.SessionOtputFolderPath = @"C:\SupportTroubleshootingTool\Session";
+            sessionInfo.SessionOtputFolderPath = @"C:\SupportTroubleshootingTool\Session";
            SessionProvider sessionProvider = new SessionProvider();
-            //sessionProvider.StartSession(sessionInfo);
+            sessionProvider.StartSession(sessionInfo);
             //sessionProvider.StopSession(sessionInfo);
-            sessionInfo = sessionProvider.CurrentSession();
+            //sessionInfo = sessionProvider.CurrentSession();
         }
     }
 }

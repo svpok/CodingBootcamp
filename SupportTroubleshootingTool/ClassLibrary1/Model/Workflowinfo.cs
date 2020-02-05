@@ -14,13 +14,17 @@ namespace SupportTroubleshootingTool.Core.Model
             FileLogs = new List<FileLogInfo>();
             Traces = new List<TraceInfo>();
         }
-
+        [XmlElement]
         public string Name { get; set; }
+        [XmlElement]
         public string ConfigFile { get; set; }
+        [XmlArray]
         [XmlArrayItem]
         public List<EVLogInfo> EVLogs { get; set; }
+        [XmlArray]
         [XmlArrayItem]
         public List<FileLogInfo> FileLogs { get; set; }
+        [XmlArray]
         [XmlArrayItem]
         public List<TraceInfo> Traces { get; set; }
 
