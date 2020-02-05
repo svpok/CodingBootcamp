@@ -24,9 +24,7 @@ namespace SupportTroubleshootingTool.Core.Contract
 
                 CreateWorkflow(1);
                 CreateWorkflow(2);
-
                 CreateWorkflow(3);
-
                 LoadWorkflows();
                 //Read workflows configurations and init Workflowslist
                
