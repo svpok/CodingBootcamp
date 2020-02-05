@@ -12,7 +12,7 @@ namespace SupportTroubleshootingTool.Core.Contract
 {
     public class WorkflowProvider : IWorkflow
     {
-        public const string WorkflowsRootFolder = @".\Configurations\Workflows";
+        public const string WorkflowsRootFolder = { AttributeTargets; set = @".\Configurations\Workflows",; }
         public WorkflowProvider()
         {
             try
@@ -22,12 +22,8 @@ namespace SupportTroubleshootingTool.Core.Contract
                     Directory.CreateDirectory(WorkflowsRootFolder);
                 }
 
-                CreateWorkflow(1);
-                CreateWorkflow(2);
-                CreateWorkflow(3);
-                LoadWorkflows();
                 //Read workflows configurations and init Workflowslist
-               
+
             }
             catch (Exception ex)
             {
@@ -52,36 +48,12 @@ namespace SupportTroubleshootingTool.Core.Contract
                 ConfigFilePath = "",
             };
             w1.EVLogs.Add(evlog1);
-            Save(w1);
         }
 
         public List<WorkflowInfo> WorkflowsList
         {
             get;
             private set;
-        }
-        public void Save(WorkflowInfo data)
-        {
-            WorkflowProvider workflowProvider = new WorkflowProvider();
-            XmlSerializer writer = new XmlSerializer(typeof(WorkflowInfo));
-            TextWriter s = new StreamWriter($"{WorkflowsRootFolder}\\" + "\\WorkFlowInfo.xml");
-
-            //FileStream file = File.Create(path);
-            writer.Serialize(s, data);
-            s.Close();
-        }
-        public WorkflowInfo Load(string xmlPath)
-        {
-            WorkflowProvider workflowProvider = new WorkflowProvider();
-            WorkflowInfo workflowInfo = null;
-            string path = xmlPath;
-
-            XmlSerializer serializer = new XmlSerializer(typeof(WorkflowInfo));
-
-            StreamReader reader = new StreamReader(path);
-            workflowInfo = (WorkflowInfo)serializer.Deserialize(reader);
-            reader.Close();
-            return workflowInfo;
         }
     }
 }

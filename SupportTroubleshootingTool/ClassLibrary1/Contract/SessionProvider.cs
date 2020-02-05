@@ -13,48 +13,62 @@ namespace SupportTroubleshootingTool.Core.Contract
 {
     public class SessionProvider : ISession
     {
-        string path;
         public SessionProvider()
         {
-            path = ConfigurationManager.AppSettings["SessionRootFolderPath"];
-
+            var path = ConfigurationManager.AppSettings["SessionRootFolderPath"];
+            if (!Directory.Exists(path))
+            {
+                System.IO.Directory.CreateDirectory(path);
+            }
+            SessionRootFolderPath = path;
         }
+   
 
-        public SessionInfo CurrentSession()
+        public SessionInfo GetCurrentSession()
         {
 
-            string[] s= Directory.GetDirectories(path,"*open",SearchOption.AllDirectories);
+            string[] s = Directory.GetDirectories(SessionRootFolderPath, "*open", SearchOption.AllDirectories);
             //Search in this.SessionRootFolderPath the session folder that is opened. - done
             //yyyy-MM-dd-hh-mm_workflowName_open - open session 
             //yyyy-MM-dd-hh-mm_workflowName_close - closed session
             //if such folder exists create SessionInfo object from the SessionInfo.xml and return it. - done
             //Otherwise return null; - done 
-            if (s.Length!=0)
+            if (s.Length == 1)
             {
                 SessionInfo sessionInfo = new SessionInfo();
                 sessionInfo = sessionInfo.Load(s[0] + "\\SessionInfo.xml");
                 return sessionInfo;
 
+            }else if(s.Length > 1)
+            {
+                List<DateTime> SessionCreatTime = new List<DateTime>();
+                int index;
+                foreach( string pathName in s)
+                {
+                    SessionCreatTime.Add(File.GetCreationTime(pathName));
+                }
+                Logger.WriteWarning("two Session or more is open.");
+                throw new Exception("two Session or more is open we select tha new Session.");
+
             }
+
             return null;
         }
 
-        public string SessionRootFolderPath()
+        public string SessionRootFolderPath
         {
-            //check if folder does not exist and create it - done
-            if (!Directory.Exists(path))
-            {
-                System.IO.Directory.CreateDirectory(path);
-            }
-            return path;
+            get;
+            private set;
         }
 
         public void StartSession(SessionInfo session)
         {
             try
             {
-                System.IO.Directory.CreateDirectory($"{path}\\{session.SessionFolderPath}_open");
-                session.Save();
+                System.IO.Directory.CreateDirectory($@"{SessionRootFolderPath}\{session.SessionFolderPath}_open");
+                SerialtionHelper<SessionInfo>.Serialize(session,
+                    $@"{SessionRootFolderPath}\{session.SessionFolderPath}_open\SessionInfo.xml");              
+                //session.Save();
                 //Build session folder name yyyy-MM-dd-hh-mm_workflowName_open -done
                 //Create the folder under this.SessionRootFolderPath - done 
                 //Save SessionInfo.xml - done
@@ -75,7 +89,8 @@ namespace SupportTroubleshootingTool.Core.Contract
         {
             try
             {
-                System.IO.Directory.Move($"{path}\\{session.SessionFolderPath}_open", $"{path}\\{session.SessionFolderPath}_close");
+                System.IO.Directory.Move($@"{SessionRootFolderPath}\\{session.SessionFolderPath}_open", 
+                    $"{SessionRootFolderPath}\\{session.SessionFolderPath}_close");
                
                 //Rename session folder from open to close - done
                 //Resore from backup (BackupHandler)
