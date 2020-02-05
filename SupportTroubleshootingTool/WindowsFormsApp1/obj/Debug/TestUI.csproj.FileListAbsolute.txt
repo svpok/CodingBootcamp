@@ -58,3 +58,21 @@ C:\Users\Yehya\Desktop\dbmotion\CodingBootcamp\SupportTroubleshootingTool\Window
 C:\Users\Yehya\Desktop\dbmotion\CodingBootcamp\SupportTroubleshootingTool\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.ExistingSessionFormUi.resources
 C:\Users\Yehya\Desktop\dbmotion\CodingBootcamp\SupportTroubleshootingTool\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.NewSessionFormUi.resources
 C:\Users\Yehya\Desktop\dbmotion\CodingBootcamp\SupportTroubleshootingTool\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Form2.resources
+C:\Users\Mhmod Osah\Documents\GitHub\CodingBootcamp\SupportTroubleshootingTool\WindowsFormsApp1\bin\Debug\Utilities\log4net.config.xml
+C:\Users\Mhmod Osah\Documents\GitHub\CodingBootcamp\SupportTroubleshootingTool\WindowsFormsApp1\bin\Debug\log4net.config.xml
+C:\Users\Mhmod Osah\Documents\GitHub\CodingBootcamp\SupportTroubleshootingTool\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe.config
+C:\Users\Mhmod Osah\Documents\GitHub\CodingBootcamp\SupportTroubleshootingTool\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe
+C:\Users\Mhmod Osah\Documents\GitHub\CodingBootcamp\SupportTroubleshootingTool\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.pdb
+C:\Users\Mhmod Osah\Documents\GitHub\CodingBootcamp\SupportTroubleshootingTool\WindowsFormsApp1\bin\Debug\SupportTroubleshootingTool.Core.dll
+C:\Users\Mhmod Osah\Documents\GitHub\CodingBootcamp\SupportTroubleshootingTool\WindowsFormsApp1\bin\Debug\log4net.dll
+C:\Users\Mhmod Osah\Documents\GitHub\CodingBootcamp\SupportTroubleshootingTool\WindowsFormsApp1\bin\Debug\SupportTroubleshootingTool.Core.pdb
+C:\Users\Mhmod Osah\Documents\GitHub\CodingBootcamp\SupportTroubleshootingTool\WindowsFormsApp1\bin\Debug\log4net.xml
+C:\Users\Mhmod Osah\Documents\GitHub\CodingBootcamp\SupportTroubleshootingTool\WindowsFormsApp1\obj\Debug\TestUI.csprojAssemblyReference.cache
+C:\Users\Mhmod Osah\Documents\GitHub\CodingBootcamp\SupportTroubleshootingTool\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.ExistingSessionFormUi.resources
+C:\Users\Mhmod Osah\Documents\GitHub\CodingBootcamp\SupportTroubleshootingTool\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Form2.resources
+C:\Users\Mhmod Osah\Documents\GitHub\CodingBootcamp\SupportTroubleshootingTool\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.NewSessionFormUi.resources
+C:\Users\Mhmod Osah\Documents\GitHub\CodingBootcamp\SupportTroubleshootingTool\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Properties.Resources.resources
+C:\Users\Mhmod Osah\Documents\GitHub\CodingBootcamp\SupportTroubleshootingTool\WindowsFormsApp1\obj\Debug\TestUI.csproj.GenerateResource.cache
+C:\Users\Mhmod Osah\Documents\GitHub\CodingBootcamp\SupportTroubleshootingTool\WindowsFormsApp1\obj\Debug\TestUI.csproj.CopyComplete
+C:\Users\Mhmod Osah\Documents\GitHub\CodingBootcamp\SupportTroubleshootingTool\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.exe
+C:\Users\Mhmod Osah\Documents\GitHub\CodingBootcamp\SupportTroubleshootingTool\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.pdb
