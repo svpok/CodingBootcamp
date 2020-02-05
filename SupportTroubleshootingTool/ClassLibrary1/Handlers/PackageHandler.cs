@@ -9,17 +9,18 @@ namespace SupportTroubleshootingTool.Core.Handlers
 {
     class PackageHandler
     {
-        public static void Packageing(String SourceFolder, String DestinationFolder)
+        public static void Packageing(String SourceFolder, String DestinationPath) 
         {
+			// DestinationPath example : C:\folder\file.zip
             try
             {
-                ZipFile.CreateFromDirectory(SourceFolder, DestinationFolder);
+                ZipFile.CreateFromDirectory(SourceFolder, DestinationPath);
             }
             catch (Exception e)
             {
                 Utilities.Logger.WriteError(e);
             }
-            Utilities.Logger.WriteInfo("the file Zipped to" + DestinationFolder);
+            Utilities.Logger.WriteInfo("the file Zipped to" + DestinationPath);
 
         }
     }
