@@ -31,3 +31,9 @@ System.UnauthorizedAccessException: Access to the path 'C:\SupportTroubleshootin
    at System.IO.StreamWriter..ctor(String path)
    at SupportTroubleshootingTool.Core.Utilities.SerialtionHelper`1.Serialize(T value, String path) in C:\Users\Yehya\Desktop\dbmotion\CodingBootcamp\SupportTroubleshootingTool\ClassLibrary1\Utilities\SerialtionHelper.cs:line 21
    at SupportTroubleshootingTool.Core.Contract.SessionProvider.StartSession(SessionInfo session) in C:\Users\Yehya\Desktop\dbmotion\CodingBootcamp\SupportTroubleshootingTool\ClassLibrary1\Contract\SessionProvider.cs:line 69
+*ERROR      2020-02-05 13:49:08,168        Error with this exeption message  [SupportTroubleshootingTool.Core.Utilities.Logger] [1] 
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at SupportTroubleshootingTool.Core.Contract.SessionProvider.StopSession(SessionInfo session) in C:\Users\Yehya\Desktop\dbmotion\CodingBootcamp\SupportTroubleshootingTool\ClassLibrary1\Contract\SessionProvider.cs:line 86
+*ERROR      2020-02-05 13:50:13,324        Error with this exeption message  [SupportTroubleshootingTool.Core.Utilities.Logger] [1] 
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at SupportTroubleshootingTool.Core.Contract.SessionProvider.StopSession(SessionInfo session) in C:\Users\Yehya\Desktop\dbmotion\CodingBootcamp\SupportTroubleshootingTool\ClassLibrary1\Contract\SessionProvider.cs:line 86

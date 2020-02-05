@@ -36,20 +36,14 @@ namespace SupportTroubleshootingTool.Core.Contract
             if (s.Length == 1)
             {
                 SessionInfo sessionInfo = new SessionInfo();
-                sessionInfo = sessionInfo.Load(s[0] + "\\SessionInfo.xml");
+                sessionInfo=SerialtionHelper< SessionInfo >.Deserialize(s[0] + "\\SessionInfo.xml");
                 return sessionInfo;
 
-            }else if(s.Length > 1)
+            }
+            if(s.Length > 1)
             {
-                List<DateTime> SessionCreatTime = new List<DateTime>();
-                int index;
-                foreach( string pathName in s)
-                {
-                    SessionCreatTime.Add(File.GetCreationTime(pathName));
-                }
-                Logger.WriteWarning("two Session or more is open.");
-                throw new Exception("two Session or more is open we select tha new Session.");
-
+                Logger.WriteWarning("More than one Session is open");
+                throw new Exception("More than one Session is open");
             }
 
             return null;
@@ -109,6 +103,7 @@ namespace SupportTroubleshootingTool.Core.Contract
         {
             try
             {
+
                 //Create Output folder for this collect operation
                 //Collect Log events (EVLogHandler)
                 //Collect file logs (FileLogHandler)

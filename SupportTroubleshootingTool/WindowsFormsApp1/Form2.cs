@@ -25,14 +25,14 @@ namespace WindowsFormsApp1
            //sessionInfo.SessionOtputFolderPath = @"C:\SupportTroubleshootingTool\Session";
            SessionProvider sessionProvider = new SessionProvider();
 
-            WorkflowProvider workflowProvider = new WorkflowProvider();
+            //WorkflowProvider workflowProvider = new WorkflowProvider();
             //sessionProvider.StartSession(sessionInfo);
             //sessionProvider.StopSession(sessionInfo);
             //sessionInfo = sessionProvider.CurrentSession();
 
            // sessionProvider.StartSession(sessionInfo);
             //sessionProvider.StopSession(sessionInfo);
-            sessionInfo = sessionProvider.CurrentSession();
+            sessionInfo = sessionProvider.GetCurrentSession();
             sessionProvider.StopSession(sessionInfo);
 
         }
