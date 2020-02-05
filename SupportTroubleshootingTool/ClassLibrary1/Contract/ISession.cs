@@ -7,9 +7,8 @@ namespace SupportTroubleshootingTool.Core.Contract
 {
     public interface ISession
     {
-
-        string SessionRootFolderPath();
-        SessionInfo CurrentSession();
+        string SessionRootFolderPath { get; }
+        SessionInfo GetCurrentSession();
         void StartSession(SessionInfo session);
         void StopSession(SessionInfo session);
         void CollectData(SessionInfo session);
