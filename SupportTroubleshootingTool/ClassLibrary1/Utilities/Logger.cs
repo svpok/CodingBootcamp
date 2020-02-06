@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text;
 
 namespace SupportTroubleshootingTool.Core.Utilities
 {
@@ -21,7 +22,15 @@ namespace SupportTroubleshootingTool.Core.Utilities
         }
         public static void WriteError(Exception exeption)
         {
-            mylogger.Error("Error with this exeption message ", exeption);
+            StringBuilder e = new StringBuilder();
+            e.Append(exeption.Message);
+            e.Append("\n");
+            while(exeption.InnerException != null)
+            {
+                e.Append(exeption.InnerException.Message+"\n");
+                exeption = exeption.InnerException;
+            }
+            mylogger.Error("Error with this exeption message "+e.ToString());
         }
     }
 
