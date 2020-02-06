@@ -62,28 +62,5 @@ namespace SupportTroubleshootingTool.Core.Contract
             get;
             private set;
         }
-        public void Save(WorkflowInfo data)
-        {
-            WorkflowProvider workflowProvider = new WorkflowProvider();
-            XmlSerializer writer = new XmlSerializer(typeof(WorkflowInfo));
-            TextWriter s = new StreamWriter($"{WorkflowsRootFolder}\\" + "\\WorkFlowInfo.xml");
-
-            //FileStream file = File.Create(path);
-            writer.Serialize(s, data);
-            s.Close();
-        }
-        public WorkflowInfo Load(string xmlPath)
-        {
-            WorkflowProvider workflowProvider = new WorkflowProvider();
-            WorkflowInfo workflowInfo = null;
-            string path = xmlPath;
-
-            XmlSerializer serializer = new XmlSerializer(typeof(WorkflowInfo));
-
-            StreamReader reader = new StreamReader(path);
-            workflowInfo = (WorkflowInfo)serializer.Deserialize(reader);
-            reader.Close();
-            return workflowInfo;
-        }
     }
 }
