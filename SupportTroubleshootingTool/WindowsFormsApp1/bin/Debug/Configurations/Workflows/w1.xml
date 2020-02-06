@@ -9,6 +9,18 @@
       <LogName>w1_EVLogInfo_1</LogName>
       <Sources />
     </EVLogInfo>
+	    <EVLogInfo>
+      <IsRequireIISRestart>false</IsRequireIISRestart>
+      <ServicesToRestart />
+      <LogName>w2_EVLogInfo_1</LogName>
+      <Sources />
+    </EVLogInfo>
+	    <EVLogInfo>
+      <IsRequireIISRestart>false</IsRequireIISRestart>
+      <ServicesToRestart />
+      <LogName>w3_EVLogInfo_1_EVLogInfo_1</LogName>
+      <Sources />
+    </EVLogInfo>
   </EVLogs>
   <FileLogs>
     <FileLogInfo>
@@ -22,6 +34,11 @@
       <IsRequireIISRestart>false</IsRequireIISRestart>
       <ServicesToRestart />
       <Name>w1_TraceInfo_1</Name>
+    </TraceInfo>
+	    <TraceInfo>
+      <IsRequireIISRestart>false</IsRequireIISRestart>
+      <ServicesToRestart />
+      <Name>w2_TraceInfo_1</Name>
     </TraceInfo>
   </Traces>
 </WorkflowInfo>

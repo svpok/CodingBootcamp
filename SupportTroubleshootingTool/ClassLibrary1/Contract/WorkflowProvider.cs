@@ -31,7 +31,7 @@ namespace SupportTroubleshootingTool.Core.Contract
                     workflowInfo = SerialtionHelper<WorkflowInfo>.Deserialize(WorkflowsRootFolder + "\\w"+i+".xml");
                     WorkflowsList.Add(workflowInfo);
                 }
-                SerialtionHelper<WorkflowProvider>.Serialize(this, WorkflowsRootFolder + "\\newtest.xml");
+                //SerialtionHelper<WorkflowProvider>.Serialize(this, WorkflowsRootFolder + "\\newtest.xml");
             }
             catch (Exception ex)
             {

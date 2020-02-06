@@ -73,12 +73,6 @@
     <Compile Include="ExistingSessionFormUi.Designer.cs">
       <DependentUpon>ExistingSessionFormUi.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form2.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form2.Designer.cs">
-      <DependentUpon>Form2.cs</DependentUpon>
-    </Compile>
     <Compile Include="NewSessionFormUi.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -89,9 +83,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="ExistingSessionFormUi.resx">
       <DependentUpon>ExistingSessionFormUi.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Form2.resx">
-      <DependentUpon>Form2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NewSessionFormUi.resx">
       <DependentUpon>NewSessionFormUi.cs</DependentUpon>
