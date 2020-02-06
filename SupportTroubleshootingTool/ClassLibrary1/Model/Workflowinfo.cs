@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Xml;
 using System.Xml.Serialization;
+using System.IO;
+using SupportTroubleshootingTool.Core.Contract;
 
 namespace SupportTroubleshootingTool.Core.Model
 {
@@ -29,4 +32,6 @@ namespace SupportTroubleshootingTool.Core.Model
         public List<TraceInfo> Traces { get; set; }
 
     }
+
 }
+

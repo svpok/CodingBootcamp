@@ -16,3 +16,12 @@ C:\Users\Yehya\Desktop\dbmotion\CodingBootcamp\SupportTroubleshootingTool\ClassL
 C:\Users\Yehya\Desktop\dbmotion\CodingBootcamp\SupportTroubleshootingTool\ClassLibrary1\bin\Debug\log4net.xml
 C:\Users\Yehya\Desktop\dbmotion\CodingBootcamp\SupportTroubleshootingTool\ClassLibrary1\obj\Debug\SupportTroubleshootingTool.Core.csproj.CopyComplete
 C:\Users\Yehya\Desktop\dbmotion\CodingBootcamp\SupportTroubleshootingTool\ClassLibrary1\obj\Debug\SupportTroubleshootingTool.Core.csprojAssemblyReference.cache
+C:\Users\Mhmod Osah\Documents\GitHub\CodingBootcamp\SupportTroubleshootingTool\ClassLibrary1\bin\Debug\Utilities\log4net.config.xml
+C:\Users\Mhmod Osah\Documents\GitHub\CodingBootcamp\SupportTroubleshootingTool\ClassLibrary1\bin\Debug\SupportTroubleshootingTool.Core.dll
+C:\Users\Mhmod Osah\Documents\GitHub\CodingBootcamp\SupportTroubleshootingTool\ClassLibrary1\bin\Debug\SupportTroubleshootingTool.Core.pdb
+C:\Users\Mhmod Osah\Documents\GitHub\CodingBootcamp\SupportTroubleshootingTool\ClassLibrary1\bin\Debug\log4net.dll
+C:\Users\Mhmod Osah\Documents\GitHub\CodingBootcamp\SupportTroubleshootingTool\ClassLibrary1\bin\Debug\log4net.xml
+C:\Users\Mhmod Osah\Documents\GitHub\CodingBootcamp\SupportTroubleshootingTool\ClassLibrary1\obj\Debug\SupportTroubleshootingTool.Core.csprojAssemblyReference.cache
+C:\Users\Mhmod Osah\Documents\GitHub\CodingBootcamp\SupportTroubleshootingTool\ClassLibrary1\obj\Debug\SupportTroubleshootingTool.Core.csproj.CopyComplete
+C:\Users\Mhmod Osah\Documents\GitHub\CodingBootcamp\SupportTroubleshootingTool\ClassLibrary1\obj\Debug\SupportTroubleshootingTool.Core.dll
+C:\Users\Mhmod Osah\Documents\GitHub\CodingBootcamp\SupportTroubleshootingTool\ClassLibrary1\obj\Debug\SupportTroubleshootingTool.Core.pdb

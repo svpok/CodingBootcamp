@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Xml.Serialization;
 using System.Xml;
-using SupportTroubleshootingTool.Core.Contract;
 
 namespace SupportTroubleshootingTool.Core.Model
 {
@@ -14,7 +12,7 @@ namespace SupportTroubleshootingTool.Core.Model
         public SessionInfo()
         {
             SessionID = Guid.NewGuid().ToString();
-            Workflow = null;
+            WorkflowName = "";
             SelectedEVLogs = new List<EVLogInfo>();
             SelectedFileLogs = new List<FileLogInfo>();
             SelectedTraces = new List<TraceInfo>();
@@ -27,7 +25,7 @@ namespace SupportTroubleshootingTool.Core.Model
         public string SessionID { get; set; }
         [XmlElement]
        
-        public WorkflowInfo Workflow { get; set; }
+        public string WorkflowName { get; set; }
         [XmlElement]
         public DateTime From { get; set; }
         [XmlElement]
@@ -50,7 +48,7 @@ namespace SupportTroubleshootingTool.Core.Model
 
         void ResetToDefaults()
         {
-            Workflow = new WorkflowInfo(); 
+            WorkflowName = ""; 
             SelectedEVLogs = new List<EVLogInfo>();
             SelectedFileLogs = new List<FileLogInfo>();
             SelectedTraces = new List<TraceInfo>();
@@ -61,28 +59,33 @@ namespace SupportTroubleshootingTool.Core.Model
             //TODO: complete
             SessionOtputFolderPath = "";
         }
+
         public void Save()
         {
             SessionProvider sessionProvider = new SessionProvider();
             XmlSerializer writer = new XmlSerializer(typeof(SessionInfo));
             //string path ="SessionInfo.xml";
-            TextWriter s = new StreamWriter($"{sessionProvider.SessionRootFolderPath()}\\{this.SessionFolderPath}_open" + "\\SessionInfo.xml");
 
-            //FileStream file = File.Create(path);
-            writer.Serialize(s, this);
-            s.Close();
+            var sessionFolder = $@"{sessionProvider.SessionRootFolderPath}\{this.SessionFolderPath}_open\SessionInfo.xml";
+            using (TextWriter s = new StreamWriter(sessionFolder))
+            {
+                writer.Serialize(s, this);
+                s.Close();
+            }
         }
-        public SessionInfo Load(string xmlPath)
+        public SessionInfo Load(string sessionPath)
         {
             SessionProvider sessionProvider = new SessionProvider();
             SessionInfo sessionInfo = null;
-            string path = xmlPath;
 
             XmlSerializer serializer = new XmlSerializer(typeof(SessionInfo));
 
-            StreamReader reader = new StreamReader(path);
-            sessionInfo = (SessionInfo)serializer.Deserialize(reader);
-            reader.Close();
+            using (StreamReader reader = new StreamReader(sessionPath))
+            {
+                sessionInfo = (SessionInfo)serializer.Deserialize(reader);
+                reader.Close();
+            }
+                
             return sessionInfo;
         }
     }
