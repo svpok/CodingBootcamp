@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WorkflowInfo xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Name>w2</Name>
+  <ConfigFile>conf2</ConfigFile>
+  <EVLogs>
+    <EVLogInfo>
+      <IsRequireIISRestart>false</IsRequireIISRestart>
+      <ServicesToRestart />
+      <LogName>w2_EVLogInfo_1</LogName>
+      <Sources />
+    </EVLogInfo>
+    <EVLogInfo>
+      <IsRequireIISRestart>false</IsRequireIISRestart>
+      <ServicesToRestart />
+      <LogName>w2_EVLogInfo_2</LogName>
+      <Sources />
+    </EVLogInfo>
+  </EVLogs>
+  <FileLogs>
+    <FileLogInfo>
+      <IsRequireIISRestart>false</IsRequireIISRestart>
+      <ServicesToRestart />
+      <LogFileName>w2_FileLogInfo_1</LogFileName>
+    </FileLogInfo>
+    <FileLogInfo>
+      <IsRequireIISRestart>false</IsRequireIISRestart>
+      <ServicesToRestart />
+      <LogFileName>w2_FileLogInfo_2</LogFileName>
+    </FileLogInfo>
+  </FileLogs>
+  <Traces>
+    <TraceInfo>
+      <IsRequireIISRestart>false</IsRequireIISRestart>
+      <ServicesToRestart />
+      <Name>w2_TraceInfo_1</Name>
+    </TraceInfo>
+    <TraceInfo>
+      <IsRequireIISRestart>false</IsRequireIISRestart>
+      <ServicesToRestart />
+      <Name>w2_TraceInfo_2</Name>
+    </TraceInfo>
+  </Traces>
+</WorkflowInfo>

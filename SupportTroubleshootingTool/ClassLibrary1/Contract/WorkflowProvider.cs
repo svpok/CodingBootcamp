@@ -12,7 +12,7 @@ namespace SupportTroubleshootingTool.Core.Contract
 {
     public class WorkflowProvider : IWorkflow
     {
-        public const string WorkflowsRootFolder = { AttributeTargets; set = @".\Configurations\Workflows",; }
+        public const string WorkflowsRootFolder = @".\Configurations\Workflows";
         public WorkflowProvider()
         {
             try
@@ -23,7 +23,15 @@ namespace SupportTroubleshootingTool.Core.Contract
                 }
 
                 //Read workflows configurations and init Workflowslist
-
+                CreateWorkflow(1);
+                //Read workflows configurations and init Workflowslist
+                this.WorkflowsList = new List<WorkflowInfo>();
+                WorkflowInfo workflowInfo = new WorkflowInfo();
+                for (int i = 1; i <= 3; i++) {
+                    workflowInfo = SerialtionHelper<WorkflowInfo>.Deserialize(WorkflowsRootFolder + "\\w"+i+".xml");
+                    WorkflowsList.Add(workflowInfo);
+                }
+                SerialtionHelper<WorkflowProvider>.Serialize(this, WorkflowsRootFolder + "\\newtest.xml");
             }
             catch (Exception ex)
             {

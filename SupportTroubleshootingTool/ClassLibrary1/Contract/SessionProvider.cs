@@ -42,7 +42,7 @@ namespace SupportTroubleshootingTool.Core.Contract
             }else if(s.Length > 1)
             {
                 List<DateTime> SessionCreatTime = new List<DateTime>();
-                int index;
+                //int index;
                 foreach( string pathName in s)
                 {
                     SessionCreatTime.Add(File.GetCreationTime(pathName));
