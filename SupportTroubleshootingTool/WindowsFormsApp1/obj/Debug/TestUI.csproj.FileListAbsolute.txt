@@ -81,3 +81,11 @@ C:\Users\Jake\Desktop\CodingBootcamp\SupportTroubleshootingTool\WindowsFormsApp1
 C:\Users\Jake\Desktop\CodingBootcamp\SupportTroubleshootingTool\WindowsFormsApp1\bin\Debug\log4net.config.xml
 C:\Users\Jake\Desktop\CodingBootcamp\SupportTroubleshootingTool\WindowsFormsApp1\bin\Debug\log4net.dll
 C:\Users\Jake\Desktop\CodingBootcamp\SupportTroubleshootingTool\WindowsFormsApp1\bin\Debug\log4net.xml
+C:\Users\Amal Saleh\Desktop\CodingBootcamp\SupportTroubleshootingTool\WindowsFormsApp1\obj\Debug\TestUI.csprojAssemblyReference.cache
+C:\Users\Amal Saleh\Desktop\CodingBootcamp\SupportTroubleshootingTool\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.ExistingSessionFormUi.resources
+C:\Users\Amal Saleh\Desktop\CodingBootcamp\SupportTroubleshootingTool\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.NewSessionFormUi.resources
+C:\Users\Amal Saleh\Desktop\CodingBootcamp\SupportTroubleshootingTool\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Properties.Resources.resources
+C:\Users\Amal Saleh\Desktop\CodingBootcamp\SupportTroubleshootingTool\WindowsFormsApp1\obj\Debug\TestUI.csproj.GenerateResource.cache
+C:\Users\Amal Saleh\Desktop\CodingBootcamp\SupportTroubleshootingTool\WindowsFormsApp1\obj\Debug\TestUI.csproj.CoreCompileInputs.cache
+C:\Users\Amal Saleh\Desktop\CodingBootcamp\SupportTroubleshootingTool\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.exe
+C:\Users\Amal Saleh\Desktop\CodingBootcamp\SupportTroubleshootingTool\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.pdb

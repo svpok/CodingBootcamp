@@ -34,3 +34,7 @@ C:\Users\Jake\Desktop\CodingBootcamp\SupportTroubleshootingTool\ClassLibrary1\bi
 C:\Users\Jake\Desktop\CodingBootcamp\SupportTroubleshootingTool\ClassLibrary1\bin\Debug\log4net.dll
 C:\Users\Jake\Desktop\CodingBootcamp\SupportTroubleshootingTool\ClassLibrary1\bin\Debug\log4net.xml
 C:\Users\Jake\Desktop\CodingBootcamp\SupportTroubleshootingTool\ClassLibrary1\obj\Debug\SupportTroubleshootingTool.Core.csproj.CopyComplete
+C:\Users\Amal Saleh\Desktop\CodingBootcamp\SupportTroubleshootingTool\ClassLibrary1\obj\Debug\SupportTroubleshootingTool.Core.csprojAssemblyReference.cache
+C:\Users\Amal Saleh\Desktop\CodingBootcamp\SupportTroubleshootingTool\ClassLibrary1\obj\Debug\SupportTroubleshootingTool.Core.csproj.CoreCompileInputs.cache
+C:\Users\Amal Saleh\Desktop\CodingBootcamp\SupportTroubleshootingTool\ClassLibrary1\obj\Debug\SupportTroubleshootingTool.Core.dll
+C:\Users\Amal Saleh\Desktop\CodingBootcamp\SupportTroubleshootingTool\ClassLibrary1\obj\Debug\SupportTroubleshootingTool.Core.pdb
