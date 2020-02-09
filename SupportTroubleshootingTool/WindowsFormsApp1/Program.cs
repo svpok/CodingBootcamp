@@ -18,6 +18,7 @@ namespace WindowsFormsApp1
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form2());
             SupportTroubleshootingTool.Core.Utilities.Logger.WriteInfo("program exited");
+            SupportTroubleshootingTool.Core.Handlers.XmlHandler.XmlLoad("", "", "currency", "**");
         }
     }
 }
