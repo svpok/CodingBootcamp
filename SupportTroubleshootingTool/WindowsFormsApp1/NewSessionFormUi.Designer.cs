@@ -191,6 +191,7 @@
             // butCurrent
             // 
             this.butCurrent.AutoSize = true;
+            this.butCurrent.Checked = true;
             this.butCurrent.Location = new System.Drawing.Point(21, 27);
             this.butCurrent.Name = "butCurrent";
             this.butCurrent.Size = new System.Drawing.Size(87, 24);

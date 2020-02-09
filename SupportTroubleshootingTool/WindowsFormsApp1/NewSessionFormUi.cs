@@ -37,7 +37,7 @@ namespace WindowsFormsApp1
         {
            
             this.Size = new Size(680, 500);
-          
+            
 
             FillWorkflows();
 
@@ -213,7 +213,14 @@ namespace WindowsFormsApp1
 
         private void butReset_Click_1(object sender, EventArgs e)
         {
-            
+            //comboboxWorkflows.Items.Clear();
+
+            comboboxWorkflows.SelectedIndex = 0;
+            dateTimeFrom.Value = DateTime.Now;
+            dateTimeTo.Value = DateTime.Now;
+            butCurrent.Checked = true;
+
         }
     }
+    
 }
