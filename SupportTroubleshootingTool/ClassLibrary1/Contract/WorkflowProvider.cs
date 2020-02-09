@@ -27,9 +27,14 @@ namespace SupportTroubleshootingTool.Core.Contract
                 //Read workflows configurations and init Workflowslist
                 this.WorkflowsList = new List<WorkflowInfo>();
                 WorkflowInfo workflowInfo = new WorkflowInfo();
-                for (int i = 1; i <= 3; i++) {
-                    workflowInfo = SerialtionHelper<WorkflowInfo>.Deserialize(WorkflowsRootFolder + "\\w"+i+".xml");
-                    WorkflowsList.Add(workflowInfo);
+                for (int i = 0; i <= 3; i++) {
+                    if (i == 0)
+                        WorkflowsList.Add(new WorkflowInfo());
+                    else
+                    {
+                        workflowInfo = SerialtionHelper<WorkflowInfo>.Deserialize(WorkflowsRootFolder + "\\w" + i + ".xml");
+                        WorkflowsList.Add(workflowInfo);
+                    }
                 }
                 //SerialtionHelper<WorkflowProvider>.Serialize(this, WorkflowsRootFolder + "\\newtest.xml");
             }

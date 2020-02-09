@@ -296,6 +296,7 @@
             this.butReset.TabIndex = 6;
             this.butReset.Text = "Reset To Default";
             this.butReset.UseVisualStyleBackColor = true;
+            this.butReset.Click += new System.EventHandler(this.butReset_Click_1);
             // 
             // ListFiles
             // 

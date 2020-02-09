@@ -1,4 +1,5 @@
 ﻿using SupportTroubleshootingTool.Core.Contract;
+using SupportTroubleshootingTool.Core.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -44,10 +45,10 @@ namespace WindowsFormsApp1
         public void FillWorkflows()
         {
             var bindingSource1 = new BindingSource();
-           
+            
             bindingSource1.DataSource = WorkflowProvider.WorkflowsList;
             comboboxWorkflows.DataSource = bindingSource1.DataSource;
-            comboboxWorkflows.Items.Add(0);
+
             comboboxWorkflows.DisplayMember = "Name";
             //comboboxWorkflows. = "Name";
 
@@ -138,6 +139,8 @@ namespace WindowsFormsApp1
 
         private void comboboxWorkflows_SelectedValueChanged(object sender, EventArgs e)
         {
+            //string namestr = " ";
+           // comboboxWorkflows.Items.Add(null);
             LogsWorkflows(comboboxWorkflows.SelectedIndex);
         }
 
@@ -163,11 +166,54 @@ namespace WindowsFormsApp1
 
         private void butStart_Click_2(object sender, EventArgs e)
         {
+            SessionInfo currentsession = new SessionInfo();
+            WorkflowInfo current = WorkflowProvider.WorkflowsList[comboboxWorkflows.SelectedIndex];
+            currentsession.From = dateTimeFrom.Value.ToUniversalTime();
+            currentsession.To = dateTimeTo.Value.ToUniversalTime();
+            currentsession.WorkflowName = current.Name;
+            for (int i = 0; i < current.EVLogs.Count; i++)
+            {
+                if (ListEv.GetItemChecked(i) == true)
+                {
+
+                    currentsession.SelectedEVLogs.Add(current.EVLogs[i]);
+                    MessageBox.Show("current.EVLogs[i].ToString()");
+                }
+            
+            }
+
+
+            for (int i = 0; i < current.FileLogs.Count; i++)
+            {
+                if (ListFiles.GetItemChecked(i) == true)
+                {
+
+                    currentsession.SelectedFileLogs.Add(current.FileLogs[i]);
+                    MessageBox.Show("current.FileLogs[i].ToString()");
+                }
+
+            }
+
+            for (int i = 0; i < current.Traces.Count; i++)
+            {
+                if (ListTraces.GetItemChecked(i) == true)
+                {
+
+                    currentsession.SelectedTraces.Add(current.Traces[i]);
+                    MessageBox.Show("current.Traces[i].ToString()");
+                }
+
+            }
             ExistingSessionFormUi window1 = new ExistingSessionFormUi();
             this.Hide();
 
             window1.ShowDialog();
             this.Close();
+        }
+
+        private void butReset_Click_1(object sender, EventArgs e)
+        {
+            
         }
     }
 }
