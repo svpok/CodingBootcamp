@@ -72,11 +72,6 @@
     <Folder Include="Configurations\Workflows\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Utilities\log4net.config.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
