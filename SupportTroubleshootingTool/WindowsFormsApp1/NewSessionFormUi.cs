@@ -92,40 +92,7 @@ namespace WindowsFormsApp1
 
 
 
-        private void label1_Click(object sender, EventArgs e)
-        {
 
-        }
-
-        private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void butCurrent_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void butInformation_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void butWarning_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void butError_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void butReset_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void butStart_Click_1(object sender, EventArgs e)
         {
@@ -144,10 +111,7 @@ namespace WindowsFormsApp1
             LogsWorkflows(comboboxWorkflows.SelectedIndex);
         }
 
-        private void comboboxWorkflows_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            
-        }
+
 
         private void ListFiles_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -204,6 +168,7 @@ namespace WindowsFormsApp1
                 }
 
             }
+            new SessionProvider().StartSession(currentsession);
             ExistingSessionFormUi.SetMySession(currentsession);
             ExistingSessionFormUi window1 = new ExistingSessionFormUi();
             this.Hide();
@@ -220,8 +185,10 @@ namespace WindowsFormsApp1
             dateTimeFrom.Value = DateTime.Now;
             dateTimeTo.Value = DateTime.Now;
             butCurrent.Checked = true;
-
+        
         }
+
+        
     }
     
 }

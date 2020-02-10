@@ -14,7 +14,7 @@ namespace WindowsFormsApp1
 {
     public partial class ExistingSessionFormUi : Form
     {
-        static SessionInfo mysession = new SessionInfo();
+        static SessionInfo mysession;
 
         public static void SetMySession(SessionInfo session)
         {
@@ -24,6 +24,7 @@ namespace WindowsFormsApp1
         }
         public ExistingSessionFormUi()
         {
+
             InitializeComponent();
         }
 
@@ -48,6 +49,7 @@ namespace WindowsFormsApp1
                 this.loadData.Items.Add("Traces:" + trace.Name);
 
             }
+            this.Size = new Size(680, 500);
 
         }
 
@@ -63,16 +65,9 @@ namespace WindowsFormsApp1
 
         private void Browse_Click(object sender, EventArgs e)
         {
-            //using (FolderBrowserDialog fbd = new FolderBrowserDialog() { Description = "Select your path." })
-            //{
-            //    if (fbd.ShowDialog() == DialogResult.OK)
-            //    {
+            textBox1.Text="C:\\";
 
-            //        //foreach (string item in Directory.GetFiles(fbd.SelectedPath))
-            //        {
-            //        }
-            // }
-            // }
+            mysession.SessionOtputFolderPath = textBox1.Text;
         }
 
         private void Back_Click(object sender, EventArgs e)
@@ -82,6 +77,24 @@ namespace WindowsFormsApp1
 
             window2.ShowDialog();
             this.Close();
+        }
+
+        private void loadData_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void CollectAndClose_Click(object sender, EventArgs e)
+        {
+            
+            new SessionProvider().StopSession(mysession);
+            new SessionProvider().CollectData(mysession);
+            this.Close();
+        }
+
+        private void CollectWithoutClosingSession_Click(object sender, EventArgs e)
+        {
+            new SessionProvider().CollectData(mysession);
         }
     }
 }

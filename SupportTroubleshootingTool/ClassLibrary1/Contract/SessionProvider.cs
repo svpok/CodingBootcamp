@@ -41,14 +41,9 @@ namespace SupportTroubleshootingTool.Core.Contract
 
             }else if(s.Length > 1)
             {
-                List<DateTime> SessionCreatTime = new List<DateTime>();
-                //int index;
-                foreach( string pathName in s)
-                {
-                    SessionCreatTime.Add(File.GetCreationTime(pathName));
-                }
+      
                 Logger.WriteWarning("two Session or more is open.");
-                throw new Exception("two Session or more is open we select tha new Session.");
+                throw new Exception("two Session or more is open.");
 
             }
 
