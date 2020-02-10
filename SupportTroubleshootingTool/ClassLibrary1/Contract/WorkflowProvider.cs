@@ -22,14 +22,21 @@ namespace SupportTroubleshootingTool.Core.Contract
                     Directory.CreateDirectory(WorkflowsRootFolder);
                 }
 
-                CreateWorkflow(1);
-                CreateWorkflow(2);
-
-                CreateWorkflow(3);
-
-                LoadWorkflows();
                 //Read workflows configurations and init Workflowslist
-               
+                CreateWorkflow(1);
+                //Read workflows configurations and init Workflowslist
+                this.WorkflowsList = new List<WorkflowInfo>();
+                WorkflowInfo workflowInfo = new WorkflowInfo();
+                for (int i = 0; i <= 3; i++) {
+                    if (i == 0)
+                        WorkflowsList.Add(new WorkflowInfo());
+                    else
+                    {
+                        workflowInfo = SerialtionHelper<WorkflowInfo>.Deserialize(WorkflowsRootFolder + "\\w" + i + ".xml");
+                        WorkflowsList.Add(workflowInfo);
+                    }
+                }
+                //SerialtionHelper<WorkflowProvider>.Serialize(this, WorkflowsRootFolder + "\\newtest.xml");
             }
             catch (Exception ex)
             {
@@ -54,7 +61,6 @@ namespace SupportTroubleshootingTool.Core.Contract
                 ConfigFilePath = "",
             };
             w1.EVLogs.Add(evlog1);
-            Save(w1);
         }
 
         public List<WorkflowInfo> WorkflowsList

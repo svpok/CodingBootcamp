@@ -16,6 +16,6 @@ namespace SupportTroubleshootingTool.Core.Model
         public string Name { get;  set; }
         [XmlElement]
         public string Configfile { get;  set; }
-
+        public object Tracelnfo { get; set; }
     }
 }
