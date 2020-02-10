@@ -177,7 +177,7 @@ namespace WindowsFormsApp1
                 {
 
                     currentsession.SelectedEVLogs.Add(current.EVLogs[i]);
-                    MessageBox.Show("current.EVLogs[i].ToString()");
+                   // MessageBox.Show("current.EVLogs[i].ToString()");
                 }
             
             }
@@ -189,7 +189,7 @@ namespace WindowsFormsApp1
                 {
 
                     currentsession.SelectedFileLogs.Add(current.FileLogs[i]);
-                    MessageBox.Show("current.FileLogs[i].ToString()");
+                    //MessageBox.Show("current.FileLogs[i].ToString()");
                 }
 
             }
@@ -200,10 +200,11 @@ namespace WindowsFormsApp1
                 {
 
                     currentsession.SelectedTraces.Add(current.Traces[i]);
-                    MessageBox.Show("current.Traces[i].ToString()");
+                   // MessageBox.Show("current.Traces[i].ToString()");
                 }
 
             }
+            ExistingSessionFormUi.SetMySession(currentsession);
             ExistingSessionFormUi window1 = new ExistingSessionFormUi();
             this.Hide();
 
