@@ -63,7 +63,9 @@ namespace SupportTroubleshootingTool.UI
 
         private void butCollectWithoutClosingSession_Click(object sender, EventArgs e)
         {
+
             _sessionProvider.CollectData(_currentSession);
+
         }
 
         private void butBack_Click_1(object sender, EventArgs e)

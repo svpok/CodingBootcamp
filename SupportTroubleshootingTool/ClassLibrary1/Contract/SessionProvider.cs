@@ -1,5 +1,6 @@
 ﻿using SupportTroubleshootingTool.Core.Model;
 using SupportTroubleshootingTool.Core.Utilities;
+using SupportTroubleshootingTool.Core.Handlers;
 using System;
 using System.IO;
 using System.Collections.Generic;
@@ -21,7 +22,11 @@ namespace SupportTroubleshootingTool.Core.Contract
             }
             SessionRootFolderPath = path;
         }
-   
+        public string SessionRootFolderPath
+        {
+            get;
+            private set;
+        }
 
         public SessionInfo GetCurrentSession()
         {
@@ -40,20 +45,14 @@ namespace SupportTroubleshootingTool.Core.Contract
 
             }else if(s.Length > 1)
             {
-      
-               // Logger.WriteWarning("two Session or more is open.");
+                Logger.WriteWarning("two Session or more is open.");
                 //throw new Exception("two Session or more is open.");
-
             }
 
             return null;
         }
 
-        public string SessionRootFolderPath
-        {
-            get;
-            private set;
-        }
+
 
         public void StartSession(SessionInfo session)
         {
@@ -61,15 +60,19 @@ namespace SupportTroubleshootingTool.Core.Contract
             {
                 System.IO.Directory.CreateDirectory($@"{SessionRootFolderPath}\{session.SessionFolderPath}_open");
                 SerialtionHelper<SessionInfo>.Serialize(session,
-                    $@"{SessionRootFolderPath}\{session.SessionFolderPath}_open\SessionInfo.xml");              
+                    $@"{SessionRootFolderPath}\{session.SessionFolderPath}_open\SessionInfo.xml");
                 //session.Save();
                 //Build session folder name yyyy-MM-dd-hh-mm_workflowName_open -done
                 //Create the folder under this.SessionRootFolderPath - done 
                 //Save SessionInfo.xml - done
                 //Crete backup (BackupHandler)
+                BackUpManager.Backup(session);
                 //Open log levels (XmlHandler)
+                XmlHandler.LogLvl(session);
                 //Open traces (XmlHanlder)
+                XmlHandler.TracesLvl(session);
                 //Restart processes (ProcessHandler)
+                ProcessHandler.RestartService(session);
             }
             catch(Exception ex)
             {
@@ -91,12 +94,13 @@ namespace SupportTroubleshootingTool.Core.Contract
                     
                 System.IO.Directory.Move($@"{SessionRootFolderPath}\\{session.SessionFolderPath}_open", 
                     $"{SessionRootFolderPath}\\{session.SessionFolderPath}_close");
-               
+
                 //Rename session folder from open to close - done
+
                 //Resore from backup (BackupHandler)
-
+                BackUpManager.Restore(session);
                 //Restart processes (ProcessHandler)
-
+                ProcessHandler.RestartService(session);
             }
             catch (Exception ex)
             {

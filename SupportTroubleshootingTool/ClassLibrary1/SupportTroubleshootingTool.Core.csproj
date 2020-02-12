@@ -50,6 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
+    <Compile Include="Handlers\BackUpManager.cs" />
     <Compile Include="Contract\ISession.cs" />
     <Compile Include="Contract\IWorkflow.cs" />
     <Compile Include="Contract\SessionProvider.cs" />
