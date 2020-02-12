@@ -56,14 +56,18 @@ namespace SupportTroubleshootingTool.UI
 
           private void butCollectAndClose_Click(object sender, EventArgs e)
         {
-            _sessionProvider.StopSession();
+            _sessionProvider.CurrentSession.From = dateTimeFrom.Value;
+            _sessionProvider.CurrentSession.To = dateTimeTo.Value;
             _sessionProvider.CollectData();
+            _sessionProvider.StopSession();
+            
             this.Close();
         }
 
         private void butCollectWithoutClosingSession_Click(object sender, EventArgs e)
         {
-
+            _sessionProvider.CurrentSession.From = dateTimeFrom.Value;
+            _sessionProvider.CurrentSession.To = dateTimeTo.Value;
             _sessionProvider.CollectData();
 
         }

@@ -99,7 +99,7 @@ namespace SupportTroubleshootingTool.Core.Contract
 
                 }
 
-                System.IO.Directory.Move($@"{_currentSession.SessionOtputFolderPath}",
+                System.IO.Directory.Move($"{SessionRootFolderPath}\\{_currentSession.SessionFolderPath}_open",
                     $"{SessionRootFolderPath}\\{_currentSession.SessionFolderPath}_close");
 
                 //Rename session folder from open to close - done
