@@ -37,11 +37,25 @@ namespace SupportTroubleshootingTool.Core.Contract
                 {
                     return _currentSession;
                 }
+                string[] s = Directory.GetDirectories(SessionRootFolderPath, "*open", SearchOption.AllDirectories);
+                //Search in this.SessionRootFolderPath the session folder that is opened. - done
+                //yyyy-MM-dd-hh-mm_workflowName_open - open session 
+                //yyyy-MM-dd-hh-mm_workflowName_close - closed session
+                //if such folder exists create SessionInfo object from the SessionInfo.xml and return it. - done
+                //Otherwise return null; - done 
+                if (s.Length == 1)
+                {
+                    _currentSession = SerialtionHelper<SessionInfo>.Deserialize(s[0] + "\\SessionInfo.xml");
 
-            }else if(s.Length > 1)
-            {
-                Logger.WriteWarning("two Session or more is open.");
-                //throw new Exception("two Session or more is open.");
+                    return _currentSession;
+                }
+                if (s.Length > 1)
+                {
+                    Logger.WriteWarning("two Session or more is open.");
+                    throw new Exception("two Session or more is open.");
+                }
+
+                return null;
             }
         }
 
