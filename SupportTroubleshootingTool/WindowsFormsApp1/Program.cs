@@ -18,7 +18,7 @@ namespace SupportTroubleshootingTool.UI
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             var sessionProvider = new SessionProvider();
-            var sessionInfo = sessionProvider.GetCurrentSession();
+            var sessionInfo = sessionProvider.CurrentSession;
             if (sessionInfo == null)
             {
                 new NewSessionFormUi(sessionProvider).ShowDialog();

@@ -121,7 +121,7 @@ namespace SupportTroubleshootingTool.Core.Contract
             try
             {
                 _currentSession.SessionOtputFolderPath = Path.Combine(_currentSession.SessionOtputFolderPath, "Data",
-                    $@"{_currentSession.From.ToString()}_{_currentSession.To.ToString()}");
+                    $@"{_currentSession.From.ToString("yyyy-MM-dd-hh-mm")}_{_currentSession.To.ToString("yyyy-MM-dd-hh-mm")}");
                 Directory.CreateDirectory(_currentSession.SessionOtputFolderPath);
                 //Create Output folder for this collect operation
                 //Collect Log events (EVLogHandler)

@@ -23,7 +23,7 @@ namespace SupportTroubleshootingTool.UI
             //TODO: Check sessionProvider and _currentSession are not null.
             //If null log error and show error dialog
             _sessionProvider = sessionProvider;
-            _currentSession = _sessionProvider.GetCurrentSession();
+            _currentSession = _sessionProvider.CurrentSession;
             _backForm = backForm;
 
             InitializeComponent();
@@ -56,15 +56,15 @@ namespace SupportTroubleshootingTool.UI
 
           private void butCollectAndClose_Click(object sender, EventArgs e)
         {
-            _sessionProvider.StopSession(_currentSession);
-            _sessionProvider.CollectData(_currentSession);
+            _sessionProvider.StopSession();
+            _sessionProvider.CollectData();
             this.Close();
         }
 
         private void butCollectWithoutClosingSession_Click(object sender, EventArgs e)
         {
 
-            _sessionProvider.CollectData(_currentSession);
+            _sessionProvider.CollectData();
 
         }
 
@@ -76,6 +76,9 @@ namespace SupportTroubleshootingTool.UI
 
         }
 
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
 
+        }
     }
 }
