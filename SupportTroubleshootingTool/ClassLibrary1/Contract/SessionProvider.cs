@@ -8,6 +8,7 @@ using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace SupportTroubleshootingTool.Core.Contract
 {
@@ -120,17 +121,23 @@ namespace SupportTroubleshootingTool.Core.Contract
         {
             try
             {
-                _currentSession.SessionOtputFolderPath = Path.Combine(_currentSession.SessionOtputFolderPath, "Data",
+                string path = Path.Combine(_currentSession.SessionOtputFolderPath, "Data",
                     $@"{_currentSession.From.ToString("yyyy-MM-dd-hh-mm")}_{_currentSession.To.ToString("yyyy-MM-dd-hh-mm")}");
-                Directory.CreateDirectory(_currentSession.SessionOtputFolderPath);
-                //Create Output folder for this collect operation
-                //Collect Log events (EVLogHandler)
-                new EVLogHandler(_currentSession).CollectData();
-                //Collect file logs (FileLogHandler)
-                new FileLogHandler(_currentSession).CollectData();
-                //Collect traces (TraceHanler)
-                new TraceHandler(_currentSession).CollectData();
-                new PackageHandler(_currentSession).Packageing();
+                if (!Directory.Exists(path))
+                {
+                    Directory.CreateDirectory(path);
+                    //Create Output folder for this collect operation
+                    //Collect Log events (EVLogHandler)
+                    new EVLogHandler(_currentSession).CollectData();
+                    //Collect file logs (FileLogHandler)
+                    new FileLogHandler(_currentSession).CollectData();
+                    //Collect traces (TraceHanler)
+                    new TraceHandler(_currentSession).CollectData();
+                    new PackageHandler(_currentSession).Packageing();
+                }else
+                {
+                    MessageBox.Show("Change date and time."); 
+                }
             }
             catch (Exception ex)
             {
