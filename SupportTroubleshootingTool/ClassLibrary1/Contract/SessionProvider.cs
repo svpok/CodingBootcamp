@@ -86,7 +86,7 @@ namespace SupportTroubleshootingTool.Core.Contract
                 if (session == null)
                 {
                     throw new ArgumentException("There no session to close.");
-                    return;
+                   
                 }
                     
                 System.IO.Directory.Move($@"{SessionRootFolderPath}\\{session.SessionFolderPath}_open", 

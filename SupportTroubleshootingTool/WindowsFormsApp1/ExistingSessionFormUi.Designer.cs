@@ -36,9 +36,6 @@
             this.butBack = new System.Windows.Forms.Button();
             this.butCollectAndClose = new System.Windows.Forms.Button();
             this.butCollectWithoutClosingSession = new System.Windows.Forms.Button();
-            this.butBrowse = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
             this.loadData = new System.Windows.Forms.ListView();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.panel2.SuspendLayout();
@@ -55,9 +52,6 @@
             this.panel2.Controls.Add(this.butBack);
             this.panel2.Controls.Add(this.butCollectAndClose);
             this.panel2.Controls.Add(this.butCollectWithoutClosingSession);
-            this.panel2.Controls.Add(this.butBrowse);
-            this.panel2.Controls.Add(this.textBox1);
-            this.panel2.Controls.Add(this.label11);
             this.panel2.Location = new System.Drawing.Point(1, 255);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(650, 232);
@@ -120,7 +114,7 @@
             // 
             this.butBack.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.butBack.Font = new System.Drawing.Font("Corbel", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.butBack.Location = new System.Drawing.Point(6, 189);
+            this.butBack.Location = new System.Drawing.Point(3, 173);
             this.butBack.Name = "butBack";
             this.butBack.Size = new System.Drawing.Size(95, 41);
             this.butBack.TabIndex = 22;
@@ -132,7 +126,7 @@
             // 
             this.butCollectAndClose.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.butCollectAndClose.Font = new System.Drawing.Font("Corbel", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.butCollectAndClose.Location = new System.Drawing.Point(322, 180);
+            this.butCollectAndClose.Location = new System.Drawing.Point(357, 178);
             this.butCollectAndClose.Name = "butCollectAndClose";
             this.butCollectAndClose.Size = new System.Drawing.Size(104, 48);
             this.butCollectAndClose.TabIndex = 21;
@@ -144,43 +138,13 @@
             // 
             this.butCollectWithoutClosingSession.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.butCollectWithoutClosingSession.Font = new System.Drawing.Font("Corbel", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.butCollectWithoutClosingSession.Location = new System.Drawing.Point(463, 179);
+            this.butCollectWithoutClosingSession.Location = new System.Drawing.Point(510, 180);
             this.butCollectWithoutClosingSession.Name = "butCollectWithoutClosingSession";
             this.butCollectWithoutClosingSession.Size = new System.Drawing.Size(125, 45);
             this.butCollectWithoutClosingSession.TabIndex = 20;
             this.butCollectWithoutClosingSession.Text = "Collect without closing session";
             this.butCollectWithoutClosingSession.UseVisualStyleBackColor = false;
             this.butCollectWithoutClosingSession.Click += new System.EventHandler(this.butCollectWithoutClosingSession_Click);
-            // 
-            // butBrowse
-            // 
-            this.butBrowse.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.butBrowse.Font = new System.Drawing.Font("Corbel", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.butBrowse.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.butBrowse.Location = new System.Drawing.Point(359, 130);
-            this.butBrowse.Name = "butBrowse";
-            this.butBrowse.Size = new System.Drawing.Size(102, 29);
-            this.butBrowse.TabIndex = 19;
-            this.butBrowse.Text = "Browse...";
-            this.butBrowse.UseVisualStyleBackColor = false;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(95, 136);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(264, 20);
-            this.textBox1.TabIndex = 18;
-          
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(3, 139);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(98, 15);
-            this.label11.TabIndex = 17;
-            this.label11.Text = "Output Folder:";
             // 
             // loadData
             // 
@@ -213,9 +177,6 @@
         private System.Windows.Forms.Button butBack;
         private System.Windows.Forms.Button butCollectAndClose;
         private System.Windows.Forms.Button butCollectWithoutClosingSession;
-        private System.Windows.Forms.Button butBrowse;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label11;
         private System.Windows.Forms.ListView loadData;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
         private System.Windows.Forms.DateTimePicker dateTimeTo;

@@ -33,6 +33,7 @@ namespace SupportTroubleshootingTool.UI
 
         private void ExistingSessionFormUi_Load(object sender, EventArgs e)
         {
+           
             this.loadData.Items.Add("workflow:" + _currentSession.WorkflowName);
 
             foreach (EVLogInfo EVlog in _currentSession.SelectedEVLogs)
@@ -47,18 +48,12 @@ namespace SupportTroubleshootingTool.UI
             {
                 this.loadData.Items.Add("Traces:" + trace.Name);
             }
+            
 
             this.Size = new Size(680, 500);
         }
 
-        private void butBrowse_Click(object sender, EventArgs e)
-        {
-            //C:\SupportTroubleshootingTool\Session\2020-02-05-11-43_73d30fed-e0d3-4a42-9858-27f78a740105_open\2020-02-05-11-43_2020-02-06-11-43_results
-           //var resultFolder = @"{_currentSession.From.ToString("")}_{_currentSession.To.ToString("")}_results"; //"2020-02-05-11-43_2020-02-06-11-43_results";
-            //textBox1.Text= _currentSession.SessionFolderPath;
-            ////use folderBrowsDialog1.
-            //_currentSession.SessionOtputFolderPath = textBox1.Text;
-        }
+        
           private void butCollectAndClose_Click(object sender, EventArgs e)
         {
             _sessionProvider.StopSession(_currentSession);
@@ -74,8 +69,7 @@ namespace SupportTroubleshootingTool.UI
         private void butBack_Click_1(object sender, EventArgs e)
         {
             this.Hide();
-           
-            _backForm.ShowDialog();
+           _backForm.ShowDialog();
             this.Close();
 
         }
