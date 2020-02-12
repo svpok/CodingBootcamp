@@ -1,4 +1,4 @@
-﻿namespace WindowsFormsApp1
+﻿namespace SupportTroubleshootingTool.UI
 {
     partial class NewSessionFormUi
     {
@@ -28,12 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dateTimeTo = new System.Windows.Forms.DateTimePicker();
-            this.dateTimeFrom = new System.Windows.Forms.DateTimePicker();
-            this.To = new System.Windows.Forms.Label();
-            this.DateTimeFilter = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.From = new System.Windows.Forms.Label();
             this.comboboxWorkflows = new System.Windows.Forms.ComboBox();
             this.Workflow = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -56,7 +50,6 @@
             this.EventViewerLogs = new System.Windows.Forms.Label();
             this.FilesLogs = new System.Windows.Forms.Label();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panelLogsLevel.SuspendLayout();
@@ -66,77 +59,13 @@
             this.tableLayoutPanel3.SuspendLayout();
             this.SuspendLayout();
             // 
-            // dateTimeTo
-            // 
-            this.dateTimeTo.CustomFormat = "dd/MM/yyy,hh:mm";
-            this.dateTimeTo.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimeTo.Location = new System.Drawing.Point(151, 134);
-            this.dateTimeTo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.dateTimeTo.Name = "dateTimeTo";
-            this.dateTimeTo.Size = new System.Drawing.Size(265, 31);
-            this.dateTimeTo.TabIndex = 4;
-            // 
-            // dateTimeFrom
-            // 
-            this.dateTimeFrom.CustomFormat = "dd/MM/yyy,hh:mm";
-            this.dateTimeFrom.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimeFrom.Location = new System.Drawing.Point(151, 86);
-            this.dateTimeFrom.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.dateTimeFrom.Name = "dateTimeFrom";
-            this.dateTimeFrom.Size = new System.Drawing.Size(265, 31);
-            this.dateTimeFrom.TabIndex = 3;
-            // 
-            // To
-            // 
-            this.To.AutoSize = true;
-            this.To.Location = new System.Drawing.Point(39, 134);
-            this.To.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.To.Name = "To";
-            this.To.Size = new System.Drawing.Size(49, 25);
-            this.To.TabIndex = 2;
-            this.To.Text = "To :";
-            // 
-            // DateTimeFilter
-            // 
-            this.DateTimeFilter.AutoSize = true;
-            this.DateTimeFilter.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DateTimeFilter.Location = new System.Drawing.Point(24, 22);
-            this.DateTimeFilter.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.DateTimeFilter.Name = "DateTimeFilter";
-            this.DateTimeFilter.Size = new System.Drawing.Size(280, 37);
-            this.DateTimeFilter.TabIndex = 0;
-            this.DateTimeFilter.Text = "Date Time Filter :";
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.dateTimeTo);
-            this.panel2.Controls.Add(this.dateTimeFrom);
-            this.panel2.Controls.Add(this.To);
-            this.panel2.Controls.Add(this.From);
-            this.panel2.Controls.Add(this.DateTimeFilter);
-            this.panel2.Location = new System.Drawing.Point(4, 117);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(573, 175);
-            this.panel2.TabIndex = 8;
-            // 
-            // From
-            // 
-            this.From.AutoSize = true;
-            this.From.Location = new System.Drawing.Point(39, 86);
-            this.From.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.From.Name = "From";
-            this.From.Size = new System.Drawing.Size(73, 25);
-            this.From.TabIndex = 1;
-            this.From.Text = "From :";
-            // 
             // comboboxWorkflows
             // 
             this.comboboxWorkflows.FormattingEnabled = true;
-            this.comboboxWorkflows.Location = new System.Drawing.Point(192, 21);
-            this.comboboxWorkflows.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboboxWorkflows.Location = new System.Drawing.Point(96, 11);
+            this.comboboxWorkflows.Margin = new System.Windows.Forms.Padding(2);
             this.comboboxWorkflows.Name = "comboboxWorkflows";
-            this.comboboxWorkflows.Size = new System.Drawing.Size(356, 33);
+            this.comboboxWorkflows.Size = new System.Drawing.Size(180, 21);
             this.comboboxWorkflows.TabIndex = 1;
             this.comboboxWorkflows.SelectedIndexChanged += new System.EventHandler(this.comboboxWorkflows_SelectedValueChanged);
             // 
@@ -144,10 +73,10 @@
             // 
             this.Workflow.AutoSize = true;
             this.Workflow.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Workflow.Location = new System.Drawing.Point(17, 16);
-            this.Workflow.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.Workflow.Location = new System.Drawing.Point(8, 8);
+            this.Workflow.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.Workflow.Name = "Workflow";
-            this.Workflow.Size = new System.Drawing.Size(168, 37);
+            this.Workflow.Size = new System.Drawing.Size(82, 20);
             this.Workflow.TabIndex = 0;
             this.Workflow.Text = "Workflow :";
             // 
@@ -155,10 +84,10 @@
             // 
             this.panel1.Controls.Add(this.comboboxWorkflows);
             this.panel1.Controls.Add(this.Workflow);
-            this.panel1.Location = new System.Drawing.Point(4, 4);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Location = new System.Drawing.Point(2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(573, 70);
+            this.panel1.Size = new System.Drawing.Size(286, 36);
             this.panel1.TabIndex = 7;
             // 
             // tableLayoutPanel1
@@ -166,23 +95,21 @@
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.Controls.Add(this.panel1, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.panel2, 0, 1);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(16, 15);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(8, 8);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 2;
+            this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.60656F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 66.39344F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(599, 338);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(294, 42);
             this.tableLayoutPanel1.TabIndex = 19;
             // 
             // butWarning
             // 
             this.butWarning.AutoSize = true;
-            this.butWarning.Location = new System.Drawing.Point(31, 138);
-            this.butWarning.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.butWarning.Location = new System.Drawing.Point(16, 72);
+            this.butWarning.Margin = new System.Windows.Forms.Padding(2);
             this.butWarning.Name = "butWarning";
-            this.butWarning.Size = new System.Drawing.Size(123, 29);
+            this.butWarning.Size = new System.Drawing.Size(65, 17);
             this.butWarning.TabIndex = 3;
             this.butWarning.TabStop = true;
             this.butWarning.Text = "Warning";
@@ -191,10 +118,10 @@
             // butInformation
             // 
             this.butInformation.AutoSize = true;
-            this.butInformation.Location = new System.Drawing.Point(28, 90);
-            this.butInformation.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.butInformation.Location = new System.Drawing.Point(14, 47);
+            this.butInformation.Margin = new System.Windows.Forms.Padding(2);
             this.butInformation.Name = "butInformation";
-            this.butInformation.Size = new System.Drawing.Size(149, 29);
+            this.butInformation.Size = new System.Drawing.Size(77, 17);
             this.butInformation.TabIndex = 2;
             this.butInformation.TabStop = true;
             this.butInformation.Text = "Information";
@@ -204,10 +131,10 @@
             // 
             this.butCurrent.AutoSize = true;
             this.butCurrent.Checked = true;
-            this.butCurrent.Location = new System.Drawing.Point(28, 34);
-            this.butCurrent.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.butCurrent.Location = new System.Drawing.Point(14, 18);
+            this.butCurrent.Margin = new System.Windows.Forms.Padding(2);
             this.butCurrent.Name = "butCurrent";
-            this.butCurrent.Size = new System.Drawing.Size(114, 29);
+            this.butCurrent.Size = new System.Drawing.Size(59, 17);
             this.butCurrent.TabIndex = 1;
             this.butCurrent.TabStop = true;
             this.butCurrent.Text = "Current";
@@ -217,20 +144,20 @@
             // 
             this.LogsLevel.AutoSize = true;
             this.LogsLevel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LogsLevel.Location = new System.Drawing.Point(4, 0);
-            this.LogsLevel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.LogsLevel.Location = new System.Drawing.Point(2, 0);
+            this.LogsLevel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.LogsLevel.Name = "LogsLevel";
-            this.LogsLevel.Size = new System.Drawing.Size(200, 37);
+            this.LogsLevel.Size = new System.Drawing.Size(105, 20);
             this.LogsLevel.TabIndex = 0;
             this.LogsLevel.Text = "Logs Level :";
             // 
             // butError
             // 
             this.butError.AutoSize = true;
-            this.butError.Location = new System.Drawing.Point(35, 194);
-            this.butError.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.butError.Location = new System.Drawing.Point(18, 101);
+            this.butError.Margin = new System.Windows.Forms.Padding(2);
             this.butError.Name = "butError";
-            this.butError.Size = new System.Drawing.Size(90, 29);
+            this.butError.Size = new System.Drawing.Size(47, 17);
             this.butError.TabIndex = 4;
             this.butError.TabStop = true;
             this.butError.Text = "Error";
@@ -242,12 +169,11 @@
             this.panelLogsLevel.Controls.Add(this.butWarning);
             this.panelLogsLevel.Controls.Add(this.butInformation);
             this.panelLogsLevel.Controls.Add(this.butCurrent);
-            this.panelLogsLevel.Location = new System.Drawing.Point(4, 70);
-            this.panelLogsLevel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelLogsLevel.Location = new System.Drawing.Point(2, 38);
+            this.panelLogsLevel.Margin = new System.Windows.Forms.Padding(2);
             this.panelLogsLevel.Name = "panelLogsLevel";
-            this.panelLogsLevel.Size = new System.Drawing.Size(263, 247);
+            this.panelLogsLevel.Size = new System.Drawing.Size(132, 128);
             this.panelLogsLevel.TabIndex = 9;
-            
             // 
             // tableLayoutPanel2
             // 
@@ -255,22 +181,22 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.Controls.Add(this.LogsLevel, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.panelLogsLevel, 0, 1);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(623, 35);
-            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(16, 70);
+            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20.58824F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 79.41177F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(315, 321);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(158, 177);
             this.tableLayoutPanel2.TabIndex = 20;
             // 
             // panelEvAndFile
             // 
             this.panelEvAndFile.Controls.Add(this.BoxLogs);
-            this.panelEvAndFile.Location = new System.Drawing.Point(4, 4);
-            this.panelEvAndFile.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelEvAndFile.Location = new System.Drawing.Point(2, 2);
+            this.panelEvAndFile.Margin = new System.Windows.Forms.Padding(2);
             this.panelEvAndFile.Name = "panelEvAndFile";
-            this.panelEvAndFile.Size = new System.Drawing.Size(1220, 489);
+            this.panelEvAndFile.Size = new System.Drawing.Size(610, 254);
             this.panelEvAndFile.TabIndex = 10;
             // 
             // BoxLogs
@@ -283,21 +209,18 @@
             this.BoxLogs.Controls.Add(this.ListEv);
             this.BoxLogs.Controls.Add(this.EventViewerLogs);
             this.BoxLogs.Controls.Add(this.FilesLogs);
-            this.BoxLogs.Location = new System.Drawing.Point(20, 19);
-            this.BoxLogs.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.BoxLogs.Location = new System.Drawing.Point(10, 10);
+            this.BoxLogs.Margin = new System.Windows.Forms.Padding(2);
             this.BoxLogs.Name = "BoxLogs";
-            this.BoxLogs.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.BoxLogs.Size = new System.Drawing.Size(1181, 461);
+            this.BoxLogs.Padding = new System.Windows.Forms.Padding(2);
+            this.BoxLogs.Size = new System.Drawing.Size(590, 240);
             this.BoxLogs.TabIndex = 16;
             this.BoxLogs.TabStop = false;
-            this.BoxLogs.Enter += new System.EventHandler(this.BoxLogs_Enter);
-            // 
-            // butStart
-            // 
-            this.butStart.Location = new System.Drawing.Point(280, 368);
-            this.butStart.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+          
+            this.butStart.Location = new System.Drawing.Point(140, 191);
+            this.butStart.Margin = new System.Windows.Forms.Padding(2);
             this.butStart.Name = "butStart";
-            this.butStart.Size = new System.Drawing.Size(212, 75);
+            this.butStart.Size = new System.Drawing.Size(106, 39);
             this.butStart.TabIndex = 7;
             this.butStart.Text = "Start Session";
             this.butStart.UseVisualStyleBackColor = true;
@@ -306,18 +229,18 @@
             // ListTraces
             // 
             this.ListTraces.FormattingEnabled = true;
-            this.ListTraces.Location = new System.Drawing.Point(835, 84);
-            this.ListTraces.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ListTraces.Location = new System.Drawing.Point(418, 44);
+            this.ListTraces.Margin = new System.Windows.Forms.Padding(2);
             this.ListTraces.Name = "ListTraces";
-            this.ListTraces.Size = new System.Drawing.Size(315, 228);
+            this.ListTraces.Size = new System.Drawing.Size(160, 109);
             this.ListTraces.TabIndex = 17;
             // 
             // butReset
             // 
-            this.butReset.Location = new System.Drawing.Point(25, 368);
-            this.butReset.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.butReset.Location = new System.Drawing.Point(12, 191);
+            this.butReset.Margin = new System.Windows.Forms.Padding(2);
             this.butReset.Name = "butReset";
-            this.butReset.Size = new System.Drawing.Size(228, 75);
+            this.butReset.Size = new System.Drawing.Size(114, 39);
             this.butReset.TabIndex = 6;
             this.butReset.Text = "Reset To Default";
             this.butReset.UseVisualStyleBackColor = true;
@@ -326,48 +249,48 @@
             // ListFiles
             // 
             this.ListFiles.FormattingEnabled = true;
-            this.ListFiles.Location = new System.Drawing.Point(424, 84);
-            this.ListFiles.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ListFiles.Location = new System.Drawing.Point(212, 44);
+            this.ListFiles.Margin = new System.Windows.Forms.Padding(2);
             this.ListFiles.Name = "ListFiles";
-            this.ListFiles.Size = new System.Drawing.Size(323, 228);
+            this.ListFiles.Size = new System.Drawing.Size(164, 109);
             this.ListFiles.TabIndex = 16;
             // 
             // Traces
             // 
             this.Traces.AutoSize = true;
-            this.Traces.Location = new System.Drawing.Point(860, 44);
-            this.Traces.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.Traces.Location = new System.Drawing.Point(430, 23);
+            this.Traces.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.Traces.Name = "Traces";
-            this.Traces.Size = new System.Drawing.Size(90, 25);
+            this.Traces.Size = new System.Drawing.Size(46, 13);
             this.Traces.TabIndex = 0;
             this.Traces.Text = "Traces :";
             // 
             // ListEv
             // 
             this.ListEv.FormattingEnabled = true;
-            this.ListEv.Location = new System.Drawing.Point(25, 84);
-            this.ListEv.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ListEv.Location = new System.Drawing.Point(12, 44);
+            this.ListEv.Margin = new System.Windows.Forms.Padding(2);
             this.ListEv.Name = "ListEv";
-            this.ListEv.Size = new System.Drawing.Size(316, 228);
+            this.ListEv.Size = new System.Drawing.Size(160, 109);
             this.ListEv.TabIndex = 0;
             // 
             // EventViewerLogs
             // 
             this.EventViewerLogs.AutoSize = true;
-            this.EventViewerLogs.Location = new System.Drawing.Point(31, 44);
-            this.EventViewerLogs.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.EventViewerLogs.Location = new System.Drawing.Point(16, 23);
+            this.EventViewerLogs.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.EventViewerLogs.Name = "EventViewerLogs";
-            this.EventViewerLogs.Size = new System.Drawing.Size(203, 25);
+            this.EventViewerLogs.Size = new System.Drawing.Size(102, 13);
             this.EventViewerLogs.TabIndex = 0;
             this.EventViewerLogs.Text = "Event Viewer Logs :";
             // 
             // FilesLogs
             // 
             this.FilesLogs.AutoSize = true;
-            this.FilesLogs.Location = new System.Drawing.Point(441, 44);
-            this.FilesLogs.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.FilesLogs.Location = new System.Drawing.Point(220, 23);
+            this.FilesLogs.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.FilesLogs.Name = "FilesLogs";
-            this.FilesLogs.Size = new System.Drawing.Size(123, 25);
+            this.FilesLogs.Size = new System.Drawing.Size(60, 13);
             this.FilesLogs.TabIndex = 1;
             this.FilesLogs.Text = "Files Logs :";
             // 
@@ -376,29 +299,27 @@
             this.tableLayoutPanel3.ColumnCount = 1;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel3.Controls.Add(this.panelEvAndFile, 0, 0);
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(20, 364);
-            this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(16, 263);
+            this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 88.42365F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(1239, 506);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(620, 263);
             this.tableLayoutPanel3.TabIndex = 21;
             // 
             // NewSessionFormUi
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(1281, 886);
+            this.ClientSize = new System.Drawing.Size(642, 537);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.tableLayoutPanel2);
             this.Controls.Add(this.tableLayoutPanel3);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "NewSessionFormUi";
             this.Text = "Support Troubleshooting Tool";
             this.Load += new System.EventHandler(this.NewSessionFormUi_Load);
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
@@ -415,13 +336,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.DateTimePicker dateTimeTo;
-        private System.Windows.Forms.DateTimePicker dateTimeFrom;
-        private System.Windows.Forms.Label To;
-        private System.Windows.Forms.Label DateTimeFilter;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Label From;
         private System.Windows.Forms.ComboBox comboboxWorkflows;
         private System.Windows.Forms.Label Workflow;
         private System.Windows.Forms.Panel panel1;

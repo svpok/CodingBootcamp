@@ -1,9 +1,8 @@
-﻿using SupportTroubleshootingTool.Core.Model;
+using SupportTroubleshootingTool.Core.Model;
 using SupportTroubleshootingTool.Core.Utilities;
 using SupportTroubleshootingTool.Core.Handlers;
 using System;
 using System.IO;
-
 using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
@@ -39,27 +38,13 @@ namespace SupportTroubleshootingTool.Core.Contract
                     return _currentSession;
                 }
 
-                string[] s = Directory.GetDirectories(SessionRootFolderPath, "*open", SearchOption.AllDirectories);
-                //Search in this.SessionRootFolderPath the session folder that is opened. - done
-                //yyyy-MM-dd-hh-mm_workflowName_open - open session 
-                //yyyy-MM-dd-hh-mm_workflowName_close - closed session
-                //if such folder exists create SessionInfo object from the SessionInfo.xml and return it. - done
-                //Otherwise return null; - done 
-                if (s.Length == 1)
-                {
-                    _currentSession = SerialtionHelper<SessionInfo>.Deserialize(s[0]+ "\\SessionInfo.xml");
-
-                    return _currentSession;
-                }
-                if (s.Length > 1)
-                {
-                    Logger.WriteWarning("two Session or more is open.");
-                    throw new Exception("two Session or more is open.");
-                }
-                return null;
+            }else if(s.Length > 1)
+            {
+                Logger.WriteWarning("two Session or more is open.");
+                //throw new Exception("two Session or more is open.");
             }
         }
-       
+
         public void StartSession(SessionInfo session)
         {
             try
@@ -72,7 +57,7 @@ namespace SupportTroubleshootingTool.Core.Contract
                     $@"{_currentSession.SessionOtputFolderPath}\SessionInfo.xml");
                 //session.Save();
                 //Build session folder name yyyy-MM-dd-hh-mm_workflowName_open -done
-                //Create the folder under this.SessionRootFolderPath - done 
+                //Create the folder under this.SessionRootFolderPath - done
                 //Save SessionInfo.xml - done
                 //Crete backup (BackupHandler) - done
                 new BackUpManager(_currentSession).Backup();
@@ -97,9 +82,10 @@ namespace SupportTroubleshootingTool.Core.Contract
                 if (_currentSession == null)
                 {
                     throw new ArgumentException("There no session to close.");
+
                 }
-                    
-                System.IO.Directory.Move($@"{_currentSession.SessionOtputFolderPath}", 
+
+                System.IO.Directory.Move($@"{_currentSession.SessionOtputFolderPath}",
                     $"{SessionRootFolderPath}\\{_currentSession.SessionFolderPath}_close");
 
                 //Rename session folder from open to close - done
@@ -120,7 +106,7 @@ namespace SupportTroubleshootingTool.Core.Contract
         {
             try
             {
-                _currentSession.SessionOtputFolderPath = Path.Combine(_currentSession.SessionOtputFolderPath, "Data", 
+                _currentSession.SessionOtputFolderPath = Path.Combine(_currentSession.SessionOtputFolderPath, "Data",
                     $@"{_currentSession.From.ToString()}_{_currentSession.To.ToString()}");
                 Directory.CreateDirectory(_currentSession.SessionOtputFolderPath);
                 //Create Output folder for this collect operation
