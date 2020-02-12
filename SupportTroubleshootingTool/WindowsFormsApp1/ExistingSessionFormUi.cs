@@ -10,91 +10,76 @@ using System.Windows.Forms;
 using SupportTroubleshootingTool.Core.Contract;
 using SupportTroubleshootingTool.Core.Model;
 
-namespace WindowsFormsApp1
+namespace SupportTroubleshootingTool.UI
 {
     public partial class ExistingSessionFormUi : Form
     {
-        static SessionInfo mysession;
+        private SessionProvider _sessionProvider;
+        private SessionInfo _currentSession;
+        private NewSessionFormUi _backForm;
 
-        public static void SetMySession(SessionInfo session)
+        public ExistingSessionFormUi(SessionProvider sessionProvider, NewSessionFormUi backForm)
         {
-
-            mysession = session;
-
-        }
-        public ExistingSessionFormUi()
-        {
+            //TODO: Check sessionProvider and _currentSession are not null.
+            //If null log error and show error dialog 
+            _sessionProvider = sessionProvider;
+            _currentSession = _sessionProvider.GetCurrentSession();
+            _backForm = backForm;
 
             InitializeComponent();
+
+            butBack.Visible = _backForm != null;
         }
 
         private void ExistingSessionFormUi_Load(object sender, EventArgs e)
         {
-            this.loadData.Items.Add("workflow:" + mysession.WorkflowName);
-            this.loadData.Items.Add("Date and Time:    From" + mysession.From.ToUniversalTime());
-            this.loadData.Items.Add("\n To:" + mysession.To.ToUniversalTime());
+            this.loadData.Items.Add("workflow:" + _currentSession.WorkflowName);
 
-            foreach (EVLogInfo EVlog in mysession.SelectedEVLogs)
+            foreach (EVLogInfo EVlog in _currentSession.SelectedEVLogs)
                 this.loadData.Items.Add("Event View Logs:\n" + EVlog.LogName);
-
-
-            foreach (FileLogInfo fileLog in mysession.SelectedFileLogs)
+            
+            foreach (FileLogInfo fileLog in _currentSession.SelectedFileLogs)
             {
                 this.loadData.Items.Add("File Logs:" + fileLog.LogFileName);
             }
 
-
-            foreach (TraceInfo trace in mysession.SelectedTraces)
+            foreach (TraceInfo trace in _currentSession.SelectedTraces)
             {
                 this.loadData.Items.Add("Traces:" + trace.Name);
-
             }
+
             this.Size = new Size(680, 500);
-
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void butBrowse_Click(object sender, EventArgs e)
         {
-
+            //C:\SupportTroubleshootingTool\Session\2020-02-05-11-43_73d30fed-e0d3-4a42-9858-27f78a740105_open\2020-02-05-11-43_2020-02-06-11-43_results
+           //var resultFolder = @"{_currentSession.From.ToString("")}_{_currentSession.To.ToString("")}_results"; //"2020-02-05-11-43_2020-02-06-11-43_results";
+            //textBox1.Text= _currentSession.SessionFolderPath;
+            ////use folderBrowsDialog1.
+            //_currentSession.SessionOtputFolderPath = textBox1.Text;
+        }
+          private void butCollectAndClose_Click(object sender, EventArgs e)
+        {
+            _sessionProvider.StopSession(_currentSession);
+            _sessionProvider.CollectData(_currentSession);
+            this.Close();
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
+        private void butCollectWithoutClosingSession_Click(object sender, EventArgs e)
         {
-
+            _sessionProvider.CollectData(_currentSession);
         }
 
-        private void Browse_Click(object sender, EventArgs e)
+        private void butBack_Click_1(object sender, EventArgs e)
         {
-            textBox1.Text="C:\\";
-
-            mysession.SessionOtputFolderPath = textBox1.Text;
-        }
-
-        private void Back_Click(object sender, EventArgs e)
-        {
-            NewSessionFormUi window2 = new NewSessionFormUi();
             this.Hide();
-
-            window2.ShowDialog();
+           
+            _backForm.ShowDialog();
             this.Close();
-        }
-
-        private void loadData_SelectedIndexChanged(object sender, EventArgs e)
-        {
 
         }
 
-        private void CollectAndClose_Click(object sender, EventArgs e)
-        {
-            
-            new SessionProvider().StopSession(mysession);
-            new SessionProvider().CollectData(mysession);
-            this.Close();
-        }
-
-        private void CollectWithoutClosingSession_Click(object sender, EventArgs e)
-        {
-            new SessionProvider().CollectData(mysession);
-        }
+        
     }
 }

@@ -4,7 +4,7 @@ using System.Xml.Serialization;
 using System.IO;
 using System.Xml;
 using SupportTroubleshootingTool.Core.Contract;
-using System.IO;
+
 
 namespace SupportTroubleshootingTool.Core.Model
 {

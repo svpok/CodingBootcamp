@@ -2,7 +2,6 @@
 using SupportTroubleshootingTool.Core.Utilities;
 using System;
 using System.IO;
-
 using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
@@ -42,8 +41,8 @@ namespace SupportTroubleshootingTool.Core.Contract
             }else if(s.Length > 1)
             {
       
-                Logger.WriteWarning("two Session or more is open.");
-                throw new Exception("two Session or more is open.");
+               // Logger.WriteWarning("two Session or more is open.");
+                //throw new Exception("two Session or more is open.");
 
             }
 
