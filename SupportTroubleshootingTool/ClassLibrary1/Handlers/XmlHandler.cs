@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SupportTroubleshootingTool.Core.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,12 +12,13 @@ namespace SupportTroubleshootingTool.Core.Handlers
 {
     public class XmlHandler
     {
+        private SessionInfo _sessionInfo;
         public static void XmlLoad(string xmlPath,string xPath, string value, string varToChange)
         {
             try
             {
                 XmlDocument xm1 = new XmlDocument();
-                xm1.Load(@"C:\Users\Amal Saleh\Desktop\CodingBootcamp\XML.xml");
+                xm1.Load(@"");//XMl path;
                 Change(xm1, xPath,value, varToChange);
             }
             catch (Exception ex)
@@ -47,5 +49,15 @@ namespace SupportTroubleshootingTool.Core.Handlers
         {
             xml.Save(@"C:\Users\Amal Saleh\Desktop\CodingBootcamp\XML.xml");         //xml.Save(xmlPath);
         }
+
+        public XmlHandler(SessionInfo session)
+        {
+            _sessionInfo = session;
+        }
+        public  void ChangeConfig()
+        {
+            
+        }
+
     }
 }

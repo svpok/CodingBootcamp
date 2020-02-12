@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29613.14
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestUI", "WindowsFormsApp1\TestUI.csproj", "{8F3E211A-8292-4E8E-AD8B-388E6345DB72}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SupportTroubleshootingTool.UI", "WindowsFormsApp1\SupportTroubleshootingTool.UI.csproj", "{8F3E211A-8292-4E8E-AD8B-388E6345DB72}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SupportTroubleshootingTool.Core", "ClassLibrary1\SupportTroubleshootingTool.Core.csproj", "{C4983A07-CD5C-47FF-9DE3-B3051A2554BD}"
 EndProject

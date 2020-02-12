@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SupportTroubleshootingTool.Core.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.ServiceProcess;
@@ -9,6 +10,12 @@ namespace SupportTroubleshootingTool.Core.Handlers
 {
     class ProcessHandler  
     {
+        private SessionInfo session;
+
+        public ProcessHandler(SessionInfo session)
+        {
+            this.session = session;
+        }
 
         public static void RestartService(string serviceName, int timeoutMilliseconds)  // Will handle services that running in server 
         {
@@ -32,6 +39,12 @@ namespace SupportTroubleshootingTool.Core.Handlers
             {
                 Utilities.Logger.WriteError(e);
             }
+        }
+
+        
+        internal void RestartService()
+        {
+            
         }
     }
 }
