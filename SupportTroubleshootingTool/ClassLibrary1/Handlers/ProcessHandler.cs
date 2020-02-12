@@ -10,6 +10,12 @@ namespace SupportTroubleshootingTool.Core.Handlers
 {
     class ProcessHandler  
     {
+        private SessionInfo session;
+
+        public ProcessHandler(SessionInfo session)
+        {
+            this.session = session;
+        }
 
         public static void RestartService(string serviceName, int timeoutMilliseconds)  // Will handle services that running in server 
         {
@@ -35,7 +41,8 @@ namespace SupportTroubleshootingTool.Core.Handlers
             }
         }
 
-        internal static void RestartService(SessionInfo session)
+        
+        internal void RestartService()
         {
             
         }

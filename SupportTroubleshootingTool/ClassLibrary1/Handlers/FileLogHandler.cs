@@ -5,9 +5,15 @@ namespace SupportTroubleshootingTool.Core.Handlers
 {
     internal class FileLogHandler
     {
-        internal static void CollectData(SessionInfo session)
+        private SessionInfo sessionInfo;
+
+        public FileLogHandler(SessionInfo sessionInfo)
         {
-            
+            this.sessionInfo = sessionInfo;
+        }
+        internal void CollectData()
+        {
+          
         }
     }
 }

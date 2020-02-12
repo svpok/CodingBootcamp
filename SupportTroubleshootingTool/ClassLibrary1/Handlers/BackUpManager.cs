@@ -5,12 +5,21 @@ namespace SupportTroubleshootingTool.Core.Handlers
 {
     internal class BackUpManager
     {
-        internal static void Backup(SessionInfo session)
+        private SessionInfo session;
+
+        public BackUpManager(SessionInfo session)
+        {
+            this.session = session;
+        }
+
+
+
+        internal void Restore()
         {
             
         }
 
-        internal static void Restore(SessionInfo session)
+        internal void Backup()
         {
             
         }

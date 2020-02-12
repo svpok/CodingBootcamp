@@ -12,6 +12,7 @@ namespace SupportTroubleshootingTool.Core.Handlers
 {
     public class XmlHandler
     {
+        private SessionInfo _sessionInfo;
         public static void XmlLoad(string xmlPath,string xPath, string value, string varToChange)
         {
             try
@@ -49,14 +50,14 @@ namespace SupportTroubleshootingTool.Core.Handlers
             xml.Save(@"C:\Users\Amal Saleh\Desktop\CodingBootcamp\XML.xml");         //xml.Save(xmlPath);
         }
 
-        internal static void LogLvl(SessionInfo session)
+        public XmlHandler(SessionInfo session)
+        {
+            _sessionInfo = session;
+        }
+        public  void ChangeConfig()
         {
             
         }
 
-        internal static void TracesLvl(SessionInfo session)
-        {
-            
-        }
     }
 }

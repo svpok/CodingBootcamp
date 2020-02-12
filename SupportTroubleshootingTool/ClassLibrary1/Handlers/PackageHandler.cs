@@ -10,6 +10,13 @@ namespace SupportTroubleshootingTool.Core.Handlers
 {
     class PackageHandler
     {
+        private SessionInfo sessionInfo;
+
+        public PackageHandler(SessionInfo sessionInfo)
+        {
+            this.sessionInfo = sessionInfo;
+        }
+
         public static void Packageing(String SourceFolder, String DestinationPath) 
         {
 			// DestinationPath example : C:\folder\file.zip
@@ -24,11 +31,9 @@ namespace SupportTroubleshootingTool.Core.Handlers
             Utilities.Logger.WriteInfo("the file Zipped to" + DestinationPath);
 
         }
-
-        internal static void Packageing(SessionInfo session)
+        internal void Packageing()
         {
-           
-
+            
         }
     }
 }

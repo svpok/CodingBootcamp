@@ -18,7 +18,7 @@ namespace WindowsFormsApp1
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             SessionInfo sessionInfo;
-            sessionInfo = new SessionProvider().GetCurrentSession();
+            sessionInfo = new SessionProvider().CurrentSession;
             if (sessionInfo == null)
             {
                 Application.Run(new NewSessionFormUi());

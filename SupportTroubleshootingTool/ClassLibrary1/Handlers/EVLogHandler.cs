@@ -5,7 +5,16 @@ namespace SupportTroubleshootingTool.Core.Handlers
 {
     internal class EVLogHandler
     {
-        internal static void CollectData(SessionInfo session)
+        private SessionInfo sessionInfo;
+
+        public EVLogHandler(SessionInfo sessionInfo)
+        {
+            this.sessionInfo = sessionInfo;
+        }
+
+
+
+        internal void CollectData()
         {
             
         }

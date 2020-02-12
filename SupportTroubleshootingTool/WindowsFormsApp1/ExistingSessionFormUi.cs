@@ -19,7 +19,8 @@ namespace WindowsFormsApp1
         public static void SetMySession(SessionInfo session)
         {
 
-            mysession = session;
+            mysession = new SessionProvider().CurrentSession;
+
 
         }
         public ExistingSessionFormUi()
@@ -85,14 +86,19 @@ namespace WindowsFormsApp1
         private void CollectAndClose_Click(object sender, EventArgs e)
         {
             
-            new SessionProvider().StopSession(mysession);
-            new SessionProvider().CollectData(mysession);
+            new SessionProvider().StopSession();
+            new SessionProvider().CollectData();
             this.Close();
         }
 
         private void CollectWithoutClosingSession_Click(object sender, EventArgs e)
         {
-            new SessionProvider().CollectData(mysession);
+            new SessionProvider().CollectData();
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

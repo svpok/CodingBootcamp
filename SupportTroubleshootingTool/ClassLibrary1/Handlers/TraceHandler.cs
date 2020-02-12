@@ -5,7 +5,16 @@ namespace SupportTroubleshootingTool.Core.Handlers
 {
     internal class TraceHandler
     {
-        internal static void CollectData(SessionInfo session)
+        private SessionInfo sessionInfo;
+
+        public TraceHandler(SessionInfo sessionInfo)
+        {
+            this.sessionInfo = sessionInfo;
+        }
+
+
+
+        internal void CollectData()
         {
             
         }

@@ -14,6 +14,7 @@ namespace SupportTroubleshootingTool.Core.Contract
 {
     public class SessionProvider : ISession
     {
+        private SessionInfo _currentSession;
         public SessionProvider()
         {
             var path = ConfigurationManager.AppSettings["SessionRootFolderPath"];
@@ -29,103 +30,112 @@ namespace SupportTroubleshootingTool.Core.Contract
             private set;
         }
 
-        public SessionInfo GetCurrentSession()
+        public SessionInfo CurrentSession
         {
-
-            string[] s = Directory.GetDirectories(SessionRootFolderPath, "*open", SearchOption.AllDirectories);
-            //Search in this.SessionRootFolderPath the session folder that is opened. - done
-            //yyyy-MM-dd-hh-mm_workflowName_open - open session 
-            //yyyy-MM-dd-hh-mm_workflowName_close - closed session
-            //if such folder exists create SessionInfo object from the SessionInfo.xml and return it. - done
-            //Otherwise return null; - done 
-            if (s.Length == 1)
+            get
             {
-                SessionInfo sessionInfo = new SessionInfo();
-                sessionInfo = sessionInfo.Load(s[0] + "\\SessionInfo.xml");
-                return sessionInfo;
+                if (_currentSession != null)
+                {
+                    return _currentSession;
+                }
 
-            }else if(s.Length > 1)
-            {
-      
-                Logger.WriteWarning("two Session or more is open.");
-                //throw new Exception("two Session or more is open.");
+                string[] s = Directory.GetDirectories(SessionRootFolderPath, "*open", SearchOption.AllDirectories);
+                //Search in this.SessionRootFolderPath the session folder that is opened. - done
+                //yyyy-MM-dd-hh-mm_workflowName_open - open session 
+                //yyyy-MM-dd-hh-mm_workflowName_close - closed session
+                //if such folder exists create SessionInfo object from the SessionInfo.xml and return it. - done
+                //Otherwise return null; - done 
+                if (s.Length == 1)
+                {
+                    _currentSession = SerialtionHelper<SessionInfo>.Deserialize(s[0]+ "\\SessionInfo.xml");
 
+                    return _currentSession;
+                }
+                if (s.Length > 1)
+                {
+                    Logger.WriteWarning("two Session or more is open.");
+                    throw new Exception("two Session or more is open.");
+                }
+                return null;
             }
-
-            return null;
         }
-
-
-
+       
         public void StartSession(SessionInfo session)
         {
             try
             {
-                System.IO.Directory.CreateDirectory($@"{SessionRootFolderPath}\{session.SessionFolderPath}_open");
-                SerialtionHelper<SessionInfo>.Serialize(session,
-                    $@"{SessionRootFolderPath}\{session.SessionFolderPath}_open\SessionInfo.xml");
+                _currentSession = session;
+                _currentSession.SessionOtputFolderPath = Path.Combine(SessionRootFolderPath,
+                                                        $"{_currentSession.SessionFolderPath}_open");
+                System.IO.Directory.CreateDirectory($@"{_currentSession.SessionOtputFolderPath}");
+                SerialtionHelper<SessionInfo>.Serialize(_currentSession,
+                    $@"{_currentSession.SessionOtputFolderPath}\SessionInfo.xml");
                 //session.Save();
                 //Build session folder name yyyy-MM-dd-hh-mm_workflowName_open -done
                 //Create the folder under this.SessionRootFolderPath - done 
                 //Save SessionInfo.xml - done
-                //Crete backup (BackupHandler)
-                BackUpManager.Backup(session);
-                //Open log levels (XmlHandler)
-                XmlHandler.LogLvl(session);
-                //Open traces (XmlHanlder)
-                XmlHandler.TracesLvl(session);
-                //Restart processes (ProcessHandler)
-                ProcessHandler.RestartService(session);
+                //Crete backup (BackupHandler) - done
+                new BackUpManager(_currentSession).Backup();
+                //Open log levels (XmlHandler) - done
+                //Open traces (XmlHanlder) - done
+                new XmlHandler(_currentSession).ChangeConfig();
+                //Restart processes (ProcessHandler) - done
+                new ProcessHandler(_currentSession).RestartService();
             }
             catch(Exception ex)
             {
                 Logger.WriteError(ex);
-                throw new Exception($"Failed to start session: {ex.Message.ToString()}");
+                throw ex;
             }
 
         }
 
-        public void StopSession(SessionInfo session)
+        public void StopSession()
         {
             try
             {
-                if (session == null)
+                if (_currentSession == null)
                 {
                     throw new ArgumentException("There no session to close.");
-                    return;
                 }
                     
-                System.IO.Directory.Move($@"{SessionRootFolderPath}\\{session.SessionFolderPath}_open", 
-                    $"{SessionRootFolderPath}\\{session.SessionFolderPath}_close");
+                System.IO.Directory.Move($@"{_currentSession.SessionOtputFolderPath}", 
+                    $"{SessionRootFolderPath}\\{_currentSession.SessionFolderPath}_close");
 
                 //Rename session folder from open to close - done
 
                 //Resore from backup (BackupHandler)
-                BackUpManager.Restore(session);
+                new BackUpManager(_currentSession).Restore();
                 //Restart processes (ProcessHandler)
-                ProcessHandler.RestartService(session);
+                new ProcessHandler(_currentSession).RestartService();
             }
             catch (Exception ex)
             {
                 Logger.WriteError(ex);
-                throw new Exception($"Failed to stop session: {ex.Message}");
+                throw ex;
             }
         }
 
-        public void CollectData(SessionInfo session)
+        public void CollectData()
         {
             try
             {
+                _currentSession.SessionOtputFolderPath = Path.Combine(_currentSession.SessionOtputFolderPath, "Data", 
+                    $@"{_currentSession.From.ToString()}_{_currentSession.To.ToString()}");
+                Directory.CreateDirectory(_currentSession.SessionOtputFolderPath);
                 //Create Output folder for this collect operation
                 //Collect Log events (EVLogHandler)
+                new EVLogHandler(_currentSession).CollectData();
                 //Collect file logs (FileLogHandler)
+                new FileLogHandler(_currentSession).CollectData();
                 //Collect traces (TraceHanler)
-
+                new TraceHandler(_currentSession).CollectData();
+                new PackageHandler(_currentSession).Packageing();
             }
             catch (Exception ex)
             {
                 Logger.WriteError(ex);
-                throw new Exception($"Failed to collect data for session");
+                throw ex;
             }
         }
     }
