@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SupportTroubleshootingTool.Core.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,7 +17,7 @@ namespace SupportTroubleshootingTool.Core.Handlers
             try
             {
                 XmlDocument xm1 = new XmlDocument();
-                xm1.Load(@"C:\Users\Amal Saleh\Desktop\CodingBootcamp\XML.xml");
+                xm1.Load(@"");//XMl path;
                 Change(xm1, xPath,value, varToChange);
             }
             catch (Exception ex)
@@ -46,6 +47,16 @@ namespace SupportTroubleshootingTool.Core.Handlers
         static void Save(string xmlPath, XmlDocument xml)
         {
             xml.Save(@"C:\Users\Amal Saleh\Desktop\CodingBootcamp\XML.xml");         //xml.Save(xmlPath);
+        }
+
+        internal static void LogLvl(SessionInfo session)
+        {
+            
+        }
+
+        internal static void TracesLvl(SessionInfo session)
+        {
+            
         }
     }
 }

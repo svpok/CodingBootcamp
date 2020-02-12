@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SupportTroubleshootingTool.Core.Model;
+using System;
 using System.Collections.Generic;
 using System.IO.Compression;
 using System.Linq;
@@ -21,6 +22,12 @@ namespace SupportTroubleshootingTool.Core.Handlers
                 Utilities.Logger.WriteError(e);
             }
             Utilities.Logger.WriteInfo("the file Zipped to" + DestinationPath);
+
+        }
+
+        internal static void Packageing(SessionInfo session)
+        {
+           
 
         }
     }

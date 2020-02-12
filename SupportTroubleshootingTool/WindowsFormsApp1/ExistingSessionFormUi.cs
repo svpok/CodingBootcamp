@@ -65,9 +65,7 @@ namespace WindowsFormsApp1
 
         private void Browse_Click(object sender, EventArgs e)
         {
-            textBox1.Text="C:\\";
 
-            mysession.SessionOtputFolderPath = textBox1.Text;
         }
 
         private void Back_Click(object sender, EventArgs e)
