@@ -50,6 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
+    <Compile Include="Handlers\ConfigXML.cs" />
     <Compile Include="Handlers\FileLogHandler.cs" />
     <Compile Include="Handlers\TraceHandler.cs" />
     <Compile Include="Handlers\EVLogHandler.cs" />

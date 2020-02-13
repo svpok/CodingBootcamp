@@ -72,7 +72,7 @@ namespace SupportTroubleshootingTool.Core.Handlers
                 //change according to the attribute
                 foreach (Match m in mc)
                 {
-                    string attrToChange = m.Value.Substring(2); //cut the first two characters
+                    //unnecessary!!!//string attrToChange = m.Value.Substring(2); //cut the first two characters
                     XmlNodeList nodes = _doc.SelectNodes(xPath);
 
                     foreach (XmlNode node in nodes)

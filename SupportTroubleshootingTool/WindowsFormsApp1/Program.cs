@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using SupportTroubleshootingTool.Core.Contract;
 using SupportTroubleshootingTool.Core.Model;
+using SupportTroubleshootingTool.Core.Handlers;
 namespace SupportTroubleshootingTool.UI
 {
     static class Program
@@ -29,7 +30,9 @@ namespace SupportTroubleshootingTool.UI
             }
 
             //SupportTroubleshootingTool.Core.Utilities.Logger.WriteInfo("program exited");
-            //SupportTroubleshootingTool.Core.Handlers.XmlHandler.XmlLoad("", "", "currency", "**");
+            ConfigXML obj = new ConfigXML(@"C:\Users\Amal Saleh\Desktop\CodingBootcamp\XML.xml");
+            obj.Change(@"//Envelope/Cube/Cube/Cube[@rate>50 or @currency='USD']/@currency", "$$$$");
+            obj.Save();
         }
     }
 }
