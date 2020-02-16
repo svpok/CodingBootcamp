@@ -1,16 +1,41 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Xml;
+using System.Xml.Serialization;
+using System.IO;
+using SupportTroubleshootingTool.Core.Contract;
 
 namespace SupportTroubleshootingTool.Core.Model
 {
-    public class Workflowinfo
+    [Serializable]
+    public class WorkflowInfo
     {
-        public string Name { get; private set; }
-        public string Configfile { get; private set; }
-        List<EVLogInfo> EVLogs { get; set; }
-        List<FileLogInfo> FileLogs { get;  set; }
-        List<TraceInfo> Traces { get;  set; }
+        public WorkflowInfo()
+        {
+            EVLogs = new List<EVLogInfo>();
+            FileLogs = new List<FileLogInfo>();
+            Traces = new List<TraceInfo>();
+        }
+        [XmlElement]
+        public string Name { get; set; }
+        [XmlElement]
+        public string ConfigFile { get; set; }
+        [XmlArray]
+        [XmlArrayItem]
+        public List<EVLogInfo> EVLogs { get; set; }
+        [XmlArray]
+        [XmlArrayItem]
+        public List<FileLogInfo> FileLogs { get; set; }
+        [XmlArray]
+        [XmlArrayItem]
+        public List<TraceInfo> Traces { get; set; }
+
 
     }
+   
+
+   
+
 }
+

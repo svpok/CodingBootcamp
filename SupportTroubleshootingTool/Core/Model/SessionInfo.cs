@@ -1,83 +1,98 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Xml.Serialization;
+using System.IO;
+using System.Xml;
 using SupportTroubleshootingTool.Core.Contract;
+
 
 namespace SupportTroubleshootingTool.Core.Model
 {
-    
-    public class SessionInfo : ISession
+    //Read about XML serialization and implement it for this class
+    [Serializable]
+    public class SessionInfo
     {
-        string SessionID;
-        Workflowinfo Workflow;
-        DateTime From;
-        DateTime To;
-        LogLevelEnum LogLevel;
-        List<EVLogInfo> SelectedEVLogs;
-        List<FileLogInfo> SelectedFileLogs;
-        List<TraceInfo> SelectedTraces;
-        string SessionFolderPath;
-        string SessionOtputFolderPath;
+        public SessionInfo()
+        {
+            SessionID = Guid.NewGuid().ToString();
+            WorkflowName = "";
+            SelectedEVLogs = new List<EVLogInfo>();
+            SelectedFileLogs = new List<FileLogInfo>();
+            SelectedTraces = new List<TraceInfo>();
+            From = new DateTime();
+            To = new DateTime();
+            SessionFolderPath = $"{DateTime.Now.ToString("yyyy-MM-dd-hh-mm")}_{SessionID}";
+            SessionOtputFolderPath = "";
+        }
+        [XmlElement]
+        public string SessionID { get; set; }
+        [XmlElement]
+       
+        public string WorkflowName { get; set; }
+        [XmlElement]
+        public DateTime From { get; set; }
+        [XmlElement]
+        public DateTime To { get; set; }
+        [XmlElement]
+        public LogLevelEnum LogLevel { get; set; }
+        [XmlArray]
+        [XmlArrayItem]
+        public List<EVLogInfo> SelectedEVLogs { get; set; }
+        [XmlArray]
+        [XmlArrayItem]
+        public List<FileLogInfo> SelectedFileLogs { get; set; }
+        [XmlArray]
+        [XmlArrayItem]
+        public List<TraceInfo> SelectedTraces { get; set; }
+        [XmlElement]
+        public string SessionFolderPath { get; set; }
+        [XmlElement]
+        public string SessionOtputFolderPath { get; set; }
 
-        void addSessionID(string Sessionid)
+        void ResetToDefaults()
         {
-            this.SessionID = Sessionid;
-        }
-        void addLogLevel(LogLevelEnum LogLvl)
-        {
-            this.LogLevel = LogLvl;
-        }
-        void addEVLogs(EVLogInfo EVLogs)
-        {
-            this.SelectedEVLogs.Add(EVLogs);
-        }
-        void addFileLogs(FileLogInfo FileLogs)
-        {
-            this.SelectedFileLogs.Add(FileLogs);
-        }
-        void addTraces(TraceInfo Traces)
-        {
-            this.SelectedTraces.Add(Traces);
-        }
-        void addWorkflow(Workflowinfo workflow)
-        {
-            this.Workflow = workflow;
-        }
-        void addTimeFromTo(DateTime from,DateTime to)
-        {
-            this.From = from;
-            this.To = to;
-        }
-
-
-
-
-        string ISession.SeesionRootFolderPath()
-        {
-            return SessionOtputFolderPath;
-        }
-        SessionInfo ISession.CurrentSession()
-        {
-            return this;
+            WorkflowName = ""; 
+            SelectedEVLogs = new List<EVLogInfo>();
+            SelectedFileLogs = new List<FileLogInfo>();
+            SelectedTraces = new List<TraceInfo>();
+            From = new DateTime();
+            To = new DateTime();
+            LogLevel = LogLevelEnum.All;
+            SessionFolderPath = "";
+            //TODO: complete
+            SessionOtputFolderPath = "";
         }
 
-        void ISession.StartSession(SessionInfo session)
+        public void Save()
         {
+            SessionProvider sessionProvider = new SessionProvider();
+            XmlSerializer writer = new XmlSerializer(typeof(SessionInfo));
+            //string path ="SessionInfo.xml";
 
-
+            var sessionFolder = $@"{sessionProvider.SessionRootFolderPath}\{this.SessionFolderPath}_open\SessionInfo.xml";
+            using (TextWriter s = new StreamWriter(sessionFolder))
+            {
+                writer.Serialize(s, this);
+                s.Close();
+            }
         }
-        void ISession.StopSession(SessionInfo session)
+        public SessionInfo Load(string sessionPath)
         {
+            SessionProvider sessionProvider = new SessionProvider();
+            SessionInfo sessionInfo = null;
 
-        }
-        void ISession.CollectData(SessionInfo session)
-        {
+            XmlSerializer serializer = new XmlSerializer(typeof(SessionInfo));
 
-        }
-        void reResetToDefaults()
-        {
-
+            using (StreamReader reader = new StreamReader(sessionPath))
+            {
+                sessionInfo = (SessionInfo)serializer.Deserialize(reader);
+                reader.Close();
+            }
+                
+            return sessionInfo;
         }
     }
+    
     public enum LogLevelEnum
     {
         Information,

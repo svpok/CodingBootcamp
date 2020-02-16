@@ -4,17 +4,17 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{DF06ECE1-B3D8-4284-A273-16A3999CC001}</ProjectGuid>
-    <OutputType>Exe</OutputType>
-    <RootNamespace>TestCoreConsole</RootNamespace>
-    <AssemblyName>TestCoreConsole</AssemblyName>
+    <ProjectGuid>{C4983A07-CD5C-47FF-9DE3-B3051A2554BD}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SupportTroubleshootingTool.Core</RootNamespace>
+    <AssemblyName>SupportTroubleshootingTool.Core</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
     <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -24,7 +24,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -32,13 +31,16 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <PropertyGroup>
-    <StartupObject>
-    </StartupObject>
-  </PropertyGroup>
   <ItemGroup>
+    <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.IO.Compression.FileSystem" />
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -47,23 +49,34 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program.cs" />
+    <Compile Include="Handlers\ConfigXML.cs" />
+    <Compile Include="Handlers\FileLogHandler.cs" />
+    <Compile Include="Handlers\TraceHandler.cs" />
+    <Compile Include="Handlers\EVLogHandler.cs" />
+    <Compile Include="Handlers\BackUpManager.cs" />
+    <Compile Include="Contract\ISession.cs" />
+    <Compile Include="Contract\IWorkflow.cs" />
+    <Compile Include="Contract\SessionProvider.cs" />
+    <Compile Include="Contract\WorkflowProvider.cs" />
+    <Compile Include="Handlers\PackageHandler.cs" />
+    <Compile Include="Handlers\ProcessHandler.cs" />
+    <Compile Include="Handlers\XmlHandler.cs" />
+    <Compile Include="Model\BaseLogInfo.cs" />
+    <Compile Include="Model\ConfigItemInfo.cs" />
+    <Compile Include="Model\EVLogInfo.cs" />
+    <Compile Include="Model\FileLogInfo.cs" />
+    <Compile Include="Model\SessionInfo.cs" />
+    <Compile Include="Model\WorkflowInfo.cs" />
+    <Compile Include="Model\TraceInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utilities\Logger.cs" />
+    <Compile Include="Utilities\SerialtionHelper.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config">
-      <SubType>Designer</SubType>
-    </None>
+    <Folder Include="Configurations\Workflows\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ClassLibrary1\SupportTroubleshootingTool.Core.csproj">
-      <Project>{c4983a07-cd5c-47ff-9de3-b3051a2554bd}</Project>
-      <Name>SupportTroubleshootingTool.Core</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\WindowsFormsApp1\TestUI.csproj">
-      <Project>{8f3e211a-8292-4e8e-ad8b-388e6345db72}</Project>
-      <Name>TestUI</Name>
-    </ProjectReference>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

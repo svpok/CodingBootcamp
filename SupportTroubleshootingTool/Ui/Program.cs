@@ -16,6 +16,7 @@ namespace SupportTroubleshootingTool.UI
         [STAThread]
         static void Main()
         {
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             var sessionProvider = new SessionProvider();
@@ -30,9 +31,7 @@ namespace SupportTroubleshootingTool.UI
             }
 
             //SupportTroubleshootingTool.Core.Utilities.Logger.WriteInfo("program exited");
-            ConfigXML obj = new ConfigXML(@"C:\Users\Amal Saleh\Desktop\CodingBootcamp\XML.xml");
-            obj.Change(@"//Envelope/Cube/Cube/Cube[@rate>50 or @currency='USD']/@currency", "$$$$");
-            obj.Save();
+
         }
     }
 }

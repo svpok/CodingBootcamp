@@ -115,7 +115,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ClassLibrary1\SupportTroubleshootingTool.Core.csproj">
+    <ProjectReference Include="..\Core\SupportTroubleshootingTool.Core.csproj">
       <Project>{c4983a07-cd5c-47ff-9de3-b3051a2554bd}</Project>
       <Name>SupportTroubleshootingTool.Core</Name>
     </ProjectReference>
