@@ -13,9 +13,8 @@ namespace SupportTroubleshootingTool.Core.Model
 
         }
         [XmlElement]
-        public string Name { get;  set; }
-        [XmlElement]
-        public string Configfile { get;  set; }
-        public object Tracelnfo { get; set; }
+        public string TracesPath { get;  set; }
+        public string TraceFileName { get; set; }
+        public string IISApplicationPoolToRestart { get; set; }
     }
 }
