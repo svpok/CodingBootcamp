@@ -12,8 +12,13 @@ namespace SupportTroubleshootingTool.Core.Contract
 {
     public class WorkflowProvider : IWorkflow
     {
-        public const string WorkflowsRootFolder = @"C:\Users\Yehya\Desktop\dbmotion\CodingBootcamp\SupportTroubleshootingTool\ClassLibrary1\Configurations\Workflows";
+        public const string WorkflowsRootFolder = @".\Configurations\Workflows";
         public WorkflowProvider()
+        {
+            LoadWorkflows();
+        }
+
+        private void LoadWorkflows()
         {
             try
             {
@@ -23,18 +28,14 @@ namespace SupportTroubleshootingTool.Core.Contract
                 }
 
                 //Read workflows configurations and init Workflowslist
-                CreateWorkflow(1);
-                //Read workflows configurations and init Workflowslist
-                this.WorkflowsList = new List<WorkflowInfo>();
-                WorkflowInfo workflowInfo = new WorkflowInfo();
-                for (int i = 0; i <= 3; i++) {
-                    if (i == 0)
-                        WorkflowsList.Add(new WorkflowInfo());
-                    else
-                    {
-                        workflowInfo = SerialtionHelper<WorkflowInfo>.Deserialize(WorkflowsRootFolder + "\\w" + i + ".xml");
-                        WorkflowsList.Add(workflowInfo);
-                    }
+                this.WorkflowsList = new List<WorkflowInfo>() { new WorkflowInfo() };
+                string[] s = Directory.GetFiles(WorkflowsRootFolder);
+
+                //TODO: Find all files in WorkflowsRootFolder
+                foreach (var file in s)
+                {
+                    var workflowInfo = SerialtionHelper<WorkflowInfo>.Deserialize(file);
+                    WorkflowsList.Add(workflowInfo);
                 }
                 //SerialtionHelper<WorkflowProvider>.Serialize(this, WorkflowsRootFolder + "\\newtest.xml");
             }
@@ -43,11 +44,6 @@ namespace SupportTroubleshootingTool.Core.Contract
                 //Log
                 Logger.WriteError(ex);
             }
-        }
-
-        private void LoadWorkflows()
-        {
-            this.WorkflowsList = new List<WorkflowInfo>();
         }
 
         private void CreateWorkflow(int wfId)
