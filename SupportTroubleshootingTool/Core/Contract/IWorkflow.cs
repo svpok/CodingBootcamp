@@ -7,6 +7,6 @@ namespace SupportTroubleshootingTool.Core.Contract
 {
     public interface IWorkflow
     {
-        public List<Workflowinfo> Workflowslist { get; }
+        List<WorkflowInfo> WorkflowsList { get; }
     }
 }
