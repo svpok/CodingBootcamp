@@ -136,7 +136,7 @@ namespace SupportTroubleshootingTool.Core.Contract
                     new PackageHandler(_currentSession).Packageing();
                 }else
                 {
-                    MessageBox.Show("Change date and time."); 
+                    MessageBox.Show("The date and time is exist for this session."); 
                 }
             }
             catch (Exception ex)
