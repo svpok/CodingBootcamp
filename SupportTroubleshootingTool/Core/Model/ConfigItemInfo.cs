@@ -21,7 +21,7 @@ namespace SupportTroubleshootingTool.Core.Model
         [XmlElement]
         public bool IsRequireIISRestart { get; set; }
         [XmlArray]
-        [XmlArrayItem]
+        [XmlArrayItem("ServiceName")]
         public List<string> ServicesToRestart { get; set; }
     }
 }

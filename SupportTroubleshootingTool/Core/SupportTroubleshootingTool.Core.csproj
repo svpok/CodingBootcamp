@@ -66,6 +66,7 @@
     <Compile Include="Model\EVLogInfo.cs" />
     <Compile Include="Model\FileLogInfo.cs" />
     <Compile Include="Model\SessionInfo.cs" />
+    <Compile Include="Model\TraceModeInfo.cs" />
     <Compile Include="Model\WorkflowInfo.cs" />
     <Compile Include="Model\TraceInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
