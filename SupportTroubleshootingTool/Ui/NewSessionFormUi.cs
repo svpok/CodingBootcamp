@@ -64,7 +64,7 @@ namespace SupportTroubleshootingTool.UI
             ListTraces.Items.Clear();
             for (int i = 0; i < selectedWorkflow.Traces.Count; i++)
             {
-                bindingSource2.DataSource = selectedWorkflow.Traces[i].Name;
+                bindingSource2.DataSource = selectedWorkflow.Traces[i].Description;
                 ListTraces.Items.Add(bindingSource2.DataSource);
             }
         }

@@ -46,7 +46,7 @@ namespace SupportTroubleshootingTool.UI
 
             foreach (TraceInfo trace in _currentSession.SelectedTraces)
             {
-                this.loadData.Items.Add("Traces:" + trace.Name);
+                this.loadData.Items.Add("Traces:" + trace.Description);
             }
 
 
