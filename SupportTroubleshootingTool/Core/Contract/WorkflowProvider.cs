@@ -15,6 +15,7 @@ namespace SupportTroubleshootingTool.Core.Contract
         public const string WorkflowsRootFolder = @".\Configurations\Workflows";
         public WorkflowProvider()
         {
+            Directory.CreateDirectory(WorkflowsRootFolder);
             LoadWorkflows();
         }
 
