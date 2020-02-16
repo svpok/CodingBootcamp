@@ -33,7 +33,7 @@ namespace SupportTroubleshootingTool.UI
 
         private void NewSessionFormUi_Load(object sender, EventArgs e)
         {
-            this.Size = new Size(680, 500);
+            this.Size = new Size(1050, 550);
             FillWorkflows();
         }
         public void FillWorkflows()
@@ -112,7 +112,8 @@ namespace SupportTroubleshootingTool.UI
             comboboxWorkflows.SelectedIndex = 0;
             butCurrent.Checked = true;
         }
-        
+
+       
     }
     
 }
