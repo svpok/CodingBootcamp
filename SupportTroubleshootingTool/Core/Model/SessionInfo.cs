@@ -27,7 +27,7 @@ namespace SupportTroubleshootingTool.Core.Model
         [XmlElement]
         public string SessionID { get; set; }
         [XmlElement]
-       
+
         public string WorkflowName { get; set; }
         [XmlElement]
         public DateTime From { get; set; }
@@ -51,7 +51,7 @@ namespace SupportTroubleshootingTool.Core.Model
 
         void ResetToDefaults()
         {
-            WorkflowName = ""; 
+            WorkflowName = "";
             SelectedEVLogs = new List<EVLogInfo>();
             SelectedFileLogs = new List<FileLogInfo>();
             SelectedTraces = new List<TraceInfo>();
@@ -64,7 +64,8 @@ namespace SupportTroubleshootingTool.Core.Model
         }
 
 
-    
+    }
+}
     public enum LogLevelEnum
     {
         Information,
@@ -72,4 +73,4 @@ namespace SupportTroubleshootingTool.Core.Model
         Error,
         All
     }
-}
+
