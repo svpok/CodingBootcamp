@@ -29,7 +29,7 @@ namespace SupportTroubleshootingTool.Core.Handlers
             }
             catch (Exception ex)
             {
-                Utilities.Logger.WriteError(ex);
+              new  Utilities.Logger().WriteError(ex);
             }
         }
 
@@ -42,7 +42,7 @@ namespace SupportTroubleshootingTool.Core.Handlers
             }
             catch (Exception ex)
             {
-                Logger.WriteError(ex);
+               new Logger().WriteError(ex);
                 throw;
             }
         }

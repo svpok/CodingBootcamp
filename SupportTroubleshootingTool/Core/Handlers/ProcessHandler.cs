@@ -5,6 +5,7 @@ using System.Linq;
 using System.ServiceProcess;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.Web.Administration;
 
 namespace SupportTroubleshootingTool.Core.Handlers
 {
@@ -17,9 +18,10 @@ namespace SupportTroubleshootingTool.Core.Handlers
             this.session = session;
         }
 
-        public static void RestartService(string serviceName, int timeoutMilliseconds)  // Will handle services that running in server 
+        internal void RestartService()  // Will handle services that running in server 
         {
-            ServiceController service = new ServiceController(serviceName);
+            ServiceController service = new ServiceController(session.WorkflowName);
+            int timeoutMilliseconds = 1000;
             try
             {
                 int millisec1 = Environment.TickCount;
@@ -37,14 +39,21 @@ namespace SupportTroubleshootingTool.Core.Handlers
             }
             catch (Exception e)
             {
-                Utilities.Logger.WriteError(e);
+             new Utilities.Logger().WriteError(e);
             }
         }
 
         
-        internal void RestartService()
+        internal void RestartPool()
         {
-            
+            ServerManager server = new ServerManager();
+            ApplicationPool application = server.ApplicationPools[session.WorkflowName];
+            var state = application.State;
+            try { application.Stop(); }
+            catch (Exception e){
+                new SupportTroubleshootingTool.Core.Utilities.Logger().WriteError(e);
+
+            }
         }
     }
 }

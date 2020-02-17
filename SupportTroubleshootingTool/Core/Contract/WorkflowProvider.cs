@@ -42,7 +42,7 @@ namespace SupportTroubleshootingTool.Core.Contract
             catch (Exception ex)
             {
                 //Log
-                Logger.WriteError(ex);
+              new  Logger().WriteError(ex);
             }
         }
 

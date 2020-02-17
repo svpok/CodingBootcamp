@@ -52,7 +52,7 @@ namespace SupportTroubleshootingTool.Core.Contract
                 }
                 if (s.Length > 1)
                 {
-                    Logger.WriteWarning("two Session or more is open.");
+                  new  Logger().WriteWarning("two Session or more is open.");
                     throw new Exception("two Session or more is open.");
                 }
 
@@ -84,7 +84,7 @@ namespace SupportTroubleshootingTool.Core.Contract
             }
             catch(Exception ex)
             {
-                Logger.WriteError(ex);
+               new  Logger().WriteError(ex);
                 throw ex;
             }
 
@@ -112,7 +112,7 @@ namespace SupportTroubleshootingTool.Core.Contract
             }
             catch (Exception ex)
             {
-                Logger.WriteError(ex);
+              new  Logger().WriteError(ex);
                 throw ex;
             }
         }
@@ -141,7 +141,7 @@ namespace SupportTroubleshootingTool.Core.Contract
             }
             catch (Exception ex)
             {
-                Logger.WriteError(ex);
+              new  Logger().WriteError(ex);
                 throw ex;
             }
         }

@@ -26,9 +26,9 @@ namespace SupportTroubleshootingTool.Core.Handlers
             }
             catch (Exception e)
             {
-                Utilities.Logger.WriteError(e);
+                new Utilities.Logger().WriteError(e);
             }
-            Utilities.Logger.WriteInfo("the file Zipped to" + DestinationPath);
+            new Utilities.Logger().WriteInfo("the file Zipped to" + DestinationPath);
 
         }
         internal void Packageing()
