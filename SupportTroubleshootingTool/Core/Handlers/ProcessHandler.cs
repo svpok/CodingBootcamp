@@ -16,24 +16,34 @@ namespace SupportTroubleshootingTool.Core.Handlers
         public ProcessHandler(SessionInfo session)
         {
             this.session = session;
+            List<TraceInfo> traceInfos = session.SelectedTraces;
+            if (traceInfos != null)
+            {
+                foreach (TraceInfo trace in traceInfos)
+                {
+                    string iisapplicationpooltorestart = trace.IISApplicationPoolToRestart;
+                    List<string> servicestorestart = trace.ServicesToRestart;
+                    if (iisapplicationpooltorestart != null) { RestartPool(iisapplicationpooltorestart); }
+                    if (servicestorestart != null)
+                    {
+                        foreach (string servicename in servicestorestart) { RestartService(servicename); }
+                    }
+                }
+            }
+            else { new Utilities.Logger().WriteInfo("No Traces Found you Waste my Time"); }
         }
 
-        internal void RestartService()  // Will handle services that running in server 
+            internal void RestartService(string serviceName)  // Will handle services that running in server 
         {
-            ServiceController service = new ServiceController(session.WorkflowName);
+            ServiceController service = new ServiceController(serviceName);
             int timeoutMilliseconds = 1000;
             try
             {
-                int millisec1 = Environment.TickCount;
+                // to handle Process we must use timeout time to be sure that the process stopped then we can start it
+                //else we get exception
                 TimeSpan timeout = TimeSpan.FromMilliseconds(timeoutMilliseconds);
-
                 service.Stop();
                 service.WaitForStatus(ServiceControllerStatus.Stopped, timeout);
-
-                // count the rest of the timeout
-                int millisec2 = Environment.TickCount;
-                timeout = TimeSpan.FromMilliseconds(timeoutMilliseconds - (millisec2 - millisec1));
-
                 service.Start();
                 service.WaitForStatus(ServiceControllerStatus.Running, timeout);
             }
@@ -44,16 +54,19 @@ namespace SupportTroubleshootingTool.Core.Handlers
         }
 
         
-        internal void RestartPool()
+        internal void RestartPool(string appname)
         {
             ServerManager server = new ServerManager();
-            ApplicationPool application = server.ApplicationPools[session.WorkflowName];
-            var state = application.State;
-            try { application.Stop(); }
-            catch (Exception e){
-                new SupportTroubleshootingTool.Core.Utilities.Logger().WriteError(e);
+            ApplicationPool application = server.ApplicationPools[appname];
+            try
+            {
+                application.Recycle();
+            }
+            catch (Exception e)
+            {
+                new Utilities.Logger().WriteError(e);
 
             }
+                }
+            }  
         }
-    }
-}
