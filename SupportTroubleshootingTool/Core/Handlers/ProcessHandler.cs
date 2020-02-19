@@ -15,6 +15,7 @@ namespace SupportTroubleshootingTool.Core.Handlers
 
         public ProcessHandler(SessionInfo session)
         {
+
             this.session = session;
             List<TraceInfo> traceInfos = session.SelectedTraces;
             if (traceInfos != null)
@@ -49,7 +50,8 @@ namespace SupportTroubleshootingTool.Core.Handlers
             }
             catch (Exception e)
             {
-             new Utilities.Logger().WriteError(e);
+                new Utilities.Logger().WriteError(e);
+                throw new Exception("error to restart servis");
             }
         }
 

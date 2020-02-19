@@ -178,7 +178,7 @@
 			<TracesPath>C:\Program Files\dbMotion\Services\VIAService\FedTrace</TracesPath>
 			<TraceFileName>*.*</TraceFileName>
 		</TraceInfo>
-		<TraceInfo>
+		<!--<TraceInfo>
 			<Description>CLCC Traces</Description>
 			<ConfigFilePath>C:\Users\spokatilovskiy\Documents\GiveBack\BootCamp\dbMotionConfigs\dbMotion Shared\Communication\Configuration\FederationSitesConfig.xml</ConfigFilePath>
 			<TraceModeInfo>
@@ -188,6 +188,6 @@
 			</TraceModeInfo>
 			<TracesPath>C:\Program Files\dbMotion\Web\DataStore</TracesPath>
 			<TraceFileName>Demography_GetDemographyLightCDRAdapter_PatientAdministration_*.*</TraceFileName>
-		</TraceInfo>
+		</TraceInfo>-->
 	</Traces>
 </WorkflowInfo>

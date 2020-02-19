@@ -81,7 +81,7 @@ namespace SupportTroubleshootingTool.Core.Contract
                 //Open traces (XmlHanlder) - done
                 new XmlHandler(_currentSession).ChangeConfig();
                 //Restart processes (ProcessHandler) - done
-                new ProcessHandler(_currentSession);
+                //new ProcessHandler(_currentSession);
             }
             catch(Exception ex)
             {
@@ -106,7 +106,7 @@ namespace SupportTroubleshootingTool.Core.Contract
                 new BackUpManager(_currentSession).Restore();
                 //Restart processes (ProcessHandler)
 
-                new ProcessHandler(_currentSession);
+                //new ProcessHandler(_currentSession);
                 //Rename session folder from open to close - done
                 System.IO.Directory.Move($"{SessionRootFolderPath}\\{_currentSession.SessionFolderPath}_open",
                 $"{SessionRootFolderPath}\\{_currentSession.SessionFolderPath}_close");
