@@ -2,90 +2,75 @@
 using System.IO;
 using SupportTroubleshootingTool.Core.Utilities;
 using System;
+using System.Collections.Generic;
 
 namespace SupportTroubleshootingTool.Core.Handlers
 {
     internal class BackUpManager
     {
-        private SessionInfo session;
-        private string BackUpFolderPath;
+        private readonly SessionInfo _session;
+        private readonly string _backUpFolderPath;
+        private readonly string _xmlRestoreSteps;
         public BackUpManager(SessionInfo session)
         {
-            this.session = session;
-            this.BackUpFolderPath = Path.Combine(session.SessionOtputFolderPath, "SessionBackUp");
-            if (!Directory.Exists(BackUpFolderPath))
-            {
-                Directory.CreateDirectory(BackUpFolderPath);
-            }
+            _session = session;
+            _backUpFolderPath = Path.Combine(session.SessionOtputFolderPath, "SessionBackUp");
+            _xmlRestoreSteps = Path.Combine(_backUpFolderPath, "backupsteps.xml");
         }
 
         internal void Backup()
         {
             try
             {
+                if (!Directory.Exists(_backUpFolderPath))
+                {
+                    Directory.CreateDirectory(_backUpFolderPath);
+                }
                 BackupSteps steps = new BackupSteps();
-                for (int i = 0; i < session.SelectedEVLogs.Count; i++)
-                {
-                    string FilePath = session.SelectedEVLogs[i].ConfigFilePath;
-                    string[] split = FilePath.Split(new char[] { '\\' });
-                    string FileName = split[split.Length - 1];
-                    if (!File.Exists(Path.Combine(this.BackUpFolderPath, FileName)))
-                    {
-                        steps.FilePath.Add(FilePath);
-                        steps.FileName.Add(FileName);
-                        File.Copy(session.SelectedEVLogs[i].ConfigFilePath, Path.Combine(this.BackUpFolderPath, FileName));
-                    }
-                }
-                for (int i = 0; i < session.SelectedFileLogs.Count; i++)
-                {
-                    string FilePath = session.SelectedFileLogs[i].ConfigFilePath;
-                    string[] split = FilePath.Split(new char[] { '\\' });
-                    string FileName = split[split.Length - 1];
-                    if (!File.Exists(Path.Combine(this.BackUpFolderPath, FileName)))
-                    {
-                        steps.FilePath.Add(FilePath);
-                        steps.FileName.Add(FileName);
-                        File.Copy(session.SelectedFileLogs[i].ConfigFilePath, Path.Combine(this.BackUpFolderPath, FileName));
-                    }
-
-                }
-                for (int i = 0; i < session.SelectedTraces.Count; i++)
-                {
-                    string FilePath = session.SelectedTraces[i].ConfigFilePath;
-                    string[] split = FilePath.Split(new char[] { '\\' });
-                    string FileName = split[split.Length - 1];
-                    if (!File.Exists(Path.Combine(this.BackUpFolderPath, FileName)))
-                    {
-                        steps.FilePath.Add(FilePath);
-                        steps.FileName.Add(FileName);
-                        File.Copy(session.SelectedTraces[i].ConfigFilePath, Path.Combine(this.BackUpFolderPath, FileName));
-                    }
-                }
-                SerialtionHelper<BackupSteps>.Serialize(steps, Path.Combine(this.BackUpFolderPath, "backupsteps.xml"));
+                BackupConfigFiles(steps, new List<ConfigItemInfo>(_session.SelectedEVLogs));
+                BackupConfigFiles(steps, new List<ConfigItemInfo>(_session.SelectedFileLogs));
+                BackupConfigFiles(steps, new List<ConfigItemInfo>(_session.SelectedTraces));
+                SerialtionHelper<BackupSteps>.Serialize(steps, _xmlRestoreSteps);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-                new Logger().WriteError("Error backup");
-                throw new Exception("Error backup");
+                var newEx = new Exception("Error backup", ex);
+                new Logger().WriteError(newEx);
+                throw newEx;
             }
         }
+
         internal void Restore()
         {
             try
             {
-                string[] FilesName = Directory.GetFiles(this.BackUpFolderPath);
-                BackupSteps steps = SerialtionHelper<BackupSteps>.Deserialize(Path.Combine(this.BackUpFolderPath, "backupsteps.xml"));
-                for (int i = 0; i < steps.FilePath.Count; i++)
+                string[] FilesName = Directory.GetFiles(this._backUpFolderPath);
+                BackupSteps steps = SerialtionHelper<BackupSteps>.Deserialize(_xmlRestoreSteps);
+                for(int i =0; i<steps.FilePath.Count;i++)
                 {
-                    File.Delete(steps.FilePath[i]);
-                    File.Copy(Path.Combine(this.BackUpFolderPath, steps.FileName[i]), steps.FilePath[i]);
-                    //File.Move(Path.Combine(this.BackUpFolderPath, steps.FileName[i]), steps.FilePath[i]);
+                    File.Copy(Path.Combine(this._backUpFolderPath,steps.FileName[i]), steps.FilePath[i],true);
                 }
             }
             catch(Exception ex)
             {
-                new Logger().WriteError("Error restore");
-                throw new Exception("Error restore");
+                var newEx = new Exception("Error restore", ex);
+                new Logger().WriteError(newEx);
+                throw newEx;
+            }
+        }
+
+        private void BackupConfigFiles(BackupSteps steps, List<ConfigItemInfo> configsList)
+        {
+            foreach (var configFileInfo in configsList)
+            {
+                var orgFileInfo = new FileInfo(configFileInfo.ConfigFilePath);
+                var destFileInfo = Path.Combine(this._backUpFolderPath, orgFileInfo.Name);
+                if (!File.Exists(destFileInfo))
+                {
+                    steps.FilePath.Add(orgFileInfo.FullName);
+                    steps.FileName.Add(orgFileInfo.Name);
+                    File.Copy(orgFileInfo.FullName, destFileInfo);
+                }
             }
         }
     }
