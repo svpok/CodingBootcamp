@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WorkflowInfo xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<!-- Name for presentation in workflows combo box -->
+	<Name>CVA - Resolve Patient - Eitan Project</Name>
+	<!-- Name for presentation in workflows combo box -->
+	<ConfigFile>CVA_ResolvePatient_MOH.xml</ConfigFile>
+	<EVLogs>
+		<EVLogInfo>
+			<!-- ConfigItemInfo properties: 
+			    public string Description { get; set; } - Description of EV Log. For presentaion in EV Logs UI elements. Mandatory.
+				public string ConfigFilePath { get; set; } - Config file path that has the EV log level definition. For using in XMLHandler. Mandatory.
+				public bool IsRequireIISRestart { get; set; } - If IIS should be restarted (all pools). For using in ProsessHandler. Optional, default value is false.
+				public string IISApplicationPoolToRestart {get; set; } - IIS Application Pool to be restarte. For using in ProsessHandler. Optional, default value is empty string.
+				public List<string> ServicesToRestart { get; set; } - Collection of services names that should be restarted. For using in ProsessHandler. Optional, default value is empty List. If item is defined, it cannot be empty.
+			-->
+			<Description>dbMotion EHR Agent - General</Description>
+			<ConfigFilePath>C:\Program Files\dbMotion\Services\SmartAgent\Configuration\SmartAgent.EntLib.config</ConfigFilePath>
+			<IsRequireIISRestart>false</IsRequireIISRestart>
+			<IISApplicationPoolToRestart/>
+			<ServicesToRestart>
+				<!--<ServiceName></ServiceName>-->
+			</ServicesToRestart>
+			<!-- BaseLogInfo properties: 
+				public string LogLevelXPath { get; set; } - Collecton of XPaths that define log levels. For using in XMLHandler. Mandatory, at least on element what cannot be empty.
+			-->
+			<LogLevelXPaths>
+				<XPath>/configuration/loggingConfiguration/categorySources/add[@name='General']/@switchValue</XPath>
+			</LogLevelXPaths>
+			<!-- EVLogInfo properties:
+				public string LogName { get; set; } - EV log name. For using in EVLogHandler. Mandatory. Cannot be empty.
+				public List<string> Sources { get; set; } - Collection of Sources. Optional, default value is empty List. The items cannot be empty.
+			-->
+			<LogName>dbMotion EHR Agent</LogName>
+			<Sources>
+				<Source>dbMotion AgentHub Service</Source>
+			</Sources>
+		</EVLogInfo>
+		<EVLogInfo>
+			<Description>dbMotion EHR Agent - DocumentConversion</Description>
+			<LogLevelXPaths>
+				<XPath>/configuration/loggingConfiguration/categorySources/add[@name='DocumentConversion']/@switchValue</XPath>
+			</LogLevelXPaths>
+			<ConfigFilePath>C:\Program Files\dbMotion\Services\SmartAgent\Configuration\SmartAgent.EntLib.config</ConfigFilePath>
+			<LogName>dbMotion EHR Agent</LogName>
+			<Sources>
+				<Source>dbMotion AgentHub Service</Source>
+			</Sources>
+		</EVLogInfo>
+		<EVLogInfo>
+			<Description>dbMotion EHR Agent - Communication Client log4Net</Description>
+			<LogLevelXPaths>
+				<XPath>/configuration/log4net/root/level/@value</XPath>
+				<Xpath>/configuration/log4net/appender[@name='EventLogAppender']/filter/levelMin/@value</Xpath>
+			</LogLevelXPaths>
+			<ConfigFilePath>C:\Program Files\dbMotion\Services\SmartAgent\Web.config</ConfigFilePath>
+			<IsRequireIISRestart>false</IsRequireIISRestart>
+			<IISApplicationPoolToRestart>DbmSmartAgentPool</IISApplicationPoolToRestart>
+			<LogName>dbMotion EHR Agent</LogName>
+			<Sources>
+				<Source>dbMotion AgentHub Service</Source>
+			</Sources>
+		</EVLogInfo>
+		<EVLogInfo>
+			<Description>DBMVIA Service - General</Description>
+			<LogLevelXPaths>
+				<XPath>/configuration/loggingConfiguration/categorySources/add[@name='VIA Service']/@name</XPath>
+			</LogLevelXPaths>
+			<ConfigFilePath>C:\Program Files\dbMotion\Services\VIAService\EntLibConfig.config</ConfigFilePath>
+			<LogName>DBMVIA Service</LogName>
+			<Sources />
+		</EVLogInfo>		
+		<EVLogInfo>
+			<Description>DBMVIA Service - Communication Client log4Net</Description>
+			<LogLevelXPaths>
+				<XPath>/configuration/log4net/root/level/@value</XPath>
+				<Xpath>/configuration/log4net/appender[@name='EventLogAppender']/filter/levelMin/@value</Xpath>
+			</LogLevelXPaths>
+			<ConfigFilePath>C:\Program Files\dbMotion\Services\VIAService\dbMotion.VIA.HostService.exe.config</ConfigFilePath>			
+			<ServicesToRestart>
+				<ServiceName>DBMVIAHostService</ServiceName>
+			</ServicesToRestart>
+			<LogName>DBMCommunication</LogName>
+			<Sources>
+				<Source>dbMotion.Communication.Framework.Client</Source>
+			</Sources>
+		</EVLogInfo>		
+	</EVLogs>
+	<FileLogs>
+		<FileLogInfo>
+			<!-- ConfigItemInfo properties: 
+			    public string Description { get; set; } - Description of EV Log. For presentaion in EV Logs UI elements. Mandatory.
+				public string ConfigFilePath { get; set; } - Config file path that has the EV log level definition. For using in XMLHandler. Mandatory.
+				public bool IsRequireIISRestart { get; set; } - If IIS should be restarted (all pools). For using in ProsessHandler. Optional, default value is false.
+				public string IISApplicationPoolToRestart {get; set; } - IIS Application Pool to be restarte. For using in ProsessHandler. Optional, default value is empty string.
+				public List<string> ServicesToRestart { get; set; } - Collection of services names that should be restarted. For using in ProsessHandler. Optional, default value is empty List. If item is defined, it cannot be empty.
+			-->
+			<Description>dbMotion EHR Agent - Communication Client log4Net</Description>
+			<ConfigFilePath>C:\Program Files\dbMotion\Services\SmartAgent\Web.config</ConfigFilePath>
+			<IsRequireIISRestart>false</IsRequireIISRestart>
+			<IISApplicationPoolToRestart>DbmSmartAgentPool</IISApplicationPoolToRestart>
+			<ServicesToRestart>
+				<!--<ServiceName></ServiceName>-->
+			</ServicesToRestart>
+			<!-- BaseLogInfo properties: 
+				public string LogLevelXPath { get; set; } - Collecton of XPaths that define log levels. For using in XMLHandler. Mandatory, at least on element what cannot be empty.
+			-->
+			<LogLevelXPaths>
+				<!-- XPath for using in XMLHandler. Mandatory. -->
+				<XPath>/configuration/log4net/root/level/@value</XPath>
+			</LogLevelXPaths>
+			<!-- FileLogInfo properties:
+				public string LogsPath { get; set; } - folder where the log files will be created. For using in FileHandler. Mandatory. Cannot be empty.
+				public string LogFileName { get; set; } - the wildcard of log file name. For using in FileHandler. Mandatory. Default value: *.*
+			-->
+			<LogsPath>C:\Program Files\dbMotion\Services\SmartAgent\Logs</LogsPath>
+			<LogFileName>bypass.log*</LogFileName>
+		</FileLogInfo>
+		<FileLogInfo>
+			<Description>DBMVIA Service - Communication Client log4Net</Description>
+			<ConfigFilePath>C:\Program Files\dbMotion\Services\VIAService\dbMotion.VIA.HostService.exe.config</ConfigFilePath>			
+			<ServicesToRestart>
+				<ServiceName>DBMVIAHostService</ServiceName>
+			</ServicesToRestart>
+			<LogLevelXPaths>
+				<XPath>/configuration/log4net/root/level/@value</XPath>
+			</LogLevelXPaths>
+			<LogsPath>C:\Program Files\dbMotion\Services\VIAService\Logs</LogsPath>
+			<LogFileName>cdradapter.log*</LogFileName>
+		</FileLogInfo>
+	</FileLogs>
+	<Traces>
+		<TraceInfo>
+			<!-- ConfigItemInfo properties: 
+			    public string Description { get; set; } - Description of EV Log. For presentaion in EV Logs UI elements. Mandatory.
+				public string ConfigFilePath { get; set; } - Config file path that has the EV log level definition. For using in XMLHandler. Mandatory.
+				public bool IsRequireIISRestart { get; set; } - If IIS should be restarted (all pools). For using in ProsessHandler. Optional, default value is false.
+				public string IISApplicationPoolToRestart {get; set; } - IIS Application Pool to be restarte. For using in ProsessHandler. Optional, default value is empty string.
+				public List<string> ServicesToRestart { get; set; } - Collection of services names that should be restarted. For using in ProsessHandler. Optional, default value is empty List. If item is defined, it cannot be empty.
+			-->
+			<Description>VPO Traces</Description>
+			<ConfigFilePath>C:\Program Files\dbMotion\Services\BusinessServices\VPO\Configuration\VPO\Cache\Settings\dbmSystemProperties.xml</ConfigFilePath>
+			<IsRequireIISRestart>false</IsRequireIISRestart>
+			<IISApplicationPoolToRestart></IISApplicationPoolToRestart>
+			<ServicesToRestart>
+				<!--<ServiceName></ServiceName>-->
+			</ServicesToRestart>
+			<!-- TraceInfo properties:
+				public TraceModeInfo TraceMode { get; set; } - trace mode information
+				public string TracesPath { get; set; } - folder where the trace files will be created. For using in FileHandler. Mandatory. Cannot be empty.
+				public string TraceFileName { get; set; } - - the wildcard of trace files name. For using in FileHandler. Mandatory. Default value: *.*
+				
+				TraceModeInfo properties:
+				public string Xpath { get; set; } - XPath that define trace mode. For using in XmlHandler. Mandatory. Cannot be empty.
+				public bool ValueOn { get; set; } - value to be set when traces are on. For using in XmlHandler. Mandatory. Cannot be empty.
+				public bool ValueOff { get; set; } - - value to be set when traces are off. For using in XmlHandler. Mandatory. Cannot be empty.
+			-->
+			<TraceModeInfo>
+				<Xpath>/dbmProperties/dbmGroup[@name='Tracing']/dbmProperty[@name='bypassTraceModeInfo']</Xpath>
+				<ValueOn>InputOutput</ValueOn>
+				<ValueOff>None</ValueOff>
+			</TraceModeInfo>
+			<TracesPath>C:\Program Files\dbMotion\Services\BusinessServices\VPO\Tracing\VPO</TracesPath>
+			<TraceFileName>VPO_*_PatientEntrance_PatientSearchAsDS_*.bd</TraceFileName>
+		</TraceInfo>
+		<TraceInfo>
+			<Description>VIA Federation Traces</Description>
+			<ConfigFilePath>C:\Program Files\dbMotion\Services\VIAService\Configuration\FederatedCDREMPIEnterpriseInfo.xml</ConfigFilePath>
+			<IsRequireIISRestart>false</IsRequireIISRestart>
+			<IISApplicationPoolToRestart></IISApplicationPoolToRestart>
+			<ServicesToRestart>
+				<ServiceName>DBMVIAHostService</ServiceName>
+			</ServicesToRestart>
+			<TraceModeInfo>
+				<Xpath>/via/identificationProviders/provider/operations/match/settings/setting[@name='TraceEnable']/@value</Xpath>
+				<ValueOn>true</ValueOn>
+				<ValueOff>false</ValueOff>
+			</TraceModeInfo>
+			<TracesPath>C:\Program Files\dbMotion\Services\VIAService\FedTrace</TracesPath>
+			<TraceFileName>*.*</TraceFileName>
+		</TraceInfo>
+		<TraceInfo>
+			<Description>CLCC Traces</Description>
+			<ConfigFilePath>C:\Users\spokatilovskiy\Documents\GiveBack\BootCamp\dbMotionConfigs\dbMotion Shared\Communication\Configuration\FederationSitesConfig.xml</ConfigFilePath>
+			<TraceModeInfo>
+				<Xpath>/FederationSitesConfig/@traceEnabled</Xpath>
+				<ValueOn>true</ValueOn>
+				<ValueOff>false</ValueOff>
+			</TraceModeInfo>
+			<TracesPath>C:\Program Files\dbMotion\Web\DataStore</TracesPath>
+			<TraceFileName>Demography_GetDemographyLightCDRAdapter_PatientAdministration_*.*</TraceFileName>
+		</TraceInfo>
+	</Traces>
+</WorkflowInfo>

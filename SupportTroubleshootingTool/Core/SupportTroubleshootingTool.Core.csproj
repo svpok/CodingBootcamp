@@ -202,6 +202,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Handlers\BackupSteps.cs" />
+    <Compile Include="Handlers\FilesHandler.cs" />
     <Compile Include="Handlers\ConfigXML.cs" />
     <Compile Include="Handlers\FileLogHandler.cs" />
     <Compile Include="Handlers\TraceHandler.cs" />
@@ -226,13 +227,16 @@
     <Compile Include="Utilities\Logger.cs" />
     <Compile Include="Utilities\SerialtionHelper.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Configurations\Workflows\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
     <None Include="Properties\app.manifest" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Configurations\Workflows\CVA_ResolvePatient_MOH.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

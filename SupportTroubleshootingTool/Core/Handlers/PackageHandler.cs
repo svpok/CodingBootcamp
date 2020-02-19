@@ -31,7 +31,7 @@ namespace SupportTroubleshootingTool.Core.Handlers
             new Utilities.Logger().WriteInfo("the file Zipped to" + DestinationPath);
 
         }
-        internal void Packageing()
+        internal void Packaging()
         {
             
         }

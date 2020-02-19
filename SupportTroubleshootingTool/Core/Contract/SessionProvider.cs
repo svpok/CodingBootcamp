@@ -40,10 +40,10 @@ namespace SupportTroubleshootingTool.Core.Contract
                 }
                 string[] s = Directory.GetDirectories(SessionRootFolderPath, "*open", SearchOption.AllDirectories);
                 //Search in this.SessionRootFolderPath the session folder that is opened. - done
-                //yyyy-MM-dd-hh-mm_workflowName_open - open session 
+                //yyyy-MM-dd-hh-mm_workflowName_open - open session
                 //yyyy-MM-dd-hh-mm_workflowName_close - closed session
                 //if such folder exists create SessionInfo object from the SessionInfo.xml and return it. - done
-                //Otherwise return null; - done 
+                //Otherwise return null; - done
                 if (s.Length == 1)
                 {
                     _currentSession = SerialtionHelper<SessionInfo>.Deserialize(s[0] + "\\SessionInfo.xml");
@@ -64,7 +64,7 @@ namespace SupportTroubleshootingTool.Core.Contract
         {
             try
             {
-                
+
                 _currentSession = session;
                 _currentSession.SessionOtputFolderPath = Path.Combine(SessionRootFolderPath,
                                                         $"{_currentSession.SessionFolderPath}_open");
@@ -81,7 +81,7 @@ namespace SupportTroubleshootingTool.Core.Contract
                 //Open traces (XmlHanlder) - done
                 new XmlHandler(_currentSession).ChangeConfig();
                 //Restart processes (ProcessHandler) - done
-                //new ProcessHandler(_currentSession);
+                new ProcessHandler(_currentSession);
             }
             catch(Exception ex)
             {
@@ -100,15 +100,17 @@ namespace SupportTroubleshootingTool.Core.Contract
                     throw new ArgumentException("There no session to close.");
 
                 }
-                
+
 
                 //Resore from backup (BackupHandler)
                 new BackUpManager(_currentSession).Restore();
                 //Restart processes (ProcessHandler)
-                //new ProcessHandler(_currentSession);
+
+                new ProcessHandler(_currentSession);
                 //Rename session folder from open to close - done
                 System.IO.Directory.Move($"{SessionRootFolderPath}\\{_currentSession.SessionFolderPath}_open",
                 $"{SessionRootFolderPath}\\{_currentSession.SessionFolderPath}_close");
+
             }
             catch (Exception ex)
             {
@@ -133,10 +135,10 @@ namespace SupportTroubleshootingTool.Core.Contract
                     new FileLogHandler(_currentSession).CollectData();
                     //Collect traces (TraceHanler)
                     new TraceHandler(_currentSession).CollectData();
-                    new PackageHandler(_currentSession).Packageing();
+                    new PackageHandler(_currentSession).Packaging();
                 }else
                 {
-                    MessageBox.Show("The date and time is exist for this session."); 
+                    MessageBox.Show("The date and time is exist for this session.");
                 }
             }
             catch (Exception ex)
