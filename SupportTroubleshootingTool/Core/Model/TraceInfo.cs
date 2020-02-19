@@ -12,8 +12,8 @@ namespace SupportTroubleshootingTool.Core.Model
         {
 
         }
-        //[XmlElement]
-        //public TraceModeInfo TraceMode{ get; set; }
+        [XmlElement]
+        public TraceModeInfo TraceMode{ get; set; }
         [XmlElement]
         public string TracesPath { get;  set; }
         [XmlElement]
