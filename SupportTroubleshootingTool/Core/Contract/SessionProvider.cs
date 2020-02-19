@@ -64,6 +64,7 @@ namespace SupportTroubleshootingTool.Core.Contract
         {
             try
             {
+                
                 _currentSession = session;
                 _currentSession.SessionOtputFolderPath = Path.Combine(SessionRootFolderPath,
                                                         $"{_currentSession.SessionFolderPath}_open");
@@ -80,7 +81,7 @@ namespace SupportTroubleshootingTool.Core.Contract
                 //Open traces (XmlHanlder) - done
                 new XmlHandler(_currentSession).ChangeConfig();
                 //Restart processes (ProcessHandler) - done
-                new ProcessHandler(_currentSession).RestartService();
+                //new ProcessHandler(_currentSession);
             }
             catch(Exception ex)
             {
@@ -99,16 +100,15 @@ namespace SupportTroubleshootingTool.Core.Contract
                     throw new ArgumentException("There no session to close.");
 
                 }
-
-                System.IO.Directory.Move($"{SessionRootFolderPath}\\{_currentSession.SessionFolderPath}_open",
-                    $"{SessionRootFolderPath}\\{_currentSession.SessionFolderPath}_close");
-
-                //Rename session folder from open to close - done
+                
 
                 //Resore from backup (BackupHandler)
                 new BackUpManager(_currentSession).Restore();
                 //Restart processes (ProcessHandler)
-                new ProcessHandler(_currentSession).RestartService();
+                //new ProcessHandler(_currentSession);
+                //Rename session folder from open to close - done
+                System.IO.Directory.Move($"{SessionRootFolderPath}\\{_currentSession.SessionFolderPath}_open",
+                $"{SessionRootFolderPath}\\{_currentSession.SessionFolderPath}_close");
             }
             catch (Exception ex)
             {
@@ -144,6 +144,7 @@ namespace SupportTroubleshootingTool.Core.Contract
               new  Logger().WriteError(ex);
                 throw ex;
             }
+
         }
     }
 }

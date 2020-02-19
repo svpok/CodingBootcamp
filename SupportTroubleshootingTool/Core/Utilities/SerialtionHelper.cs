@@ -26,9 +26,6 @@ namespace SupportTroubleshootingTool.Core.Utilities
                 reader.Close();
             }
             return serializedData;
-
-
-
         }
     }
 }
