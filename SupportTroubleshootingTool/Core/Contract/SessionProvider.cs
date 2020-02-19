@@ -80,7 +80,7 @@ namespace SupportTroubleshootingTool.Core.Contract
                 //Open traces (XmlHanlder) - done
                 new XmlHandler(_currentSession).ChangeConfig();
                 //Restart processes (ProcessHandler) - done
-                new ProcessHandler(_currentSession).RestartService();
+                new ProcessHandler(_currentSession);
             }
             catch(Exception ex)
             {
@@ -108,7 +108,7 @@ namespace SupportTroubleshootingTool.Core.Contract
                 //Resore from backup (BackupHandler)
                 new BackUpManager(_currentSession).Restore();
                 //Restart processes (ProcessHandler)
-                new ProcessHandler(_currentSession).RestartService();
+                new ProcessHandler(_currentSession);
             }
             catch (Exception ex)
             {
@@ -133,7 +133,7 @@ namespace SupportTroubleshootingTool.Core.Contract
                     new FileLogHandler(_currentSession).CollectData();
                     //Collect traces (TraceHanler)
                     new TraceHandler(_currentSession).CollectData();
-                    new PackageHandler(_currentSession).Packageing();
+                    new PackageHandler(_currentSession).Packaging();
                 }else
                 {
                     MessageBox.Show("The date and time is exist for this session."); 

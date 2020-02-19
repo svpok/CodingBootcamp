@@ -198,6 +198,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Handlers\FilesHandler.cs" />
     <Compile Include="Handlers\ConfigXML.cs" />
     <Compile Include="Handlers\FileLogHandler.cs" />
     <Compile Include="Handlers\TraceHandler.cs" />
