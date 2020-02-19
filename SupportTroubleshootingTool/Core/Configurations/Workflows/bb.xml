@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WorkflowInfo xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Name>CVA - Resolve Patient - Eitan Project</Name>
+  <ConfigFile>CVA_ResolvePatient_MOH.xml</ConfigFile>
+  <EVLogs>
+    <EVLogInfo>
+      <Description>dbMotion EHR Agent - General</Description>
+      <ConfigFilePath>C:\Program Files\dbMotion\Services\SmartAgent\Configuration\SmartAgent.EntLib.config</ConfigFilePath>
+      <IsRequireIISRestart>false</IsRequireIISRestart>
+      <ServicesToRestart />
+      <LogName>dbMotion EHR Agent</LogName>
+      <Sources />
+    </EVLogInfo>
+    <EVLogInfo>
+      <Description>dbMotion EHR Agent - DocumentConversion</Description>
+      <ConfigFilePath>C:\Program Files\dbMotion\Services\SmartAgent\Configuration\SmartAgent.EntLib.config</ConfigFilePath>
+      <IsRequireIISRestart>false</IsRequireIISRestart>
+      <ServicesToRestart />
+      <LogName>dbMotion EHR Agent</LogName>
+      <Sources />
+    </EVLogInfo>
+    <EVLogInfo>
+      <Description>dbMotion EHR Agent - Communication Client log4Net</Description>
+      <ConfigFilePath>C:\Program Files\dbMotion\Services\SmartAgent\Web.config</ConfigFilePath>
+      <IsRequireIISRestart>false</IsRequireIISRestart>
+      <ServicesToRestart />
+      <LogName>dbMotion EHR Agent</LogName>
+      <Sources />
+    </EVLogInfo>
+    <EVLogInfo>
+      <Description>DBMVIA Service - General</Description>
+      <ConfigFilePath>C:\Program Files\dbMotion\Services\VIAService\EntLibConfig.config</ConfigFilePath>
+      <IsRequireIISRestart>false</IsRequireIISRestart>
+      <ServicesToRestart />
+      <LogName>DBMVIA Service</LogName>
+      <Sources />
+    </EVLogInfo>
+    <EVLogInfo>
+      <Description>DBMVIA Service - Communication Client log4Net</Description>
+      <ConfigFilePath>C:\Program Files\dbMotion\Services\VIAService\dbMotion.VIA.HostService.exe.config</ConfigFilePath>
+      <IsRequireIISRestart>false</IsRequireIISRestart>
+      <ServicesToRestart>
+        <ServiceName>DBMVIAHostService</ServiceName>
+      </ServicesToRestart>
+      <LogName>DBMCommunication</LogName>
+      <Sources />
+    </EVLogInfo>
+  </EVLogs>
+  <FileLogs>
+    <FileLogInfo>
+      <Description>dbMotion EHR Agent - Communication Client log4Net</Description>
+      <ConfigFilePath>C:\Program Files\dbMotion\Services\SmartAgent\Web.config</ConfigFilePath>
+      <IsRequireIISRestart>false</IsRequireIISRestart>
+      <ServicesToRestart />
+      <LogsPath>C:\Program Files\dbMotion\Services\SmartAgent\Logs</LogsPath>
+      <LogFileName>bypass.log*</LogFileName>
+    </FileLogInfo>
+    <FileLogInfo>
+      <Description>DBMVIA Service - Communication Client log4Net</Description>
+      <ConfigFilePath>C:\Program Files\dbMotion\Services\VIAService\dbMotion.VIA.HostService.exe.config</ConfigFilePath>
+      <IsRequireIISRestart>false</IsRequireIISRestart>
+      <ServicesToRestart>
+        <ServiceName>DBMVIAHostService</ServiceName>
+      </ServicesToRestart>
+      <LogsPath>C:\Program Files\dbMotion\Services\VIAService\Logs</LogsPath>
+      <LogFileName>cdradapter.log*</LogFileName>
+    </FileLogInfo>
+  </FileLogs>
+  <Traces>
+    <TraceInfo>
+      <Description>VPO Traces</Description>
+      <ConfigFilePath>C:\Program Files\\dbMotion\Services\BusinessServices\VPO\Configuration\VPO\Cache\Settings\dbmSystemProperties.xml</ConfigFilePath>
+      <IsRequireIISRestart>false</IsRequireIISRestart>
+      <ServicesToRestart>
+        <ServiceName> M7mood</ServiceName>
+      </ServicesToRestart>
+      <TraceMode>
+				<Xpath>/dbmProperties/dbmGroup[@name='Tracing']/dbmProperty[@name='bypassTraceMode']</Xpath>
+				<ValueOn>InputOutput</ValueOn>
+				<ValueOff>None</ValueOff>
+        </TraceMode>
+      <TracesPath>C:\Program Files\dbMotion\Services\BusinessServices\VPO\Tracing\VPO</TracesPath>
+      <TraceFileName>VPO_*_PatientEntrance_PatientSearchAsDS_*.bd</TraceFileName>
+      <IISApplicationPoolToRestart />
+    </TraceInfo>
+    <TraceInfo>
+      <Description>VIA Federation Traces</Description>
+      <ConfigFilePath>C:\Program Files\\dbMotion\Services\VIAService\Configuration\FederatedCDREMPIEnterpriseInfo.xml</ConfigFilePath>
+      <IsRequireIISRestart>false</IsRequireIISRestart>
+      <ServicesToRestart>
+        <ServiceName>DBMVIAHostService</ServiceName>
+      </ServicesToRestart>
+      <TraceMode>
+				<Xpath>/via/identificationProviders/provider/operations/match/settings/setting[@name='TraceEnable']/@value</Xpath>
+				<ValueOn>true</ValueOn>
+				<ValueOff>false</ValueOff>
+			</TraceMode>
+      <TracesPath>C:\Program Files\dbMotion\Services\VIAService\FedTrace</TracesPath>
+      <TraceFileName>*.*</TraceFileName>
+      <IISApplicationPoolToRestart />
+    </TraceInfo>
+    <TraceInfo>
+      <Description>CLCC Traces</Description>
+      <ConfigFilePath>C:\Users\spokatilovskiy\Documents\GiveBack\BootCamp\dbMotionConfigs\dbMotion Shared\Communication\Configuration\FederationSitesConfig.xml</ConfigFilePath>
+      <IsRequireIISRestart>false</IsRequireIISRestart>
+      <ServicesToRestart />
+      <TraceMode>
+				<Xpath>/FederationSitesConfig/@traceEnabled</Xpath>
+				<ValueOn>true</ValueOn>
+				<ValueOff>false</ValueOff>
+			</TraceMode>
+      <TracesPath>C:\Program Files\dbMotion\Web\DataStore</TracesPath>
+      <TraceFileName>Demography_GetDemographyLightCDRAdapter_PatientAdministration_*.*</TraceFileName>
+    </TraceInfo>
+  </Traces>
+</WorkflowInfo>

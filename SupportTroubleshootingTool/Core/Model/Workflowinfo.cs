@@ -30,12 +30,6 @@ namespace SupportTroubleshootingTool.Core.Model
         [XmlArray("Traces")]
         [XmlArrayItem("TraceInfo")]
         public List<TraceInfo> Traces { get; set; }
-
-
     }
-   
-
-   
-
 }
 
