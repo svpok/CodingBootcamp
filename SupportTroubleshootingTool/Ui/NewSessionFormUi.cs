@@ -93,6 +93,18 @@ namespace SupportTroubleshootingTool.UI
                     currentsession.SelectedTraces.Add(current.Traces[i]);
                 }
             }
+            if (butInformation.Checked)
+            {
+                currentsession.LogLevel = LogLevelEnum.Information;
+            }
+            if (butWarning.Checked)
+            {
+                currentsession.LogLevel = LogLevelEnum.Warning;
+            }
+            if (butError.Checked)
+            {
+                currentsession.LogLevel = LogLevelEnum.Error;
+            }
             _sessionProvider.StartSession(currentsession);
             if (currentsession.SelectedEVLogs.Count == 0 && currentsession.SelectedFileLogs.Count == 0 && currentsession.SelectedTraces.Count == 0)
             {

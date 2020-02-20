@@ -123,8 +123,11 @@ namespace SupportTroubleshootingTool.Core.Contract
         {
             try
             {
-                string path = Path.Combine(_currentSession.SessionOtputFolderPath, "Data",
-                    $@"{_currentSession.From.ToString("yyyy-MM-dd-hh-mm")}_{_currentSession.To.ToString("yyyy-MM-dd-hh-mm")}");
+                string from = _currentSession.From.ToString("yyyy-MM-dd-hh-mm");
+                string to = _currentSession.To.ToString("yyyy-MM-dd-hh-mm");
+                string path = Path.Combine(_currentSession.SessionOtputFolderPath,
+                                            "OutputData",
+                                            $@"{from}_{to}");
                 if (!Directory.Exists(path))
                 {
                     Directory.CreateDirectory(path);
@@ -135,8 +138,11 @@ namespace SupportTroubleshootingTool.Core.Contract
                     //Collect traces (TraceHanler)
                     new FilesHandler(_currentSession).CollectData();
                     new PackageHandler(_currentSession).Packaging();
+                    SerialtionHelper<SessionInfo>.Serialize(_currentSession,
+                    $@"{_currentSession.SessionOtputFolderPath}\SessionInfo.xml");
 
-                }else
+                }
+                else
                 {
                     MessageBox.Show("The date and time is exist for this session.");
                 }

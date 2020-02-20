@@ -4,7 +4,7 @@ using System.Xml.Serialization;
 using System.IO;
 using System.Xml;
 using SupportTroubleshootingTool.Core.Contract;
-
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TaskbarClock;
 
 namespace SupportTroubleshootingTool.Core.Model
 {
@@ -19,8 +19,8 @@ namespace SupportTroubleshootingTool.Core.Model
             SelectedEVLogs = new List<EVLogInfo>();
             SelectedFileLogs = new List<FileLogInfo>();
             SelectedTraces = new List<TraceInfo>();
-            From = DateTime.Now;
-            To =  DateTime.Now;
+            From = DateTime.Parse(DateTime.Now.Add(new TimeSpan(-24, 0, 0)).ToString("MM/dd/yyyy HH:mmm"));
+            To = DateTime.Parse(DateTime.Now.ToString("MM/dd/yyyy HH:mmm"));
             SessionFolderPath = $"{DateTime.Now.ToString("yyyy-MM-dd-hh-mm")}_{SessionID}";
             SessionOtputFolderPath = "";
         }

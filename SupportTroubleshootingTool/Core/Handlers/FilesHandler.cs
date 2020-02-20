@@ -20,7 +20,7 @@ namespace SupportTroubleshootingTool.Core.Contract
 
         internal void CollectData()
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
         }
     }
 }
