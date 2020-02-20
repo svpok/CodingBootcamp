@@ -27,8 +27,11 @@ namespace SupportTroubleshootingTool.Core.Handlers
                     Directory.CreateDirectory(_backUpFolderPath);
                 }
                 BackupSteps steps = new BackupSteps();
-                BackupConfigFiles(steps, new List<ConfigItemInfo>(_session.SelectedEVLogs));
-                BackupConfigFiles(steps, new List<ConfigItemInfo>(_session.SelectedFileLogs));
+                if (_session.LogLevel != LogLevelEnum.Current)
+                {
+                    BackupConfigFiles(steps, new List<ConfigItemInfo>(_session.SelectedEVLogs));
+                    BackupConfigFiles(steps, new List<ConfigItemInfo>(_session.SelectedFileLogs));
+                }
                 BackupConfigFiles(steps, new List<ConfigItemInfo>(_session.SelectedTraces));
                 SerialtionHelper<BackupSteps>.Serialize(steps, _xmlRestoreSteps);
             }

@@ -86,7 +86,7 @@ namespace SupportTroubleshootingTool.Core.Contract
             catch(Exception ex)
             {
                new  Logger().WriteError(ex);
-                throw ex;
+                throw;
             }
 
         }
@@ -106,7 +106,7 @@ namespace SupportTroubleshootingTool.Core.Contract
                 new BackUpManager(_currentSession).Restore();
                 //Restart processes (ProcessHandler)
 
-                //new ProcessHandler(_currentSession);
+               // new ProcessHandler(_currentSession);
                 //Rename session folder from open to close - done
                 System.IO.Directory.Move($"{SessionRootFolderPath}\\{_currentSession.SessionFolderPath}_open",
                 $"{SessionRootFolderPath}\\{_currentSession.SessionFolderPath}_close");
@@ -114,8 +114,8 @@ namespace SupportTroubleshootingTool.Core.Contract
             }
             catch (Exception ex)
             {
-              new  Logger().WriteError(ex);
-                throw ex;
+                new  Logger().WriteError(ex);
+                throw;
             }
         }
 
@@ -132,10 +132,10 @@ namespace SupportTroubleshootingTool.Core.Contract
                     //Collect Log events (EVLogHandler)
                     new EVLogHandler(_currentSession).CollectData();
                     //Collect file logs (FileLogHandler)
-                    new FileLogHandler(_currentSession).CollectData();
                     //Collect traces (TraceHanler)
-                    new TraceHandler(_currentSession).CollectData();
+                    new FilesHandler(_currentSession).CollectData();
                     new PackageHandler(_currentSession).Packaging();
+
                 }else
                 {
                     MessageBox.Show("The date and time is exist for this session.");
@@ -144,7 +144,7 @@ namespace SupportTroubleshootingTool.Core.Contract
             catch (Exception ex)
             {
               new  Logger().WriteError(ex);
-                throw ex;
+                throw;
             }
 
         }

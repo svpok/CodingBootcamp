@@ -67,7 +67,7 @@ namespace SupportTroubleshootingTool.Core.Handlers
             catch (Exception e)
             {
                 new Utilities.Logger().WriteError(e);
-
+                throw;
             }
                 }
             }  

@@ -48,9 +48,8 @@ namespace SupportTroubleshootingTool.UI
             {
                 this.loadData.Items.Add("Traces:" + trace.Description);
             }
-
-
             this.Size = new Size(680, 500);
+            
         }
 
 

@@ -23,14 +23,6 @@ namespace SupportTroubleshootingTool.UI
             _sessionProvider = sessionProvider;
             _workflowProvider = new WorkflowProvider();
         }
-
-        private void butStart_Click(object sender, EventArgs e)
-        {
-            var newSessionInfo = new SessionInfo();
-            //TODO: fill newSessionInfo with the selected items
-            _sessionProvider.StartSession(newSessionInfo);
-        }
-
         private void NewSessionFormUi_Load(object sender, EventArgs e)
         {
             this.Size = new Size(1050, 550);
@@ -112,8 +104,6 @@ namespace SupportTroubleshootingTool.UI
             comboboxWorkflows.SelectedIndex = 0;
             butCurrent.Checked = true;
         }
-
-       
     }
     
 }
