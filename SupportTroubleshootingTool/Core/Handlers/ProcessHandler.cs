@@ -17,6 +17,8 @@ namespace SupportTroubleshootingTool.Core.Handlers
         {
             this.session = session;
             List<TraceInfo> traceInfos = session.SelectedTraces;
+            List<EVLogInfo> evLogInfos = session.SelectedEVLogs;
+            List<FileLogInfo> fileLogInfos = session.SelectedFileLogs;
             if (traceInfos != null)
             {
                 foreach (TraceInfo trace in traceInfos)
@@ -31,6 +33,31 @@ namespace SupportTroubleshootingTool.Core.Handlers
                 }
             }
             else { new Utilities.Logger().WriteInfo("No Traces Found you Waste my Time"); }
+            if (evLogInfos != null)
+            {
+                foreach (EVLogInfo evLogInfo in evLogInfos)
+                {
+                    List<string> servicestorestart = evLogInfo.ServicesToRestart;
+                    if (servicestorestart != null)
+                    {
+                        foreach (string servicename in servicestorestart) { RestartService(servicename); }
+                    }
+                }
+            }
+            else { new Utilities.Logger().WriteInfo("No EVlog Found you Waste my Time"); }
+            if (fileLogInfos != null)
+            {
+                foreach (FileLogInfo fileLogInfo in fileLogInfos)
+                {
+                    List<string> servicestorestart = fileLogInfo.ServicesToRestart;
+                    if (servicestorestart != null)
+                    {
+                        foreach (string servicename in servicestorestart) { RestartService(servicename); }
+                    }
+                }
+            }
+            else { new Utilities.Logger().WriteInfo("No FileLog Found you Waste my Time"); }
+
         }
 
             internal void RestartService(string serviceName)  // Will handle services that running in server 
