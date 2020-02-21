@@ -23,17 +23,10 @@ namespace SupportTroubleshootingTool.UI
             _sessionProvider = sessionProvider;
             _workflowProvider = new WorkflowProvider();
         }
-
-        private void butStart_Click(object sender, EventArgs e)
-        {
-            var newSessionInfo = new SessionInfo();
-            //TODO: fill newSessionInfo with the selected items
-            _sessionProvider.StartSession(newSessionInfo);
-        }
-
         private void NewSessionFormUi_Load(object sender, EventArgs e)
         {
-            this.Size = new Size(1050, 550);
+            this.Size = new Size(1280, 800);
+            
             FillWorkflows();
         }
         public void FillWorkflows()
@@ -100,20 +93,42 @@ namespace SupportTroubleshootingTool.UI
                     currentsession.SelectedTraces.Add(current.Traces[i]);
                 }
             }
+            if (butInformation.Checked)
+            {
+                currentsession.LogLevel = LogLevelEnum.Information;
+            }
+            if (butWarning.Checked)
+            {
+                currentsession.LogLevel = LogLevelEnum.Warning;
+            }
+            if (butError.Checked)
+            {
+                currentsession.LogLevel = LogLevelEnum.Error;
+            }
             _sessionProvider.StartSession(currentsession);
-            ExistingSessionFormUi window1 = new ExistingSessionFormUi(_sessionProvider, this);
-            this.Hide();
+            if (currentsession.SelectedEVLogs.Count == 0 && currentsession.SelectedFileLogs.Count == 0 && currentsession.SelectedTraces.Count == 0)
+            {
+                string message = "you can't show";
+                MessageBox.Show(message);
+            }
+            else
+            {
 
-            window1.ShowDialog();
-            this.Close();
+
+
+                ExistingSessionFormUi window1 = new ExistingSessionFormUi(_sessionProvider, this);
+                this.Hide();
+
+                window1.ShowDialog();
+                this.Close();
+            }
+            
         }
         private void butReset_Click_1(object sender, EventArgs e)
         {
             comboboxWorkflows.SelectedIndex = 0;
             butCurrent.Checked = true;
         }
-
-       
     }
     
 }

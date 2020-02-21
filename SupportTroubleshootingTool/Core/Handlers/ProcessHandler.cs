@@ -15,6 +15,7 @@ namespace SupportTroubleshootingTool.Core.Handlers
 
         public ProcessHandler(SessionInfo session)
         {
+
             this.session = session;
             List<TraceInfo> traceInfos = session.SelectedTraces;
             List<EVLogInfo> evLogInfos = session.SelectedEVLogs;
@@ -76,7 +77,8 @@ namespace SupportTroubleshootingTool.Core.Handlers
             }
             catch (Exception e)
             {
-             new Utilities.Logger().WriteError(e);
+                new Utilities.Logger().WriteError(e);
+                throw new Exception("error to restart servis");
             }
         }
 
@@ -92,7 +94,7 @@ namespace SupportTroubleshootingTool.Core.Handlers
             catch (Exception e)
             {
                 new Utilities.Logger().WriteError(e);
-
+                throw;
             }
                 }
             }  

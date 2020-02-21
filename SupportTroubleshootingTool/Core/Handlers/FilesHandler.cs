@@ -31,6 +31,7 @@ namespace SupportTroubleshootingTool.Core.Contract
 
         internal void CollectData(string outputfolder, string folderPath, string filter)
         {
+
             try
             {
                 DateTime from = _currentSession.From;
@@ -47,8 +48,11 @@ namespace SupportTroubleshootingTool.Core.Contract
             }
             catch(Exception e)
             {
-                throw e;
+                new Utilities.Logger().WriteError(e);
+                throw;
+
             }
+
         }
     }
 }

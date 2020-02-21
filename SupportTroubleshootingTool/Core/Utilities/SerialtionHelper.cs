@@ -9,11 +9,12 @@ namespace SupportTroubleshootingTool.Core.Utilities
         public static void Serialize(T value , string path)
         {
             XmlSerializer writer = new XmlSerializer(typeof(T));
-            using (TextWriter s = new StreamWriter(path))
+            using (TextWriter s = new StreamWriter(path,false))
             {
                 writer.Serialize(s, value);
                 s.Close();
             }
+            
         }
         public static T Deserialize(string Xmlpath)
         {
@@ -26,9 +27,6 @@ namespace SupportTroubleshootingTool.Core.Utilities
                 reader.Close();
             }
             return serializedData;
-
-
-
         }
     }
 }

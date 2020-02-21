@@ -31,6 +31,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
       <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
@@ -198,10 +201,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Handlers\BackupSteps.cs" />
     <Compile Include="Handlers\FilesHandler.cs" />
     <Compile Include="Handlers\ConfigXML.cs" />
-    <Compile Include="Handlers\FileLogHandler.cs" />
-    <Compile Include="Handlers\TraceHandler.cs" />
     <Compile Include="Handlers\EVLogHandler.cs" />
     <Compile Include="Handlers\BackUpManager.cs" />
     <Compile Include="Contract\ISession.cs" />
@@ -227,6 +229,7 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
+    <None Include="Properties\app.manifest" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Configurations\Workflows\CVA_ResolvePatient_MOH.xml">
