@@ -140,7 +140,7 @@
 			<Description>VPO Traces</Description>
 			<ConfigFilePath>C:\Program Files\dbMotion\Services\BusinessServices\VPO\Configuration\VPO\Cache\Settings\dbmSystemProperties.xml</ConfigFilePath>
 			<IsRequireIISRestart>false</IsRequireIISRestart>
-			<IISApplicationPoolToRestart></IISApplicationPoolToRestart>
+			<IISApplicationPoolToRestart>DefaultAppPool</IISApplicationPoolToRestart>
 			<ServicesToRestart>
 				<!--<ServiceName></ServiceName>-->
 			</ServicesToRestart>

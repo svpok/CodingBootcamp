@@ -81,7 +81,7 @@ namespace SupportTroubleshootingTool.Core.Contract
                 //Open traces (XmlHanlder) - done
                 new XmlHandler(_currentSession).ChangeConfig();
                 //Restart processes (ProcessHandler) - done
-                //new ProcessHandler(_currentSession);
+                new ProcessHandler(_currentSession).RestartService();
             }
             catch(Exception ex)
             {
