@@ -95,11 +95,11 @@
             // 
             this.DateTimeFilter.AutoSize = true;
             this.DateTimeFilter.BackColor = System.Drawing.Color.Transparent;
-            this.DateTimeFilter.Font = new System.Drawing.Font("Arial Narrow", 14F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DateTimeFilter.Font = new System.Drawing.Font("Arial", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DateTimeFilter.ForeColor = System.Drawing.Color.White;
             this.DateTimeFilter.Location = new System.Drawing.Point(8, 28);
             this.DateTimeFilter.Name = "DateTimeFilter";
-            this.DateTimeFilter.Size = new System.Drawing.Size(235, 33);
+            this.DateTimeFilter.Size = new System.Drawing.Size(280, 32);
             this.DateTimeFilter.TabIndex = 23;
             this.DateTimeFilter.Text = "Date and Time Filter :";
             // 
@@ -126,7 +126,7 @@
             this.butCollectAndClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.AliceBlue;
             this.butCollectAndClose.Font = new System.Drawing.Font("Arial", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.butCollectAndClose.ForeColor = System.Drawing.Color.White;
-            this.butCollectAndClose.Location = new System.Drawing.Point(232, 19);
+            this.butCollectAndClose.Location = new System.Drawing.Point(687, 19);
             this.butCollectAndClose.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.butCollectAndClose.Name = "butCollectAndClose";
             this.butCollectAndClose.Size = new System.Drawing.Size(318, 60);
@@ -142,7 +142,7 @@
             this.butCollectWithoutClosingSession.FlatAppearance.MouseOverBackColor = System.Drawing.Color.AliceBlue;
             this.butCollectWithoutClosingSession.Font = new System.Drawing.Font("Arial", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.butCollectWithoutClosingSession.ForeColor = System.Drawing.Color.White;
-            this.butCollectWithoutClosingSession.Location = new System.Drawing.Point(558, 19);
+            this.butCollectWithoutClosingSession.Location = new System.Drawing.Point(1013, 19);
             this.butCollectWithoutClosingSession.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.butCollectWithoutClosingSession.Name = "butCollectWithoutClosingSession";
             this.butCollectWithoutClosingSession.Size = new System.Drawing.Size(321, 60);
@@ -156,10 +156,10 @@
             this.loadData.Cursor = System.Windows.Forms.Cursors.Hand;
             this.loadData.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.loadData.HideSelection = false;
-            this.loadData.Location = new System.Drawing.Point(30, 84);
+            this.loadData.Location = new System.Drawing.Point(18, 94);
             this.loadData.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.loadData.Name = "loadData";
-            this.loadData.Size = new System.Drawing.Size(548, 366);
+            this.loadData.Size = new System.Drawing.Size(811, 366);
             this.loadData.TabIndex = 2;
             this.loadData.UseCompatibleStateImageBehavior = false;
             this.loadData.View = System.Windows.Forms.View.List;
@@ -187,7 +187,7 @@
             this.panel2.Controls.Add(this.dateTimeFrom);
             this.panel2.Location = new System.Drawing.Point(25, 30);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(332, 473);
+            this.panel2.Size = new System.Drawing.Size(479, 473);
             this.panel2.TabIndex = 29;
             // 
             // panel1
@@ -195,10 +195,11 @@
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(43)))), ((int)(((byte)(60)))));
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.loadData);
-            this.panel1.Location = new System.Drawing.Point(363, 30);
+            this.panel1.Location = new System.Drawing.Point(510, 30);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(603, 473);
+            this.panel1.Size = new System.Drawing.Size(853, 473);
             this.panel1.TabIndex = 30;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // panel3
             // 
@@ -208,7 +209,7 @@
             this.panel3.Controls.Add(this.butBack);
             this.panel3.Location = new System.Drawing.Point(25, 509);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(941, 96);
+            this.panel3.Size = new System.Drawing.Size(1338, 96);
             this.panel3.TabIndex = 30;
             // 
             // ExistingSessionFormUi
@@ -216,7 +217,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(43)))), ((int)(((byte)(60)))));
-            this.ClientSize = new System.Drawing.Size(998, 635);
+            this.ClientSize = new System.Drawing.Size(1389, 619);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
