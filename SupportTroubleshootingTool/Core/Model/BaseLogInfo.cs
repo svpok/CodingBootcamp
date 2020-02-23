@@ -14,7 +14,8 @@ namespace SupportTroubleshootingTool.Core.Model
         {
 
         }
-        [XmlElement]
+        [XmlArray]
+        [XmlArrayItem]
         public List<string> LogLevelXPaths { get; set; }
     }
 }

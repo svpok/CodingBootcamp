@@ -51,7 +51,7 @@ namespace SupportTroubleshootingTool.UI
             ListFiles.Items.Clear();
             for (int i = 0; i < selectedWorkflow.FileLogs.Count; i++)
             {
-                bindingSource2.DataSource = selectedWorkflow.FileLogs[i].LogFileName;
+                bindingSource2.DataSource = selectedWorkflow.FileLogs[i].Description;
                 ListFiles.Items.Add(bindingSource2.DataSource);
             }
             ListTraces.Items.Clear();

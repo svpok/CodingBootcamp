@@ -36,7 +36,8 @@ namespace SupportTroubleshootingTool.Core.Handlers
         }
         internal void Packaging()
         {
-            string destinationPath = $@"{ sessionInfo.SessionOtputFolderPath}\Output.zip";
+            string destinationPath = $@"{ sessionInfo.SessionOtputFolderPath}\{sessionInfo.To.ToString("dd-MM-yyyy HH-mm")
+                                        }-{sessionInfo.WorkflowName}.zip";
             string sourceFolder= $@"{ sessionInfo.SessionOtputFolderPath}\{ "OutputData"}";
             Packaging(sourceFolder,destinationPath);
         }
