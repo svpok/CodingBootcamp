@@ -58,10 +58,16 @@ namespace SupportTroubleshootingTool.UI
         {
             _sessionProvider.CurrentSession.From = dateTimeFrom.Value;
             _sessionProvider.CurrentSession.To = dateTimeTo.Value;
-            _sessionProvider.CollectData();
-            _sessionProvider.StopSession();
-            
-            this.Close();
+            bool s = _sessionProvider.CollectData();
+            _sessionProvider.StopSession(s);
+            if (s)
+            {
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("The date and time is exist for this session,can't collect data.");
+            }
         }
 
         private void butCollectWithoutClosingSession_Click(object sender, EventArgs e)
