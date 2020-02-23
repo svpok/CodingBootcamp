@@ -76,7 +76,7 @@ namespace SupportTroubleshootingTool.Core.Contract
                 //Open traces (XmlHanlder) - done
                 new XmlHandler(_currentSession).ChangeConfig();
                 //Restart processes (ProcessHandler) - done
-                new ProcessHandler(_currentSession).RestartService();
+                //new ProcessHandler(_currentSession).RestartService();
             }
             catch(Exception ex)
             {
@@ -130,7 +130,7 @@ namespace SupportTroubleshootingTool.Core.Contract
                     new EVLogHandler(_currentSession).CollectData();
                     //Collect file logs (FileLogHandler)
                     //Collect traces (TraceHanler)
-                    new FilesHandler(_currentSession).CollectData();
+                    //new FilesHandler(_currentSession).CollectData();
                     new PackageHandler(_currentSession).Packaging();
                     SerialtionHelper<SessionInfo>.Serialize(_currentSession,
                     $@"{_currentSession.SessionOtputFolderPath}\SessionInfo.xml");

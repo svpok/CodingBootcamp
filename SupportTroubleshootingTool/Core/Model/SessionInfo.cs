@@ -19,6 +19,7 @@ namespace SupportTroubleshootingTool.Core.Model
             SelectedEVLogs = new List<EVLogInfo>();
             SelectedFileLogs = new List<FileLogInfo>();
             SelectedTraces = new List<TraceInfo>();
+            string from = DateTime.Now.ToString();
             From = DateTime.Parse(DateTime.Now.Add(new TimeSpan(-24, 0, 0)).ToString("MM/dd/yyyy HH:mmm"));
             To = DateTime.Parse(DateTime.Now.ToString("MM/dd/yyyy HH:mmm"));
             SessionFolderPath = $"{DateTime.Now.ToString("yyyy-MM-dd-hh-mm")}_{SessionID}";
