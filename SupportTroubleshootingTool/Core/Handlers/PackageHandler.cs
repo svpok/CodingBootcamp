@@ -1,6 +1,7 @@
 ﻿using SupportTroubleshootingTool.Core.Model;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.IO.Compression;
 using System.Linq;
 using System.Text;
@@ -17,23 +18,27 @@ namespace SupportTroubleshootingTool.Core.Handlers
             this.sessionInfo = sessionInfo;
         }
 
-        public static void Packageing(String SourceFolder, String DestinationPath) 
+        public static void Packaging(string sourceFolder, string destinationPath) 
         {
 			// DestinationPath example : C:\folder\file.zip
             try
             {
-                ZipFile.CreateFromDirectory(SourceFolder, DestinationPath);
+
+                ZipFile.CreateFromDirectory(sourceFolder, destinationPath);
             }
             catch (Exception e)
             {
                 new Utilities.Logger().WriteError(e);
+                throw;
             }
-            new Utilities.Logger().WriteInfo("the file Zipped to" + DestinationPath);
+            new Utilities.Logger().WriteInfo("the file Zipped to" + destinationPath);
 
         }
         internal void Packaging()
         {
-            
+            string destinationPath = $@"{ sessionInfo.SessionOtputFolderPath}\Output.zip";
+            string sourceFolder= $@"{ sessionInfo.SessionOtputFolderPath}\{ "OutputData"}";
+            Packaging(sourceFolder,destinationPath);
         }
     }
 }

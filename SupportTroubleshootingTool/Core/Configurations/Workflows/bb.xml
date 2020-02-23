@@ -4,11 +4,11 @@
   <ConfigFile>CVA_ResolvePatient_MOH.xml</ConfigFile>
   <EVLogs>
     <EVLogInfo>
-      <Description>dbMotion EHR Agent - General</Description>
+      <Description>Graphics UMD Driver info</Description>
       <ConfigFilePath>C:\Program Files\dbMotion\Services\SmartAgent\Configuration\SmartAgent.EntLib.config</ConfigFilePath>
       <IsRequireIISRestart>false</IsRequireIISRestart>
       <ServicesToRestart />
-      <LogName>dbMotion EHR Agent</LogName>
+      <LogName>Intel-GFX-Info/Application</LogName>
       <Sources />
     </EVLogInfo>
     <EVLogInfo>
