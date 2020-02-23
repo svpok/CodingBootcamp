@@ -104,7 +104,7 @@ namespace SupportTroubleshootingTool.Core.Contract
                     System.IO.Directory.Move($"{SessionRootFolderPath}\\{_currentSession.SessionFolderPath}_open",
                     $"{SessionRootFolderPath}\\{_currentSession.SessionFolderPath}_close");
                 }
-                
+
 
             }
             catch (Exception ex)
