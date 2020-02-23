@@ -29,7 +29,6 @@ namespace SupportTroubleshootingTool.Core.Contract
             get;
             private set;
         }
-
         public SessionInfo CurrentSession
         {
             get
@@ -47,7 +46,6 @@ namespace SupportTroubleshootingTool.Core.Contract
                 if (s.Length == 1)
                 {
                     _currentSession = SerialtionHelper<SessionInfo>.Deserialize(s[0] + "\\SessionInfo.xml");
-
                     return _currentSession;
                 }
                 if (s.Length > 1)
@@ -55,16 +53,13 @@ namespace SupportTroubleshootingTool.Core.Contract
                   new  Logger().WriteWarning("two Session or more is open.");
                     throw new Exception("two Session or more is open.");
                 }
-
                 return null;
             }
         }
-
         public void StartSession(SessionInfo session)
         {
             try
             {
-
                 _currentSession = session;
                 _currentSession.SessionOtputFolderPath = Path.Combine(SessionRootFolderPath,
                                                         $"{_currentSession.SessionFolderPath}_open");
@@ -88,28 +83,28 @@ namespace SupportTroubleshootingTool.Core.Contract
                new  Logger().WriteError(ex);
                 throw;
             }
-
         }
-
-        public void StopSession()
+        public void StopSession(bool cls=true)
         {
             try
             {
-                if (_currentSession == null)
+                if (cls)
                 {
-                    throw new ArgumentException("There no session to close.");
 
+
+                    if (_currentSession == null)
+                    {
+                        throw new Exception("There no session to close.");
+                    }
+                    //Resore from backup (BackupHandler)
+                    new BackUpManager(_currentSession).Restore();
+                    //Restart processes (ProcessHandler)
+                    // new ProcessHandler(_currentSession);
+                    //Rename session folder from open to close - done
+                    System.IO.Directory.Move($"{SessionRootFolderPath}\\{_currentSession.SessionFolderPath}_open",
+                    $"{SessionRootFolderPath}\\{_currentSession.SessionFolderPath}_close");
                 }
-
-
-                //Resore from backup (BackupHandler)
-                new BackUpManager(_currentSession).Restore();
-                //Restart processes (ProcessHandler)
-
-               // new ProcessHandler(_currentSession);
-                //Rename session folder from open to close - done
-                System.IO.Directory.Move($"{SessionRootFolderPath}\\{_currentSession.SessionFolderPath}_open",
-                $"{SessionRootFolderPath}\\{_currentSession.SessionFolderPath}_close");
+                
 
             }
             catch (Exception ex)
@@ -118,8 +113,7 @@ namespace SupportTroubleshootingTool.Core.Contract
                 throw;
             }
         }
-
-        public void CollectData()
+        public bool CollectData()
         {
             try
             {
@@ -140,19 +134,18 @@ namespace SupportTroubleshootingTool.Core.Contract
                     new PackageHandler(_currentSession).Packaging();
                     SerialtionHelper<SessionInfo>.Serialize(_currentSession,
                     $@"{_currentSession.SessionOtputFolderPath}\SessionInfo.xml");
-
                 }
                 else
                 {
-                    MessageBox.Show("The date and time is exist for this session.");
+                    return false;
                 }
             }
             catch (Exception ex)
             {
-              new  Logger().WriteError(ex);
+                new Logger().WriteError(ex);
                 throw;
             }
-
+            return true;
         }
     }
 }

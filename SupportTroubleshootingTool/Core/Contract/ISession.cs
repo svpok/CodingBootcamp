@@ -10,8 +10,8 @@ namespace SupportTroubleshootingTool.Core.Contract
         string SessionRootFolderPath { get; }
         SessionInfo CurrentSession { get; }
         void StartSession(SessionInfo session);
-        void StopSession();
-        void CollectData();
+        void StopSession(bool cls);
+        bool CollectData();
     }
     
 }
