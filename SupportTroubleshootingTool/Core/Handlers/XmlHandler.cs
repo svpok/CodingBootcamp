@@ -56,7 +56,29 @@ namespace SupportTroubleshootingTool.Core.Handlers
         }
         public  void ChangeConfig()
         {
-            
+            var ConfigstoChange = new Dictionary<string, List<string>>();
+            foreach (var item in _sessionInfo.SelectedEVLogs)
+            {
+                if (ConfigstoChange.ContainsKey(item.ConfigFilePath))
+                    foreach(var i in item.LogLevelXPaths)
+                        ConfigstoChange[item.ConfigFilePath].Add(i);
+                else
+                    ConfigstoChange.Add(item.ConfigFilePath, item.LogLevelXPaths);
+            }
+            foreach (var item in _sessionInfo.SelectedFileLogs)
+            {
+                if (ConfigstoChange.ContainsKey(item.ConfigFilePath))
+                    foreach (var i in item.LogLevelXPaths)
+                        ConfigstoChange[item.ConfigFilePath].Add(i);
+                else
+                    ConfigstoChange.Add(item.ConfigFilePath, item.LogLevelXPaths);
+            }
+            //TODO traces dict
+            var ConfigstoChangeTraces = new Dictionary<string, List<TraceModeInfo>>();
+            {
+
+            }
+
         }
 
     }

@@ -58,4 +58,3 @@ namespace SupportTroubleshootingTool.Core.Model
         Warning,
         Error
     }
-
