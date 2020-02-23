@@ -1,22 +1,34 @@
 ﻿using SupportTroubleshootingTool.Core.Model;
 using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO;
+using System.Linq;
 
 namespace SupportTroubleshootingTool.Core.Handlers
 {
     internal class EVLogHandler
     {
-        private SessionInfo sessionInfo;
+        private SessionInfo _sessionInfo;
 
         public EVLogHandler(SessionInfo sessionInfo)
         {
-            this.sessionInfo = sessionInfo;
+            this._sessionInfo = sessionInfo;
         }
 
 
 
         internal void CollectData()
         {
-            
+            var logsToCollect = new Dictionary<string, List<string>>();
+            foreach (var evLog in _sessionInfo.SelectedEVLogs)
+            {
+                if (!logsToCollect.ContainsKey(evLog.LogName))
+                    logsToCollect.Add(evLog.LogName, evLog.Sources);
+            }
+
+             EventLog log=new EventLog();
+             //log.Log = evLog.LogName;
         }
     }
 }
