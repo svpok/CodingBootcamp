@@ -40,6 +40,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.butOpenSeesion = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -204,6 +205,7 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(75)))), ((int)(((byte)(105)))));
+            this.panel3.Controls.Add(this.butOpenSeesion);
             this.panel3.Controls.Add(this.butCollectAndClose);
             this.panel3.Controls.Add(this.butCollectWithoutClosingSession);
             this.panel3.Controls.Add(this.butBack);
@@ -211,6 +213,21 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1338, 96);
             this.panel3.TabIndex = 30;
+            // 
+            // butOpenSeesion
+            // 
+            this.butOpenSeesion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(75)))), ((int)(((byte)(105)))));
+            this.butOpenSeesion.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.butOpenSeesion.FlatAppearance.MouseOverBackColor = System.Drawing.Color.AliceBlue;
+            this.butOpenSeesion.Font = new System.Drawing.Font("Arial", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.butOpenSeesion.ForeColor = System.Drawing.Color.White;
+            this.butOpenSeesion.Location = new System.Drawing.Point(298, 19);
+            this.butOpenSeesion.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.butOpenSeesion.Name = "butOpenSeesion";
+            this.butOpenSeesion.Size = new System.Drawing.Size(318, 60);
+            this.butOpenSeesion.TabIndex = 23;
+            this.butOpenSeesion.Text = "Open Seesion Folder";
+            this.butOpenSeesion.UseVisualStyleBackColor = false;
             // 
             // ExistingSessionFormUi
             // 
@@ -248,5 +265,6 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Button butOpenSeesion;
     }
 }
