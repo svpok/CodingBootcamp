@@ -93,14 +93,31 @@ namespace SupportTroubleshootingTool.UI
                     currentsession.SelectedTraces.Add(current.Traces[i]);
                 }
             }
-           
+
+            if (butInformation.Checked)
+            {
+                currentsession.LogLevel = LogLevelEnum.Information;
+            }
+            if (butWarning.Checked)
+            {
+                currentsession.LogLevel = LogLevelEnum.Warning;
+            }
+            if (butError.Checked)
+            {
+                currentsession.LogLevel = LogLevelEnum.Error;
+            }
+
             if (currentsession.SelectedEVLogs.Count == 0 && currentsession.SelectedFileLogs.Count == 0 && currentsession.SelectedTraces.Count == 0)
             {
                 string message = "you can't show";
                 MessageBox.Show(message);
-            } _sessionProvider.StartSession(currentsession);
+            } 
             else
             {
+
+                _sessionProvider.StartSession(currentsession);
+
+
                 ExistingSessionFormUi window1 = new ExistingSessionFormUi(_sessionProvider, this);
                 this.Hide();
                 window1.ShowDialog();

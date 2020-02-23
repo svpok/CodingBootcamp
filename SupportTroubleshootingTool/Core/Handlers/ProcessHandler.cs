@@ -9,7 +9,7 @@ using Microsoft.Web.Administration;
 
 namespace SupportTroubleshootingTool.Core.Handlers
 {
-    class ProcessHandler  
+    class ProcessHandler
     {
         private SessionInfo session;
 
@@ -17,25 +17,15 @@ namespace SupportTroubleshootingTool.Core.Handlers
         {
 
             this.session = session;
-            List<TraceInfo> traceInfos = session.SelectedTraces;
-            if (traceInfos != null)
-            {
-                foreach (TraceInfo trace in traceInfos)
-                {
-                    string iisapplicationpooltorestart = trace.IISApplicationPoolToRestart;
-                    List<string> servicestorestart = trace.ServicesToRestart;
-                    if (iisapplicationpooltorestart != null) { RestartPool(iisapplicationpooltorestart); }
-                    if (servicestorestart != null)
-                    {
-                        foreach (string servicename in servicestorestart) { RestartService(servicename); }
-                    }
-                }
-            }
-            else { new Utilities.Logger().WriteInfo("No Traces Found you Waste my Time"); }
+
         }
 
-            internal void RestartService(string serviceName)  // Will handle services that running in server 
+        internal void RestartService(string serviceName)  // Will handle services that running in server 
         {
+                if (serviceName.Length == 0)
+                {
+                    return;
+                }
             ServiceController service = new ServiceController(serviceName);
             int timeoutMilliseconds = 1000;
             try
@@ -51,13 +41,17 @@ namespace SupportTroubleshootingTool.Core.Handlers
             catch (Exception e)
             {
                 new Utilities.Logger().WriteError(e);
-                throw new Exception("error to restart servis");
+                throw;
             }
         }
 
-        
+
         internal void RestartPool(string appname)
         {
+            if (appname.Length == 0)
+            {
+                return;
+            }
             ServerManager server = new ServerManager();
             ApplicationPool application = server.ApplicationPools[appname];
             try
@@ -67,8 +61,61 @@ namespace SupportTroubleshootingTool.Core.Handlers
             catch (Exception e)
             {
                 new Utilities.Logger().WriteError(e);
-
+                throw;
             }
-                }
-            }  
         }
+
+
+        internal void RestartService()
+        {
+            List<TraceInfo> traceInfos = session.SelectedTraces;
+            List<EVLogInfo> evLogInfos = session.SelectedEVLogs;
+            List<FileLogInfo> fileLogInfos = session.SelectedFileLogs;
+            try
+            {
+                if (traceInfos != null)
+                {
+                    foreach (TraceInfo trace in traceInfos)
+                    {
+                        string iisapplicationpooltorestart = trace.IISApplicationPoolToRestart;
+                        List<string> servicestorestart = trace.ServicesToRestart;
+                        if (iisapplicationpooltorestart != null) { RestartPool(iisapplicationpooltorestart); }
+                        if (servicestorestart != null)
+                        {
+                            foreach (string servicename in servicestorestart) { RestartService(servicename); }
+                        }
+                    }
+                }
+                else { new Utilities.Logger().WriteInfo("No Traces Found you Waste my Time"); }
+                if (evLogInfos != null)
+                {
+                    foreach (EVLogInfo evLogInfo in evLogInfos)
+                    {
+                        List<string> servicestorestart = evLogInfo.ServicesToRestart;
+                        if (servicestorestart != null)
+                        {
+                            foreach (string servicename in servicestorestart) { RestartService(servicename); }
+                        }
+                    }
+                }
+                else { new Utilities.Logger().WriteInfo("No EVlog Found you Waste my Time"); }
+                if (fileLogInfos != null)
+                {
+                    foreach (FileLogInfo fileLogInfo in fileLogInfos)
+                    {
+                        List<string> servicestorestart = fileLogInfo.ServicesToRestart;
+                        if (servicestorestart != null)
+                        {
+                            foreach (string servicename in servicestorestart) { RestartService(servicename); }
+                        }
+                    }
+                }
+                else { new Utilities.Logger().WriteInfo("No FileLog Found you Waste my Time"); }
+            }
+            catch(Exception e) { 
+                new Utilities.Logger().WriteError(e);
+                throw;
+            }
+        }
+    }
+}
