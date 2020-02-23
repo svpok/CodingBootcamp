@@ -25,7 +25,7 @@ namespace SupportTroubleshootingTool.UI
         }
         private void NewSessionFormUi_Load(object sender, EventArgs e)
         {
-            this.Size = new Size(1280, 870);
+            this.Size = new Size(500, 470);
             
             FillWorkflows();
         }
@@ -45,7 +45,7 @@ namespace SupportTroubleshootingTool.UI
             ListEv.Items.Clear();
             for (int i = 0; i < selectedWorkflow.EVLogs.Count; i++)
             {
-                bindingSource2.DataSource = selectedWorkflow.EVLogs[i].LogName;
+                bindingSource2.DataSource = selectedWorkflow.EVLogs[i].Description;
                 ListEv.Items.Add(bindingSource2.DataSource);
             }
             ListFiles.Items.Clear();

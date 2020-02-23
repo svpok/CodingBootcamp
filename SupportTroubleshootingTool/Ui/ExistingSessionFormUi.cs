@@ -80,15 +80,22 @@ namespace SupportTroubleshootingTool.UI
 
         private void butBack_Click_1(object sender, EventArgs e)
         {
-            this.Hide();
-           _backForm.ShowDialog();
+            _backForm.Show();
+            // this.Hide();
+
+
+            //this.Hide();
+            //_backForm.ShowDialog();
+           // _backForm.Show();
             this.Close();
 
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
+       
 
+        private void butOpenSeesion_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start(_currentSession.SessionOtputFolderPath);
         }
     }
 }
