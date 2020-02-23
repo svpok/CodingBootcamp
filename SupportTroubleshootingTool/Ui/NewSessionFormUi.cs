@@ -106,7 +106,6 @@ namespace SupportTroubleshootingTool.UI
             {
                 currentsession.LogLevel = LogLevelEnum.Error;
             }
-
             if (currentsession.SelectedEVLogs.Count == 0 && currentsession.SelectedFileLogs.Count == 0 && currentsession.SelectedTraces.Count == 0)
             {
                 string message = "you can't show";
@@ -114,10 +113,7 @@ namespace SupportTroubleshootingTool.UI
             } 
             else
             {
-
                 _sessionProvider.StartSession(currentsession);
-
-
                 ExistingSessionFormUi window1 = new ExistingSessionFormUi(_sessionProvider, this);
                 this.Hide();
                 window1.ShowDialog();
@@ -131,10 +127,7 @@ namespace SupportTroubleshootingTool.UI
 
         }
 
-        private void panelEvAndFile_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
+      
     }
     
 }
