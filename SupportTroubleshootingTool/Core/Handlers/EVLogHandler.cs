@@ -10,6 +10,7 @@ namespace SupportTroubleshootingTool.Core.Handlers
     internal class EVLogHandler
     {
         private SessionInfo _sessionInfo;
+        List<EventLog> log = new List<EventLog>();
 
         public EVLogHandler(SessionInfo sessionInfo)
         {
@@ -27,7 +28,9 @@ namespace SupportTroubleshootingTool.Core.Handlers
                     logsToCollect.Add(evLog.LogName, evLog.Sources);
             }
 
+
              EventLog log=new EventLog();
+            log.setting
              //log.Log = evLog.LogName;
         }
     }
