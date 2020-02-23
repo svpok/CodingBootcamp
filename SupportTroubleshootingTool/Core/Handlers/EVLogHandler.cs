@@ -29,8 +29,6 @@ namespace SupportTroubleshootingTool.Core.Handlers
             }
 
 
-             EventLog log=new EventLog();
-            log.setting
              //log.Log = evLog.LogName;
         }
     }
