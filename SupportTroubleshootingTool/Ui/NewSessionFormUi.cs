@@ -45,13 +45,13 @@ namespace SupportTroubleshootingTool.UI
             ListEv.Items.Clear();
             for (int i = 0; i < selectedWorkflow.EVLogs.Count; i++)
             {
-                bindingSource2.DataSource = selectedWorkflow.EVLogs[i].LogName;
+                bindingSource2.DataSource = selectedWorkflow.EVLogs[i].Description;
                 ListEv.Items.Add(bindingSource2.DataSource);
             }
             ListFiles.Items.Clear();
             for (int i = 0; i < selectedWorkflow.FileLogs.Count; i++)
             {
-                bindingSource2.DataSource = selectedWorkflow.FileLogs[i].LogFileName;
+                bindingSource2.DataSource = selectedWorkflow.FileLogs[i].Description;
                 ListFiles.Items.Add(bindingSource2.DataSource);
             }
             ListTraces.Items.Clear();
