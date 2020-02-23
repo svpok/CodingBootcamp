@@ -122,10 +122,10 @@ namespace SupportTroubleshootingTool.UI
             
         }
 
-        private void butAll_Click(object sender, EventArgs e)
-        {
+        //private void butAll_Click(object sender, EventArgs e)
+        //{
 
-        }
+        //}
 
       
     }

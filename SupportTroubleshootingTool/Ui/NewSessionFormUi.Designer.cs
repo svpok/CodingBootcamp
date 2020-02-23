@@ -333,7 +333,7 @@
             this.butAll.TabIndex = 6;
             this.butAll.Text = "Choose them all";
             this.butAll.UseVisualStyleBackColor = false;
-            this.butAll.Click += new System.EventHandler(this.butAll_Click);
+            //this.butAll.Click += new System.EventHandler(this.butAll_Click);
             // 
             // ListFiles
             // 

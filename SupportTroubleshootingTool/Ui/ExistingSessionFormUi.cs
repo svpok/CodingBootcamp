@@ -68,6 +68,18 @@ namespace SupportTroubleshootingTool.UI
             {
                 MessageBox.Show("The date and time is exist for this session,can't collect data.");
             }
+            
+            if (dateTimeTo.Value < dateTimeFrom.Value)
+            {
+                
+                MessageBox.Show("It cannot be 'DateTo' a less from 'DateFrom'", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+            else
+            {
+                this.Close();
+            }
+
         }
 
         private void butCollectWithoutClosingSession_Click(object sender, EventArgs e)
@@ -78,18 +90,18 @@ namespace SupportTroubleshootingTool.UI
 
         }
 
-        private void butBack_Click_1(object sender, EventArgs e)
-        {
-            _backForm.Show();
-            // this.Hide();
+        //private void butBack_Click_1(object sender, EventArgs e)
+        //{
+        //    _backForm.Show();
+        //    // this.Hide();
 
 
-            //this.Hide();
-            //_backForm.ShowDialog();
-           // _backForm.Show();
-            this.Close();
+        //    //this.Hide();
+        //    //_backForm.ShowDialog();
+        //   // _backForm.Show();
+        //    this.Close();
 
-        }
+        //}
 
        
 

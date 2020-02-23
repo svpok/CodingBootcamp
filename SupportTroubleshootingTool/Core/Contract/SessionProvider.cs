@@ -110,7 +110,7 @@ namespace SupportTroubleshootingTool.Core.Contract
             catch (Exception ex)
             {
                 new  Logger().WriteError(ex);
-                throw;
+               // throw;
             }
         }
         public bool CollectData()
