@@ -395,24 +395,7 @@
             this.butStart.Click += new System.EventHandler(this.butStart_Click_2);
             // 
 
-            // butReset
-            // 
-            this.butReset.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(75)))), ((int)(((byte)(105)))));
-            this.butReset.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.butReset.FlatAppearance.BorderColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.butReset.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.butReset.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.butReset.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.butReset.ForeColor = System.Drawing.Color.White;
-            this.butReset.Location = new System.Drawing.Point(24, 1276);
-            this.butReset.Margin = new System.Windows.Forms.Padding(4);
-            this.butReset.Name = "butReset";
-            this.butReset.Size = new System.Drawing.Size(228, 75);
-            this.butReset.TabIndex = 6;
-            this.butReset.Text = "Reset to Default";
-            this.butReset.UseVisualStyleBackColor = false;
-            this.butReset.Click += new System.EventHandler(this.butReset_Click_1);
-            // 
+
 
             // tableLayoutPanel3
             // 
