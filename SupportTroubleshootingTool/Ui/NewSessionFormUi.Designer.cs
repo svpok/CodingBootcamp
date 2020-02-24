@@ -264,7 +264,6 @@
             this.ListEv.Name = "ListEv";
             this.ListEv.Size = new System.Drawing.Size(1008, 196);
             this.ListEv.TabIndex = 0;
-           
             // 
             // ListTraces
             // 
@@ -315,7 +314,7 @@
             this.butAll.Name = "butAll";
             this.butAll.Size = new System.Drawing.Size(210, 63);
             this.butAll.TabIndex = 6;
-            this.butAll.Text = "Choose them all";
+            this.butAll.Text = "Select All";
             this.butAll.UseVisualStyleBackColor = false;
             this.butAll.Click += new System.EventHandler(this.butAll_Click);
             // 

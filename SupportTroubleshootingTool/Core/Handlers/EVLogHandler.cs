@@ -30,7 +30,7 @@ namespace SupportTroubleshootingTool.Core.Handlers
 
 
              EventLog log=new EventLog();
-            log.setting
+            //.setting
              //log.Log = evLog.LogName;
         }
     }
