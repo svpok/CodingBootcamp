@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SupportTroubleshootingTool.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SupportTroubleshootingTool.Core", "Core\SupportTroubleshootingTool.Core.csproj", "{C4983A07-CD5C-47FF-9DE3-B3051A2554BD}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "SupportTroubleShootingTool Installer", "SupportTroubleShootingTool Installer\SupportTroubleShootingTool Installer.vdproj", "{8777B921-923E-458B-A180-41779B6598BE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,8 @@ Global
 		{C4983A07-CD5C-47FF-9DE3-B3051A2554BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C4983A07-CD5C-47FF-9DE3-B3051A2554BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C4983A07-CD5C-47FF-9DE3-B3051A2554BD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8777B921-923E-458B-A180-41779B6598BE}.Debug|Any CPU.ActiveCfg = Debug
+		{8777B921-923E-458B-A180-41779B6598BE}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
