@@ -53,7 +53,7 @@
             this.dateTimeTo.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimeTo.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateTimeTo.Location = new System.Drawing.Point(74, 95);
-            this.dateTimeTo.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.dateTimeTo.Margin = new System.Windows.Forms.Padding(1);
             this.dateTimeTo.Name = "dateTimeTo";
             this.dateTimeTo.Size = new System.Drawing.Size(146, 26);
             this.dateTimeTo.TabIndex = 27;
@@ -65,7 +65,7 @@
             this.dateTimeFrom.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimeFrom.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateTimeFrom.Location = new System.Drawing.Point(74, 61);
-            this.dateTimeFrom.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dateTimeFrom.Margin = new System.Windows.Forms.Padding(2);
             this.dateTimeFrom.Name = "dateTimeFrom";
             this.dateTimeFrom.Size = new System.Drawing.Size(146, 26);
             this.dateTimeFrom.TabIndex = 26;
@@ -191,7 +191,7 @@
             this.panel2.Controls.Add(this.To);
             this.panel2.Controls.Add(this.dateTimeFrom);
             this.panel2.Location = new System.Drawing.Point(16, 20);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(320, 307);
             this.panel2.TabIndex = 29;
@@ -202,7 +202,7 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.loadData);
             this.panel1.Location = new System.Drawing.Point(340, 20);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(568, 307);
             this.panel1.TabIndex = 30;
@@ -215,7 +215,7 @@
             this.panel3.Controls.Add(this.butCollectWithoutClosingSession);
             this.panel3.Controls.Add(this.butBack);
             this.panel3.Location = new System.Drawing.Point(16, 331);
-            this.panel3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel3.Margin = new System.Windows.Forms.Padding(2);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(892, 62);
             this.panel3.TabIndex = 30;
@@ -241,7 +241,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(43)))), ((int)(((byte)(60)))));
-            this.ClientSize = new System.Drawing.Size(685, 389);
+            this.ClientSize = new System.Drawing.Size(849, 450);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
