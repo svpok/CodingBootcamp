@@ -1,5 +1,6 @@
 ﻿using SupportTroubleshootingTool.Core.Contract;
 using SupportTroubleshootingTool.Core.Model;
+using SupportTroubleshootingTool.Core.Utilities;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -25,6 +26,7 @@ namespace SupportTroubleshootingTool.UI
         }
         private void NewSessionFormUi_Load(object sender, EventArgs e)
         {
+
             this.Size = new Size(500, 470);
             
             FillWorkflows();
@@ -121,13 +123,6 @@ namespace SupportTroubleshootingTool.UI
             }
             
         }
-
-        //private void butAll_Click(object sender, EventArgs e)
-        //{
-
-        //}
-
-      
     }
     
 }

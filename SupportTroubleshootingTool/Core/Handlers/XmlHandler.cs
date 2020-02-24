@@ -19,7 +19,7 @@ namespace SupportTroubleshootingTool.Core.Handlers
         }
         public  void ChangeConfig()
         {
-            if (_sessionInfo.LogLevel != 0)
+            if (_sessionInfo.LogLevel != LogLevelEnum.Current)
             {
 
                 var ConfigstoChange = new Dictionary<string, List<string>>();
