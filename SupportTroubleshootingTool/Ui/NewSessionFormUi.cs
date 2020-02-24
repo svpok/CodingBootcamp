@@ -1,6 +1,4 @@
-﻿using SupportTroubleshootingTool.Core.Contract;
-using SupportTroubleshootingTool.Core.Model;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -9,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using SupportTroubleshootingTool.Core.Contract;
+using SupportTroubleshootingTool.Core.Model;
 
 namespace SupportTroubleshootingTool.UI
 {

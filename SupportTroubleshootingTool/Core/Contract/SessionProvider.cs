@@ -81,7 +81,7 @@ namespace SupportTroubleshootingTool.Core.Contract
             catch(Exception ex)
             {
                new  Logger().WriteError(ex);
-                throw;
+                //throw;
             }
         }
         public void StopSession(bool cls=true)

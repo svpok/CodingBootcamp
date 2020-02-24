@@ -52,10 +52,10 @@
             this.dateTimeTo.CustomFormat = "dd/MM/yyy,hh:mm";
             this.dateTimeTo.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimeTo.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimeTo.Location = new System.Drawing.Point(74, 95);
-            this.dateTimeTo.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.dateTimeTo.Location = new System.Drawing.Point(74, 91);
+            this.dateTimeTo.Margin = new System.Windows.Forms.Padding(1);
             this.dateTimeTo.Name = "dateTimeTo";
-            this.dateTimeTo.Size = new System.Drawing.Size(146, 26);
+            this.dateTimeTo.Size = new System.Drawing.Size(178, 26);
             this.dateTimeTo.TabIndex = 27;
             // 
             // dateTimeFrom
@@ -64,10 +64,10 @@
             this.dateTimeFrom.CustomFormat = "dd/MM/yyy,hh:mm";
             this.dateTimeFrom.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimeFrom.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimeFrom.Location = new System.Drawing.Point(74, 61);
-            this.dateTimeFrom.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dateTimeFrom.Location = new System.Drawing.Point(74, 53);
+            this.dateTimeFrom.Margin = new System.Windows.Forms.Padding(2);
             this.dateTimeFrom.Name = "dateTimeFrom";
-            this.dateTimeFrom.Size = new System.Drawing.Size(146, 26);
+            this.dateTimeFrom.Size = new System.Drawing.Size(178, 26);
             this.dateTimeFrom.TabIndex = 26;
             // 
             // To
@@ -76,7 +76,7 @@
             this.To.BackColor = System.Drawing.Color.Transparent;
             this.To.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.To.ForeColor = System.Drawing.Color.White;
-            this.To.Location = new System.Drawing.Point(6, 95);
+            this.To.Location = new System.Drawing.Point(6, 93);
             this.To.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.To.Name = "To";
             this.To.Size = new System.Drawing.Size(32, 18);
@@ -89,7 +89,7 @@
             this.From.BackColor = System.Drawing.Color.Transparent;
             this.From.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.From.ForeColor = System.Drawing.Color.White;
-            this.From.Location = new System.Drawing.Point(6, 61);
+            this.From.Location = new System.Drawing.Point(6, 55);
             this.From.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.From.Name = "From";
             this.From.Size = new System.Drawing.Size(53, 18);
@@ -102,7 +102,7 @@
             this.DateTimeFilter.BackColor = System.Drawing.Color.Transparent;
             this.DateTimeFilter.Font = new System.Drawing.Font("Arial", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DateTimeFilter.ForeColor = System.Drawing.Color.White;
-            this.DateTimeFilter.Location = new System.Drawing.Point(6, 18);
+            this.DateTimeFilter.Location = new System.Drawing.Point(6, 13);
             this.DateTimeFilter.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.DateTimeFilter.Name = "DateTimeFilter";
             this.DateTimeFilter.Size = new System.Drawing.Size(190, 22);
@@ -147,7 +147,7 @@
             this.butCollectWithoutClosingSession.FlatAppearance.MouseOverBackColor = System.Drawing.Color.AliceBlue;
             this.butCollectWithoutClosingSession.Font = new System.Drawing.Font("Arial", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.butCollectWithoutClosingSession.ForeColor = System.Drawing.Color.White;
-            this.butCollectWithoutClosingSession.Location = new System.Drawing.Point(676, 12);
+            this.butCollectWithoutClosingSession.Location = new System.Drawing.Point(704, 12);
             this.butCollectWithoutClosingSession.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.butCollectWithoutClosingSession.Name = "butCollectWithoutClosingSession";
             this.butCollectWithoutClosingSession.Size = new System.Drawing.Size(214, 39);
@@ -158,16 +158,19 @@
             // 
             // loadData
             // 
-            this.loadData.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.loadData.Alignment = System.Windows.Forms.ListViewAlignment.Default;
+            this.loadData.AllowColumnReorder = true;
+            this.loadData.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.loadData.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.loadData.HideSelection = false;
-            this.loadData.Location = new System.Drawing.Point(12, 61);
-            this.loadData.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.loadData.Location = new System.Drawing.Point(341, 37);
+            this.loadData.Margin = new System.Windows.Forms.Padding(0);
             this.loadData.Name = "loadData";
-            this.loadData.Size = new System.Drawing.Size(542, 239);
+            this.loadData.ShowGroups = false;
+            this.loadData.Size = new System.Drawing.Size(514, 272);
             this.loadData.TabIndex = 2;
             this.loadData.UseCompatibleStateImageBehavior = false;
-            this.loadData.View = System.Windows.Forms.View.List;
+            this.loadData.View = System.Windows.Forms.View.Tile;
             // 
             // label1
             // 
@@ -175,7 +178,7 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Arial", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(16, 10);
+            this.label1.Location = new System.Drawing.Point(2, 10);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(184, 22);
@@ -190,8 +193,8 @@
             this.panel2.Controls.Add(this.dateTimeTo);
             this.panel2.Controls.Add(this.To);
             this.panel2.Controls.Add(this.dateTimeFrom);
-            this.panel2.Location = new System.Drawing.Point(16, 20);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel2.Location = new System.Drawing.Point(11, 2);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(320, 307);
             this.panel2.TabIndex = 29;
@@ -200,11 +203,10 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(43)))), ((int)(((byte)(60)))));
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.loadData);
-            this.panel1.Location = new System.Drawing.Point(340, 20);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Location = new System.Drawing.Point(335, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(568, 307);
+            this.panel1.Size = new System.Drawing.Size(202, 35);
             this.panel1.TabIndex = 30;
             // 
             // panel3
@@ -215,9 +217,9 @@
             this.panel3.Controls.Add(this.butCollectWithoutClosingSession);
             this.panel3.Controls.Add(this.butBack);
             this.panel3.Location = new System.Drawing.Point(16, 331);
-            this.panel3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel3.Margin = new System.Windows.Forms.Padding(2);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(892, 62);
+            this.panel3.Size = new System.Drawing.Size(937, 62);
             this.panel3.TabIndex = 30;
             // 
             // butOpenSeesion
@@ -241,8 +243,10 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(43)))), ((int)(((byte)(60)))));
-            this.ClientSize = new System.Drawing.Size(685, 389);
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.ClientSize = new System.Drawing.Size(979, 461);
             this.Controls.Add(this.panel3);
+            this.Controls.Add(this.loadData);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
             this.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);

@@ -71,7 +71,7 @@
             this.comboboxWorkflows.Location = new System.Drawing.Point(2, 23);
             this.comboboxWorkflows.Margin = new System.Windows.Forms.Padding(2);
             this.comboboxWorkflows.Name = "comboboxWorkflows";
-            this.comboboxWorkflows.Size = new System.Drawing.Size(303, 31);
+            this.comboboxWorkflows.Size = new System.Drawing.Size(290, 31);
             this.comboboxWorkflows.TabIndex = 1;
             this.comboboxWorkflows.SelectedIndexChanged += new System.EventHandler(this.comboboxWorkflows_SelectedValueChanged);
             // 
@@ -81,7 +81,7 @@
             this.Workflow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(49)))), ((int)(((byte)(69)))));
             this.Workflow.Font = new System.Drawing.Font("Arial", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Workflow.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.Workflow.Location = new System.Drawing.Point(2, 7);
+            this.Workflow.Location = new System.Drawing.Point(-5, -4);
             this.Workflow.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.Workflow.Name = "Workflow";
             this.Workflow.Size = new System.Drawing.Size(114, 25);
@@ -108,13 +108,13 @@
             this.tableLayoutPanel1.Controls.Add(this.panel1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.comboboxWorkflows, 0, 1);
             this.tableLayoutPanel1.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(10, 56);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 56);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.60656F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 547F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(307, 568);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(294, 568);
             this.tableLayoutPanel1.TabIndex = 19;
             // 
             // butWarning
@@ -218,7 +218,7 @@
             this.tableLayoutPanel2.Controls.Add(this.panel7, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.panelLogsLevel, 0, 1);
             this.tableLayoutPanel2.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(1028, 82);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(970, 56);
             this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 2;
@@ -248,10 +248,10 @@
             this.panelEvAndFile.Controls.Add(this.butAll);
             this.panelEvAndFile.Controls.Add(this.ListFiles);
             this.panelEvAndFile.ForeColor = System.Drawing.Color.White;
-            this.panelEvAndFile.Location = new System.Drawing.Point(322, 56);
+            this.panelEvAndFile.Location = new System.Drawing.Point(301, 58);
             this.panelEvAndFile.Margin = new System.Windows.Forms.Padding(2);
             this.panelEvAndFile.Name = "panelEvAndFile";
-            this.panelEvAndFile.Size = new System.Drawing.Size(703, 518);
+            this.panelEvAndFile.Size = new System.Drawing.Size(665, 518);
             this.panelEvAndFile.TabIndex = 10;
             // 
             // EventViewerLogs
@@ -333,7 +333,6 @@
             this.butAll.TabIndex = 6;
             this.butAll.Text = "Choose them all";
             this.butAll.UseVisualStyleBackColor = false;
-            //this.butAll.Click += new System.EventHandler(this.butAll_Click);
             // 
             // ListFiles
             // 
@@ -406,12 +405,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(43)))), ((int)(((byte)(60)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.ClientSize = new System.Drawing.Size(1244, 680);
+            this.ClientSize = new System.Drawing.Size(979, 680);
             this.Controls.Add(this.panelEvAndFile);
+            this.Controls.Add(this.tableLayoutPanel2);
             this.Controls.Add(this.butStart);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Controls.Add(this.tableLayoutPanel2);
             this.Controls.Add(this.tableLayoutPanel3);
             this.ForeColor = System.Drawing.SystemColors.Desktop;
             this.Margin = new System.Windows.Forms.Padding(2);
