@@ -20,7 +20,13 @@ namespace SupportTroubleshootingTool.Core.Contract
             var path = ConfigurationManager.AppSettings["SessionRootFolderPath"];
             if (!Directory.Exists(path))
             {
-                System.IO.Directory.CreateDirectory(path);
+                try
+                {
+                    System.IO.Directory.CreateDirectory(path);
+                }catch(Exception ex)
+                {
+                    throw new Exception($"0:{ex.Message}");
+                }
             }
             SessionRootFolderPath = path;
         }
@@ -50,7 +56,7 @@ namespace SupportTroubleshootingTool.Core.Contract
                 }
                 if (s.Length > 1)
                 {
-                  new  Logger().WriteWarning("two Session or more is open.");
+                    new  Logger().WriteWarning("two Session or more is open.");
                     throw new Exception("two Session or more is open.");
                 }
                 return null;
@@ -80,8 +86,8 @@ namespace SupportTroubleshootingTool.Core.Contract
             }
             catch(Exception ex)
             {
-               new  Logger().WriteError(ex);
-                throw;
+                new  Logger().WriteError(ex);
+                throw new Exception($"1:{ex.Message}");
             }
         }
         public void StopSession(bool cls=true)
@@ -99,18 +105,18 @@ namespace SupportTroubleshootingTool.Core.Contract
                     //Resore from backup (BackupHandler)
                     new BackUpManager(_currentSession).Restore();
                     //Restart processes (ProcessHandler)
-                    // new ProcessHandler(_currentSession);
+                    //new ProcessHandler(_currentSession);
                     //Rename session folder from open to close - done
                     System.IO.Directory.Move($"{SessionRootFolderPath}\\{_currentSession.SessionFolderPath}_open",
                     $"{SessionRootFolderPath}\\{_currentSession.SessionFolderPath}_close");
                 }
-                
+
 
             }
             catch (Exception ex)
             {
                 new  Logger().WriteError(ex);
-                throw;
+                throw new Exception($"2:{ex.Message}");
             }
         }
         public bool CollectData()
@@ -143,7 +149,7 @@ namespace SupportTroubleshootingTool.Core.Contract
             catch (Exception ex)
             {
                 new Logger().WriteError(ex);
-                throw;
+                throw new Exception($"3:{ex.Message}") ;
             }
             return true;
         }

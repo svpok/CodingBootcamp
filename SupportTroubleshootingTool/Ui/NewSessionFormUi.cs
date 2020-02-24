@@ -1,5 +1,6 @@
 ﻿using SupportTroubleshootingTool.Core.Contract;
 using SupportTroubleshootingTool.Core.Model;
+using SupportTroubleshootingTool.Core.Utilities;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -27,9 +28,15 @@ namespace SupportTroubleshootingTool.UI
         }
         private void NewSessionFormUi_Load(object sender, EventArgs e)
         {
+<<<<<<< HEAD
             flag = true;
             this.Size = new Size(1280, 870);
 
+=======
+
+            this.Size = new Size(500, 470);
+            
+>>>>>>> 37ebc1f7c313fbb8a783753ba183cd9677a45d4e
             FillWorkflows();
         }
         public void FillWorkflows()
@@ -54,7 +61,7 @@ namespace SupportTroubleshootingTool.UI
             ListFiles.Items.Clear();
             for (int i = 0; i < selectedWorkflow.FileLogs.Count; i++)
             {
-                bindingSource2.DataSource = selectedWorkflow.FileLogs[i].LogFileName;
+                bindingSource2.DataSource = selectedWorkflow.FileLogs[i].Description;
                 ListFiles.Items.Add(bindingSource2.DataSource);
             }
             ListTraces.Items.Clear();
@@ -124,6 +131,7 @@ namespace SupportTroubleshootingTool.UI
             }
 
         }
+<<<<<<< HEAD
 
         private void butAll_Click(object sender, EventArgs e)
         {
@@ -148,5 +156,7 @@ namespace SupportTroubleshootingTool.UI
                 checkedList.SetItemChecked(i, flag);
             }
         }
+=======
+>>>>>>> 37ebc1f7c313fbb8a783753ba183cd9677a45d4e
     }
 }

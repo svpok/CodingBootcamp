@@ -129,22 +129,37 @@
 		</FileLogInfo>
 	</FileLogs>
 	<Traces>
-		<TraceInfo>
-			<!-- ConfigItemInfo properties: 
+        <TraceInfo>
+            <Description>VPO Traces</Description>
+            <ConfigFilePath>C:\Program Files\dbMotion\Services\BusinessServices\VPO\Configuration\VPO\Cache\Settings\dbmSystemProperties.xml</ConfigFilePath>
+            <IsRequireIISRestart>false</IsRequireIISRestart>
+            <ServicesToRestart />
+            <TraceMode>
+                <Xpath>/dbmProperties/dbmGroup[@name='Tracing']/dbmProperty[@name='bypassTraceModeInfo']</Xpath>
+                <ValueOn>InputOutput</ValueOn>
+                <ValueOff>None</ValueOff>
+            </TraceMode>
+            <TracesPath>C:\Program Files\dbMotion\Services\BusinessServices\VPO\Tracing\VPO</TracesPath>
+            <TraceFileName>VPO_*_PatientEntrance_PatientSearchAsDS_*.bd</TraceFileName>
+            <IISApplicationPoolToRestart>DefaultAppPool</IISApplicationPoolToRestart>
+        </TraceInfo>
+		<!--
+        <TraceInfo>
+			 ConfigItemInfo properties: 
 			    public string Description { get; set; } - Description of EV Log. For presentaion in EV Logs UI elements. Mandatory.
 				public string ConfigFilePath { get; set; } - Config file path that has the EV log level definition. For using in XMLHandler. Mandatory.
 				public bool IsRequireIISRestart { get; set; } - If IIS should be restarted (all pools). For using in ProsessHandler. Optional, default value is false.
 				public string IISApplicationPoolToRestart {get; set; } - IIS Application Pool to be restarte. For using in ProsessHandler. Optional, default value is empty string.
 				public List<string> ServicesToRestart { get; set; } - Collection of services names that should be restarted. For using in ProsessHandler. Optional, default value is empty List. If item is defined, it cannot be empty.
-			-->
+			
 			<Description>VPO Traces</Description>
 			<ConfigFilePath>C:\Program Files\dbMotion\Services\BusinessServices\VPO\Configuration\VPO\Cache\Settings\dbmSystemProperties.xml</ConfigFilePath>
 			<IsRequireIISRestart>false</IsRequireIISRestart>
 			<IISApplicationPoolToRestart>DefaultAppPool</IISApplicationPoolToRestart>
 			<ServicesToRestart>
-				<!--<ServiceName></ServiceName>-->
+				<ServiceName></ServiceName>
 			</ServicesToRestart>
-			<!-- TraceInfo properties:
+			TraceInfo properties:
 				public TraceModeInfo TraceMode { get; set; } - trace mode information
 				public string TracesPath { get; set; } - folder where the trace files will be created. For using in FileHandler. Mandatory. Cannot be empty.
 				public string TraceFileName { get; set; } - - the wildcard of trace files name. For using in FileHandler. Mandatory. Default value: *.*
@@ -153,7 +168,7 @@
 				public string Xpath { get; set; } - XPath that define trace mode. For using in XmlHandler. Mandatory. Cannot be empty.
 				public bool ValueOn { get; set; } - value to be set when traces are on. For using in XmlHandler. Mandatory. Cannot be empty.
 				public bool ValueOff { get; set; } - - value to be set when traces are off. For using in XmlHandler. Mandatory. Cannot be empty.
-			-->
+			
 			<TraceModeInfo>
 				<Xpath>/dbmProperties/dbmGroup[@name='Tracing']/dbmProperty[@name='bypassTraceModeInfo']</Xpath>
 				<ValueOn>InputOutput</ValueOn>
@@ -162,22 +177,24 @@
 			<TracesPath>C:\Program Files\dbMotion\Services\BusinessServices\VPO\Tracing\VPO</TracesPath>
 			<TraceFileName>VPO_*_PatientEntrance_PatientSearchAsDS_*.bd</TraceFileName>
 		</TraceInfo>
-		<TraceInfo>
-			<Description>VIA Federation Traces</Description>
-			<ConfigFilePath>C:\Program Files\dbMotion\Services\VIAService\Configuration\FederatedCDREMPIEnterpriseInfo.xml</ConfigFilePath>
-			<IsRequireIISRestart>false</IsRequireIISRestart>
-			<IISApplicationPoolToRestart></IISApplicationPoolToRestart>
-			<ServicesToRestart>
-				<ServiceName>DBMVIAHostService</ServiceName>
-			</ServicesToRestart>
-			<TraceModeInfo>
-				<Xpath>/via/identificationProviders/provider/operations/match/settings/setting[@name='TraceEnable']/@value</Xpath>
-				<ValueOn>true</ValueOn>
-				<ValueOff>false</ValueOff>
-			</TraceModeInfo>
-			<TracesPath>C:\Program Files\dbMotion\Services\VIAService\FedTrace</TracesPath>
-			<TraceFileName>*.*</TraceFileName>
-		</TraceInfo>
+    -->
+
+        <TraceInfo>
+            <Description>VIA Federation Traces</Description>
+            <ConfigFilePath>C:\Program Files\dbMotion\Services\VIAService\Configuration\FederatedCDREMPIEnterpriseInfo.xml</ConfigFilePath>
+            <IsRequireIISRestart>false</IsRequireIISRestart>
+            <ServicesToRestart>
+                <ServiceName>DBMVIAHostService</ServiceName>
+            </ServicesToRestart>
+            <TraceMode>
+                <Xpath>/via/identificationProviders/provider/operations/match/settings/setting[@name='TraceEnable']/@value</Xpath>
+                <ValueOn>true</ValueOn>
+                <ValueOff>false</ValueOff>
+            </TraceMode>
+            <TracesPath>C:\Program Files\dbMotion\Services\VIAService\FedTrace</TracesPath>
+            <TraceFileName>*.*</TraceFileName>
+            <IISApplicationPoolToRestart />
+        </TraceInfo>
 		<!--<TraceInfo>
 			<Description>CLCC Traces</Description>
 			<ConfigFilePath>C:\Users\spokatilovskiy\Documents\GiveBack\BootCamp\dbMotionConfigs\dbMotion Shared\Communication\Configuration\FederationSitesConfig.xml</ConfigFilePath>
