@@ -28,7 +28,7 @@ namespace SupportTroubleshootingTool.UI
         }
           private void ExistingSessionFormUi_Load(object sender, EventArgs e)
         {
-<<<<<<< HEAD
+            this.Size = new Size(1250, 720);
             this.loadData.Items.Add("workflow:" + _currentSession.WorkflowName);
 
             this.loadData.Items.Add("Event View Logs:");
@@ -38,36 +38,18 @@ namespace SupportTroubleshootingTool.UI
             }
             
             this.loadData.Items.Add("File Logs:");
-=======
-            this.Size = new Size(1250, 720);
-            this.loadData.Items.Add("workflow:" + _currentSession.WorkflowName);
-            this.loadData.Items.Add("workflow:" + _currentSession.WorkflowName);
-            loadData.Items.Add("Event View Logs:\n");
-            foreach (EVLogInfo EVlog in _currentSession.SelectedEVLogs)
-                this.loadData.Items.Add(EVlog.LogName);
-            loadData.Items.Add("File Logs:");
->>>>>>> cbcf3efec043346fe2ff0200f8268b90ffd9232d
             foreach (FileLogInfo fileLog in _currentSession.SelectedFileLogs)
             {
                 this.loadData.Items.Add(fileLog.LogFileName);
             }
-<<<<<<< HEAD
 
-            this.loadData.Items.Add("Traces:");
-=======
             loadData.Items.Add("Traces:");
->>>>>>> cbcf3efec043346fe2ff0200f8268b90ffd9232d
             foreach (TraceInfo trace in _currentSession.SelectedTraces)
             {
                 this.loadData.Items.Add(trace.Description);
             }
-<<<<<<< HEAD
-
-             this.loadData.Items.Add("LogLevel:" + _currentSession.LogLevel);
-=======
             loadData.Items.Add($"loglevel:{_currentSession.LogLevel}");
             this.Size = new Size(680, 500);
->>>>>>> cbcf3efec043346fe2ff0200f8268b90ffd9232d
             dateTimeFrom.Value = _sessionProvider.CurrentSession.From;
             dateTimeTo.Value = _sessionProvider.CurrentSession.To;
         }

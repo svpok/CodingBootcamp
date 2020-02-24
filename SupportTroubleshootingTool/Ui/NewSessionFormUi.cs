@@ -1,11 +1,8 @@
-<<<<<<< HEAD
-﻿using System;
-=======
+
 ﻿using SupportTroubleshootingTool.Core.Contract;
 using SupportTroubleshootingTool.Core.Model;
 using SupportTroubleshootingTool.Core.Utilities;
 using System;
->>>>>>> cbcf3efec043346fe2ff0200f8268b90ffd9232d
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;

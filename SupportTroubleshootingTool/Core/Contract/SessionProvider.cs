@@ -86,13 +86,8 @@ namespace SupportTroubleshootingTool.Core.Contract
             }
             catch(Exception ex)
             {
-<<<<<<< HEAD
-               new  Logger().WriteError(ex);
-                //throw;
-=======
                 new  Logger().WriteError(ex);
                 throw new Exception($"1:{ex.Message}");
->>>>>>> cbcf3efec043346fe2ff0200f8268b90ffd9232d
             }
         }
         public void StopSession(bool cls=true)
