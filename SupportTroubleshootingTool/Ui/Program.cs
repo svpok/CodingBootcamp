@@ -16,7 +16,6 @@ namespace SupportTroubleshootingTool.UI
         [STAThread]
         static void Main()
         {
-
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             var sessionProvider = new SessionProvider();

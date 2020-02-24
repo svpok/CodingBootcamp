@@ -1,4 +1,11 @@
+<<<<<<< HEAD
 ﻿using System;
+=======
+﻿using SupportTroubleshootingTool.Core.Contract;
+using SupportTroubleshootingTool.Core.Model;
+using SupportTroubleshootingTool.Core.Utilities;
+using System;
+>>>>>>> cbcf3efec043346fe2ff0200f8268b90ffd9232d
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,8 +21,10 @@ namespace SupportTroubleshootingTool.UI
 {
     public partial class NewSessionFormUi : Form
     {
+        
         private WorkflowProvider _workflowProvider { get; set; }
         private SessionProvider _sessionProvider;
+        private bool flag;
 
         public NewSessionFormUi(SessionProvider sessionProvider)
         {
@@ -25,14 +34,17 @@ namespace SupportTroubleshootingTool.UI
         }
         private void NewSessionFormUi_Load(object sender, EventArgs e)
         {
-            this.Size = new Size(500, 470);
-            
+
+            flag = true;
+            this.Size = new Size(1250, 720);
+
+
             FillWorkflows();
         }
         public void FillWorkflows()
         {
             var bindingSource1 = new BindingSource();
-            
+
             bindingSource1.DataSource = _workflowProvider.WorkflowsList;
             comboboxWorkflows.DataSource = bindingSource1.DataSource;
             comboboxWorkflows.DisplayMember = "Name";
@@ -61,7 +73,7 @@ namespace SupportTroubleshootingTool.UI
                 ListTraces.Items.Add(bindingSource2.DataSource);
             }
         }
-           
+
         private void comboboxWorkflows_SelectedValueChanged(object sender, EventArgs e)
         {
             LogsWorkflows(comboboxWorkflows.SelectedIndex);
@@ -110,7 +122,7 @@ namespace SupportTroubleshootingTool.UI
             {
                 string message = "you can't show";
                 MessageBox.Show(message);
-            } 
+            }
             else
             {
                 _sessionProvider.StartSession(currentsession);
@@ -119,15 +131,31 @@ namespace SupportTroubleshootingTool.UI
                 window1.ShowDialog();
                 this.Close();
             }
-            
+
         }
-
-        //private void butAll_Click(object sender, EventArgs e)
-        //{
-
-        //}
-
-      
+        private void butAll_Click_1(object sender, EventArgs e)
+        {
+            selectd(ListEv);
+            selectd(ListFiles);
+            selectd(ListTraces);
+            if (flag)
+            {
+                butAll.Text = "Unselect all";
+                flag = false;
+            }
+            else
+            {
+                butAll.Text = "Select all";
+                flag = true;
+            }
+        }
+        private void selectd(CheckedListBox checkedList)
+        {
+            for (int i = 0; i < checkedList.Items.Count; i++)
+            {
+                checkedList.SetItemChecked(i, flag);
+            }
+        }
     }
-    
-}
+    }
+
