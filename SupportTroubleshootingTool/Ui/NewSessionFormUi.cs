@@ -25,7 +25,7 @@ namespace SupportTroubleshootingTool.UI
         }
         private void NewSessionFormUi_Load(object sender, EventArgs e)
         {
-            this.Size = new Size(1280, 870);
+            this.Size = new Size(500, 470);
             
             FillWorkflows();
         }
@@ -122,10 +122,10 @@ namespace SupportTroubleshootingTool.UI
             
         }
 
-        private void butAll_Click(object sender, EventArgs e)
-        {
+        //private void butAll_Click(object sender, EventArgs e)
+        //{
 
-        }
+        //}
 
       
     }
