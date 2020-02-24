@@ -53,9 +53,17 @@ namespace SupportTroubleshootingTool.Core.Handlers
                     ConfigXML obj = new ConfigXML(i);
                     foreach (var j in ConfigstoChange.Values)
                     {
-                        foreach(var k in j)
-                            obj.Change(k, "Current");
+                        foreach (var k in j)
+                            try
+                            {
+                                obj.Change(k, Enum.GetName(typeof(LogLevelEnum), _sessionInfo.LogLevel));
+                            }
+                            catch
+                            {
+                                MessageBox.Show("Null ConfigtoChange");
+                            }
                     }
+                    obj.Save();
                 }
                 foreach (var i in ConfigstoChangeTraces.Keys)
                 {
@@ -63,8 +71,17 @@ namespace SupportTroubleshootingTool.Core.Handlers
                     foreach (var j in ConfigstoChangeTraces.Values)
                     {
                         foreach (var k in j)
-                            obj.Change(k.Xpath,k.ValueOn.ToString());
+                            try
+                            {
+                                obj.Change(k.Xpath, k.ValueOn.ToString());
+                            }
+                            catch
+                            {
+                                MessageBox.Show("Null ConfigToChangeTraces");
+                            }
+
                     }
+                    obj.Save();
                 }
             }
 
