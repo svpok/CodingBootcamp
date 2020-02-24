@@ -31,13 +31,7 @@ namespace SupportTroubleshootingTool.Core.Handlers
 
 
              EventLog log=new EventLog();
-<<<<<<< HEAD
-            //.setting
-=======
-             //log.setting
 
->>>>>>> 37ebc1f7c313fbb8a783753ba183cd9677a45d4e
-             //log.Log = evLog.LogName;
         }
     }
 }

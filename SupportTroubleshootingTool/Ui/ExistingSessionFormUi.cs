@@ -33,13 +33,8 @@ namespace SupportTroubleshootingTool.UI
 
         private void ExistingSessionFormUi_Load(object sender, EventArgs e)
         {
-<<<<<<< HEAD
-            this.Size = new Size(1800, 1000);
+            this.Size = new Size(1250, 720);
             this.loadData.Items.Add("workflow:" + _currentSession.WorkflowName);
-=======
-            this.Size = new Size(1800, 550);
->>>>>>> 37ebc1f7c313fbb8a783753ba183cd9677a45d4e
-
             this.loadData.Items.Add("workflow:" + _currentSession.WorkflowName);
             loadData.Items.Add("Event View Logs:\n");
             foreach (EVLogInfo EVlog in _currentSession.SelectedEVLogs)

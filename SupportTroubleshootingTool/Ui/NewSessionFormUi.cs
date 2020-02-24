@@ -28,15 +28,11 @@ namespace SupportTroubleshootingTool.UI
         }
         private void NewSessionFormUi_Load(object sender, EventArgs e)
         {
-<<<<<<< HEAD
+
             flag = true;
-            this.Size = new Size(1280, 870);
+            this.Size = new Size(1250, 720);
 
-=======
 
-            this.Size = new Size(500, 470);
-            
->>>>>>> 37ebc1f7c313fbb8a783753ba183cd9677a45d4e
             FillWorkflows();
         }
         public void FillWorkflows()
@@ -131,9 +127,7 @@ namespace SupportTroubleshootingTool.UI
             }
 
         }
-<<<<<<< HEAD
-
-        private void butAll_Click(object sender, EventArgs e)
+        private void butAll_Click_1(object sender, EventArgs e)
         {
             selectd(ListEv);
             selectd(ListFiles);
@@ -156,7 +150,6 @@ namespace SupportTroubleshootingTool.UI
                 checkedList.SetItemChecked(i, flag);
             }
         }
-=======
->>>>>>> 37ebc1f7c313fbb8a783753ba183cd9677a45d4e
     }
-}
+    }
+
