@@ -26,14 +26,14 @@ namespace SupportTroubleshootingTool.Core.Handlers
             {
                 if (!logsToCollect.ContainsKey(evLog.LogName))
                     logsToCollect.Add(evLog.LogName, evLog.Sources);
+                else
+                    foreach (var source in evLog.Sources)
+                        logsToCollect[evLog.LogName].Add(source);
             }
 
 
-<<<<<<< HEAD
-=======
              EventLog log=new EventLog();
              //log.setting
->>>>>>> aa7d9e8ba0222cca6ddd4ddf20caae8e64c0d3eb
              //log.Log = evLog.LogName;
         }
     }
