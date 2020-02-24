@@ -34,20 +34,22 @@ namespace SupportTroubleshootingTool.UI
         private void ExistingSessionFormUi_Load(object sender, EventArgs e)
         {
             this.Size = new Size(1800, 550);
+
             this.loadData.Items.Add("workflow:" + _currentSession.WorkflowName);
-
+            loadData.Items.Add("Event View Logs:\n");
             foreach (EVLogInfo EVlog in _currentSession.SelectedEVLogs)
-                this.loadData.Items.Add("Event View Logs:\n" + EVlog.LogName);
-
+                this.loadData.Items.Add(EVlog.LogName);
+            loadData.Items.Add("File Logs:");
             foreach (FileLogInfo fileLog in _currentSession.SelectedFileLogs)
             {
-                this.loadData.Items.Add("File Logs:" + fileLog.LogFileName);
+                this.loadData.Items.Add(fileLog.LogFileName);
             }
-
+            loadData.Items.Add("Traces:");
             foreach (TraceInfo trace in _currentSession.SelectedTraces)
             {
-                this.loadData.Items.Add("Traces:" + trace.Description);
+                this.loadData.Items.Add(trace.Description);
             }
+            loadData.Items.Add($"loglevel:{_currentSession.LogLevel}");
             this.Size = new Size(680, 500);
             dateTimeFrom.Value = _sessionProvider.CurrentSession.From;
             dateTimeTo.Value = _sessionProvider.CurrentSession.To;
@@ -59,15 +61,28 @@ namespace SupportTroubleshootingTool.UI
             _sessionProvider.CurrentSession.From = dateTimeFrom.Value;
             _sessionProvider.CurrentSession.To = dateTimeTo.Value;
             bool s = _sessionProvider.CollectData();
-            _sessionProvider.StopSession(s);
+            _sessionProvider.StopSession();
             if (s)
             {
                 this.Close();
             }
             else
             {
-                MessageBox.Show("The date and time is exist for this session,can't collect data.");
+                MessageBox.Show("The date and time is exist for this session,can't collect data,the session well close.");
+
             }
+            
+            if (dateTimeTo.Value < dateTimeFrom.Value)
+            {
+                
+                MessageBox.Show("It cannot be 'DateTo' a less from 'DateFrom'", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+            else
+            {
+                this.Close();
+            }
+
         }
 
         private void butCollectWithoutClosingSession_Click(object sender, EventArgs e)
@@ -78,17 +93,24 @@ namespace SupportTroubleshootingTool.UI
 
         }
 
-        private void butBack_Click_1(object sender, EventArgs e)
+        //private void butBack_Click_1(object sender, EventArgs e)
+        //{
+        //    _backForm.Show();
+        //    // this.Hide();
+
+
+        //    //this.Hide();
+        //    //_backForm.ShowDialog();
+        //   // _backForm.Show();
+        //    this.Close();
+
+        //}
+
+       
+
+        private void butOpenSeesion_Click(object sender, EventArgs e)
         {
-            this.Hide();
-           _backForm.ShowDialog();
-            this.Close();
-
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
+            System.Diagnostics.Process.Start(_currentSession.SessionOtputFolderPath);
         }
     }
 }

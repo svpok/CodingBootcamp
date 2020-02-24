@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,10 +12,10 @@ namespace SupportTroubleshootingTool.Core.Model
     public class TraceModeInfo
     {
         [XmlElement]
-        public string Xpath { get; set; }
+        public string @Xpath { get; set; }
         [XmlElement]
-        public bool ValueOn { get; set; }
+        public string ValueOn { get; set; }
         [XmlElement]
-        public bool ValueOff { get; set; }
+        public string ValueOff { get; set; }
     }
 }

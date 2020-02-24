@@ -30,11 +30,8 @@ namespace SupportTroubleshootingTool.Core.Handlers
                     foreach (var source in evLog.Sources)
                         logsToCollect[evLog.LogName].Add(source);
             }
-
-
              EventLog log=new EventLog();
              //log.setting
-             //log.Log = evLog.LogName;
         }
     }
 }

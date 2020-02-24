@@ -12,10 +12,10 @@ namespace SupportTroubleshootingTool.Core.Model
     {
         public BaseLogInfo() : base()
         {
-
+            LogLevelXPaths = new List<string>(); 
         }
         [XmlArray]
-        [XmlArrayItem]
-        public List<string> LogLevelXPaths { get; set; }
+        [XmlArrayItem("XPath")]
+        public List<string> LogLevelXPaths { get; set; } 
     }
 }
