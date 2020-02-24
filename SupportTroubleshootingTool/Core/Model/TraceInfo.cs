@@ -10,10 +10,10 @@ namespace SupportTroubleshootingTool.Core.Model
     {
         public TraceInfo() : base()
         {
-
+            TraceMode = new TraceModeInfo();
         }
         [XmlElement]
-        public TraceModeInfo TraceMode{ get; set; }
+        public TraceModeInfo TraceMode { get; set; }
         [XmlElement]
         public string TracesPath { get;  set; }
         [XmlElement]

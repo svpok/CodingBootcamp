@@ -37,7 +37,7 @@ namespace SupportTroubleshootingTool.Core.Handlers
             }
             catch (Exception ex)
             {
-                var newEx = new Exception("Error backup", ex);
+                var newEx = new Exception("1:Error backup", ex);
                 new Logger().WriteError(newEx);
                 throw newEx;
             }
@@ -56,7 +56,7 @@ namespace SupportTroubleshootingTool.Core.Handlers
             }
             catch(Exception ex)
             {
-                var newEx = new Exception("Error restore", ex);
+                var newEx = new Exception("0:Error restore", ex);
                 new Logger().WriteError(newEx);
                 throw newEx;
             }

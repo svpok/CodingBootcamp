@@ -19,7 +19,7 @@ namespace SupportTroubleshootingTool.Core.Handlers
         }
         public  void ChangeConfig()
         {
-            if (_sessionInfo.LogLevel != 0)
+            if (_sessionInfo.LogLevel != LogLevelEnum.Current)
             {
 
                 var ConfigstoChange = new Dictionary<string, List<string>>();
@@ -48,15 +48,22 @@ namespace SupportTroubleshootingTool.Core.Handlers
                     else //test
                         ConfigstoChangeTraces.Add(item.ConfigFilePath, new List<TraceModeInfo> { item.TraceMode });
                 }
-                foreach (var i in ConfigstoChange.Keys)
+                foreach (var i in ConfigstoChange)
                 {
-                    ConfigXML obj = new ConfigXML(i);
-                    foreach (var j in ConfigstoChange.Values)
+                    ConfigXML obj = new ConfigXML(i.Key);
+                    foreach (var j in i.Value)
                     {
-                        foreach(var k in j)
-                            obj.Change(k, _sessionInfo.LogLevel.ToString());
+                            try
+                            {
+                                obj.Change(j, Enum.GetName(typeof(LogLevelEnum), _sessionInfo.LogLevel));
+                            }
+                            catch
+                            {
+                                MessageBox.Show("Null ConfigtoChange");
+                            }
+                        obj.Save();
                     }
-                    obj.Save();
+                    
                 }
                 foreach (var i in ConfigstoChangeTraces.Keys)
                 {
@@ -64,7 +71,15 @@ namespace SupportTroubleshootingTool.Core.Handlers
                     foreach (var j in ConfigstoChangeTraces.Values)
                     {
                         foreach (var k in j)
-                            obj.Change(k.Xpath,k.ValueOn.ToString());
+                            try
+                            {
+                                obj.Change(k.Xpath, k.ValueOn.ToString());
+                            }
+                            catch
+                            {
+                                MessageBox.Show("Null ConfigToChangeTraces");
+                            }
+
                     }
                     obj.Save();
                 }
