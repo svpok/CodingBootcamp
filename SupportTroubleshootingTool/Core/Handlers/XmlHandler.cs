@@ -54,8 +54,9 @@ namespace SupportTroubleshootingTool.Core.Handlers
                     foreach (var j in ConfigstoChange.Values)
                     {
                         foreach(var k in j)
-                            obj.Change(k, "Current");
+                            obj.Change(k, _sessionInfo.LogLevel.ToString());
                     }
+                    obj.Save();
                 }
                 foreach (var i in ConfigstoChangeTraces.Keys)
                 {
@@ -65,6 +66,7 @@ namespace SupportTroubleshootingTool.Core.Handlers
                         foreach (var k in j)
                             obj.Change(k.Xpath,k.ValueOn.ToString());
                     }
+                    obj.Save();
                 }
             }
 
