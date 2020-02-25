@@ -7,9 +7,9 @@ using System.Linq;
 
 namespace SupportTroubleshootingTool.Core.Handlers
 {
-    internal class EVLogHandler
+    public class EVLogHandler
     {
-        private SessionInfo _sessionInfo;
+        SessionInfo  _sessionInfo=new SessionInfo();
         List<EventLog> log = new List<EventLog>();
 
         public EVLogHandler(SessionInfo sessionInfo)
@@ -19,7 +19,7 @@ namespace SupportTroubleshootingTool.Core.Handlers
 
 
 
-        internal void CollectData()
+        public void CollectData()
         {
             var logsToCollect = new Dictionary<string, List<string>>();
             foreach (var evLog in _sessionInfo.SelectedEVLogs)
@@ -30,8 +30,7 @@ namespace SupportTroubleshootingTool.Core.Handlers
                     foreach (var source in evLog.Sources)
                         logsToCollect[evLog.LogName].Add(source);
             }
-             EventLog log=new EventLog();
-             //log.setting
+            
         }
     }
 }
