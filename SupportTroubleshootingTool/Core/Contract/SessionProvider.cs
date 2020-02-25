@@ -77,7 +77,7 @@ namespace SupportTroubleshootingTool.Core.Contract
                 //Create the folder under this.SessionRootFolderPath - done
                 //Save SessionInfo.xml - done
                 //Crete backup (BackupHandler) - done
-               // new BackUpManager(_currentSession).Backup();
+                new BackUpManager(_currentSession).Backup();
                 //Open log levels (XmlHandler) - done
                 //Open traces (XmlHanlder) - done
                 new XmlHandler(_currentSession).ChangeConfig();
@@ -103,7 +103,7 @@ namespace SupportTroubleshootingTool.Core.Contract
                         throw new Exception("There no session to close.");
                     }
                     //Resore from backup (BackupHandler)
-                   // new BackUpManager(_currentSession).Restore();
+                    new BackUpManager(_currentSession).Restore();
                     //Restart processes (ProcessHandler)
                     //new ProcessHandler(_currentSession);
                     //Rename session folder from open to close - done
@@ -136,8 +136,8 @@ namespace SupportTroubleshootingTool.Core.Contract
                     //new EVLogHandler(_currentSession).CollectData();
                     //Collect file logs (FileLogHandler)
                     //Collect traces (TraceHanler)
-                    //new FilesHandler(_currentSession).CollectData();
-                    //new PackageHandler(_currentSession).Packaging();
+                    new FilesHandler(_currentSession).CollectData();
+                    new PackageHandler(_currentSession).Packaging();
                     SerialtionHelper<SessionInfo>.Serialize(_currentSession,
                     $@"{_currentSession.SessionOtputFolderPath}\SessionInfo.xml");
                 }

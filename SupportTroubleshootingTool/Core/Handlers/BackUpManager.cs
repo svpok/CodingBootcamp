@@ -65,6 +65,7 @@ namespace SupportTroubleshootingTool.Core.Handlers
         private void BackupConfigFiles(BackupSteps steps, List<ConfigItemInfo> configsList)
         {
             foreach (var configFileInfo in configsList)
+            
             {
                 var orgFileInfo = new FileInfo(configFileInfo.ConfigFilePath);
                 var destFileInfo = Path.Combine(this._backUpFolderPath, orgFileInfo.Name);
