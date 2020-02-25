@@ -130,7 +130,7 @@ namespace SupportTroubleshootingTool.UI
             }
 
         }
-        private void butAll_Click_1(object sender, EventArgs e)
+        private void butAll_Click(object sender, EventArgs e)
         {
             selectd(ListEv);
             selectd(ListFiles);
