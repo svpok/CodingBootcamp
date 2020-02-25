@@ -48,22 +48,22 @@ namespace SupportTroubleshootingTool.Core.Handlers
                     else //test
                         ConfigstoChangeTraces.Add(item.ConfigFilePath, new List<TraceModeInfo> { item.TraceMode });
                 }
-                foreach (var i in ConfigstoChange.Keys)
+                foreach (var i in ConfigstoChange)
                 {
-                    ConfigXML obj = new ConfigXML(i);
-                    foreach (var j in ConfigstoChange.Values)
+                    ConfigXML obj = new ConfigXML(i.Key);
+                    foreach (var j in i.Value)
                     {
-                        foreach (var k in j)
                             try
                             {
-                                obj.Change(k, Enum.GetName(typeof(LogLevelEnum), _sessionInfo.LogLevel));
+                                obj.Change(j, Enum.GetName(typeof(LogLevelEnum), _sessionInfo.LogLevel));
                             }
                             catch
                             {
                                 MessageBox.Show("Null ConfigtoChange");
                             }
+                        obj.Save();
                     }
-                    obj.Save();
+                    
                 }
                 foreach (var i in ConfigstoChangeTraces.Keys)
                 {
