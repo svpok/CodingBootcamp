@@ -28,7 +28,7 @@ namespace SupportTroubleshootingTool.UI
         }
           private void ExistingSessionFormUi_Load(object sender, EventArgs e)
         {
-            this.Size = new Size(1250, 720);
+           
             this.loadData.Items.Add("workflow:" + _currentSession.WorkflowName);
 
             this.loadData.Items.Add("Event View Logs:");
@@ -49,7 +49,7 @@ namespace SupportTroubleshootingTool.UI
                 this.loadData.Items.Add(trace.Description);
             }
             loadData.Items.Add($"loglevel:{_currentSession.LogLevel}");
-            this.Size = new Size(680, 500);
+            this.Size = new Size(990, 500);
             dateTimeFrom.Value = _sessionProvider.CurrentSession.From;
             dateTimeTo.Value = _sessionProvider.CurrentSession.To;
         }
@@ -95,5 +95,6 @@ namespace SupportTroubleshootingTool.UI
             System.Diagnostics.Process.Start(_currentSession.SessionOtputFolderPath);
         }
 
+        
     }
 }
