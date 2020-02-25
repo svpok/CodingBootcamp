@@ -28,14 +28,8 @@ namespace SupportTroubleshootingTool.UI
         }
           private void ExistingSessionFormUi_Load(object sender, EventArgs e)
         {
-
-           
-            this.loadData.Items.Add("workflow:" + _currentSession.WorkflowName);
-
-
             this.loadData.Items.Add(" workflow:" + _currentSession.WorkflowName);
             this.StartPosition = new FormStartPosition();
-
             this.loadData.Items.Add("Event View Logs:");
             foreach (EVLogInfo EVlog in _currentSession.SelectedEVLogs)
             {
@@ -54,9 +48,7 @@ namespace SupportTroubleshootingTool.UI
                 this.loadData.Items.Add(trace.Description);
             }
             loadData.Items.Add($"loglevel:{_currentSession.LogLevel}");
-
-            this.Size = new Size(990, 500);
-
+            
             dateTimeFrom.Value = _sessionProvider.CurrentSession.From;
             dateTimeTo.Value = _sessionProvider.CurrentSession.To;
         }
@@ -108,11 +100,9 @@ namespace SupportTroubleshootingTool.UI
             System.Diagnostics.Process.Start(_currentSession.SessionOtputFolderPath);
         }
 
-
         private void loadData_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
-
     }
 }
