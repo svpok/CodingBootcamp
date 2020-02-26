@@ -15,7 +15,7 @@ namespace SupportTroubleshootingTool.Core.Model
         [XmlElement]
         public string LogName { get; set; }
         [XmlArray]
-        [XmlArrayItem]
+        [XmlArrayItem("Source")]
         public List<string> Sources { get; set; }
     }
 }

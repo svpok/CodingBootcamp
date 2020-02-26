@@ -27,7 +27,7 @@ namespace SupportTroubleshootingTool.Core.Handlers
                     return;
                 }
             ServiceController service = new ServiceController(serviceName);
-            int timeoutMilliseconds = 1000;
+            int timeoutMilliseconds = 10000;
             try
             {
                 // to handle Process we must use timeout time to be sure that the process stopped then we can start it
