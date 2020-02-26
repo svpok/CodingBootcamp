@@ -37,13 +37,20 @@ namespace SupportTroubleshootingTool.Core.Handlers
             foreach (var item in logsToCollect)
             {
                 string sources = "*[System[Provider[";
+                int i = 1;
                 foreach (var src in item.Value)
                 {
                     sources += $"@Name='{src}'";
+                    if (i != item.Value.Count)
+                        sources += " or ";
+                    i++;
 
                 }
-                sources += "]]";
-                eventLogSession.ExportLog(item.Key, PathType.LogName, $@"*[System[TimeCreated[@SystemTime >= '{_sessionInfo.From.ToUniversalTime().ToString("o")}']]]  and *[System[TimeCreated[@SystemTime <= '{_sessionInfo.To.ToUniversalTime().ToString("o")}']]]", $@"{_sessionInfo.SessionOtputFolderPath}\OutputData\{from}_{to}\EVLogs");
+                sources += "]]] and ";
+                string path = $@"{_sessionInfo.SessionOtputFolderPath}\OutputData\{from}_{to}\EVLogs";
+                if (!Directory.Exists(path))
+                    Directory.CreateDirectory(path);
+                eventLogSession.ExportLog(item.Key, PathType.LogName, $@"{sources}*[System[TimeCreated[@SystemTime >= '{_sessionInfo.From.ToUniversalTime().ToString("o")}']]]  and *[System[TimeCreated[@SystemTime <= '{_sessionInfo.To.ToUniversalTime().ToString("o")}']]]", $@"{path}\{item.Key}.evtx");
             }
         }
     }
