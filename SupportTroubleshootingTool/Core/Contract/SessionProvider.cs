@@ -66,28 +66,55 @@ namespace SupportTroubleshootingTool.Core.Contract
         {
             try
             {
+                try { 
                 _currentSession = session;
                 _currentSession.SessionOtputFolderPath = Path.Combine(SessionRootFolderPath,
                                                         $"{_currentSession.SessionFolderPath}_open");
                 System.IO.Directory.CreateDirectory($@"{_currentSession.SessionOtputFolderPath}");
                 SerialtionHelper<SessionInfo>.Serialize(_currentSession,
                     $@"{_currentSession.SessionOtputFolderPath}\SessionInfo.xml");
+                }catch(Exception ex)
+                {
+                    throw new Exception($"1.1:{ex.Message}");
+                }
+
                 //session.Save();
                 //Build session folder name yyyy-MM-dd-hh-mm_workflowName_open -done
                 //Create the folder under this.SessionRootFolderPath - done
                 //Save SessionInfo.xml - done
                 //Crete backup (BackupHandler) - done
-                new BackUpManager(_currentSession).Backup();
+                try
+                {
+                    new BackUpManager(_currentSession).Backup();
+                }catch(Exception ex)
+                {
+                    throw new Exception($"1.2:{ex.Message}");
+                }
                 //Open log levels (XmlHandler) - done
                 //Open traces (XmlHanlder) - done
-                new XmlHandler(_currentSession).ChangeConfig();
+                try
+                {
+                    new XmlHandler(_currentSession).ChangeConfig();
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception($"1.3:{ex.Message}");
+                }
+
                 //Restart processes (ProcessHandler) - done
-                new ProcessHandler(_currentSession).RestartService();
+                try
+                {
+                   // new ProcessHandler(_currentSession).RestartService();
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception($"1.4:{ex.Message}");
+                }
             }
             catch(Exception ex)
             {
                 new  Logger().WriteError(ex);
-                throw new Exception($"1:{ex.Message}");
+                throw new Exception($"{ex.Message}");
             }
         }
         public void StopSession(bool cls=true)
@@ -123,23 +150,55 @@ namespace SupportTroubleshootingTool.Core.Contract
         {
             try
             {
-                string from = _currentSession.From.ToString("yyyy-MM-dd-hh-mm");
-                string to = _currentSession.To.ToString("yyyy-MM-dd-hh-mm");
-                string path = Path.Combine(_currentSession.SessionOtputFolderPath,
-                                            "OutputData",
-                                            $@"{from}_{to}");
+          
+                    string from = _currentSession.From.ToString("yyyy-MM-dd-hh-mm");
+                    string to = _currentSession.To.ToString("yyyy-MM-dd-hh-mm");
+                    string path = Path.Combine(_currentSession.SessionOtputFolderPath,
+                                                "OutputData",
+                                           $@"{from}_{to}");
+               
                 if (!Directory.Exists(path))
                 {
+                    try { 
                     Directory.CreateDirectory(path);
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new Exception($"1:{ex.Message}");
+                    }
                     //Create Output folder for this collect operation
                     //Collect Log events (EVLogHandler)
+                    try { 
                     new EVLogHandler(_currentSession).CollectData();
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new Exception($"2:{ex.Message}");
+                    }
                     //Collect file logs (FileLogHandler)
                     //Collect traces (TraceHanler)
+                    try { 
                     new FilesHandler(_currentSession).CollectData();
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new Exception($"3:{ex.Message}");
+                    }
+                    try { 
                     new PackageHandler(_currentSession).Packaging();
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new Exception($"4:{ex.Message}");
+                    }
+                    try { 
                     SerialtionHelper<SessionInfo>.Serialize(_currentSession,
                     $@"{_currentSession.SessionOtputFolderPath}\SessionInfo.xml");
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new Exception($"5:{ex.Message}");
+                    }
                 }
                 else
                 {
@@ -149,7 +208,7 @@ namespace SupportTroubleshootingTool.Core.Contract
             catch (Exception ex)
             {
                 new Logger().WriteError(ex);
-                throw new Exception($"3:{ex.Message}") ;
+                throw new Exception($"3.{ex.Message}") ;
             }
             return true;
         }
