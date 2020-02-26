@@ -29,12 +29,14 @@ namespace SupportTroubleshootingTool.UI
         private void NewSessionFormUi_Load(object sender, EventArgs e)
         {
             this.Location = new Point((Screen.PrimaryScreen.WorkingArea.Width - this.Width) / 2,
-                          (Screen.PrimaryScreen.WorkingArea.Height - this.Height) / 2);
+                                    (Screen.PrimaryScreen.WorkingArea.Height - this.Height) / 2);
+           
             flag = true;
-            this.Size = new Size(820, 780);
+            this.Size = new Size(820, 700);
             this.butStart.Enabled = false;
             this.butAll.Enabled = false;
             FillWorkflows();
+            
         }
         public void FillWorkflows()
         {
@@ -134,6 +136,7 @@ namespace SupportTroubleshootingTool.UI
                 window1.ShowDialog();
                 this.Close();
             }
+            this.butAll.Enabled = true;
         }
         private void butAll_Click(object sender, EventArgs e)
         {
