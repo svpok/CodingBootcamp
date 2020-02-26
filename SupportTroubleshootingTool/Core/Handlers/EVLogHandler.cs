@@ -36,12 +36,15 @@ namespace SupportTroubleshootingTool.Core.Handlers
             EventLogSession eventLogSession = new EventLogSession();
             foreach (var item in logsToCollect)
             {
-                //var query = string.Format($@"");
+                string sources = "*[System[Provider[";
+                foreach (var src in item.Value)
+                {
+                    sources += $"@Name='{src}'";
+
+                }
+                sources += "]]";
                 eventLogSession.ExportLog(item.Key, PathType.LogName, $@"*[System[TimeCreated[@SystemTime >= '{_sessionInfo.From.ToUniversalTime().ToString("o")}']]]  and *[System[TimeCreated[@SystemTime <= '{_sessionInfo.To.ToUniversalTime().ToString("o")}']]]", $@"{_sessionInfo.SessionOtputFolderPath}\OutputData\{from}_{to}\EVLogs");
             }
-            
-             EventLog log=new EventLog(_sessionInfo.SelectedEVLogs[0].LogName);
-
         }
     }
 }
