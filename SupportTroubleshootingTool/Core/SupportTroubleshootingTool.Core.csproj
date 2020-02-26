@@ -216,6 +216,7 @@
     <Compile Include="Handlers\XmlHandler.cs" />
     <Compile Include="Model\BaseLogInfo.cs" />
     <Compile Include="Model\ConfigItemInfo.cs" />
+    <Compile Include="Model\ConfigurationPoint.cs" />
     <Compile Include="Model\EVLogInfo.cs" />
     <Compile Include="Model\FileLogInfo.cs" />
     <Compile Include="Model\SessionInfo.cs" />

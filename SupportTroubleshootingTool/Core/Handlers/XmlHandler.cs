@@ -9,12 +9,6 @@ namespace SupportTroubleshootingTool.Core.Handlers
 {
     public class XmlHandler
     {
-        struct ConfigurationPoint
-        {
-            internal string XPath { get; set; }
-            internal string Value { get; set; }
-        }
-
         private SessionInfo _sessionInfo;
         private Dictionary<string, List<ConfigurationPoint>> _configsToChange;
 
@@ -30,10 +24,10 @@ namespace SupportTroubleshootingTool.Core.Handlers
             {
                 if (_sessionInfo.LogLevel != LogLevelEnum.Current)
                 {
-                    AddConfigPoints(_sessionInfo.SelectedEVLogs);
-                    AddConfigPoints(_sessionInfo.SelectedFileLogs);
+                    FillConfigsToChange(_sessionInfo.SelectedEVLogs);
+                    FillConfigsToChange(_sessionInfo.SelectedFileLogs);
                 }
-                AddConfigPoints(_sessionInfo.SelectedTraces);
+                FillConfigsToChange(_sessionInfo.SelectedTraces);
 
                 ChangeConfigs();
             }
@@ -64,30 +58,18 @@ namespace SupportTroubleshootingTool.Core.Handlers
             }
         }
 
-        private void AddConfigPoints(IEnumerable<BaseLogInfo> logsList)
+        private void FillConfigsToChange(IEnumerable<ConfigItemInfo> itemsList)
         {
-            foreach (var logItem in logsList)
+            foreach (var item in itemsList)
             {
-                if (!_configsToChange.ContainsKey(logItem.ConfigFilePath))
-                    _configsToChange.Add(logItem.ConfigFilePath, new List<ConfigurationPoint>());
+                if (!_configsToChange.ContainsKey(item.ConfigFilePath))
+                    _configsToChange.Add(item.ConfigFilePath, new List<ConfigurationPoint>());
 
-                foreach (var i in logItem.LogLevelXPaths)
-                    _configsToChange[logItem.ConfigFilePath].Add(
-                        new ConfigurationPoint() { XPath = i, Value = logItem.ConvertLogLevelToValue(_sessionInfo.LogLevel) });
-            }
-        }
-
-        private void AddConfigPoints(IEnumerable<TraceInfo> tracesList)
-        {
-            foreach (var logItem in tracesList)
-            {
-                if (!_configsToChange.ContainsKey(logItem.ConfigFilePath))
-                    _configsToChange.Add(logItem.ConfigFilePath, new List<ConfigurationPoint>());
-
-                _configsToChange[logItem.ConfigFilePath].Add(
-                        new ConfigurationPoint() {
-                            XPath = logItem.TraceMode.Xpath,
-                            Value = logItem.TraceMode.ValueOn });
+                foreach (var newPoint in item.GetConfigPoints(_sessionInfo.LogLevel))
+                {
+                    if (!_configsToChange[item.ConfigFilePath].Exists(existingPoint => existingPoint.XPath == newPoint.XPath))
+                        _configsToChange[item.ConfigFilePath].Add(newPoint);
+                }
             }
         }
     }
