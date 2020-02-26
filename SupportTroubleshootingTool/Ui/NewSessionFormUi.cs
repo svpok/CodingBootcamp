@@ -11,14 +11,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using SupportTroubleshootingTool.Core.Contract;
-using SupportTroubleshootingTool.Core.Model;
 
 namespace SupportTroubleshootingTool.UI
 {
     public partial class NewSessionFormUi : Form
     {
-        
         private WorkflowProvider _workflowProvider { get; set; }
         private SessionProvider _sessionProvider;
         private bool flag;
@@ -31,17 +28,17 @@ namespace SupportTroubleshootingTool.UI
         }
         private void NewSessionFormUi_Load(object sender, EventArgs e)
         {
-
+            this.Location = new Point((Screen.PrimaryScreen.WorkingArea.Width - this.Width) / 2,
+                          (Screen.PrimaryScreen.WorkingArea.Height - this.Height) / 2);
             flag = true;
-            this.Size = new Size(1200, 700);
-
-
+            this.Size = new Size(820, 780);
+            this.butStart.Enabled = false;
+            this.butAll.Enabled = false;
             FillWorkflows();
         }
         public void FillWorkflows()
         {
             var bindingSource1 = new BindingSource();
-
             bindingSource1.DataSource = _workflowProvider.WorkflowsList;
             comboboxWorkflows.DataSource = bindingSource1.DataSource;
             comboboxWorkflows.DisplayMember = "Name";
@@ -50,20 +47,21 @@ namespace SupportTroubleshootingTool.UI
         {
             var bindingSource2 = new BindingSource();
             var selectedWorkflow = _workflowProvider.WorkflowsList[index];
-
             ListEv.Items.Clear();
+            ListFiles.Items.Clear();
+            ListTraces.Items.Clear();
+            butStart.Enabled = IsNotEmptyWorkflow(selectedWorkflow);
+            butAll.Enabled= IsNotEmptyWorkflow(selectedWorkflow);
             for (int i = 0; i < selectedWorkflow.EVLogs.Count; i++)
             {
                 bindingSource2.DataSource = selectedWorkflow.EVLogs[i].Description;
                 ListEv.Items.Add(bindingSource2.DataSource);
             }
-            ListFiles.Items.Clear();
             for (int i = 0; i < selectedWorkflow.FileLogs.Count; i++)
             {
                 bindingSource2.DataSource = selectedWorkflow.FileLogs[i].Description;
                 ListFiles.Items.Add(bindingSource2.DataSource);
             }
-            ListTraces.Items.Clear();
             for (int i = 0; i < selectedWorkflow.Traces.Count; i++)
             {
                 bindingSource2.DataSource = selectedWorkflow.Traces[i].Description;
@@ -71,12 +69,18 @@ namespace SupportTroubleshootingTool.UI
             }
         }
 
+        private bool IsNotEmptyWorkflow(WorkflowInfo selectedWorkflow)
+        {
+            return selectedWorkflow.EVLogs.Any() ||
+                selectedWorkflow.FileLogs.Any() ||
+                selectedWorkflow.Traces.Any();
+        }
         private void comboboxWorkflows_SelectedValueChanged(object sender, EventArgs e)
         {
             LogsWorkflows(comboboxWorkflows.SelectedIndex);
         }
 
-        private void butStart_Click_2(object sender, EventArgs e)
+        private void butStart_Click(object sender, EventArgs e)
         {
             SessionInfo currentsession = new SessionInfo();
             WorkflowInfo current = _workflowProvider.WorkflowsList[comboboxWorkflows.SelectedIndex];
@@ -102,7 +106,6 @@ namespace SupportTroubleshootingTool.UI
                     currentsession.SelectedTraces.Add(current.Traces[i]);
                 }
             }
-
             if (butInformation.Checked)
             {
                 currentsession.LogLevel = LogLevelEnum.Information;
@@ -117,8 +120,11 @@ namespace SupportTroubleshootingTool.UI
             }
             if (currentsession.SelectedEVLogs.Count == 0 && currentsession.SelectedFileLogs.Count == 0 && currentsession.SelectedTraces.Count == 0)
             {
-                string message = "you can't show";
-                MessageBox.Show(message);
+                MessageBox.Show(this,
+                   "At least one log or traces should be selected.",
+                   "Start Session Error",
+                   MessageBoxButtons.OK,
+                   MessageBoxIcon.Error);
             }
             else
             {
@@ -128,7 +134,6 @@ namespace SupportTroubleshootingTool.UI
                 window1.ShowDialog();
                 this.Close();
             }
-
         }
         private void butAll_Click(object sender, EventArgs e)
         {
@@ -152,14 +157,7 @@ namespace SupportTroubleshootingTool.UI
             {
                 checkedList.SetItemChecked(i, flag);
             }
-        }
-
-        private void openFileDialog1_FileOk(object sender, CancelEventArgs e)
-        {
-
-        }
-
-       
+        }  
     }
     }
 
