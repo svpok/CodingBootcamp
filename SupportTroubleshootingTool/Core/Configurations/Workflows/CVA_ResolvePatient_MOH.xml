@@ -135,7 +135,7 @@
             <IsRequireIISRestart>false</IsRequireIISRestart>
             <ServicesToRestart />
             <TraceMode>
-                <Xpath>/dbmProperties/dbmGroup[@name='Tracing']/dbmProperty[@name='bypassTraceModeInfo']</Xpath>
+                <Xpath>/dbmProperties/dbmGroup[@name='Tracing']/dbmProperty[@name='bypassTraceMode']</Xpath>
                 <ValueOn>InputOutput</ValueOn>
                 <ValueOff>None</ValueOff>
             </TraceMode>

@@ -1,91 +1,94 @@
 ﻿using SupportTroubleshootingTool.Core.Model;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Collections.Generic;
 using System.Windows.Forms;
-using System.Xml;
 
 
 namespace SupportTroubleshootingTool.Core.Handlers
 {
     public class XmlHandler
     {
+        struct ConfigurationPoint
+        {
+            internal string XPath { get; set; }
+            internal string Value { get; set; }
+        }
+
         private SessionInfo _sessionInfo;
+        private Dictionary<string, List<ConfigurationPoint>> _configsToChange;
+
         public XmlHandler(SessionInfo session)
         {
             _sessionInfo = session;
+            _configsToChange = new Dictionary<string, List<ConfigurationPoint>>();
         }
-        public  void ChangeConfig()
+
+        public void ChangeConfig()
         {
-            if (_sessionInfo.LogLevel != LogLevelEnum.Current)
+            try
             {
+                if (_sessionInfo.LogLevel != LogLevelEnum.Current)
+                {
+                    AddConfigPoints(_sessionInfo.SelectedEVLogs);
+                    AddConfigPoints(_sessionInfo.SelectedFileLogs);
+                }
+                AddConfigPoints(_sessionInfo.SelectedTraces);
 
-                var ConfigstoChange = new Dictionary<string, List<string>>();
-                foreach (var item in _sessionInfo.SelectedEVLogs)
-                {
-                    if (ConfigstoChange.ContainsKey(item.ConfigFilePath))
-                        foreach (var i in item.LogLevelXPaths)
-                            ConfigstoChange[item.ConfigFilePath].Add(i);
-                    else
-                        ConfigstoChange.Add(item.ConfigFilePath, item.LogLevelXPaths);
-                }
-                foreach (var item in _sessionInfo.SelectedFileLogs)
-                {
-                    if (ConfigstoChange.ContainsKey(item.ConfigFilePath))
-                        foreach (var i in item.LogLevelXPaths)
-                            ConfigstoChange[item.ConfigFilePath].Add(i);
-                    else
-                        ConfigstoChange.Add(item.ConfigFilePath, item.LogLevelXPaths);
-                }
-                //TODO traces dict
-                var ConfigstoChangeTraces = new Dictionary<string, List<TraceModeInfo>>();
-                foreach (var item in _sessionInfo.SelectedTraces)
-                {
-                    if (ConfigstoChangeTraces.ContainsKey(item.ConfigFilePath))
-                        ConfigstoChangeTraces[item.ConfigFilePath].Add(item.TraceMode);
-                    else //test
-                        ConfigstoChangeTraces.Add(item.ConfigFilePath, new List<TraceModeInfo> { item.TraceMode });
-                }
-                foreach (var i in ConfigstoChange)
-                {
-                    ConfigXML obj = new ConfigXML(i.Key);
-                    foreach (var j in i.Value)
-                    {
-                            try
-                            {
-                                obj.Change(j, Enum.GetName(typeof(LogLevelEnum), _sessionInfo.LogLevel));
-                            }
-                            catch
-                            {
-                                MessageBox.Show("Null ConfigtoChange");
-                            }
-                        obj.Save();
-                    }
-                    
-                }
-                foreach (var i in ConfigstoChangeTraces.Keys)
-                {
-                    ConfigXML obj = new ConfigXML(i);
-                    foreach (var j in ConfigstoChangeTraces.Values)
-                    {
-                        foreach (var k in j)
-                            try
-                            {
-                                obj.Change(k.Xpath, k.ValueOn.ToString());
-                            }
-                            catch
-                            {
-                                MessageBox.Show("Null ConfigToChangeTraces");
-                            }
-
-                    }
-                    obj.Save();
-                }
+                ChangeConfigs();
             }
-
+            catch (Exception ex)
+            {
+                new Utilities.Logger().WriteError(ex);
+                throw;
+            }
         }
 
+        private void ChangeConfigs()
+        {
+            foreach (var configFilePath in _configsToChange)
+            {
+                ConfigXML configFileXml = new ConfigXML(configFilePath.Key);
+                foreach (var configPoint in configFilePath.Value)
+                {
+                    try
+                    {
+                        configFileXml.Change(configPoint.XPath, configPoint.Value);
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new Exception($"Failed to change config for file {configFilePath.Key}, XPath:{configPoint.XPath}, Value:{configPoint.Value}.", ex);
+                    }
+                }
+                configFileXml.Save();
+            }
+        }
+
+        private void AddConfigPoints(IEnumerable<BaseLogInfo> logsList)
+        {
+            foreach (var logItem in logsList)
+            {
+                if (!_configsToChange.ContainsKey(logItem.ConfigFilePath))
+                    _configsToChange.Add(logItem.ConfigFilePath, new List<ConfigurationPoint>());
+
+                foreach (var i in logItem.LogLevelXPaths)
+                    _configsToChange[logItem.ConfigFilePath].Add(
+                        new ConfigurationPoint() { XPath = i, Value = logItem.ConvertLogLevelToValue(_sessionInfo.LogLevel) });
+            }
+        }
+
+        private void AddConfigPoints(IEnumerable<TraceInfo> tracesList)
+        {
+            foreach (var logItem in tracesList)
+            {
+                if (!_configsToChange.ContainsKey(logItem.ConfigFilePath))
+                    _configsToChange.Add(logItem.ConfigFilePath, new List<ConfigurationPoint>());
+
+                _configsToChange[logItem.ConfigFilePath].Add(
+                        new ConfigurationPoint() {
+                            XPath = logItem.TraceMode.Xpath,
+                            Value = logItem.TraceMode.ValueOn });
+            }
+        }
     }
 }

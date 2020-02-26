@@ -17,5 +17,20 @@ namespace SupportTroubleshootingTool.Core.Model
         [XmlArray]
         [XmlArrayItem("Source")]
         public List<string> Sources { get; set; }
+
+        public override string ConvertLogLevelToValue(LogLevelEnum logLevel)
+        {
+            switch(logLevel)
+            {
+                case LogLevelEnum.Information:
+                    return "All";
+                case LogLevelEnum.Warning:
+                    return "Warning";
+                case LogLevelEnum.Error:
+                    return "Error";
+                default:
+                    return null;
+            }
+        }
     }
 }
