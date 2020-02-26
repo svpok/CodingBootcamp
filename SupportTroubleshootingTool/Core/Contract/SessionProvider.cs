@@ -136,8 +136,8 @@ namespace SupportTroubleshootingTool.Core.Contract
                     //new EVLogHandler(_currentSession).CollectData();
                     //Collect file logs (FileLogHandler)
                     //Collect traces (TraceHanler)
-                    //new FilesHandler(_currentSession).CollectData();
-                    //new PackageHandler(_currentSession).Packaging();
+                    new FilesHandler(_currentSession).CollectData();
+                    new PackageHandler(_currentSession).Packaging();
                     SerialtionHelper<SessionInfo>.Serialize(_currentSession,
                     $@"{_currentSession.SessionOtputFolderPath}\SessionInfo.xml");
                 }

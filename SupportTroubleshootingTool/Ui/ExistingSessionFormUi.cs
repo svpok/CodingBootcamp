@@ -28,9 +28,8 @@ namespace SupportTroubleshootingTool.UI
         }
           private void ExistingSessionFormUi_Load(object sender, EventArgs e)
         {
-            this.Size = new Size(1250, 720);
-            this.loadData.Items.Add("workflow:" + _currentSession.WorkflowName);
-
+            this.loadData.Items.Add(" workflow:" + _currentSession.WorkflowName);
+            this.StartPosition = new FormStartPosition();
             this.loadData.Items.Add("Event View Logs:");
             foreach (EVLogInfo EVlog in _currentSession.SelectedEVLogs)
             {
@@ -49,7 +48,7 @@ namespace SupportTroubleshootingTool.UI
                 this.loadData.Items.Add(trace.Description);
             }
             loadData.Items.Add($"loglevel:{_currentSession.LogLevel}");
-            this.Size = new Size(680, 500);
+            
             dateTimeFrom.Value = _sessionProvider.CurrentSession.From;
             dateTimeTo.Value = _sessionProvider.CurrentSession.To;
         }
@@ -57,27 +56,33 @@ namespace SupportTroubleshootingTool.UI
         {
             _sessionProvider.CurrentSession.From = dateTimeFrom.Value;
             _sessionProvider.CurrentSession.To = dateTimeTo.Value;
-            bool s = _sessionProvider.CollectData();
-            _sessionProvider.StopSession();
-            if (s)
-            {
-                this.Close();
-            }
-            else
-            {
-                MessageBox.Show("The date and time is exist for this session,can't collect data,the session well close.");
 
-            }
-            
+
+
             if (dateTimeTo.Value < dateTimeFrom.Value)
             {
-                 MessageBox.Show("It cannot be 'DateTo' a less from 'DateFrom'", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-               }
+                MessageBox.Show("It cannot be 'DateTo' a less from 'DateFrom'", "Error");
+            }
             else
             {
+                bool s = _sessionProvider.CollectData();
+
+                if (!s)
+                {
+                    MessageBox.Show("The date and time is exist for this session,can't collect data,the session well close.");
+                    _sessionProvider.StopSession();
+                    
+                }
+                _sessionProvider.StopSession();
                 this.Close();
+
+
+
             }
-           }
+
+            
+
+        }
           private void butCollectWithoutClosingSession_Click(object sender, EventArgs e)
         {
             _sessionProvider.CurrentSession.From = dateTimeFrom.Value;
@@ -95,5 +100,9 @@ namespace SupportTroubleshootingTool.UI
             System.Diagnostics.Process.Start(_currentSession.SessionOtputFolderPath);
         }
 
+        private void loadData_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

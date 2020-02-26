@@ -33,7 +33,7 @@ namespace SupportTroubleshootingTool.UI
         {
 
             flag = true;
-            this.Size = new Size(1250, 720);
+            this.Size = new Size(1200, 700);
 
 
             FillWorkflows();
@@ -153,6 +153,13 @@ namespace SupportTroubleshootingTool.UI
                 checkedList.SetItemChecked(i, flag);
             }
         }
+
+        private void openFileDialog1_FileOk(object sender, CancelEventArgs e)
+        {
+
+        }
+
+       
     }
     }
 
