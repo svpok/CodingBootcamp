@@ -22,11 +22,26 @@ namespace SupportTroubleshootingTool.UI
             var sessionInfo = sessionProvider.CurrentSession;
             if (sessionInfo == null)
             {
-                new NewSessionFormUi(sessionProvider).ShowDialog();
+                try
+                {
+                    new NewSessionFormUi(sessionProvider).ShowDialog();
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
             }
             else
             {
-                new ExistingSessionFormUi(sessionProvider, null).ShowDialog();
+                try
+                {
+                    new ExistingSessionFormUi(sessionProvider, null).ShowDialog();
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+
             }
 
             //SupportTroubleshootingTool.Core.Utilities.Logger.WriteInfo("program exited");
