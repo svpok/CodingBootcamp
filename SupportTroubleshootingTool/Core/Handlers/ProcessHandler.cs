@@ -71,6 +71,8 @@ namespace SupportTroubleshootingTool.Core.Handlers
             List<TraceInfo> traceInfos = session.SelectedTraces;
             List<EVLogInfo> evLogInfos = session.SelectedEVLogs;
             List<FileLogInfo> fileLogInfos = session.SelectedFileLogs;
+            HashSet<string> serviceList = new HashSet<string>();
+            HashSet<string> iisPools = new HashSet<string>();
             try
             {
                 if (traceInfos != null)
@@ -79,10 +81,10 @@ namespace SupportTroubleshootingTool.Core.Handlers
                     {
                         string iisapplicationpooltorestart = trace.IISApplicationPoolToRestart;
                         List<string> servicestorestart = trace.ServicesToRestart;
-                        if (iisapplicationpooltorestart != null) { RestartPool(iisapplicationpooltorestart); }
+                        if (iisapplicationpooltorestart != null) { iisPools.Add(trace.IISApplicationPoolToRestart); }
                         if (servicestorestart != null)
                         {
-                            foreach (string servicename in servicestorestart) { RestartService(servicename); }
+                            foreach (string servicename in servicestorestart) { serviceList.Add(servicename); }
                         }
                     }
                 }
@@ -94,7 +96,7 @@ namespace SupportTroubleshootingTool.Core.Handlers
                         List<string> servicestorestart = evLogInfo.ServicesToRestart;
                         if (servicestorestart != null)
                         {
-                            foreach (string servicename in servicestorestart) { RestartService(servicename); }
+                            foreach (string servicename in servicestorestart) { serviceList.Add(servicename); }
                         }
                     }
                 }
@@ -106,11 +108,22 @@ namespace SupportTroubleshootingTool.Core.Handlers
                         List<string> servicestorestart = fileLogInfo.ServicesToRestart;
                         if (servicestorestart != null)
                         {
-                            foreach (string servicename in servicestorestart) { RestartService(servicename); }
+                            foreach (string servicename in servicestorestart) { serviceList.Add(servicename); }
                         }
                     }
                 }
                 else { new Utilities.Logger().WriteInfo("No FileLog Found you Waste my Time"); }
+                try
+                {
+                    foreach (string srv in serviceList) { RestartService(srv); }
+                    foreach (string pool in iisPools) { RestartPool(pool); }
+                    new Utilities.Logger().WriteInfo("completed session process handling");
+                }
+                catch(Exception e)
+                {
+                    new Utilities.Logger().WriteError(e);
+                    throw;
+                }
             }
             catch(Exception e) { 
                 new Utilities.Logger().WriteError(e);

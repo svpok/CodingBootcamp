@@ -59,7 +59,7 @@ namespace SupportTroubleshootingTool.Core.Contract
                 // copy files to folder
                 foreach (TraceInfo trace in traces)
                 {
-                    string outputfolder = $@"{_currentSession.SessionOtputFolderPath}\{"OutputData"}\{from}_{to}\{"FileLogs"}\{trace.Description}";
+                    string outputfolder = $@"{_currentSession.SessionOtputFolderPath}\OutputData\{from}_{to}\FileLogs\{trace.Description}";
                     if (!Directory.Exists(outputfolder))
                     {
                         Directory.CreateDirectory(outputfolder);
@@ -68,7 +68,7 @@ namespace SupportTroubleshootingTool.Core.Contract
                 }
                 foreach (FileLogInfo fileLogInfo in fileLogInfos)
                 {
-                    string outputfolder = $@"{_currentSession.SessionOtputFolderPath}\{"OutputData"}\{from}_{to}\{"FileLogs"}\{fileLogInfo.Description}";
+                    string outputfolder = $@"{_currentSession.SessionOtputFolderPath}\OutputData\{from}_{to}\FileLogs\{fileLogInfo.Description}";
                     if (!Directory.Exists(outputfolder))
                     {
                         Directory.CreateDirectory(outputfolder);
