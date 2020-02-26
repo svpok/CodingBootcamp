@@ -17,5 +17,19 @@ namespace SupportTroubleshootingTool.Core.Model
         [XmlElement]
         public string LogFileName { get; set; }
 
+        public override string ConvertLogLevelToValue(LogLevelEnum logLevel)
+        {
+            switch (logLevel)
+            {
+                case LogLevelEnum.Information:
+                    return "ALL";
+                case LogLevelEnum.Warning:
+                    return "WARN";
+                case LogLevelEnum.Error:
+                    return "ERROR";
+                default:
+                    return null;
+            }
+        }
     }
 }

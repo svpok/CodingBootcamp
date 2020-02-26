@@ -16,6 +16,8 @@ namespace SupportTroubleshootingTool.Core.Model
         }
         [XmlArray]
         [XmlArrayItem("XPath")]
-        public List<string> LogLevelXPaths { get; set; } 
+        public List<string> LogLevelXPaths { get; set; }
+               
+        public abstract string ConvertLogLevelToValue(LogLevelEnum logLevel);
     }
 }
