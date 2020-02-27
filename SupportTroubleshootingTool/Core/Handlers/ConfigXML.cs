@@ -18,10 +18,6 @@ namespace SupportTroubleshootingTool.Core.Handlers
         public ConfigXML(string xmlFilePath)
         {
             _xmlFilePath = xmlFilePath;
-
-            //TODO: delete after tests
-            //_xmlFilePath = @"C:\Users\Amal Saleh\Desktop\CodingBootcamp\XML.xml";
-
             try
             {
                 _doc = new XmlDocument();
@@ -35,7 +31,6 @@ namespace SupportTroubleshootingTool.Core.Handlers
 
         public void Save()
         {
-            //TODO: add try\catch
             try
             {
                 _doc.Save(_xmlFilePath);
@@ -49,14 +44,6 @@ namespace SupportTroubleshootingTool.Core.Handlers
 
         public void Change(string xPath, string newValue)
         {
-            //TODO: check if xPath ends with string \@* (Regexpression)
-            //if yes then take the name of the attribute and change attribute
-            //otherwise change inner text of the element 
-
-            //string attrToChange = "currency";
-            //"//Envelope/Cube/Cube/Cube" - element
-            //"//Envelope/Cube/Cube/Cube[@rate>50 or @currency='USD']" - element
-            //"//Envelope/Cube/Cube/Cube[@rate>50 or @currency='USD']/@currency" - attribute
             MatchCollection mc = Regex.Matches(xPath, @"/@.*");
             if (mc.Count == 0)
             {
@@ -72,13 +59,11 @@ namespace SupportTroubleshootingTool.Core.Handlers
                 //change according to the attribute
                 foreach (Match m in mc)
                 {
-                    //unnecessary!!!//string attrToChange = m.Value.Substring(2); //cut the first two characters
                     XmlNodeList nodes = _doc.SelectNodes(xPath);
 
                     foreach (XmlNode node in nodes)
                         // Set the new value
-                        node.Value = newValue;
-                      
+                        node.Value = newValue;    
                 }
             }
         }
