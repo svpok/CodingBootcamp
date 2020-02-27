@@ -146,19 +146,21 @@ namespace SupportTroubleshootingTool.Core.Contract
                 throw new Exception($"2:{ex.Message}");
             }
         }
-        public bool CollectData()
+        public bool CollectData(bool flag = false)
         {
             try
             {
-          
-                    string from = _currentSession.From.ToString("yyyy-MM-dd-hh-mm");
-                    string to = _currentSession.To.ToString("yyyy-MM-dd-hh-mm");
-                    string path = Path.Combine(_currentSession.SessionOtputFolderPath,
-                                                "OutputData",
-                                           $@"{from}_{to}");
-               
-                if (!Directory.Exists(path))
+                string from = _currentSession.From.ToString("yyyy-MM-dd-hh-mm");
+                string to = _currentSession.To.ToString("yyyy-MM-dd-hh-mm");
+                string path = Path.Combine(_currentSession.SessionOtputFolderPath,
+                                            "OutputData",
+                                            $@"{from}_{to}");
+                if (!Directory.Exists(path) || flag)
                 {
+                    if (flag)
+                    {
+                        Directory.Delete(path,true);
+                    }
                     try { 
                     Directory.CreateDirectory(path);
                     }
