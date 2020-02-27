@@ -30,18 +30,18 @@ namespace SupportTroubleshootingTool.Core.Handlers
                 }
                 FillConfigsToChange(_sessionInfo.SelectedTraces);
                 ChangeConfigs();
-                new Utilities.Logger().WriteInfo($"The files change configuration has been done!");
+                new Utilities.Logger().WriteInfo("The files change configuration has been done!");
             }
             catch (Exception ex)
             {
-                new Utilities.Logger().WriteError("$Failed to change config for files") ;
+                new Utilities.Logger().WriteError("Failed to change config for files") ;
                 throw new Exception($"Failed to change config for files", ex);
             }
         }
 
         private void ChangeConfigs()
         {
-            new Utilities.Logger().WriteInfo($"Starting the change configuration");
+            new Utilities.Logger().WriteInfo("Starting the change configuration");
             foreach (var configFilePath in _configsToChange)
             {
                 ConfigXML configFileXml = new ConfigXML(configFilePath.Key);
