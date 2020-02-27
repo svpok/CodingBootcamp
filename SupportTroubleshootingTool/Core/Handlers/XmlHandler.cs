@@ -25,21 +25,23 @@ namespace SupportTroubleshootingTool.Core.Handlers
                 if (_sessionInfo.LogLevel != LogLevelEnum.Current)
                 {
                     FillConfigsToChange(_sessionInfo.SelectedEVLogs);
+                    //FillConfigsToChange(null);
                     FillConfigsToChange(_sessionInfo.SelectedFileLogs);
                 }
                 FillConfigsToChange(_sessionInfo.SelectedTraces);
-
                 ChangeConfigs();
+                new Utilities.Logger().WriteInfo($"The files change configuration has been done!");
             }
             catch (Exception ex)
             {
-                new Utilities.Logger().WriteError(ex);
-                throw;
+                new Utilities.Logger().WriteError("$Failed to change config for files") ;
+                throw new Exception($"Failed to change config for files", ex);
             }
         }
 
         private void ChangeConfigs()
         {
+            new Utilities.Logger().WriteInfo($"Starting the change configuration");
             foreach (var configFilePath in _configsToChange)
             {
                 ConfigXML configFileXml = new ConfigXML(configFilePath.Key);
@@ -52,6 +54,7 @@ namespace SupportTroubleshootingTool.Core.Handlers
                     }
                     catch (Exception ex)
                     {
+                        new Utilities.Logger().WriteError($"Failed to change config for file {configFilePath.Key}, XPath:{configPoint.XPath}, Value:{configPoint.Value}.");
                         throw new Exception($"Failed to change config for file {configFilePath.Key}, XPath:{configPoint.XPath}, Value:{configPoint.Value}.", ex);
                     }
                 }
