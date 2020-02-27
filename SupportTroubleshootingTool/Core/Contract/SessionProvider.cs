@@ -169,7 +169,7 @@ namespace SupportTroubleshootingTool.Core.Contract
                     //Create Output folder for this collect operation
                     //Collect Log events (EVLogHandler)
                     try { 
-                    new EVLogHandler(_currentSession).CollectData();
+                    //new EVLogHandler(_currentSession).CollectData();
                     }
                     catch (Exception ex)
                     {
