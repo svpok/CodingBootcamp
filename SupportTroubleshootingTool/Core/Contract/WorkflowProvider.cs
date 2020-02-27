@@ -15,6 +15,7 @@ namespace SupportTroubleshootingTool.Core.Contract
         public const string WorkflowsRootFolder = @".\Configurations\Workflows";
         public WorkflowProvider()
         {
+            new Utilities.Logger().WriteInfo("Deserializing WorkFlows");
             LoadWorkflows();
         }
 
@@ -37,7 +38,7 @@ namespace SupportTroubleshootingTool.Core.Contract
                     var workflowInfo = SerialtionHelper<WorkflowInfo>.Deserialize(file);
                     WorkflowsList.Add(workflowInfo);
                 }
-                //SerialtionHelper<WorkflowProvider>.Serialize(this, WorkflowsRootFolder + "\\newtest.xml");
+                new Utilities.Logger().WriteInfo("Successfully Deserialized WorkFlows");
             }
             catch (Exception ex)
             {
