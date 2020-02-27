@@ -11,7 +11,7 @@ namespace SupportTroubleshootingTool.Core.Contract
         SessionInfo CurrentSession { get; }
         void StartSession(SessionInfo session);
         void StopSession(bool cls);
-        bool CollectData();
+        bool CollectData(bool flag);
     }
     
 }

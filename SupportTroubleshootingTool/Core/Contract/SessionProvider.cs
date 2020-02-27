@@ -119,7 +119,7 @@ namespace SupportTroubleshootingTool.Core.Contract
                 throw new Exception($"2:{ex.Message}");
             }
         }
-        public bool CollectData()
+        public bool CollectData(bool flag = false)
         {
             try
             {
@@ -128,8 +128,12 @@ namespace SupportTroubleshootingTool.Core.Contract
                 string path = Path.Combine(_currentSession.SessionOtputFolderPath,
                                             "OutputData",
                                             $@"{from}_{to}");
-                if (!Directory.Exists(path))
+                if (!Directory.Exists(path) || flag)
                 {
+                    if (flag)
+                    {
+                        Directory.Delete(path,true);
+                    }
                     Directory.CreateDirectory(path);
                     //Create Output folder for this collect operation
                     //Collect Log events (EVLogHandler)
