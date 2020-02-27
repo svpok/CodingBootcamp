@@ -18,6 +18,8 @@ namespace SupportTroubleshootingTool.UI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            Application.ThreadException += Application_ThreadException;
+            Application.SetUnhandledExceptionMode(UnhandledExceptionMode.CatchException);
             var sessionProvider = new SessionProvider();
             var sessionInfo = sessionProvider.CurrentSession;
             if (sessionInfo == null)
@@ -46,6 +48,11 @@ namespace SupportTroubleshootingTool.UI
 
             //SupportTroubleshootingTool.Core.Utilities.Logger.WriteInfo("program exited");
 
+        }
+
+        private static void Application_ThreadException(object sender, System.Threading.ThreadExceptionEventArgs e)
+        {
+            MessageBox.Show(e.Exception.Message);
         }
     }
 }

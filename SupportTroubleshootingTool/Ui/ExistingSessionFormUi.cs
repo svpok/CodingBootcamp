@@ -70,18 +70,10 @@ namespace SupportTroubleshootingTool.UI
                 if (!s)
                 {
                     MessageBox.Show("The date and time is exist for this session,can't collect data,the session well close.");
-                    _sessionProvider.StopSession();
-                    
                 }
                 _sessionProvider.StopSession();
                 this.Close();
-
-
-
             }
-
-            
-
         }
           private void butCollectWithoutClosingSession_Click(object sender, EventArgs e)
         {
