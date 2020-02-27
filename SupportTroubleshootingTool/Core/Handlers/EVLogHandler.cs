@@ -43,6 +43,7 @@ namespace SupportTroubleshootingTool.Core.Handlers
             EventLogSession eventLogSession = new EventLogSession();
             foreach (var item in logsToCollect)
             {
+                new Utilities.Logger().WriteInfo(" Started Collecting Event Logs");
                 string sources = "";
                 if (item.Value.Count > 0)
                 {
@@ -58,11 +59,12 @@ namespace SupportTroubleshootingTool.Core.Handlers
                     }
                     sources += "]]] and ";
                 }
-                string path = $@"{_sessionInfo.SessionOtputFolderPath}\OutputData\{from}_{to}\EVLogs";
+                string path = $@"{_sessionInfo.SessionOtputFolderPath}\OutputData\{from}_{to}";
                 if (!Directory.Exists(path))
                     Directory.CreateDirectory(path);
                 string q = $@"{sources}*[System[TimeCreated[@SystemTime >= '{_sessionInfo.From.ToUniversalTime().ToString("o")}']]]  and *[System[TimeCreated[@SystemTime <= '{_sessionInfo.To.ToUniversalTime().ToString("o")}']]]";
                 eventLogSession.ExportLog(item.Key, PathType.LogName, q, $@"{path}\{item.Key}.evtx");
+                new Utilities.Logger().WriteInfo("Successfully Collected Event Logs");
 
             }
         }
