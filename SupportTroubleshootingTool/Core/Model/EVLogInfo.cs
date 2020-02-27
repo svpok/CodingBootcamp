@@ -10,27 +10,12 @@ namespace SupportTroubleshootingTool.Core.Model
     {
         public EVLogInfo() : base()
         {
-            Sources = new List<string>();   
+            Sources = new List<string>();
         }
         [XmlElement]
         public string LogName { get; set; }
         [XmlArray]
-        [XmlArrayItem]
+        [XmlArrayItem("Source")]
         public List<string> Sources { get; set; }
-
-        public override string ConvertLogLevelToValue(LogLevelEnum logLevel)
-        {
-            switch(logLevel)
-            {
-                case LogLevelEnum.Information:
-                    return "All";
-                case LogLevelEnum.Warning:
-                    return "Warning";
-                case LogLevelEnum.Error:
-                    return "Error";
-                default:
-                    return null;
-            }
-        }
     }
 }

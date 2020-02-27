@@ -65,7 +65,7 @@
     <GenerateManifests>false</GenerateManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <SignManifests>true</SignManifests>
+    <SignManifests>false</SignManifests>
   </PropertyGroup>
   <PropertyGroup>
     <ManifestCertificateThumbprint>FB9A31405EA6D0FB0B68AF87E5C6BF20C668A346</ManifestCertificateThumbprint>

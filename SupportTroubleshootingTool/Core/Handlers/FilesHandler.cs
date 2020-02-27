@@ -23,16 +23,21 @@ namespace SupportTroubleshootingTool.Core.Contract
                 if (!Directory.Exists(folderPath))
                 {
                     new Utilities.Logger().WriteError("Logs Source Folders Not Found");
-                    throw new Exception("Logs Source Folders Not Found");
+                    return;
                 }
                 DateTime from = _currentSession.From;
                 DateTime to = _currentSession.To;
                 string[] filePaths = Directory.GetFiles(folderPath, filter);
                 foreach (string filepath in filePaths)
                 {
+
                     var fileinfo = new FileInfo(filepath);
                     if ((DateTime.Compare(fileinfo.LastWriteTime, from) > 0) && (DateTime.Compare(fileinfo.LastWriteTime, to)<0))
                     {
+                        if (!Directory.Exists(outputfolder))
+                        {
+                            Directory.CreateDirectory(outputfolder);
+                        }
                         fileinfo.CopyTo(outputfolder+"/"+fileinfo.Name);
                     }
                 }
@@ -59,20 +64,13 @@ namespace SupportTroubleshootingTool.Core.Contract
                 // copy files to folder
                 foreach (TraceInfo trace in traces)
                 {
-                    string outputfolder = $@"{_currentSession.SessionOtputFolderPath}\OutputData\{from}_{to}\FileLogs\{trace.Description}";
-                    if (!Directory.Exists(outputfolder))
-                    {
-                        Directory.CreateDirectory(outputfolder);
-                    }
+                    string outputfolder = $@"{_currentSession.SessionOtputFolderPath}\OutputData\{from}_{to}\{trace.Description}";
+
                     CollectData(outputfolder, trace.TracesPath, trace.TraceFileName);
                 }
                 foreach (FileLogInfo fileLogInfo in fileLogInfos)
                 {
-                    string outputfolder = $@"{_currentSession.SessionOtputFolderPath}\OutputData\{from}_{to}\FileLogs\{fileLogInfo.Description}";
-                    if (!Directory.Exists(outputfolder))
-                    {
-                        Directory.CreateDirectory(outputfolder);
-                    }
+                    string outputfolder = $@"{_currentSession.SessionOtputFolderPath}\OutputData\{from}_{to}\{fileLogInfo.Description}";
                     CollectData(outputfolder, fileLogInfo.LogsPath, fileLogInfo.LogFileName);
                 }
             }

@@ -19,7 +19,6 @@ namespace SupportTroubleshootingTool.UI
         private WorkflowProvider _workflowProvider { get; set; }
         private SessionProvider _sessionProvider;
         private bool flag;
-
         public NewSessionFormUi(SessionProvider sessionProvider)
         {
             InitializeComponent();
@@ -29,9 +28,9 @@ namespace SupportTroubleshootingTool.UI
         private void NewSessionFormUi_Load(object sender, EventArgs e)
         {
             this.Location = new Point((Screen.PrimaryScreen.WorkingArea.Width - this.Width) / 2,
-                          (Screen.PrimaryScreen.WorkingArea.Height - this.Height) / 2);
+                                    (Screen.PrimaryScreen.WorkingArea.Height - this.Height) / 2);
             flag = true;
-            this.Size = new Size(820, 780);
+            this.Size = new Size(820, 700);
             this.butStart.Enabled = false;
             this.butAll.Enabled = false;
             FillWorkflows();
@@ -68,7 +67,6 @@ namespace SupportTroubleshootingTool.UI
                 ListTraces.Items.Add(bindingSource2.DataSource);
             }
         }
-
         private bool IsNotEmptyWorkflow(WorkflowInfo selectedWorkflow)
         {
             return selectedWorkflow.EVLogs.Any() ||
@@ -79,7 +77,6 @@ namespace SupportTroubleshootingTool.UI
         {
             LogsWorkflows(comboboxWorkflows.SelectedIndex);
         }
-
         private void butStart_Click(object sender, EventArgs e)
         {
             SessionInfo currentsession = new SessionInfo();
@@ -128,12 +125,19 @@ namespace SupportTroubleshootingTool.UI
             }
             else
             {
-                _sessionProvider.StartSession(currentsession);
+                try
+                {
+                    _sessionProvider.StartSession(currentsession);
+                }catch(Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
                 ExistingSessionFormUi window1 = new ExistingSessionFormUi(_sessionProvider, this);
                 this.Hide();
                 window1.ShowDialog();
                 this.Close();
             }
+            this.butAll.Enabled = true;
         }
         private void butAll_Click(object sender, EventArgs e)
         {
