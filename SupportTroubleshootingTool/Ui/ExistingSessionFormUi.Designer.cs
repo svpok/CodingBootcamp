@@ -42,9 +42,9 @@
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
-            //
+            // 
             // dateTimeTo
-            //
+            // 
             this.dateTimeTo.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.dateTimeTo.CustomFormat = "dd/MM/yyy,hh:mm";
             this.dateTimeTo.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -56,9 +56,9 @@
             this.dateTimeTo.TabIndex = 1;
             this.dateTimeTo.Value = new System.DateTime(2020, 2, 27, 12, 18, 17, 0);
             this.dateTimeTo.ValueChanged += new System.EventHandler(this.dateTimeTo_ValueChanged_1);
-            //
+            // 
             // dateTimeFrom
-            //
+            // 
             this.dateTimeFrom.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.dateTimeFrom.CustomFormat = "dd/MM/yyy,hh:mm";
             this.dateTimeFrom.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -70,9 +70,9 @@
             this.dateTimeFrom.TabIndex = 0;
             this.dateTimeFrom.Value = new System.DateTime(2020, 2, 26, 0, 0, 0, 0);
             this.dateTimeFrom.ValueChanged += new System.EventHandler(this.dateTimeFrom_ValueChanged);
-            //
+            // 
             // To
-            //
+            // 
             this.To.AutoSize = true;
             this.To.BackColor = System.Drawing.Color.Transparent;
             this.To.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -80,12 +80,12 @@
             this.To.Location = new System.Drawing.Point(6, 71);
             this.To.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.To.Name = "To";
-            this.To.Size = new System.Drawing.Size(65, 36);
+            this.To.Size = new System.Drawing.Size(32, 18);
             this.To.TabIndex = 25;
             this.To.Text = "To :";
-            //
+            // 
             // From
-            //
+            // 
             this.From.AutoSize = true;
             this.From.BackColor = System.Drawing.Color.Transparent;
             this.From.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -96,9 +96,9 @@
             this.From.Size = new System.Drawing.Size(49, 18);
             this.From.TabIndex = 24;
             this.From.Text = "From:";
-            //
+            // 
             // DateTimeFilter
-            //
+            // 
             this.DateTimeFilter.AutoSize = true;
             this.DateTimeFilter.BackColor = System.Drawing.Color.Transparent;
             this.DateTimeFilter.Font = new System.Drawing.Font("Arial", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -109,9 +109,9 @@
             this.DateTimeFilter.Size = new System.Drawing.Size(188, 22);
             this.DateTimeFilter.TabIndex = 23;
             this.DateTimeFilter.Text = "Select date and time:";
-            //
+            // 
             // butCollectData
-            //
+            // 
             this.butCollectData.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(75)))), ((int)(((byte)(105)))));
             this.butCollectData.Cursor = System.Windows.Forms.Cursors.Hand;
             this.butCollectData.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
@@ -125,9 +125,9 @@
             this.butCollectData.Text = "Collect data";
             this.butCollectData.UseVisualStyleBackColor = false;
             this.butCollectData.Click += new System.EventHandler(this.butCollectDataClick);
-            //
+            // 
             // butCloseSession
-            //
+            // 
             this.butCloseSession.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(75)))), ((int)(((byte)(105)))));
             this.butCloseSession.Cursor = System.Windows.Forms.Cursors.Hand;
             this.butCloseSession.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
@@ -141,9 +141,9 @@
             this.butCloseSession.Text = "Close session";
             this.butCloseSession.UseVisualStyleBackColor = false;
             this.butCloseSession.Click += new System.EventHandler(this.butCloseSessionClick);
-            //
+            // 
             // loadData
-            //
+            // 
             this.loadData.Activation = System.Windows.Forms.ItemActivation.OneClick;
             this.loadData.Alignment = System.Windows.Forms.ListViewAlignment.Left;
             this.loadData.Cursor = System.Windows.Forms.Cursors.Arrow;
@@ -157,9 +157,9 @@
             this.loadData.TabStop = false;
             this.loadData.UseCompatibleStateImageBehavior = false;
             this.loadData.View = System.Windows.Forms.View.List;
-            //
+            // 
             // label1
-            //
+            // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Arial", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -170,9 +170,9 @@
             this.label1.Size = new System.Drawing.Size(182, 22);
             this.label1.TabIndex = 28;
             this.label1.Text = "Session information:";
-            //
+            // 
             // panel2
-            //
+            // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(43)))), ((int)(((byte)(60)))));
             this.panel2.Controls.Add(this.DateTimeFilter);
             this.panel2.Controls.Add(this.From);
@@ -185,9 +185,9 @@
             this.panel2.Size = new System.Drawing.Size(259, 106);
             this.panel2.TabIndex = 0;
             this.panel2.TabStop = true;
-            //
+            // 
             // panel1
-            //
+            // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(43)))), ((int)(((byte)(60)))));
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.loadData);
@@ -196,9 +196,9 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(630, 503);
             this.panel1.TabIndex = 30;
-            //
+            // 
             // butOpenSeesion
-            //
+            // 
             this.butOpenSeesion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(75)))), ((int)(((byte)(105)))));
             this.butOpenSeesion.Cursor = System.Windows.Forms.Cursors.Hand;
             this.butOpenSeesion.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
@@ -212,10 +212,10 @@
             this.butOpenSeesion.Text = "Open session folder";
             this.butOpenSeesion.UseVisualStyleBackColor = false;
             this.butOpenSeesion.Click += new System.EventHandler(this.butOpenSeesion_Click);
-            //
+            // 
             // ExistingSessionFormUi
-            //
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(43)))), ((int)(((byte)(60)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
@@ -225,7 +225,7 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.butCloseSession);
             this.Controls.Add(this.panel2);
-            this.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.Name = "ExistingSessionFormUi";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = " Support troubleshooting tool:session id:";
