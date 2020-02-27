@@ -48,7 +48,7 @@ namespace SupportTroubleshootingTool.Core.Handlers
                     try
                     {
                         configFileXml.Change(configPoint.XPath, configPoint.Value);
-                        new Utilities.Logger().WriteInfo($"change in file {configFilePath} to New value {configPoint.Value}");
+                        new Utilities.Logger().WriteInfo($"change in file {configFilePath} to New value {configPoint.Value} according to the Xpath {configPoint.XPath}");
                     }
                     catch (Exception ex)
                     {
