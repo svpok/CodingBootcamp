@@ -11,11 +11,11 @@ namespace SupportTroubleshootingTool.Core.Handlers
 {
     class PackageHandler
     {
-        private SessionInfo sessionInfo;
+        private SessionInfo _currentSession;
 
         public PackageHandler(SessionInfo sessionInfo)
         {
-            this.sessionInfo = sessionInfo;
+            this._currentSession = sessionInfo;
         }
 
         public static void Packaging(string sourceFolder, string destinationPath) 
@@ -23,22 +23,30 @@ namespace SupportTroubleshootingTool.Core.Handlers
 			// DestinationPath example : C:\folder\file.zip
             try
             {
-
-                ZipFile.CreateFromDirectory(sourceFolder, destinationPath);
+                if (Directory.GetFiles(sourceFolder).Length > 0 || Directory.GetDirectories(sourceFolder).Length >0)
+                {
+                    ZipFile.CreateFromDirectory(sourceFolder, destinationPath);
+                }
+                else
+                {
+                    new Utilities.Logger().WriteInfo("No Files Found to archive");
+                    return;
+                }
             }
             catch (Exception e)
             {
                 new Utilities.Logger().WriteError(e);
-                throw;
+                return;
             }
-            new Utilities.Logger().WriteInfo("the file Zipped to" + destinationPath);
+            new Utilities.Logger().WriteInfo("the file Zipped to " + destinationPath);
 
         }
         internal void Packaging()
         {
-            string destinationPath = $@"{ sessionInfo.SessionOtputFolderPath}\{sessionInfo.To.ToString("dd-MM-yyyy HH-mm")
-                                        }-{sessionInfo.WorkflowName}.zip";
-            string sourceFolder= $@"{ sessionInfo.SessionOtputFolderPath}\{ "OutputData"}";
+            string destinationPath = $@"{ _currentSession.SessionOtputFolderPath}\OutputData\{_currentSession.WorkflowName}.zip";
+            string from = _currentSession.From.ToString("yyyy-MM-dd-hh-mm");
+            string to = _currentSession.To.ToString("yyyy-MM-dd-hh-mm");
+            string sourceFolder= $@"{_currentSession.SessionOtputFolderPath}\OutputData\{from}_{to}";
             Packaging(sourceFolder,destinationPath);
         }
     }

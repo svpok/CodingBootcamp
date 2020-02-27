@@ -8,7 +8,7 @@ using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
+
 
 namespace SupportTroubleshootingTool.Core.Contract
 {
@@ -169,7 +169,7 @@ namespace SupportTroubleshootingTool.Core.Contract
                     //Create Output folder for this collect operation
                     //Collect Log events (EVLogHandler)
                     try { 
-                    new EVLogHandler(_currentSession).CollectData();
+                    //new EVLogHandler(_currentSession).CollectData();
                     }
                     catch (Exception ex)
                     {
