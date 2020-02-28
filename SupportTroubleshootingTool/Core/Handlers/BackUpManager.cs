@@ -34,12 +34,12 @@ namespace SupportTroubleshootingTool.Core.Handlers
                 }
                 BackupConfigFiles(steps, new List<ConfigItemInfo>(_session.SelectedTraces));
                 SerialtionHelper<BackupSteps>.Serialize(steps, _xmlRestoreSteps);
+                new Logger().WriteInfo("Backup Seccessfully.");
             }
             catch (Exception ex)
             {
-                var newEx = new Exception("1:Error backup", ex);
-                new Logger().WriteError(newEx);
-                throw newEx;
+                new Logger().WriteError($"Faild to backup:{ex.Message}");
+                throw new Exception($"Faild to backup:{ex.Message}");
             }
         }
 
@@ -53,19 +53,18 @@ namespace SupportTroubleshootingTool.Core.Handlers
                 {
                     File.Copy(Path.Combine(this._backUpFolderPath,steps.FileName[i]), steps.FilePath[i],true);
                 }
+                new Logger().WriteInfo("Restore files seccessfully.");
             }
             catch(Exception ex)
             {
-                var newEx = new Exception($"Error restore:{ex.Message}");
-                new Logger().WriteError(newEx);
-                throw newEx;
+                new Logger().WriteError($"faild to restore:{ex.Message}");
+                throw new Exception($"faild to restore:{ex.Message}");
             }
         }
 
         private void BackupConfigFiles(BackupSteps steps, List<ConfigItemInfo> configsList)
         {
             foreach (var configFileInfo in configsList)
-            
             {
                 var orgFileInfo = new FileInfo(configFileInfo.ConfigFilePath);
                 var destFileInfo = Path.Combine(this._backUpFolderPath, orgFileInfo.Name);

@@ -1,4 +1,5 @@
 ﻿using SupportTroubleshootingTool.Core.Model;
+using SupportTroubleshootingTool.Core.Utilities;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -29,25 +30,32 @@ namespace SupportTroubleshootingTool.Core.Handlers
                 }
                 else
                 {
-                    new Utilities.Logger().WriteInfo("No Files Found to archive");
+                    new Logger().WriteInfo("No Files Found to archive");
                     return;
                 }
+                new Logger().WriteInfo("the file Zipped to " + destinationPath);
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
-                new Utilities.Logger().WriteError(e);
-                return;
+                throw ex;
             }
-            new Utilities.Logger().WriteInfo("the file Zipped to " + destinationPath);
-
         }
         internal void Packaging()
         {
-            string destinationPath = $@"{ _currentSession.SessionOtputFolderPath}\OutputData\{_currentSession.WorkflowName}.zip";
-            string from = _currentSession.From.ToString("yyyy-MM-dd-hh-mm");
-            string to = _currentSession.To.ToString("yyyy-MM-dd-hh-mm");
-            string sourceFolder= $@"{_currentSession.SessionOtputFolderPath}\OutputData\{from}_{to}";
-            Packaging(sourceFolder,destinationPath);
+            try
+            {
+                string destinationPath = $@"{ _currentSession.SessionOtputFolderPath}\OutputData\{_currentSession.WorkflowName}.zip";
+                string from = _currentSession.From.ToString("yyyy-MM-dd-hh-mm");
+                string to = _currentSession.To.ToString("yyyy-MM-dd-hh-mm");
+                string sourceFolder = $@"{_currentSession.SessionOtputFolderPath}\OutputData\{from}_{to}";
+                Packaging(sourceFolder, destinationPath);
+                new Logger().WriteInfo("the file Zipped seccessfully.");
+            }
+            catch(Exception ex)
+            {
+                new Logger().WriteError($"Faild to zipped file:{ex.Message}");
+                throw ex;
+            }
         }
     }
 }

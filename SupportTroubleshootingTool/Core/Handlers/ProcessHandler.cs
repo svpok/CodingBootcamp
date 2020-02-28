@@ -60,8 +60,7 @@ namespace SupportTroubleshootingTool.Core.Handlers
             }
             catch (Exception e)
             {
-                new Utilities.Logger().WriteError(e);
-                throw;
+                throw e;
             }
         }
 
@@ -113,21 +112,13 @@ namespace SupportTroubleshootingTool.Core.Handlers
                     }
                 }
                 else { new Utilities.Logger().WriteInfo("No FileLog Found you Waste my Time"); }
-                try
-                {
-                    foreach (string srv in serviceList) { RestartService(srv); }
-                    foreach (string pool in iisPools) { RestartPool(pool); }
-                    new Utilities.Logger().WriteInfo("completed session process handling");
-                }
-                catch(Exception e)
-                {
-                    new Utilities.Logger().WriteError(e);
-                    throw;
-                }
+                foreach (string srv in serviceList) { RestartService(srv); }
+                foreach (string pool in iisPools) { RestartPool(pool); }
+                new Utilities.Logger().WriteInfo("Restart services seccessfully.");
             }
             catch(Exception e) { 
-                new Utilities.Logger().WriteError(e);
-                throw;
+                new Utilities.Logger().WriteError($"Faild to restart service:{e.Message}");
+                throw new Exception($"Faild to restart service:{e.Message}");
             }
         }
     }

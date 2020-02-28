@@ -28,6 +28,7 @@ namespace SupportTroubleshootingTool.UI
            }
           private void ExistingSessionFormUi_Load(object sender, EventArgs e)
         {
+            dateTimeTo.MaxDate = DateTime.Now;
             this.Text =this.Text + _currentSession.SessionID;
             this.loadData.Items.Add("workflow:  " + _currentSession.WorkflowName);
 
