@@ -16,7 +16,7 @@ namespace SupportTroubleshootingTool.Core.Contract
         public WorkflowProvider()
         {
             LoadWorkflows();
-            new Utilities.Logger().WriteInfo("Load WorkFlows Seccessfully.");
+            new Utilities.Logger().WriteInfo("Successfully Deserialized WorkFlows");
         }
         private void LoadWorkflows()
         {
@@ -26,21 +26,18 @@ namespace SupportTroubleshootingTool.Core.Contract
                 {
                     Directory.CreateDirectory(WorkflowsRootFolder);
                 }
-                //Read workflows configurations and init Workflowslist
                 this.WorkflowsList = new List<WorkflowInfo>() { new WorkflowInfo() };
-                string[] s = Directory.GetFiles(WorkflowsRootFolder);
-                //TODO: Find all files in WorkflowsRootFolder
-                foreach (var file in s)
+                string[] Dir = Directory.GetFiles(WorkflowsRootFolder);
+                foreach (var file in Dir)
                 {
                     var workflowInfo = SerialtionHelper<WorkflowInfo>.Deserialize(file);
                     WorkflowsList.Add(workflowInfo);
                 }
-                new Utilities.Logger().WriteInfo("Successfully Deserialized WorkFlows");
             }
             catch (Exception ex)
             {
-                new Logger().WriteError($"Faild to load WordKlows{ex.Message}");
-                throw new Exception($"Faild to load WordKlows{ex.Message}");
+                new Logger().WriteError($"Faild to load WorkFlows{ex.Message}");
+                throw new Exception($"Faild to load WorkFlows{ex.Message}");
             }
         }
         private void CreateWorkflow(int wfId)

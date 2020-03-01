@@ -13,8 +13,6 @@ namespace SupportTroubleshootingTool.Core.Handlers
     public class EVLogHandler
     {
         SessionInfo  _sessionInfo;
-        List<EventLog> log = new List<EventLog>();
-
         public EVLogHandler(SessionInfo sessionInfo)
         {
             this._sessionInfo = sessionInfo;
@@ -31,7 +29,6 @@ namespace SupportTroubleshootingTool.Core.Handlers
                 var logsToCollect = new Dictionary<string, List<string>>();
                 foreach (var evLog in _sessionInfo.SelectedEVLogs)
                 {
-                    //evLog.LogName = "Application";
                     if (!logsToCollect.ContainsKey(evLog.LogName))
                         logsToCollect.Add(evLog.LogName, new List<string>());
 
