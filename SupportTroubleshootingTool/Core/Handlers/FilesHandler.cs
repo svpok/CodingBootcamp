@@ -16,19 +16,19 @@ namespace SupportTroubleshootingTool.Core.Contract
            
         }
 
-        internal void CollectData(string outputfolder, string folderPath, string filter)
+        internal void CollectData(string outputfolder, string sourcefolder, string filter)
         {
 
             try
             {
-                if (!Directory.Exists(folderPath))
+                if (!Directory.Exists(sourcefolder))
                 {
-                    new Utilities.Logger().WriteError("Logs Source Folders Not Found");
+                    new Utilities.Logger().WriteError("Logs Source Folder Not Found");
                     return;
                 }
                 DateTime from = _currentSession.From;
                 DateTime to = _currentSession.To;
-                string[] filePaths = Directory.GetFiles(folderPath, filter);
+                string[] filePaths = Directory.GetFiles(sourcefolder, filter);
                 foreach (string filepath in filePaths)
                 {
 
@@ -42,8 +42,10 @@ namespace SupportTroubleshootingTool.Core.Contract
                         fileinfo.CopyTo(outputfolder + "/" + fileinfo.Name);
                     }
                 }
+                new Utilities.Logger().WriteInfo($"Files from folder {sourcefolder}copied to folder{outputfolder}according to {filter} filter");
             }catch(Exception ex)
             {
+                new Utilities.Logger().WriteError(ex);
                 throw ex;
             }
 

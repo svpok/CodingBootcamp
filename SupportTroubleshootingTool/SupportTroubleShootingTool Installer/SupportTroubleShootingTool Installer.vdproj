@@ -604,6 +604,12 @@
         "Entry"
         {
         "MsmKey" = "8:_557496C6ABCE89FFB7CC6490F8A68687"
+        "OwnerKey" = "8:_6A2D34BD7E075749AF1EDDF809493FB5"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_557496C6ABCE89FFB7CC6490F8A68687"
         "OwnerKey" = "8:_B96D48F829A24CAE88D4A42234B0B84E"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -735,6 +741,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_6A2D34BD7E075749AF1EDDF809493FB5"
+        "OwnerKey" = "8:_B96D48F829A24CAE88D4A42234B0B84E"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_6E6019410C514D136CF5FE96E63E6D65"
         "OwnerKey" = "8:_573F21530BD046199B8C7BF8F4906F6D"
         "MsmSig" = "8:_UNDEFINED"
@@ -839,6 +851,12 @@
         {
         "MsmKey" = "8:_80017B1E94CF96C587593CE9BF263DF7"
         "OwnerKey" = "8:_B96D48F829A24CAE88D4A42234B0B84E"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_80017B1E94CF96C587593CE9BF263DF7"
+        "OwnerKey" = "8:_6A2D34BD7E075749AF1EDDF809493FB5"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -1001,6 +1019,12 @@
         {
         "MsmKey" = "8:_96CF5B42A92BBF909D216E912B0A062A"
         "OwnerKey" = "8:_B96D48F829A24CAE88D4A42234B0B84E"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_96CF5B42A92BBF909D216E912B0A062A"
+        "OwnerKey" = "8:_6A2D34BD7E075749AF1EDDF809493FB5"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -1529,6 +1553,12 @@
         {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_B96D48F829A24CAE88D4A42234B0B84E"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_6A2D34BD7E075749AF1EDDF809493FB5"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -4211,6 +4241,37 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_6A2D34BD7E075749AF1EDDF809493FB5"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:SupportTroubleshootingTool.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_6A2D34BD7E075749AF1EDDF809493FB5"
+                    {
+                    "Name" = "8:SupportTroubleshootingTool.Core.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:SupportTroubleshootingTool.Core.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_6AC896EF47EB4397B44B16965859F31D"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_6E6019410C514D136CF5FE96E63E6D65"
             {
             "AssemblyRegister" = "3:1"
@@ -6384,7 +6445,7 @@
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:TRUE"
         "ProductVersion" = "8:1.0.0"
-        "Manufacturer" = "8:Dbmotion"
+        "Manufacturer" = "8:Dbmotion\\Tools"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
         "Title" = "8:SupportTroubleShootingTool Installer"
