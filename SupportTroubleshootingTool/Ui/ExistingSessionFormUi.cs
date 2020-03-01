@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using SupportTroubleshootingTool.Core.Contract;
 using SupportTroubleshootingTool.Core.Model;
+using SupportTroubleshootingTool.Core.Utilities;
 
 namespace SupportTroubleshootingTool.UI
 {
@@ -24,10 +25,11 @@ namespace SupportTroubleshootingTool.UI
             _sessionProvider = sessionProvider;
             _currentSession = _sessionProvider.CurrentSession;
            
+           
             InitializeComponent();
            }
           private void ExistingSessionFormUi_Load(object sender, EventArgs e)
-        {
+        { 
             this.Text =this.Text + _currentSession.SessionID;
             this.loadData.Items.Add("workflow:  " + _currentSession.WorkflowName);
 
@@ -81,39 +83,43 @@ namespace SupportTroubleshootingTool.UI
             
             dateTimeFrom.Value = _sessionProvider.CurrentSession.From;
             //dateTimeTo.Value = _sessionProvider.CurrentSession.To;
-            //dateTimeTo.Value= DateTime.Today;
+             dateTimeTo.MaxDate = DateTime.Now;
 
-           
+
         }
         private void butCollectDataClick(object sender, EventArgs e)
         {
             _sessionProvider.CurrentSession.From = dateTimeFrom.Value;
             _sessionProvider.CurrentSession.To = dateTimeTo.Value;
+            try
+            {
 
-            //if (dateTimeTo.Value < dateTimeFrom.Value)
-            //{
-            //    MessageBox.Show("It cannot be 'DateTo' a less from 'DateFrom'", "Error");
-            //}
-            //else
-            //{
+
                 bool s = _sessionProvider.CollectData();
 
                 if (!s)
                 {
-                  DialogResult dialogResult = MessageBox.Show("Data for the same data and time already was collect ! ," +
-                 "Do you want to override it?," +
-                 "\nClick Ok,to override." +
-                 "\nClick cancel,to change date and time.", "Collect data",MessageBoxButtons.OKCancel);
+                    DialogResult dialogResult = MessageBox.Show("Data for the same data and time already was collect ! ," +
+                   "Do you want to override it?," +
+                   "\nClick Ok,to override." +
+                   "\nClick cancel,to change date and time.", "Collect data", MessageBoxButtons.OKCancel);
                     if (dialogResult == DialogResult.OK)
                     {
-                      _sessionProvider.CollectData(true);
+                        _sessionProvider.CollectData(true);
                     }
                     else if (dialogResult == DialogResult.Cancel)
                     {
                         this.Show();
                     }
                 }
-            //}
+            }
+            catch(Exception ex)
+            {
+
+
+                MessageBox.Show(ex.Message);
+            }
+            
     }    
         private void butCloseSessionClick(object sender, EventArgs e)
         {
@@ -135,10 +141,9 @@ namespace SupportTroubleshootingTool.UI
         }
        private void dateTimeTo_ValueChanged_1(object sender, EventArgs e)
         {
-            dateTimeTo.MaxDate = DateTime.Now;
+            //dateTimeTo.MaxDate = DateTime.Now;
             dateTimeFrom.MaxDate = dateTimeTo.Value.AddDays(-1);
-            //dateTimeFrom.MaxDate = dateTimeTo.Value.AddHours(-1);
-            //dateTimeTo.Value = DateTime.Today;
+            //this.dateTimeTo.= this.dateTimeTo.Text.Length;
         }
     }
 }
