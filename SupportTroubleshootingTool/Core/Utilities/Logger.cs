@@ -9,24 +9,24 @@ namespace SupportTroubleshootingTool.Core.Utilities
 
         private static readonly log4net.ILog mylogger = log4net.LogManager.GetLogger(typeof(Logger));
 
-        internal void WriteInfo(string message)
+        public void WriteInfo(string message)
         {
             mylogger.Info(message);
         }
-        internal void WriteWarning(string message)
+        public void WriteWarning(string message)
         {
             mylogger.Warn(message);
         }
-        internal void WriteDebug(string message)
+        public void WriteDebug(string message)
         {
             mylogger.Debug(message);
         }
-        internal void WriteError(string message)
+        public void WriteError(string message)
         {
             mylogger.Error(message);
         }
 
-        internal void WriteError(Exception exeption)
+        public void WriteError(Exception exeption)
         {
 
             StringBuilder e = new StringBuilder();

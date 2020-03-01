@@ -23,9 +23,11 @@ namespace SupportTroubleshootingTool.Core.Contract
                 try
                 {
                     System.IO.Directory.CreateDirectory(path);
+                    new Logger().WriteInfo($"Success to creat directry:{path}");
                 }catch(Exception ex)
                 {
-                    throw new Exception($"0:{ex.Message}");
+                    new Logger().WriteError($"File create error:{ex.Message}");
+                    throw new Exception($"File create error:{ex.Message}");
                 }
             }
             SessionRootFolderPath = path;
@@ -39,82 +41,66 @@ namespace SupportTroubleshootingTool.Core.Contract
         {
             get
             {
-                if (_currentSession != null)
+                try
                 {
-                    return _currentSession;
+                    if (_currentSession != null)
+                    {
+                        return _currentSession;
+                    }
+                    string[] s = Directory.GetDirectories(SessionRootFolderPath, "*open", SearchOption.AllDirectories);
+                    //Search in this.SessionRootFolderPath the session folder that is opened. - done
+                    //yyyy-MM-dd-hh-mm_workflowName_open - open session
+                    //yyyy-MM-dd-hh-mm_workflowName_close - closed session
+                    //if such folder exists create SessionInfo object from the SessionInfo.xml and return it. - done
+                    //Otherwise return null; - done
+                    if (s.Length == 1)
+                    {
+                        _currentSession = SerialtionHelper<SessionInfo>.Deserialize(s[0] + "\\SessionInfo.xml");
+                        new Logger().WriteInfo("Return full currentSession.");
+                        return _currentSession;
+                    }
+                    if (s.Length > 1)
+                    {
+                        throw new Exception("two Session or more is open.");
+                    }
+                    new Logger().WriteInfo("Return NULL currentSession.");
+                    return null;
                 }
-                string[] s = Directory.GetDirectories(SessionRootFolderPath, "*open", SearchOption.AllDirectories);
-                //Search in this.SessionRootFolderPath the session folder that is opened. - done
-                //yyyy-MM-dd-hh-mm_workflowName_open - open session
-                //yyyy-MM-dd-hh-mm_workflowName_close - closed session
-                //if such folder exists create SessionInfo object from the SessionInfo.xml and return it. - done
-                //Otherwise return null; - done
-                if (s.Length == 1)
+                catch (Exception ex)
                 {
-                    _currentSession = SerialtionHelper<SessionInfo>.Deserialize(s[0] + "\\SessionInfo.xml");
-                    return _currentSession;
+                    new Logger().WriteError($"Faild to return CurrentSession:{ex.Message}");
+                    throw new Exception($"Faild to return CurrentSession:{ex.Message}");
                 }
-                if (s.Length > 1)
-                {
-                    new  Logger().WriteWarning("two Session or more is open.");
-                    throw new Exception("two Session or more is open.");
-                }
-                return null;
+
             }
         }
         public void StartSession(SessionInfo session)
         {
             try
             {
-                try { 
                 _currentSession = session;
                 _currentSession.SessionOtputFolderPath = Path.Combine(SessionRootFolderPath,
                                                         $"{_currentSession.SessionFolderPath}_open");
                 System.IO.Directory.CreateDirectory($@"{_currentSession.SessionOtputFolderPath}");
                 SerialtionHelper<SessionInfo>.Serialize(_currentSession,
                     $@"{_currentSession.SessionOtputFolderPath}\SessionInfo.xml");
-                }catch(Exception ex)
-                {
-                    throw new Exception($"1.1:{ex.Message}");
-                }
-
                 //session.Save();
                 //Build session folder name yyyy-MM-dd-hh-mm_workflowName_open -done
                 //Create the folder under this.SessionRootFolderPath - done
                 //Save SessionInfo.xml - done
                 //Crete backup (BackupHandler) - done
-                try
-                {
-                    new BackUpManager(_currentSession).Backup();
-                }catch(Exception ex)
-                {
-                    throw new Exception($"1.2:{ex.Message}");
-                }
+                new BackUpManager(_currentSession).Backup();
                 //Open log levels (XmlHandler) - done
                 //Open traces (XmlHanlder) - done
-                try
-                {
-                    new XmlHandler(_currentSession).ChangeConfig();
-                }
-                catch (Exception ex)
-                {
-                    throw new Exception($"1.3:{ex.Message}");
-                }
-
+                new XmlHandler(_currentSession).ChangeConfig();
                 //Restart processes (ProcessHandler) - done
-                try
-                {
-                   // new ProcessHandler(_currentSession).RestartService();
-                }
-                catch (Exception ex)
-                {
-                    throw new Exception($"1.4:{ex.Message}");
-                }
+                new ProcessHandler(_currentSession).RestartService();
+                new Logger().WriteInfo("Starting new successfully.");
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-                new  Logger().WriteError(ex);
-                throw new Exception($"{ex.Message}");
+                new Logger().WriteError($"Faild to start session:{ex.Message}");
+                throw new Exception($"Faild to start session:{ex.Message}");
             }
         }
         public void StopSession(bool cls=true)
@@ -137,13 +123,13 @@ namespace SupportTroubleshootingTool.Core.Contract
                     System.IO.Directory.Move($"{SessionRootFolderPath}\\{_currentSession.SessionFolderPath}_open",
                     $"{SessionRootFolderPath}\\{_currentSession.SessionFolderPath}_close");
                 }
-
+                new Logger().WriteInfo("Closing session successfully.");
 
             }
             catch (Exception ex)
             {
-                new  Logger().WriteError(ex);
-                throw new Exception($"2:{ex.Message}");
+                new  Logger().WriteError($"faild to close session:{ex.Message}");
+                throw new Exception($"faild to close session:{ex.Message}");
             }
         }
         public bool CollectData(bool flag = false)
@@ -159,60 +145,32 @@ namespace SupportTroubleshootingTool.Core.Contract
                 {
                     if (flag)
                     {
-                        Directory.Delete(path,true);
+                        Directory.Delete(path, true);
                     }
-                    try { 
                     Directory.CreateDirectory(path);
-                    }
-                    catch (Exception ex)
-                    {
-                        throw new Exception($"1:{ex.Message}");
-                    }
                     //Create Output folder for this collect operation
                     //Collect Log events (EVLogHandler)
-                    try { 
-                    //new EVLogHandler(_currentSession).CollectData();
-                    }
-                    catch (Exception ex)
-                    {
-                        throw new Exception($"2:{ex.Message}");
-                    }
+                    new EVLogHandler(_currentSession).CollectData();
                     //Collect file logs (FileLogHandler)
                     //Collect traces (TraceHanler)
-                    try { 
                     new FilesHandler(_currentSession).CollectData();
-                    }
-                    catch (Exception ex)
-                    {
-                        throw new Exception($"3:{ex.Message}");
-                    }
-                    try { 
                     new PackageHandler(_currentSession).Packaging();
-                    }
-                    catch (Exception ex)
-                    {
-                        throw new Exception($"4:{ex.Message}");
-                    }
-                    try { 
                     SerialtionHelper<SessionInfo>.Serialize(_currentSession,
                     $@"{_currentSession.SessionOtputFolderPath}\SessionInfo.xml");
-                    }
-                    catch (Exception ex)
-                    {
-                        throw new Exception($"5:{ex.Message}");
-                    }
                 }
                 else
                 {
                     return false;
                 }
+                new Logger().WriteInfo("Collect data successfully.");
+                return true;
             }
             catch (Exception ex)
             {
-                new Logger().WriteError(ex);
-                throw new Exception($"3.{ex.Message}") ;
+                new Logger().WriteError($"Faild to Collect data:{ex.Message}");
+                throw new Exception($"Faild to Collect data:{ex.Message}");
             }
-            return true;
+            
         }
     }
 }

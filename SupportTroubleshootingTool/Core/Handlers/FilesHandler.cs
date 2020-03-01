@@ -1,4 +1,5 @@
 ﻿using SupportTroubleshootingTool.Core.Model;
+using SupportTroubleshootingTool.Core.Utilities;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -15,38 +16,37 @@ namespace SupportTroubleshootingTool.Core.Contract
            
         }
 
-        internal void CollectData(string outputfolder, string folderPath, string filter)
+        internal void CollectData(string outputfolder, string sourcefolder, string filter)
         {
 
             try
             {
-                if (!Directory.Exists(folderPath))
+                if (!Directory.Exists(sourcefolder))
                 {
-                    new Utilities.Logger().WriteError("Logs Source Folders Not Found");
+                    new Utilities.Logger().WriteError("Logs Source Folder Not Found");
                     return;
                 }
                 DateTime from = _currentSession.From;
                 DateTime to = _currentSession.To;
-                string[] filePaths = Directory.GetFiles(folderPath, filter);
+                string[] filePaths = Directory.GetFiles(sourcefolder, filter);
                 foreach (string filepath in filePaths)
                 {
 
                     var fileinfo = new FileInfo(filepath);
-                    if ((DateTime.Compare(fileinfo.LastWriteTime, from) > 0) && (DateTime.Compare(fileinfo.LastWriteTime, to)<0))
+                    if ((DateTime.Compare(fileinfo.LastWriteTime, from) > 0) && (DateTime.Compare(fileinfo.LastWriteTime, to) < 0))
                     {
                         if (!Directory.Exists(outputfolder))
                         {
                             Directory.CreateDirectory(outputfolder);
                         }
-                        fileinfo.CopyTo(outputfolder+"/"+fileinfo.Name);
+                        fileinfo.CopyTo(outputfolder + "/" + fileinfo.Name);
                     }
                 }
-            }
-            catch(Exception e)
+                new Utilities.Logger().WriteInfo($"Files from folder {sourcefolder}copied to folder{outputfolder}according to {filter} filter");
+            }catch(Exception ex)
             {
-                new Utilities.Logger().WriteError(e);
-                throw;
-
+                new Utilities.Logger().WriteError(ex);
+                throw ex;
             }
 
         }
@@ -73,10 +73,12 @@ namespace SupportTroubleshootingTool.Core.Contract
                     string outputfolder = $@"{_currentSession.SessionOtputFolderPath}\OutputData\{from}_{to}\{fileLogInfo.Description}";
                     CollectData(outputfolder, fileLogInfo.LogsPath, fileLogInfo.LogFileName);
                 }
+                new Logger().WriteInfo("Collecting trace files and log files seccessfully.");
             }
-            catch(Exception e) { 
-                new Utilities.Logger().WriteError(e);
-                throw;
+            catch (Exception ex)
+            {
+                new Logger().WriteError($"faild to Collecting trace files and log files:{ex.Message}");
+                throw ex;
             }
         }
     }

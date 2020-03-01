@@ -4,8 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using SupportTroubleshootingTool.Core.Contract;
-using SupportTroubleshootingTool.Core.Model;
-using SupportTroubleshootingTool.Core.Handlers;
+using SupportTroubleshootingTool.Core.Utilities;
 namespace SupportTroubleshootingTool.UI
 {
     static class Program
@@ -16,8 +15,11 @@ namespace SupportTroubleshootingTool.UI
         [STAThread]
         static void Main()
         {
+            new Logger().WriteInfo($"UserName: {Environment.UserName} {Environment.UserDomainName} login.");
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            Application.ThreadException += Application_ThreadException;
+            Application.SetUnhandledExceptionMode(UnhandledExceptionMode.CatchException);
             var sessionProvider = new SessionProvider();
             var sessionInfo = sessionProvider.CurrentSession;
             if (sessionInfo == null)
@@ -43,9 +45,14 @@ namespace SupportTroubleshootingTool.UI
                 }
 
             }
+            new Logger().WriteInfo($"UserName: {Environment.UserName} {Environment.UserDomainName} logout.");
+            new Logger().WriteInfo("program exited");
 
-            //SupportTroubleshootingTool.Core.Utilities.Logger.WriteInfo("program exited");
+        }
 
+        private static void Application_ThreadException(object sender, System.Threading.ThreadExceptionEventArgs e)
+        {
+            MessageBox.Show(e.Exception.Message);
         }
     }
 }

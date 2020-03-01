@@ -18,18 +18,17 @@ namespace SupportTroubleshootingTool.UI
         private const bool V = true;
         private SessionProvider _sessionProvider;
         private SessionInfo _currentSession;
-        
+
         public ExistingSessionFormUi(SessionProvider sessionProvider, NewSessionFormUi backForm)
          { //TODO: Check sessionProvider and _currentSession are not null.
             //If null log error and show error dialog
             _sessionProvider = sessionProvider;
             _currentSession = _sessionProvider.CurrentSession;
-           
-           
             InitializeComponent();
            }
           private void ExistingSessionFormUi_Load(object sender, EventArgs e)
-        { 
+        {
+            dateTimeTo.MaxDate = DateTime.Now;
             this.Text =this.Text + _currentSession.SessionID;
             this.loadData.Items.Add("workflow:  " + _currentSession.WorkflowName);
 
@@ -47,11 +46,11 @@ namespace SupportTroubleshootingTool.UI
               }
                this.loadData.Items.Add(EVL);
 
-            
+
             string fileloge = "";
             fileloge = "File Logs:";
             int log = 1;
-            
+
             foreach (FileLogInfo fileLog in _currentSession.SelectedFileLogs)
             {
                 if (log == 1)
@@ -80,12 +79,10 @@ namespace SupportTroubleshootingTool.UI
                this.loadData.Items.Add(trce);
 
             loadData.Items.Add($"loglevel:{_currentSession.LogLevel}");
-            
+
             dateTimeFrom.Value = _sessionProvider.CurrentSession.From;
             //dateTimeTo.Value = _sessionProvider.CurrentSession.To;
              dateTimeTo.MaxDate = DateTime.Now;
-
-
         }
         private void butCollectDataClick(object sender, EventArgs e)
         {
@@ -121,6 +118,7 @@ namespace SupportTroubleshootingTool.UI
             }
             
     }    
+
         private void butCloseSessionClick(object sender, EventArgs e)
         {
             _sessionProvider.CurrentSession.From = dateTimeFrom.Value;
@@ -129,7 +127,7 @@ namespace SupportTroubleshootingTool.UI
             _sessionProvider.StopSession();
             this.Close();
         }
-       
+
          private void butOpenSeesion_Click(object sender, EventArgs e)
         {
           System.Diagnostics.Process.Start(_currentSession.SessionOtputFolderPath);
