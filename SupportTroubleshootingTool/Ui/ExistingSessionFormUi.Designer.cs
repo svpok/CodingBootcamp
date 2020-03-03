@@ -140,7 +140,7 @@
             this.butCloseSession.TabIndex = 4;
             this.butCloseSession.Text = "Close session";
             this.butCloseSession.UseVisualStyleBackColor = false;
-            this.butCloseSession.Click += new System.EventHandler(this.butCloseSession_Click);
+            this.butCloseSession.Click += new System.EventHandler(this.butCloseSessionClick);
             // 
             // loadData
             // 

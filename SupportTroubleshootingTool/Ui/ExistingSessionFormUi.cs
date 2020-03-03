@@ -116,7 +116,22 @@ namespace SupportTroubleshootingTool.UI
         {
             System.Diagnostics.Process.Start(_currentSession.SessionOtputFolderPath);
         }
-
+        private void butCloseSessionClick(object sender, EventArgs e)
+        {
+            try
+            {
+                _sessionProvider.CurrentSession.From = dateTimeFrom.Value;
+                _sessionProvider.CurrentSession.To = dateTimeTo.Value;
+                //_sessionProvider.CollectData();
+                _sessionProvider.StopSession();
+                this.Close();
+            }
+            catch(Exception ex)
+            {
+                new Logger().WriteError(ex);
+                MessageBox.Show("Failed to close Session" + ex.Message);
+            }
+        }
         private void dateTimeFrom_ValueChanged(object sender, EventArgs e)
         {
             dateTimeTo.MinDate = dateTimeFrom.Value.AddDays(1);
