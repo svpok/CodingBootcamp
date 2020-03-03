@@ -5,7 +5,6 @@ using System.IO;
 using System.Xml;
 using SupportTroubleshootingTool.Core.Contract;
 
-
 namespace SupportTroubleshootingTool.Core.Model
 {
     //Read about XML serialization and implement it for this class
