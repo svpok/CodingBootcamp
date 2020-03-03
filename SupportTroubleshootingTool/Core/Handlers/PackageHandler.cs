@@ -19,7 +19,6 @@ namespace SupportTroubleshootingTool.Core.Handlers
         }
         public static void Packaging(string sourceFolder, string destinationPath) 
         {
-			// DestinationPath example : C:\folder\file.zip
             try
             {
                 if (Directory.GetFiles(sourceFolder).Length > 0 || Directory.GetDirectories(sourceFolder).Length >0)

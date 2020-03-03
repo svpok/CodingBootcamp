@@ -4,7 +4,6 @@ using System.Linq;
 using System.Collections.Generic;
 using System.Windows.Forms;
 
-
 namespace SupportTroubleshootingTool.Core.Handlers
 {
     public class XmlHandler
@@ -23,7 +22,6 @@ namespace SupportTroubleshootingTool.Core.Handlers
                 if (_sessionInfo.LogLevel != LogLevelEnum.Current)
                 {
                     FillConfigsToChange(_sessionInfo.SelectedEVLogs);
-                    //FillConfigsToChange(null);
                     FillConfigsToChange(_sessionInfo.SelectedFileLogs);
                 }
                 FillConfigsToChange(_sessionInfo.SelectedTraces);
@@ -64,7 +62,6 @@ namespace SupportTroubleshootingTool.Core.Handlers
             {
                 if (!_configsToChange.ContainsKey(item.ConfigFilePath))
                     _configsToChange.Add(item.ConfigFilePath, new List<ConfigurationPoint>());
-
                 foreach (var newPoint in item.GetConfigPoints(_sessionInfo.LogLevel))
                 {
                     if (!_configsToChange[item.ConfigFilePath].Exists(existingPoint => existingPoint.XPath == newPoint.XPath))

@@ -12,12 +12,9 @@ namespace SupportTroubleshootingTool.Core.Handlers
     class ProcessHandler
     {
         private SessionInfo session;
-
         public ProcessHandler(SessionInfo session)
         {
-
             this.session = session;
-
         }
         internal void RestartService(string serviceName)  // Will handle services that running in server 
         {
@@ -29,8 +26,6 @@ namespace SupportTroubleshootingTool.Core.Handlers
             int timeoutMilliseconds = 10000;
             try
             {
-                // to handle Process we must use timeout time to be sure that the process stopped then we can start it
-                //else we get exception
                 TimeSpan timeout = TimeSpan.FromMilliseconds(timeoutMilliseconds);
                 service.Stop();
                 service.WaitForStatus(ServiceControllerStatus.Stopped, timeout);

@@ -17,7 +17,6 @@ namespace SupportTroubleshootingTool.Core.Model
         [XmlArray]
         [XmlArrayItem("XPath")]
         public List<string> LogLevelXPaths { get; set; }
-        
         internal override IEnumerable<ConfigurationPoint> GetConfigPoints(LogLevelEnum logLevel)
         {
             return LogLevelXPaths.Select(item => CreateConfigurationPoint(item, logLevel));
