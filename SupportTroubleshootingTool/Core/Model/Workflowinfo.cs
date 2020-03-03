@@ -32,4 +32,3 @@ namespace SupportTroubleshootingTool.Core.Model
         public List<TraceInfo> Traces { get; set; }
     }
 }
-

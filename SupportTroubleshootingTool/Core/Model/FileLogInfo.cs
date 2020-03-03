@@ -10,7 +10,6 @@ namespace SupportTroubleshootingTool.Core.Model
     {
         public FileLogInfo() : base()
         {
-
         }
         [XmlElement]
         public string LogsPath { get; set; }

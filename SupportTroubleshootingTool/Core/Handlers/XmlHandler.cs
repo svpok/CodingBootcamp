@@ -4,20 +4,17 @@ using System.Linq;
 using System.Collections.Generic;
 using System.Windows.Forms;
 
-
 namespace SupportTroubleshootingTool.Core.Handlers
 {
     public class XmlHandler
     {
         private SessionInfo _sessionInfo;
         private Dictionary<string, List<ConfigurationPoint>> _configsToChange;
-
         public XmlHandler(SessionInfo session)
         {
             _sessionInfo = session;
             _configsToChange = new Dictionary<string, List<ConfigurationPoint>>();
         }
-
         public void ChangeConfig()
         {
             try
@@ -25,7 +22,6 @@ namespace SupportTroubleshootingTool.Core.Handlers
                 if (_sessionInfo.LogLevel != LogLevelEnum.Current)
                 {
                     FillConfigsToChange(_sessionInfo.SelectedEVLogs);
-                    //FillConfigsToChange(null);
                     FillConfigsToChange(_sessionInfo.SelectedFileLogs);
                 }
                 FillConfigsToChange(_sessionInfo.SelectedTraces);
@@ -38,7 +34,6 @@ namespace SupportTroubleshootingTool.Core.Handlers
                 throw new Exception($"Failed to change config for files", ex);
             }
         }
-
         private void ChangeConfigs()
         {
             new Utilities.Logger().WriteInfo("Starting the change configuration");
@@ -61,14 +56,12 @@ namespace SupportTroubleshootingTool.Core.Handlers
                 configFileXml.Save();
             }
         }
-
         private void FillConfigsToChange(IEnumerable<ConfigItemInfo> itemsList)
         {
             foreach (var item in itemsList)
             {
                 if (!_configsToChange.ContainsKey(item.ConfigFilePath))
                     _configsToChange.Add(item.ConfigFilePath, new List<ConfigurationPoint>());
-
                 foreach (var newPoint in item.GetConfigPoints(_sessionInfo.LogLevel))
                 {
                     if (!_configsToChange[item.ConfigFilePath].Exists(existingPoint => existingPoint.XPath == newPoint.XPath))

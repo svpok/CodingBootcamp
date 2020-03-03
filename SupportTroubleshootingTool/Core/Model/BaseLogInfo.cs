@@ -17,12 +17,10 @@ namespace SupportTroubleshootingTool.Core.Model
         [XmlArray]
         [XmlArrayItem("XPath")]
         public List<string> LogLevelXPaths { get; set; }
-        
         internal override IEnumerable<ConfigurationPoint> GetConfigPoints(LogLevelEnum logLevel)
         {
             return LogLevelXPaths.Select(item => CreateConfigurationPoint(item, logLevel));
         }
-
         private ConfigurationPoint CreateConfigurationPoint(string xPath, LogLevelEnum value)
         {
             return new ConfigurationPoint()
@@ -31,7 +29,6 @@ namespace SupportTroubleshootingTool.Core.Model
                 Value = ConvertLogLevelToValue(xPath, value)
             };
         }
-
         internal string ConvertLogLevelToValue(string xPath, LogLevelEnum logLevel)
         {
             var isLog4net = xPath.Contains("log4net");

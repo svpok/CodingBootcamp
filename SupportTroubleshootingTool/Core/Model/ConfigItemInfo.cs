@@ -23,7 +23,6 @@ namespace SupportTroubleshootingTool.Core.Model
         [XmlArray]
         [XmlArrayItem("ServiceName")]
         public List<string> ServicesToRestart { get; set; }
-
         internal abstract IEnumerable<ConfigurationPoint> GetConfigPoints(LogLevelEnum logLevel);
     }
 }
