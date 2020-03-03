@@ -16,20 +16,25 @@ namespace SupportTroubleshootingTool.UI
     public partial class ExistingSessionFormUi : Form
     {
         private const bool V = true;
+        private const string V1 = "Success";
         private SessionProvider _sessionProvider;
         private SessionInfo _currentSession;
 
         public ExistingSessionFormUi(SessionProvider sessionProvider, NewSessionFormUi backForm)
-         { //TODO: Check sessionProvider and _currentSession are not null.
+        { //TODO: Check sessionProvider and _currentSession are not null.
             //If null log error and show error dialog
             _sessionProvider = sessionProvider;
             _currentSession = _sessionProvider.CurrentSession;
+
             InitializeComponent();
-           }
-          private void ExistingSessionFormUi_Load(object sender, EventArgs e)
+            butCollectData.Click += new EventHandler(butCollectDataClick);
+        }
+        
+        private void ExistingSessionFormUi_Load_1(object sender, EventArgs e)
         {
             dateTimeTo.MaxDate = DateTime.Now;
-            this.Text =this.Text + _currentSession.SessionID;
+
+            this.Text = this.Text + _currentSession.SessionID;
             this.loadData.Items.Add("workflow:  " + _currentSession.WorkflowName);
 
             string EVL = "";
@@ -37,14 +42,15 @@ namespace SupportTroubleshootingTool.UI
             int evilog = 1;
             foreach (EVLogInfo EVlog in _currentSession.SelectedEVLogs)
             {
-                if (evilog == 1) {
+                if (evilog == 1)
+                {
                     EVL = EVL + " " + EVlog.LogName;
                     evilog = 0;
                 }
                 else
                     EVL = EVL + ", " + EVlog.LogName;
-              }
-               this.loadData.Items.Add(EVL);
+            }
+            this.loadData.Items.Add(EVL);
 
 
             string fileloge = "";
@@ -55,13 +61,13 @@ namespace SupportTroubleshootingTool.UI
             {
                 if (log == 1)
                 {
-                 fileloge = fileloge + " " + fileLog.LogFileName;
+                    fileloge = fileloge + " " + fileLog.LogFileName;
                     log = 0;
                 }
                 else
                     fileloge = fileloge + ", " + fileLog.LogFileName;
-               }
-                 this.loadData.Items.Add(fileloge);
+            }
+            this.loadData.Items.Add(fileloge);
 
             string trce = "";
             trce = "Traces:";
@@ -71,27 +77,28 @@ namespace SupportTroubleshootingTool.UI
                 if (Trce == 1)
                 {
                     trce = trce + " " + trace.Description;
-                    Trce= 0;
+                    Trce = 0;
                 }
                 else
                     trce = trce + " ," + trace.Description;
-             }
-               this.loadData.Items.Add(trce);
+            }
+            this.loadData.Items.Add(trce);
 
             loadData.Items.Add($"loglevel:{_currentSession.LogLevel}");
 
             dateTimeFrom.Value = _sessionProvider.CurrentSession.From;
             //dateTimeTo.Value = _sessionProvider.CurrentSession.To;
-             dateTimeTo.MaxDate = DateTime.Now;
+            dateTimeTo.MaxDate = DateTime.Now;
+
+
         }
+       
         private void butCollectDataClick(object sender, EventArgs e)
         {
             _sessionProvider.CurrentSession.From = dateTimeFrom.Value;
             _sessionProvider.CurrentSession.To = dateTimeTo.Value;
             try
             {
-
-
                 bool s = _sessionProvider.CollectData();
 
                 if (!s)
@@ -109,17 +116,16 @@ namespace SupportTroubleshootingTool.UI
                         this.Show();
                     }
                 }
+                
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-
 
                 MessageBox.Show(ex.Message);
             }
-            
-    }    
-
-        private void butCloseSessionClick(object sender, EventArgs e)
+            new ToolTip().Show("done", this, Cursor.Position.X - this.Location.X, Cursor.Position.Y - this.Location.Y, 1000);
+        }
+        private void butCloseSession_Click(object sender, EventArgs e)
         {
             _sessionProvider.CurrentSession.From = dateTimeFrom.Value;
             _sessionProvider.CurrentSession.To = dateTimeTo.Value;
@@ -128,20 +134,24 @@ namespace SupportTroubleshootingTool.UI
             this.Close();
         }
 
-         private void butOpenSeesion_Click(object sender, EventArgs e)
+        private void butOpenSeesion_Click(object sender, EventArgs e)
         {
-          System.Diagnostics.Process.Start(_currentSession.SessionOtputFolderPath);
+            System.Diagnostics.Process.Start(_currentSession.SessionOtputFolderPath);
         }
+
         private void dateTimeFrom_ValueChanged(object sender, EventArgs e)
         {
             dateTimeTo.MinDate = dateTimeFrom.Value.AddDays(1);
             //dateTimeTo.MinDate = dateTimeFrom.Value.AddHours(1);
         }
-       private void dateTimeTo_ValueChanged_1(object sender, EventArgs e)
+
+        private void dateTimeTo_ValueChanged(object sender, EventArgs e)
         {
             //dateTimeTo.MaxDate = DateTime.Now;
             dateTimeFrom.MaxDate = dateTimeTo.Value.AddDays(-1);
             //this.dateTimeTo.= this.dateTimeTo.Text.Length;
-        }
-    }
-}
+        }  
+    }    
+ }
+ 
+
