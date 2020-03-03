@@ -11,13 +11,11 @@ namespace SupportTroubleshootingTool.Core.Handlers
     {
         private SessionInfo _sessionInfo;
         private Dictionary<string, List<ConfigurationPoint>> _configsToChange;
-
         public XmlHandler(SessionInfo session)
         {
             _sessionInfo = session;
             _configsToChange = new Dictionary<string, List<ConfigurationPoint>>();
         }
-
         public void ChangeConfig()
         {
             try
@@ -38,7 +36,6 @@ namespace SupportTroubleshootingTool.Core.Handlers
                 throw new Exception($"Failed to change config for files", ex);
             }
         }
-
         private void ChangeConfigs()
         {
             new Utilities.Logger().WriteInfo("Starting the change configuration");
@@ -61,7 +58,6 @@ namespace SupportTroubleshootingTool.Core.Handlers
                 configFileXml.Save();
             }
         }
-
         private void FillConfigsToChange(IEnumerable<ConfigItemInfo> itemsList)
         {
             foreach (var item in itemsList)

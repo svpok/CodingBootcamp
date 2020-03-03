@@ -19,7 +19,6 @@ namespace SupportTroubleshootingTool.Core.Handlers
             this.session = session;
 
         }
-
         internal void RestartService(string serviceName)  // Will handle services that running in server 
         {
                 if (serviceName.Length == 0)
@@ -44,8 +43,6 @@ namespace SupportTroubleshootingTool.Core.Handlers
                 throw;
             }
         }
-
-
         internal void RestartPool(string appname)
         {
             if (appname.Length == 0)
@@ -63,8 +60,6 @@ namespace SupportTroubleshootingTool.Core.Handlers
                 throw e;
             }
         }
-
-
         internal void RestartService()
         {
             List<TraceInfo> traceInfos = session.SelectedTraces;

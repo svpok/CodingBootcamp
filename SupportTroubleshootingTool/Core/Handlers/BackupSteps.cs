@@ -13,7 +13,6 @@ namespace SupportTroubleshootingTool.Core.Handlers
         [XmlArray]
         [XmlArrayItem]
         public List<string> FileName { set; get; }
-
         public  BackupSteps()
         {
             FilePath = new List<string>();

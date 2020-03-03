@@ -23,7 +23,6 @@ namespace SupportTroubleshootingTool.Core.Handlers
               new  Utilities.Logger().WriteError(ex);
             }
         }
-
         public void Save()
         {
             try
@@ -36,7 +35,6 @@ namespace SupportTroubleshootingTool.Core.Handlers
                throw ex;
             }
         }
-
         public void Change(string xPath, string newValue)
         {
             try

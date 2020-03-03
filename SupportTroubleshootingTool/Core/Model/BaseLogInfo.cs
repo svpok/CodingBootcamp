@@ -10,7 +10,7 @@ namespace SupportTroubleshootingTool.Core.Model
     [Serializable]
     public abstract class BaseLogInfo : ConfigItemInfo
     {
-        public BaseLogInfo() : base()
+       public BaseLogInfo() : base()
         {
             LogLevelXPaths = new List<string>(); 
         }
@@ -22,7 +22,6 @@ namespace SupportTroubleshootingTool.Core.Model
         {
             return LogLevelXPaths.Select(item => CreateConfigurationPoint(item, logLevel));
         }
-
         private ConfigurationPoint CreateConfigurationPoint(string xPath, LogLevelEnum value)
         {
             return new ConfigurationPoint()
@@ -31,7 +30,6 @@ namespace SupportTroubleshootingTool.Core.Model
                 Value = ConvertLogLevelToValue(xPath, value)
             };
         }
-
         internal string ConvertLogLevelToValue(string xPath, LogLevelEnum logLevel)
         {
             var isLog4net = xPath.Contains("log4net");

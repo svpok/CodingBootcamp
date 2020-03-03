@@ -18,7 +18,6 @@ namespace SupportTroubleshootingTool.UI
         private const bool V = true;
         private SessionProvider _sessionProvider;
         private SessionInfo _currentSession;
-
         public ExistingSessionFormUi(SessionProvider sessionProvider, NewSessionFormUi backForm)
          { //TODO: Check sessionProvider and _currentSession are not null.
             //If null log error and show error dialog
@@ -31,7 +30,6 @@ namespace SupportTroubleshootingTool.UI
             dateTimeTo.MaxDate = DateTime.Now;
             this.Text =this.Text + _currentSession.SessionID;
             this.loadData.Items.Add("workflow:  " + _currentSession.WorkflowName);
-
             string EVL = "";
             EVL = "Event View Logs:";
             int evilog = 1;
@@ -45,12 +43,9 @@ namespace SupportTroubleshootingTool.UI
                     EVL = EVL + ", " + EVlog.LogName;
               }
                this.loadData.Items.Add(EVL);
-
-
             string fileloge = "";
             fileloge = "File Logs:";
             int log = 1;
-
             foreach (FileLogInfo fileLog in _currentSession.SelectedFileLogs)
             {
                 if (log == 1)
@@ -90,10 +85,7 @@ namespace SupportTroubleshootingTool.UI
             _sessionProvider.CurrentSession.To = dateTimeTo.Value;
             try
             {
-
-
                 bool s = _sessionProvider.CollectData();
-
                 if (!s)
                 {
                     DialogResult dialogResult = MessageBox.Show("Data for the same data and time already was collect ! ," +
@@ -112,13 +104,9 @@ namespace SupportTroubleshootingTool.UI
             }
             catch(Exception ex)
             {
-
-
                 MessageBox.Show(ex.Message);
             }
-            
     }    
-
         private void butCloseSessionClick(object sender, EventArgs e)
         {
             _sessionProvider.CurrentSession.From = dateTimeFrom.Value;
@@ -127,7 +115,6 @@ namespace SupportTroubleshootingTool.UI
             _sessionProvider.StopSession();
             this.Close();
         }
-
          private void butOpenSeesion_Click(object sender, EventArgs e)
         {
           System.Diagnostics.Process.Start(_currentSession.SessionOtputFolderPath);

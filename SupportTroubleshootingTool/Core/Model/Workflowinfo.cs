@@ -5,7 +5,6 @@ using System.Xml;
 using System.Xml.Serialization;
 using System.IO;
 using SupportTroubleshootingTool.Core.Contract;
-
 namespace SupportTroubleshootingTool.Core.Model
 {
     [Serializable]

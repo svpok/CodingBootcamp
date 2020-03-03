@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Xml.Serialization;
-
 namespace SupportTroubleshootingTool.Core.Model
 {
     [Serializable]
@@ -20,7 +19,6 @@ namespace SupportTroubleshootingTool.Core.Model
         public string TraceFileName { get; set; }
         [XmlElement]
         public string IISApplicationPoolToRestart { get; set; }
-
         internal override IEnumerable<ConfigurationPoint> GetConfigPoints(LogLevelEnum logLevel)
         {
             return new List<ConfigurationPoint>()

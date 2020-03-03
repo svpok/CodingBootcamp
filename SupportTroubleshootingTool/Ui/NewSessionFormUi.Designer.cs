@@ -67,11 +67,10 @@
             this.comboboxWorkflows.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.comboboxWorkflows.FormattingEnabled = true;
             this.comboboxWorkflows.IntegralHeight = false;
-            this.comboboxWorkflows.Location = new System.Drawing.Point(346, 17);
-            this.comboboxWorkflows.Margin = new System.Windows.Forms.Padding(4);
+            this.comboboxWorkflows.Location = new System.Drawing.Point(283, 14);
             this.comboboxWorkflows.MaxDropDownItems = 80;
             this.comboboxWorkflows.Name = "comboboxWorkflows";
-            this.comboboxWorkflows.Size = new System.Drawing.Size(1045, 46);
+            this.comboboxWorkflows.Size = new System.Drawing.Size(856, 39);
             this.comboboxWorkflows.TabIndex = 1;
             this.comboboxWorkflows.SelectedIndexChanged += new System.EventHandler(this.comboboxWorkflows_SelectedValueChanged);
             // 
@@ -81,10 +80,9 @@
             this.Workflow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(75)))), ((int)(((byte)(105)))));
             this.Workflow.Font = new System.Drawing.Font("Arial", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Workflow.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.Workflow.Location = new System.Drawing.Point(4, 17);
-            this.Workflow.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.Workflow.Location = new System.Drawing.Point(3, 14);
             this.Workflow.Name = "Workflow";
-            this.Workflow.Size = new System.Drawing.Size(169, 38);
+            this.Workflow.Size = new System.Drawing.Size(143, 32);
             this.Workflow.TabIndex = 0;
             this.Workflow.Text = "Workflow :";
             this.Workflow.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -95,10 +93,9 @@
             this.butWarning.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(43)))), ((int)(((byte)(60)))));
             this.butWarning.Font = new System.Drawing.Font("Arial", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.butWarning.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.butWarning.Location = new System.Drawing.Point(7, 154);
-            this.butWarning.Margin = new System.Windows.Forms.Padding(4);
+            this.butWarning.Location = new System.Drawing.Point(6, 128);
             this.butWarning.Name = "butWarning";
-            this.butWarning.Size = new System.Drawing.Size(164, 42);
+            this.butWarning.Size = new System.Drawing.Size(145, 36);
             this.butWarning.TabIndex = 3;
             this.butWarning.TabStop = true;
             this.butWarning.Text = "Warning";
@@ -111,10 +108,9 @@
             this.butInformation.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(43)))), ((int)(((byte)(60)))));
             this.butInformation.Font = new System.Drawing.Font("Arial", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.butInformation.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.butInformation.Location = new System.Drawing.Point(4, 88);
-            this.butInformation.Margin = new System.Windows.Forms.Padding(4);
+            this.butInformation.Location = new System.Drawing.Point(3, 73);
             this.butInformation.Name = "butInformation";
-            this.butInformation.Size = new System.Drawing.Size(202, 42);
+            this.butInformation.Size = new System.Drawing.Size(179, 36);
             this.butInformation.TabIndex = 2;
             this.butInformation.TabStop = true;
             this.butInformation.Text = "Information";
@@ -128,10 +124,9 @@
             this.butCurrent.Checked = true;
             this.butCurrent.Font = new System.Drawing.Font("Arial", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.butCurrent.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.butCurrent.Location = new System.Drawing.Point(7, 24);
-            this.butCurrent.Margin = new System.Windows.Forms.Padding(4);
+            this.butCurrent.Location = new System.Drawing.Point(6, 20);
             this.butCurrent.Name = "butCurrent";
-            this.butCurrent.Size = new System.Drawing.Size(150, 42);
+            this.butCurrent.Size = new System.Drawing.Size(133, 36);
             this.butCurrent.TabIndex = 1;
             this.butCurrent.TabStop = true;
             this.butCurrent.Text = "Current";
@@ -144,10 +139,9 @@
             this.LogsLevel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(43)))), ((int)(((byte)(60)))));
             this.LogsLevel.Font = new System.Drawing.Font("Arial", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LogsLevel.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.LogsLevel.Location = new System.Drawing.Point(-3, 13);
-            this.LogsLevel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.LogsLevel.Location = new System.Drawing.Point(-2, 11);
             this.LogsLevel.Name = "LogsLevel";
-            this.LogsLevel.Size = new System.Drawing.Size(177, 38);
+            this.LogsLevel.Size = new System.Drawing.Size(155, 32);
             this.LogsLevel.TabIndex = 0;
             this.LogsLevel.Text = "Logs level :";
             this.LogsLevel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -158,10 +152,9 @@
             this.butError.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(43)))), ((int)(((byte)(60)))));
             this.butError.Font = new System.Drawing.Font("Arial", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.butError.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.butError.Location = new System.Drawing.Point(7, 215);
-            this.butError.Margin = new System.Windows.Forms.Padding(4);
+            this.butError.Location = new System.Drawing.Point(6, 179);
             this.butError.Name = "butError";
-            this.butError.Size = new System.Drawing.Size(114, 42);
+            this.butError.Size = new System.Drawing.Size(101, 36);
             this.butError.TabIndex = 4;
             this.butError.TabStop = true;
             this.butError.Text = "Error";
@@ -176,10 +169,9 @@
             this.panelLogsLevel.Controls.Add(this.butInformation);
             this.panelLogsLevel.Controls.Add(this.butCurrent);
             this.panelLogsLevel.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.panelLogsLevel.Location = new System.Drawing.Point(4, 76);
-            this.panelLogsLevel.Margin = new System.Windows.Forms.Padding(4);
+            this.panelLogsLevel.Location = new System.Drawing.Point(3, 62);
             this.panelLogsLevel.Name = "panelLogsLevel";
-            this.panelLogsLevel.Size = new System.Drawing.Size(298, 276);
+            this.panelLogsLevel.Size = new System.Drawing.Size(244, 230);
             this.panelLogsLevel.TabIndex = 9;
             // 
             // tableLayoutPanel2
@@ -190,21 +182,20 @@
             this.tableLayoutPanel2.Controls.Add(this.panel7, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.panelLogsLevel, 0, 1);
             this.tableLayoutPanel2.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(18, 121);
-            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(15, 101);
+            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 19.73684F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 80.26316F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(337, 365);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(276, 304);
             this.tableLayoutPanel2.TabIndex = 20;
             // 
             // panel7
             // 
             this.panel7.Controls.Add(this.LogsLevel);
-            this.panel7.Location = new System.Drawing.Point(4, 4);
-            this.panel7.Margin = new System.Windows.Forms.Padding(4);
+            this.panel7.Location = new System.Drawing.Point(3, 3);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(245, 59);
+            this.panel7.Size = new System.Drawing.Size(200, 49);
             this.panel7.TabIndex = 1;
             // 
             // panelEvAndFile
@@ -219,10 +210,10 @@
             this.panelEvAndFile.Controls.Add(this.butAll);
             this.panelEvAndFile.Controls.Add(this.ListFiles);
             this.panelEvAndFile.ForeColor = System.Drawing.Color.White;
-            this.panelEvAndFile.Location = new System.Drawing.Point(3, 2);
-            this.panelEvAndFile.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panelEvAndFile.Location = new System.Drawing.Point(2, 2);
+            this.panelEvAndFile.Margin = new System.Windows.Forms.Padding(2);
             this.panelEvAndFile.Name = "panelEvAndFile";
-            this.panelEvAndFile.Size = new System.Drawing.Size(1075, 941);
+            this.panelEvAndFile.Size = new System.Drawing.Size(880, 785);
             this.panelEvAndFile.TabIndex = 10;
             // 
             // EventViewerLogs
@@ -231,10 +222,9 @@
             this.EventViewerLogs.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(43)))), ((int)(((byte)(60)))));
             this.EventViewerLogs.Font = new System.Drawing.Font("Arial", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.EventViewerLogs.ForeColor = System.Drawing.Color.White;
-            this.EventViewerLogs.Location = new System.Drawing.Point(28, 71);
-            this.EventViewerLogs.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.EventViewerLogs.Location = new System.Drawing.Point(23, 59);
             this.EventViewerLogs.Name = "EventViewerLogs";
-            this.EventViewerLogs.Size = new System.Drawing.Size(283, 38);
+            this.EventViewerLogs.Size = new System.Drawing.Size(246, 32);
             this.EventViewerLogs.TabIndex = 0;
             this.EventViewerLogs.Text = "Event viewer logs :";
             // 
@@ -245,10 +235,9 @@
             this.ListEv.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ListEv.ForeColor = System.Drawing.Color.Gainsboro;
             this.ListEv.FormattingEnabled = true;
-            this.ListEv.Location = new System.Drawing.Point(19, 113);
-            this.ListEv.Margin = new System.Windows.Forms.Padding(4);
+            this.ListEv.Location = new System.Drawing.Point(16, 94);
             this.ListEv.Name = "ListEv";
-            this.ListEv.Size = new System.Drawing.Size(1023, 226);
+            this.ListEv.Size = new System.Drawing.Size(838, 164);
             this.ListEv.TabIndex = 0;
             // 
             // ListTraces
@@ -258,10 +247,9 @@
             this.ListTraces.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ListTraces.ForeColor = System.Drawing.Color.Gainsboro;
             this.ListTraces.FormattingEnabled = true;
-            this.ListTraces.Location = new System.Drawing.Point(22, 681);
-            this.ListTraces.Margin = new System.Windows.Forms.Padding(4);
+            this.ListTraces.Location = new System.Drawing.Point(18, 567);
             this.ListTraces.Name = "ListTraces";
-            this.ListTraces.Size = new System.Drawing.Size(1022, 226);
+            this.ListTraces.Size = new System.Drawing.Size(837, 164);
             this.ListTraces.TabIndex = 17;
             // 
             // FilesLogs
@@ -270,10 +258,9 @@
             this.FilesLogs.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(43)))), ((int)(((byte)(60)))));
             this.FilesLogs.Font = new System.Drawing.Font("Arial", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FilesLogs.ForeColor = System.Drawing.Color.White;
-            this.FilesLogs.Location = new System.Drawing.Point(28, 358);
-            this.FilesLogs.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.FilesLogs.Location = new System.Drawing.Point(23, 298);
             this.FilesLogs.Name = "FilesLogs";
-            this.FilesLogs.Size = new System.Drawing.Size(171, 38);
+            this.FilesLogs.Size = new System.Drawing.Size(148, 32);
             this.FilesLogs.TabIndex = 1;
             this.FilesLogs.Text = "Files logs :";
             // 
@@ -283,10 +270,9 @@
             this.Traces.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(43)))), ((int)(((byte)(60)))));
             this.Traces.Font = new System.Drawing.Font("Arial", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Traces.ForeColor = System.Drawing.Color.White;
-            this.Traces.Location = new System.Drawing.Point(28, 639);
-            this.Traces.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.Traces.Location = new System.Drawing.Point(23, 532);
             this.Traces.Name = "Traces";
-            this.Traces.Size = new System.Drawing.Size(134, 38);
+            this.Traces.Size = new System.Drawing.Size(113, 32);
             this.Traces.TabIndex = 0;
             this.Traces.Text = "Traces :";
             // 
@@ -299,10 +285,10 @@
             this.butAll.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.butAll.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.butAll.ForeColor = System.Drawing.Color.White;
-            this.butAll.Location = new System.Drawing.Point(787, 2);
-            this.butAll.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.butAll.Location = new System.Drawing.Point(644, 2);
+            this.butAll.Margin = new System.Windows.Forms.Padding(2);
             this.butAll.Name = "butAll";
-            this.butAll.Size = new System.Drawing.Size(257, 76);
+            this.butAll.Size = new System.Drawing.Size(210, 63);
             this.butAll.TabIndex = 6;
             this.butAll.Text = "Select all";
             this.butAll.UseVisualStyleBackColor = false;
@@ -315,10 +301,9 @@
             this.ListFiles.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ListFiles.ForeColor = System.Drawing.Color.Gainsboro;
             this.ListFiles.FormattingEnabled = true;
-            this.ListFiles.Location = new System.Drawing.Point(21, 400);
-            this.ListFiles.Margin = new System.Windows.Forms.Padding(4);
+            this.ListFiles.Location = new System.Drawing.Point(17, 333);
             this.ListFiles.Name = "ListFiles";
-            this.ListFiles.Size = new System.Drawing.Size(1023, 226);
+            this.ListFiles.Size = new System.Drawing.Size(838, 164);
             this.ListFiles.TabIndex = 16;
             // 
             // butStart
@@ -329,10 +314,9 @@
             this.butStart.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.butStart.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.butStart.ForeColor = System.Drawing.Color.White;
-            this.butStart.Location = new System.Drawing.Point(1154, 1092);
-            this.butStart.Margin = new System.Windows.Forms.Padding(4);
+            this.butStart.Location = new System.Drawing.Point(944, 910);
             this.butStart.Name = "butStart";
-            this.butStart.Size = new System.Drawing.Size(257, 72);
+            this.butStart.Size = new System.Drawing.Size(210, 60);
             this.butStart.TabIndex = 7;
             this.butStart.Text = "Start session";
             this.butStart.UseVisualStyleBackColor = false;
@@ -345,12 +329,11 @@
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel3.Controls.Add(this.panelEvAndFile, 0, 0);
             this.tableLayoutPanel3.ForeColor = System.Drawing.Color.White;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(362, 121);
-            this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(4);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(296, 101);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 88.42365F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(1086, 963);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(889, 802);
             this.tableLayoutPanel3.TabIndex = 21;
             // 
             // panel2
@@ -358,10 +341,9 @@
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(75)))), ((int)(((byte)(105)))));
             this.panel2.Controls.Add(this.Workflow);
             this.panel2.Controls.Add(this.comboboxWorkflows);
-            this.panel2.Location = new System.Drawing.Point(18, 14);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4);
+            this.panel2.Location = new System.Drawing.Point(15, 12);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1422, 82);
+            this.panel2.Size = new System.Drawing.Size(1163, 68);
             this.panel2.TabIndex = 22;
             // 
             // openFileDialog1
@@ -370,21 +352,20 @@
             // 
             // NewSessionFormUi
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(43)))), ((int)(((byte)(60)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.ClientSize = new System.Drawing.Size(1531, 1301);
+            this.ClientSize = new System.Drawing.Size(1254, 1084);
             this.Controls.Add(this.tableLayoutPanel2);
             this.Controls.Add(this.butStart);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.tableLayoutPanel3);
             this.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(1555, 1365);
-            this.MinimumSize = new System.Drawing.Size(1555, 1365);
+            this.MaximumSize = new System.Drawing.Size(1276, 1140);
+            this.MinimumSize = new System.Drawing.Size(1276, 1140);
             this.Name = "NewSessionFormUi";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Support troubleshooting tool : new session.";

@@ -17,9 +17,6 @@ namespace SupportTroubleshootingTool.Core.Handlers
         {
             this._sessionInfo = sessionInfo;
         }
-
-
-
         public void CollectData()
         {
             try

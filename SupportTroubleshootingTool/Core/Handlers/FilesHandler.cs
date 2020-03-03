@@ -9,16 +9,13 @@ namespace SupportTroubleshootingTool.Core.Contract
     internal class FilesHandler
     {
         private SessionInfo _currentSession;
-
         public FilesHandler(SessionInfo currentSession)
         {
             _currentSession = currentSession;
            
         }
-
         internal void CollectData(string outputfolder, string sourcefolder, string filter)
         {
-
             try
             {
                 if (!Directory.Exists(sourcefolder))
@@ -50,7 +47,6 @@ namespace SupportTroubleshootingTool.Core.Contract
             }
 
         }
-
         internal void CollectData()
         {
             try
