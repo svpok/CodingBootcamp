@@ -4,11 +4,8 @@ using System.Xml.Serialization;
 using System.IO;
 using System.Xml;
 using SupportTroubleshootingTool.Core.Contract;
-
-
 namespace SupportTroubleshootingTool.Core.Model
 {
-    //Read about XML serialization and implement it for this class
     [Serializable]
     public class SessionInfo
     {
@@ -28,7 +25,6 @@ namespace SupportTroubleshootingTool.Core.Model
         [XmlElement]
         public string SessionID { get; set; }
         [XmlElement]
-
         public string WorkflowName { get; set; }
         [XmlElement]
         public DateTime From { get; set; }

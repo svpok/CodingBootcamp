@@ -9,16 +9,13 @@ namespace SupportTroubleshootingTool.Core.Contract
     internal class FilesHandler
     {
         private SessionInfo _currentSession;
-
         public FilesHandler(SessionInfo currentSession)
         {
             _currentSession = currentSession;
            
         }
-
         internal void CollectData(string outputfolder, string sourcefolder, string filter)
         {
-
             try
             {
                 if (!Directory.Exists(sourcefolder))
@@ -31,7 +28,6 @@ namespace SupportTroubleshootingTool.Core.Contract
                 string[] filePaths = Directory.GetFiles(sourcefolder, filter);
                 foreach (string filepath in filePaths)
                 {
-
                     var fileinfo = new FileInfo(filepath);
                     if ((DateTime.Compare(fileinfo.LastWriteTime, from) > 0) && (DateTime.Compare(fileinfo.LastWriteTime, to) < 0))
                     {
@@ -50,7 +46,6 @@ namespace SupportTroubleshootingTool.Core.Contract
             }
 
         }
-
         internal void CollectData()
         {
             try
@@ -59,13 +54,9 @@ namespace SupportTroubleshootingTool.Core.Contract
                 List<FileLogInfo> fileLogInfos = _currentSession.SelectedFileLogs;
                 string from = _currentSession.From.ToString("yyyy-MM-dd-hh-mm");
                 string to = _currentSession.To.ToString("yyyy-MM-dd-hh-mm");
-                // Create folder for each trace/filelog by description 
-                // create list of files paths to be collected for each filelog/trace
-                // copy files to folder
                 foreach (TraceInfo trace in traces)
                 {
                     string outputfolder = $@"{_currentSession.SessionOtputFolderPath}\OutputData\{from}_{to}\{trace.Description}";
-
                     CollectData(outputfolder, trace.TracesPath, trace.TraceFileName);
                 }
                 foreach (FileLogInfo fileLogInfo in fileLogInfos)

@@ -1,14 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-
 namespace SupportTroubleshootingTool.Core.Utilities
 {
     public class Logger
     {
-
         private static readonly log4net.ILog mylogger = log4net.LogManager.GetLogger(typeof(Logger));
-
         public void WriteInfo(string message)
         {
             mylogger.Info(message);
@@ -25,10 +22,8 @@ namespace SupportTroubleshootingTool.Core.Utilities
         {
             mylogger.Error(message);
         }
-
         public void WriteError(Exception exeption)
         {
-
             StringBuilder e = new StringBuilder();
             e.Append(exeption.Message);
             e.Append("\n");

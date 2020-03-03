@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
-
 namespace SupportTroubleshootingTool.Core.Model
 {
     [Serializable]
@@ -23,7 +22,6 @@ namespace SupportTroubleshootingTool.Core.Model
         [XmlArray]
         [XmlArrayItem("ServiceName")]
         public List<string> ServicesToRestart { get; set; }
-
         internal abstract IEnumerable<ConfigurationPoint> GetConfigPoints(LogLevelEnum logLevel);
     }
 }

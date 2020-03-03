@@ -17,7 +17,6 @@ namespace SupportTroubleshootingTool.Core.Handlers
             _backUpFolderPath = Path.Combine(session.SessionOtputFolderPath, "SessionBackUp");
             _xmlRestoreSteps = Path.Combine(_backUpFolderPath, "backupsteps.xml");
         }
-
         internal void Backup()
         {
             try
@@ -42,7 +41,6 @@ namespace SupportTroubleshootingTool.Core.Handlers
                 throw new Exception($"Faild to backup:{ex.Message}");
             }
         }
-
         internal void Restore()
         {
             try
@@ -61,7 +59,6 @@ namespace SupportTroubleshootingTool.Core.Handlers
                 throw new Exception($"faild to restore:{ex.Message}");
             }
         }
-
         private void BackupConfigFiles(BackupSteps steps, List<ConfigItemInfo> configsList)
         {
             foreach (var configFileInfo in configsList)

@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace SupportTroubleshootingTool.UI
-{
+{ 
     public partial class NewSessionFormUi : Form
     {
         private WorkflowProvider _workflowProvider { get; set; }

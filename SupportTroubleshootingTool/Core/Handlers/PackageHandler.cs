@@ -13,15 +13,12 @@ namespace SupportTroubleshootingTool.Core.Handlers
     class PackageHandler
     {
         private SessionInfo _currentSession;
-
         public PackageHandler(SessionInfo sessionInfo)
         {
             this._currentSession = sessionInfo;
         }
-
         public static void Packaging(string sourceFolder, string destinationPath) 
         {
-			// DestinationPath example : C:\folder\file.zip
             try
             {
                 if (Directory.GetFiles(sourceFolder).Length > 0 || Directory.GetDirectories(sourceFolder).Length >0)

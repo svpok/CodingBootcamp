@@ -19,7 +19,6 @@ namespace SupportTroubleshootingTool.UI
         private const string V1 = "Success";
         private SessionProvider _sessionProvider;
         private SessionInfo _currentSession;
-
         public ExistingSessionFormUi(SessionProvider sessionProvider, NewSessionFormUi backForm)
         { //TODO: Check sessionProvider and _currentSession are not null.
             //If null log error and show error dialog
@@ -28,15 +27,13 @@ namespace SupportTroubleshootingTool.UI
 
             InitializeComponent();
             butCollectData.Click += new EventHandler(butCollectDataClick);
-        }
-        
+        }    
         private void ExistingSessionFormUi_Load_1(object sender, EventArgs e)
         {
             dateTimeTo.MaxDate = DateTime.Now;
 
             this.Text = this.Text + _currentSession.SessionID;
             this.loadData.Items.Add("workflow:  " + _currentSession.WorkflowName);
-
             string EVL = "";
             EVL = "Event View Logs:";
             int evilog = 1;
@@ -49,14 +46,11 @@ namespace SupportTroubleshootingTool.UI
                 }
                 else
                     EVL = EVL + ", " + EVlog.LogName;
-            }
-            this.loadData.Items.Add(EVL);
-
-
+              }
+               this.loadData.Items.Add(EVL);
             string fileloge = "";
             fileloge = "File Logs:";
             int log = 1;
-
             foreach (FileLogInfo fileLog in _currentSession.SelectedFileLogs)
             {
                 if (log == 1)
@@ -68,7 +62,6 @@ namespace SupportTroubleshootingTool.UI
                     fileloge = fileloge + ", " + fileLog.LogFileName;
             }
             this.loadData.Items.Add(fileloge);
-
             string trce = "";
             trce = "Traces:";
             int Trce = 1;
@@ -89,10 +82,7 @@ namespace SupportTroubleshootingTool.UI
             dateTimeFrom.Value = _sessionProvider.CurrentSession.From;
             //dateTimeTo.Value = _sessionProvider.CurrentSession.To;
             dateTimeTo.MaxDate = DateTime.Now;
-
-
         }
-       
         private void butCollectDataClick(object sender, EventArgs e)
         {
             _sessionProvider.CurrentSession.From = dateTimeFrom.Value;
@@ -100,7 +90,6 @@ namespace SupportTroubleshootingTool.UI
             try
             {
                 bool s = _sessionProvider.CollectData();
-
                 if (!s)
                 {
                     DialogResult dialogResult = MessageBox.Show("Data for the same data and time already was collect ! ," +
@@ -115,26 +104,15 @@ namespace SupportTroubleshootingTool.UI
                     {
                         this.Show();
                     }
-                }
-                
+                }           
             }
             catch (Exception ex)
             {
-
                 MessageBox.Show(ex.Message);
             }
             new ToolTip().Show("done", this, Cursor.Position.X - this.Location.X, Cursor.Position.Y - this.Location.Y, 1000);
         }
-        private void butCloseSession_Click(object sender, EventArgs e)
-        {
-            _sessionProvider.CurrentSession.From = dateTimeFrom.Value;
-            _sessionProvider.CurrentSession.To = dateTimeTo.Value;
-            //_sessionProvider.CollectData();
-            _sessionProvider.StopSession();
-            this.Close();
-        }
-
-        private void butOpenSeesion_Click(object sender, EventArgs e)
+         private void butOpenSeesion_Click(object sender, EventArgs e)
         {
             System.Diagnostics.Process.Start(_currentSession.SessionOtputFolderPath);
         }

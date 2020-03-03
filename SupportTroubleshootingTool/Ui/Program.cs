@@ -9,9 +9,6 @@ namespace SupportTroubleshootingTool.UI
 {
     static class Program
     {
-        /// <summary>
-        /// The main entry point for the application.
-        /// </summary>
         [STAThread]
         static void Main()
         {
@@ -43,13 +40,10 @@ namespace SupportTroubleshootingTool.UI
                 {
                     MessageBox.Show(ex.Message);
                 }
-
             }
             new Logger().WriteInfo($"UserName: {Environment.UserName} {Environment.UserDomainName} logout.");
             new Logger().WriteInfo("program exited");
-
         }
-
         private static void Application_ThreadException(object sender, System.Threading.ThreadExceptionEventArgs e)
         {
             MessageBox.Show(e.Exception.Message);
