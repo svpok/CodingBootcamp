@@ -74,49 +74,53 @@ namespace SupportTroubleshootingTool.Core.Handlers
             HashSet<string> iisPools = new HashSet<string>();
             try
             {
-                if (traceInfos != null)
+                if (session.LogLevel != LogLevelEnum.Current)
                 {
-                    foreach (TraceInfo trace in traceInfos)
+                    if (traceInfos != null)
                     {
-                        string iisapplicationpooltorestart = trace.IISApplicationPoolToRestart;
-                        List<string> servicestorestart = trace.ServicesToRestart;
-                        if (iisapplicationpooltorestart != null) { iisPools.Add(trace.IISApplicationPoolToRestart); }
-                        if (servicestorestart != null)
+                        foreach (TraceInfo trace in traceInfos)
                         {
-                            foreach (string servicename in servicestorestart) { serviceList.Add(servicename); }
+                            string iisapplicationpooltorestart = trace.IISApplicationPoolToRestart;
+                            List<string> servicestorestart = trace.ServicesToRestart;
+                            if (iisapplicationpooltorestart != null) { iisPools.Add(trace.IISApplicationPoolToRestart); }
+                            if (servicestorestart != null)
+                            {
+                                foreach (string servicename in servicestorestart) { serviceList.Add(servicename); }
+                            }
                         }
                     }
-                }
-                else { new Utilities.Logger().WriteInfo("No Traces Found you Waste my Time"); }
-                if (evLogInfos != null)
-                {
-                    foreach (EVLogInfo evLogInfo in evLogInfos)
+                    else { new Utilities.Logger().WriteInfo("No Traces Found you Waste my Time"); }
+                    if (evLogInfos != null)
                     {
-                        List<string> servicestorestart = evLogInfo.ServicesToRestart;
-                        if (servicestorestart != null)
+                        foreach (EVLogInfo evLogInfo in evLogInfos)
                         {
-                            foreach (string servicename in servicestorestart) { serviceList.Add(servicename); }
+                            List<string> servicestorestart = evLogInfo.ServicesToRestart;
+                            if (servicestorestart != null)
+                            {
+                                foreach (string servicename in servicestorestart) { serviceList.Add(servicename); }
+                            }
                         }
                     }
-                }
-                else { new Utilities.Logger().WriteInfo("No EVlog Found you Waste my Time"); }
-                if (fileLogInfos != null)
-                {
-                    foreach (FileLogInfo fileLogInfo in fileLogInfos)
+                    else { new Utilities.Logger().WriteInfo("No EVlog Found you Waste my Time"); }
+                    if (fileLogInfos != null)
                     {
-                        List<string> servicestorestart = fileLogInfo.ServicesToRestart;
-                        if (servicestorestart != null)
+                        foreach (FileLogInfo fileLogInfo in fileLogInfos)
                         {
-                            foreach (string servicename in servicestorestart) { serviceList.Add(servicename); }
+                            List<string> servicestorestart = fileLogInfo.ServicesToRestart;
+                            if (servicestorestart != null)
+                            {
+                                foreach (string servicename in servicestorestart) { serviceList.Add(servicename); }
+                            }
                         }
                     }
+                    else { new Utilities.Logger().WriteInfo("No FileLog Found you Waste my Time"); }
+                    foreach (string srv in serviceList) { RestartService(srv); }
+                    foreach (string pool in iisPools) { RestartPool(pool); }
+                    new Utilities.Logger().WriteInfo("Restart services seccessfully.");
                 }
-                else { new Utilities.Logger().WriteInfo("No FileLog Found you Waste my Time"); }
-                foreach (string srv in serviceList) { RestartService(srv); }
-                foreach (string pool in iisPools) { RestartPool(pool); }
-                new Utilities.Logger().WriteInfo("Restart services seccessfully.");
             }
-            catch(Exception e) { 
+            catch (Exception e)
+            {
                 new Utilities.Logger().WriteError($"Faild to restart service:{e.Message}");
                 throw new Exception($"Faild to restart service:{e.Message}");
             }

@@ -45,7 +45,7 @@
             // 
             // dateTimeTo
             // 
-            this.dateTimeTo.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.dateTimeTo.Cursor = System.Windows.Forms.Cursors.Default;
             this.dateTimeTo.CustomFormat = "dd/MM/yyy,hh:mm";
             this.dateTimeTo.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimeTo.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
@@ -59,7 +59,7 @@
             // 
             // dateTimeFrom
             // 
-            this.dateTimeFrom.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.dateTimeFrom.Cursor = System.Windows.Forms.Cursors.Default;
             this.dateTimeFrom.CustomFormat = "dd/MM/yyy,hh:mm";
             this.dateTimeFrom.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimeFrom.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
@@ -146,7 +146,7 @@
             // 
             this.loadData.Activation = System.Windows.Forms.ItemActivation.OneClick;
             this.loadData.Alignment = System.Windows.Forms.ListViewAlignment.Left;
-            this.loadData.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.loadData.Cursor = System.Windows.Forms.Cursors.Default;
             this.loadData.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.loadData.HideSelection = false;
             this.loadData.Location = new System.Drawing.Point(7, 27);
@@ -225,6 +225,7 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.butCloseSession);
             this.Controls.Add(this.panel2);
+            this.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.Name = "ExistingSessionFormUi";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
