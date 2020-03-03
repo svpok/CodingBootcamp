@@ -232,7 +232,7 @@
             this.Name = "ExistingSessionFormUi";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = " Support troubleshooting tool:session id:";
-            this.Load += new System.EventHandler(this.ExistingSessionFormUi_Load_1);
+            this.Load += new System.EventHandler(this.ExistingSessionFormUi_Load);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel1.ResumeLayout(false);
