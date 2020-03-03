@@ -26,7 +26,7 @@ namespace SupportTroubleshootingTool.UI
             _currentSession = _sessionProvider.CurrentSession;
 
             InitializeComponent();
-            butCollectData.Click += new EventHandler(butCollectDataClick);
+           
         }    
         private void ExistingSessionFormUi_Load_1(object sender, EventArgs e)
         {
@@ -110,7 +110,7 @@ namespace SupportTroubleshootingTool.UI
             {
                 MessageBox.Show(ex.Message);
             }
-            new ToolTip().Show("done", this, Cursor.Position.X - this.Location.X, Cursor.Position.Y - this.Location.Y, 1000);
+            new ToolTip().Show("data is collect", this, Cursor.Position.X - this.Location.X, Cursor.Position.Y - this.Location.Y, 1000);
         }
          private void butOpenSeesion_Click(object sender, EventArgs e)
         {
