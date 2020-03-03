@@ -1,12 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using SupportTroubleshootingTool.Core.Contract;
 using SupportTroubleshootingTool.Core.Model;
@@ -138,15 +131,11 @@ namespace SupportTroubleshootingTool.UI
         }
         private void dateTimeFrom_ValueChanged(object sender, EventArgs e)
         {
-            dateTimeTo.MinDate = dateTimeFrom.Value.AddDays(1);
-            //dateTimeTo.MinDate = dateTimeFrom.Value.AddHours(1);
+            dateTimeTo.MinDate = dateTimeFrom.Value.AddHours(1);
         }
-
         private void dateTimeTo_ValueChanged(object sender, EventArgs e)
         {
-            //dateTimeTo.MaxDate = DateTime.Now;
-            dateTimeFrom.MaxDate = dateTimeTo.Value.AddDays(-1);
-            //this.dateTimeTo.= this.dateTimeTo.Text.Length;
+            dateTimeFrom.MaxDate = dateTimeTo.Value.AddHours(-1);
         }  
     }    
  }
