@@ -152,7 +152,7 @@ namespace SupportTroubleshootingTool.Core.Contract
                     //new EVLogHandler(_currentSession).CollectData();
                     //Collect file logs (FileLogHandler)
                     //Collect traces (TraceHanler)
-                    //new FilesHandler(_currentSession).CollectData();
+                    new FilesHandler(_currentSession).CollectData();
                     string name = new DirectoryInfo(path).Name;
                     if (!_currentSession.OutputDirNames.Contains(name))
                     {

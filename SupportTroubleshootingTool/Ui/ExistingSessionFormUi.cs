@@ -22,56 +22,62 @@ namespace SupportTroubleshootingTool.UI
         }    
         private void ExistingSessionFormUi_Load(object sender, EventArgs e)
         {
-            this.Text = this.Text + _currentSession.SessionID;
-            this.loadData.Items.Add("workflow:  " + _currentSession.WorkflowName);
-            string EVL = "";
-            EVL = "Event View Logs:";
-            int evilog = 1;
-            foreach (EVLogInfo EVlog in _currentSession.SelectedEVLogs)
-            {
-                if (evilog == 1)
-                {
-                    EVL = EVL + " " + EVlog.LogName;
-                    evilog = 0;
-                }
-                else
-                    EVL = EVL + ", " + EVlog.LogName;
-              }
-               this.loadData.Items.Add(EVL);
-            string fileloge = "";
-            fileloge = "File Logs:";
-            int log = 1;
-            foreach (FileLogInfo fileLog in _currentSession.SelectedFileLogs)
-            {
-                if (log == 1)
-                {
-                    fileloge = fileloge + " " + fileLog.LogFileName;
-                    log = 0;
-                }
-                else
-                    fileloge = fileloge + ", " + fileLog.LogFileName;
-            }
-            this.loadData.Items.Add(fileloge);
-            string trce = "";
-            trce = "Traces:";
-            int Trce = 1;
-            foreach (TraceInfo trace in _currentSession.SelectedTraces)
-            {
-                if (Trce == 1)
-                {
-                    trce = trce + " " + trace.Description;
-                    Trce = 0;
-                }
-                else
-                    trce = trce + " ," + trace.Description;
-            }
-            this.loadData.Items.Add(trce);
-
-            loadData.Items.Add($"loglevel:{_currentSession.LogLevel}");
-
-            dateTimeFrom.Value = _sessionProvider.CurrentSession.From;
+            this.Text = this.Text + _currentSession.SessionID; 
+            
+            dateTimeFrom.Value = _currentSession.From;
+            dateTimeTo.Value = _currentSession.To;
             dateTimeTo.MaxDate = DateTime.Now;
+
+            InitSessionInfoDetails();
         }
+
+        private void InitSessionInfoDetails()
+        {
+            this.loadData.Items.Clear();
+            this.loadData.Items.Add("Workflow:  " + _currentSession.WorkflowName);
+            loadData.Items.Add($"Log Level:  {_currentSession.LogLevel}");
+
+            if (_currentSession.SelectedEVLogs.Count > 0)
+            {
+                this.loadData.Items.Add("");
+                loadData.Items.Add("Event View Logs:");
+                foreach (EVLogInfo EVlog in _currentSession.SelectedEVLogs)
+                {
+                    loadData.Items.Add(EVlog.Description);
+                }
+            }
+
+            if (_currentSession.SelectedFileLogs.Count > 0)
+            {
+                this.loadData.Items.Add("");
+                loadData.Items.Add("File Logs:");
+                foreach (FileLogInfo fileLog in _currentSession.SelectedFileLogs)
+                {
+                    loadData.Items.Add(fileLog.Description);
+                }
+            }
+
+            if (_currentSession.SelectedTraces.Count > 0)
+            {
+                this.loadData.Items.Add("");
+                loadData.Items.Add("Traces:");
+                foreach (TraceInfo trace in _currentSession.SelectedTraces)
+                {
+                    loadData.Items.Add(trace.Description);
+                }
+            }
+
+            if (_currentSession.OutputDirNames.Count > 0)
+            {
+                this.loadData.Items.Add("");
+                loadData.Items.Add("Collected Data For Time Filters:");
+                foreach (string dirName in _currentSession.OutputDirNames)
+                {
+                    this.loadData.Items.Add(dirName);
+                }
+            }
+        }
+
         private void butCollectDataClick(object sender, EventArgs e)
         {
             try
@@ -101,13 +107,14 @@ namespace SupportTroubleshootingTool.UI
                 else
                 {
                     _sessionProvider.CollectData();
+                    InitSessionInfoDetails();
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
-            new ToolTip().Show("data is collect", this, Cursor.Position.X - this.Location.X, Cursor.Position.Y - this.Location.Y, 1000);
+            
         }
          private void butOpenSeesion_Click(object sender, EventArgs e)
         {

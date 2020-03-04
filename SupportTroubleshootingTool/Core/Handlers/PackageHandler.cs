@@ -41,10 +41,10 @@ namespace SupportTroubleshootingTool.Core.Handlers
         {
             try
             {
-                string destinationPath = $@"{ _currentSession.SessionOtputFolderPath}\OutputData\{_currentSession.WorkflowName}.zip";
                 string from = _currentSession.From.ToString("yyyy-MM-dd-hh-mm");
                 string to = _currentSession.To.ToString("yyyy-MM-dd-hh-mm");
                 string sourceFolder = $@"{_currentSession.SessionOtputFolderPath}\OutputData\{from}_{to}";
+                string destinationPath = $@"{ _currentSession.SessionOtputFolderPath}\OutputData\{_currentSession.WorkflowName}_{from}_{to}.zip";
                 Packaging(sourceFolder, destinationPath);
                 new Logger().WriteInfo("the file Zipped seccessfully.");
             }

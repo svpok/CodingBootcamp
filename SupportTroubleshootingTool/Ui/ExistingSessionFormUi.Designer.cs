@@ -158,7 +158,6 @@
             this.loadData.TabStop = false;
             this.loadData.UseCompatibleStateImageBehavior = false;
             this.loadData.View = System.Windows.Forms.View.List;
-          
             // 
             // label1
             // 
@@ -228,7 +227,10 @@
             this.Controls.Add(this.butCloseSession);
             this.Controls.Add(this.panel2);
             this.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "ExistingSessionFormUi";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = " Support troubleshooting tool:session id:";
