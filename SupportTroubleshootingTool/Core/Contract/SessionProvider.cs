@@ -92,10 +92,14 @@ namespace SupportTroubleshootingTool.Core.Contract
                 new Logger().WriteInfo("Starting new successfully.");
             }
             // catch non critic exeption
+            catch(NonCriticalException ex)
+            {
+                throw ex;
+            }
             catch (Exception ex)
             {
                 new Logger().WriteError($"Faild to start session:{ex.Message}");
-                throw new Exception($"{ex.Message} Please restart manually");
+                throw new Exception($"Faild to start session:{ ex.Message}");
             }
         }
         public void StopSession(bool cls=true)

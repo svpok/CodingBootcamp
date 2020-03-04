@@ -113,7 +113,7 @@ namespace SupportTroubleshootingTool.Core.Handlers
             {
                 new Utilities.Logger().WriteError($"Faild to restart service:{e.Message}");
                 // throw non critic ex
-                throw new Exception($"Faild to restart service:{e.Message}");
+                throw new Utilities.NonCriticalException($"Faild to restart service:{e.Message} Please restart manually");
             }
         }
     }
