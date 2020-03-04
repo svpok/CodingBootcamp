@@ -12,7 +12,6 @@ namespace SupportTroubleshootingTool.Core.Contract
         public FilesHandler(SessionInfo currentSession)
         {
             _currentSession = currentSession;
-           
         }
         internal void CollectData(string outputfolder, string sourcefolder, string filter)
         {
