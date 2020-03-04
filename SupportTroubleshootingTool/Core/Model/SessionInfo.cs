@@ -21,6 +21,7 @@ namespace SupportTroubleshootingTool.Core.Model
             To = DateTime.Now;
             SessionFolderPath = $"{DateTime.Now.ToString("yyyy-MM-dd-hh-mm")}_{SessionID}";
             SessionOtputFolderPath = "";
+            OutputDirNames = new List<string>();
         }
         [XmlElement]
         public string SessionID { get; set; }
@@ -45,6 +46,9 @@ namespace SupportTroubleshootingTool.Core.Model
         public string SessionFolderPath { get; set; }
         [XmlElement]
         public string SessionOtputFolderPath { get; set; }
+        [XmlArray]
+        [XmlArrayItem]
+        public List<string> OutputDirNames { get; set; }
     }
 }
     public enum LogLevelEnum
