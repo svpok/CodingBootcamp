@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.IO;
 using System.Windows.Forms;
 using SupportTroubleshootingTool.Core.Contract;
 using SupportTroubleshootingTool.Core.Model;
@@ -15,8 +9,6 @@ namespace SupportTroubleshootingTool.UI
 {
     public partial class ExistingSessionFormUi : Form
     {
-        private const bool V = true;
-        private const string V1 = "Success";
         private SessionProvider _sessionProvider;
         private SessionInfo _currentSession;
         public ExistingSessionFormUi(SessionProvider sessionProvider, NewSessionFormUi backForm)
@@ -28,10 +20,8 @@ namespace SupportTroubleshootingTool.UI
             InitializeComponent();
            
         }    
-        private void ExistingSessionFormUi_Load_1(object sender, EventArgs e)
+        private void ExistingSessionFormUi_Load(object sender, EventArgs e)
         {
-            dateTimeTo.MaxDate = DateTime.Now;
-
             this.Text = this.Text + _currentSession.SessionID;
             this.loadData.Items.Add("workflow:  " + _currentSession.WorkflowName);
             string EVL = "";
@@ -80,17 +70,20 @@ namespace SupportTroubleshootingTool.UI
             loadData.Items.Add($"loglevel:{_currentSession.LogLevel}");
 
             dateTimeFrom.Value = _sessionProvider.CurrentSession.From;
-            //dateTimeTo.Value = _sessionProvider.CurrentSession.To;
             dateTimeTo.MaxDate = DateTime.Now;
         }
         private void butCollectDataClick(object sender, EventArgs e)
         {
-            _sessionProvider.CurrentSession.From = dateTimeFrom.Value;
-            _sessionProvider.CurrentSession.To = dateTimeTo.Value;
             try
             {
-                bool s = _sessionProvider.CollectData();
-                if (!s)
+                _currentSession.From = dateTimeFrom.Value;
+                _currentSession.To = dateTimeTo.Value;
+                string from = _currentSession.From.ToString("yyyy-MM-dd-hh-mm");
+                string to = _currentSession.To.ToString("yyyy-MM-dd-hh-mm");
+                string path = Path.Combine(_currentSession.SessionOtputFolderPath,
+                            "OutputData",
+                            $@"{from}_{to}");
+                if (Directory.Exists(path))
                 {
                     DialogResult dialogResult = MessageBox.Show("Data for the same data and time already was collect ! ," +
                    "Do you want to override it?," +
@@ -104,7 +97,11 @@ namespace SupportTroubleshootingTool.UI
                     {
                         this.Show();
                     }
-                }           
+                }
+                else
+                {
+                    _sessionProvider.CollectData();
+                }
             }
             catch (Exception ex)
             {
@@ -133,15 +130,11 @@ namespace SupportTroubleshootingTool.UI
         }
         private void dateTimeFrom_ValueChanged(object sender, EventArgs e)
         {
-            dateTimeTo.MinDate = dateTimeFrom.Value.AddDays(1);
-            //dateTimeTo.MinDate = dateTimeFrom.Value.AddHours(1);
+            dateTimeTo.MinDate = dateTimeFrom.Value.AddHours(1);
         }
-
         private void dateTimeTo_ValueChanged(object sender, EventArgs e)
         {
-            //dateTimeTo.MaxDate = DateTime.Now;
-            dateTimeFrom.MaxDate = dateTimeTo.Value.AddDays(-1);
-            //this.dateTimeTo.= this.dateTimeTo.Text.Length;
+            dateTimeFrom.MaxDate = dateTimeTo.Value.AddHours(-1);
         }  
     }    
  }
