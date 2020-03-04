@@ -149,10 +149,10 @@ namespace SupportTroubleshootingTool.Core.Contract
                     //Collect file logs (FileLogHandler)
                     //Collect traces (TraceHanler)
                     //new FilesHandler(_currentSession).CollectData();
-                     DirectoryInfo directoryInfo = new DirectoryInfo(path);
-                    if (!_currentSession.OutputDirNames.Contains(directoryInfo.Name))
+                    string name = new DirectoryInfo(path).Name;
+                    if (!_currentSession.OutputDirNames.Contains(name))
                     {
-                        _currentSession.OutputDirNames.Add(directoryInfo.Name);
+                        _currentSession.OutputDirNames.Add(name);
                     }
                      new PackageHandler(_currentSession).Packaging();        
                     SerialtionHelper<SessionInfo>.Serialize(_currentSession,
