@@ -210,8 +210,6 @@
     <Compile Include="Handlers\ConfigXML.cs" />
     <Compile Include="Handlers\EVLogHandler.cs" />
     <Compile Include="Handlers\BackUpManager.cs" />
-    <Compile Include="Contract\ISession.cs" />
-    <Compile Include="Contract\IWorkflow.cs" />
     <Compile Include="Contract\SessionProvider.cs" />
     <Compile Include="Contract\WorkflowProvider.cs" />
     <Compile Include="Handlers\PackageHandler.cs" />
@@ -227,6 +225,7 @@
     <Compile Include="Model\WorkflowInfo.cs" />
     <Compile Include="Model\TraceInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utilities\NonCriticalException.cs" />
     <Compile Include="Utilities\Logger.cs" />
     <Compile Include="Utilities\SerialtionHelper.cs" />
   </ItemGroup>

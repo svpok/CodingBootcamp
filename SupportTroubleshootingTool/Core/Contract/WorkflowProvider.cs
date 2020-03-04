@@ -9,7 +9,7 @@ using SupportTroubleshootingTool.Core.Utilities;
 using System.Xml.Serialization;
 namespace SupportTroubleshootingTool.Core.Contract
 {
-    public class WorkflowProvider : IWorkflow
+    public class WorkflowProvider 
     {
         public const string WorkflowsRootFolder = @".\Configurations\Workflows";
         public WorkflowProvider()
