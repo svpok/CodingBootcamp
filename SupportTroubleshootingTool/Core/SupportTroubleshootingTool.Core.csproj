@@ -225,6 +225,7 @@
     <Compile Include="Model\WorkflowInfo.cs" />
     <Compile Include="Model\TraceInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utilities\NonCriticalException.cs" />
     <Compile Include="Utilities\Logger.cs" />
     <Compile Include="Utilities\SerialtionHelper.cs" />
   </ItemGroup>
