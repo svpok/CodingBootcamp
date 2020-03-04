@@ -1,13 +1,9 @@
+using SupportTroubleshootingTool.Core.Handlers;
 using SupportTroubleshootingTool.Core.Model;
 using SupportTroubleshootingTool.Core.Utilities;
-using SupportTroubleshootingTool.Core.Handlers;
 using System;
-using System.IO;
-using System.Collections.Generic;
 using System.Configuration;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.IO;
 namespace SupportTroubleshootingTool.Core.Contract
 {
     public class SessionProvider
@@ -99,7 +95,7 @@ namespace SupportTroubleshootingTool.Core.Contract
             catch (Exception ex)
             {
                 new Logger().WriteError($"Faild to start session:{ex.Message}");
-                throw new Exception($"Faild to start session:{ex.Message}");
+                throw new Exception($"{ex.Message} Please restart manually");
             }
         }
         public void StopSession(bool cls=true)

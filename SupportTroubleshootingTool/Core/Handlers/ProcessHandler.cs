@@ -106,7 +106,7 @@ namespace SupportTroubleshootingTool.Core.Handlers
                     else { new Utilities.Logger().WriteInfo("No FileLog Found you Waste my Time"); }
                     foreach (string srv in serviceList) { RestartService(srv); }
                     foreach (string pool in iisPools) { RestartPool(pool); }
-                    new Utilities.Logger().WriteInfo("Restart services seccessfully.");
+                    new Utilities.Logger().WriteInfo("Restart services successfully.");
                 }
             }
             catch (Exception e)
