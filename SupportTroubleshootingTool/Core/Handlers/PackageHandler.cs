@@ -30,7 +30,6 @@ namespace SupportTroubleshootingTool.Core.Handlers
                     new Logger().WriteInfo("No Files Found to archive");
                     return;
                 }
-                new Logger().WriteInfo("the file Zipped to " + destinationPath);
             }
             catch (Exception ex)
             {
@@ -41,16 +40,16 @@ namespace SupportTroubleshootingTool.Core.Handlers
         {
             try
             {
-                string destinationPath = $@"{ _currentSession.SessionOtputFolderPath}\OutputData\{_currentSession.WorkflowName}.zip";
+                string destinationPath = $@"{ _currentSession.SessionOtputFolderPath}\OutputData\OutputData.zip";
                 string from = _currentSession.From.ToString("yyyy-MM-dd-hh-mm");
                 string to = _currentSession.To.ToString("yyyy-MM-dd-hh-mm");
                 string sourceFolder = $@"{_currentSession.SessionOtputFolderPath}\OutputData\{from}_{to}";
                 Packaging(sourceFolder, destinationPath);
-                new Logger().WriteInfo("the file Zipped seccessfully.");
+                new Logger().WriteInfo("the file Zipped to " + destinationPath);
             }
             catch(Exception ex)
             {
-                new Logger().WriteError($"Faild to zipped file:{ex.Message}");
+                new Logger().WriteError($"Faild to compress file:{ex.Message}");
                 throw ex;
             }
         }
