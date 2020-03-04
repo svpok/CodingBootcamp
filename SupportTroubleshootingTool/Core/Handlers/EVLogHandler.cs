@@ -13,12 +13,14 @@ namespace SupportTroubleshootingTool.Core.Handlers
     public class EVLogHandler
     {
         SessionInfo  _sessionInfo;
+        string name_for_error;
         public EVLogHandler(SessionInfo sessionInfo)
         {
             this._sessionInfo = sessionInfo;
         }
         public void CollectData()
         {
+            
             try
             {
                 var from = _sessionInfo.From.ToString("yyyy-MM-dd-hh-mm");
@@ -55,6 +57,7 @@ namespace SupportTroubleshootingTool.Core.Handlers
                         }
                         sources += "]]] and ";
                     }
+                    name_for_error = item.Key;
                     string path = $@"{_sessionInfo.SessionOtputFolderPath}\OutputData\{from}_{to}";
                     if (!Directory.Exists(path))
                         Directory.CreateDirectory(path);
@@ -65,7 +68,7 @@ namespace SupportTroubleshootingTool.Core.Handlers
             }catch(Exception ex)
             {
                 new Logger().WriteError($"faild to collect Evlog:{ex.Message}");
-                throw ex;
+                throw new Exception(name_for_error+" Log was not found");
             }
         }
     }
