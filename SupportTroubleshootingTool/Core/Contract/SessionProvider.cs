@@ -86,9 +86,9 @@ namespace SupportTroubleshootingTool.Core.Contract
                 new BackUpManager(_currentSession).Backup();
                 //Open log levels (XmlHandler) - done
                 //Open traces (XmlHanlder) - done
-                //new XmlHandler(_currentSession).ChangeConfig();
+                new XmlHandler(_currentSession).ChangeConfig();
                 //Restart processes (ProcessHandler) - done
-               // new ProcessHandler(_currentSession).RestartService();
+                new ProcessHandler(_currentSession).RestartService();
                 new Logger().WriteInfo("Starting new successfully.");
             }
             // catch non critic exeption
@@ -117,7 +117,7 @@ namespace SupportTroubleshootingTool.Core.Contract
                     //Resore from backup (BackupHandler)
                     new BackUpManager(_currentSession).Restore();
                     //Restart processes (ProcessHandler)
-                   // new ProcessHandler(_currentSession);
+                    new ProcessHandler(_currentSession);
                     //Rename session folder from open to close - done
                     System.IO.Directory.Move($"{SessionRootFolderPath}\\{_currentSession.SessionFolderPath}_open",
                     $"{SessionRootFolderPath}\\{_currentSession.SessionFolderPath}_close");
@@ -149,7 +149,7 @@ namespace SupportTroubleshootingTool.Core.Contract
                     Directory.CreateDirectory(path);
                     //Create Output folder for this collect operation
                     //Collect Log events (EVLogHandler)
-                    //new EVLogHandler(_currentSession).CollectData();
+                    new EVLogHandler(_currentSession).CollectData();
                     //Collect file logs (FileLogHandler)
                     //Collect traces (TraceHanler)
                     new FilesHandler(_currentSession).CollectData();
