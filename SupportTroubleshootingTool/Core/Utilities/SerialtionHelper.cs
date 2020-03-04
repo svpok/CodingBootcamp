@@ -2,7 +2,6 @@
 using System;
 using System.IO;
 using System.Xml.Serialization;
-
 namespace SupportTroubleshootingTool.Core.Utilities
 {
     class SerialtionHelper<T>

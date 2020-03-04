@@ -40,7 +40,6 @@ namespace SupportTroubleshootingTool.UI
                 {
                     MessageBox.Show(ex.Message);
                 }
-
             }
             new Logger().WriteInfo($"UserName: {Environment.UserName} {Environment.UserDomainName} logout.");
             new Logger().WriteInfo("program exited");

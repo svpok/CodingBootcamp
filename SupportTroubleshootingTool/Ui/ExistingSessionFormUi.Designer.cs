@@ -55,7 +55,7 @@
             this.dateTimeTo.Size = new System.Drawing.Size(188, 26);
             this.dateTimeTo.TabIndex = 1;
             this.dateTimeTo.Value = new System.DateTime(2020, 2, 27, 12, 18, 17, 0);
-            this.dateTimeTo.ValueChanged += new System.EventHandler(this.dateTimeTo_ValueChanged_1);
+            this.dateTimeTo.ValueChanged += new System.EventHandler(this.dateTimeTo_ValueChanged);
             // 
             // dateTimeFrom
             // 
@@ -152,11 +152,13 @@
             this.loadData.Location = new System.Drawing.Point(7, 27);
             this.loadData.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.loadData.Name = "loadData";
+            this.loadData.ShowItemToolTips = true;
             this.loadData.Size = new System.Drawing.Size(621, 473);
             this.loadData.TabIndex = 2;
             this.loadData.TabStop = false;
             this.loadData.UseCompatibleStateImageBehavior = false;
             this.loadData.View = System.Windows.Forms.View.List;
+          
             // 
             // label1
             // 

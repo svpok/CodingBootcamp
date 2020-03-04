@@ -10,7 +10,7 @@ namespace SupportTroubleshootingTool.Core.Model
     [Serializable]
     public abstract class BaseLogInfo : ConfigItemInfo
     {
-        public BaseLogInfo() : base()
+       public BaseLogInfo() : base()
         {
             LogLevelXPaths = new List<string>(); 
         }

@@ -7,7 +7,6 @@ using System.Text;
 using System.Threading.Tasks;
 using SupportTroubleshootingTool.Core.Utilities;
 using System.Xml.Serialization;
-
 namespace SupportTroubleshootingTool.Core.Contract
 {
     public class WorkflowProvider : IWorkflow
