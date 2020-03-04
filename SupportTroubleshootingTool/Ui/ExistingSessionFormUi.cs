@@ -122,7 +122,6 @@ namespace SupportTroubleshootingTool.UI
             {
                 _sessionProvider.CurrentSession.From = dateTimeFrom.Value;
                 _sessionProvider.CurrentSession.To = dateTimeTo.Value;
-                //_sessionProvider.CollectData();
                 _sessionProvider.StopSession();
                 this.Close();
             }
