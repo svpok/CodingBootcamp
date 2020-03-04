@@ -12,7 +12,6 @@ namespace SupportTroubleshootingTool.Core.Contract
         public FilesHandler(SessionInfo currentSession)
         {
             _currentSession = currentSession;
-           
         }
         internal void CollectData(string outputfolder, string sourcefolder, string filter)
         {
@@ -29,13 +28,13 @@ namespace SupportTroubleshootingTool.Core.Contract
                 foreach (string filepath in filePaths)
                 {
                     var fileinfo = new FileInfo(filepath);
-                    if ((DateTime.Compare(fileinfo.LastWriteTime, from) > 0) && (DateTime.Compare(fileinfo.LastWriteTime, to) < 0))
+                    if ((DateTime.Compare(fileinfo.LastWriteTime, from) >= 0) && (DateTime.Compare(fileinfo.LastWriteTime, to) <= 0))
                     {
                         if (!Directory.Exists(outputfolder))
                         {
                             Directory.CreateDirectory(outputfolder);
                         }
-                        fileinfo.CopyTo(outputfolder + "/" + fileinfo.Name);
+                        fileinfo.CopyTo($"{outputfolder}/{fileinfo.Name}");
                     }
                 }
                 new Utilities.Logger().WriteInfo($"Files from folder {sourcefolder}copied to folder{outputfolder}according to {filter} filter");
