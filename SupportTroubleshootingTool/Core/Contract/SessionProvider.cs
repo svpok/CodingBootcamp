@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 namespace SupportTroubleshootingTool.Core.Contract
 {
-    public class SessionProvider : ISession
+    public class SessionProvider
     {
         private SessionInfo _currentSession;
         public SessionProvider()
@@ -95,6 +95,7 @@ namespace SupportTroubleshootingTool.Core.Contract
                 new ProcessHandler(_currentSession).RestartService();
                 new Logger().WriteInfo("Starting new successfully.");
             }
+            // catch non critic exeption
             catch (Exception ex)
             {
                 new Logger().WriteError($"Faild to start session:{ex.Message}");
