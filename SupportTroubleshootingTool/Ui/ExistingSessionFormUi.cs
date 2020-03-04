@@ -30,7 +30,6 @@ namespace SupportTroubleshootingTool.UI
 
             InitSessionInfoDetails();
         }
-
         private void InitSessionInfoDetails()
         {
             this.loadData.Items.Clear();
@@ -77,7 +76,6 @@ namespace SupportTroubleshootingTool.UI
                 }
             }
         }
-
         private void butCollectDataClick(object sender, EventArgs e)
         {
             try

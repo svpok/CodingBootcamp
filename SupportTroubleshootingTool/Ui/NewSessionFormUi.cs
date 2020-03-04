@@ -30,7 +30,7 @@ namespace SupportTroubleshootingTool.UI
             this.Location = new Point((Screen.PrimaryScreen.WorkingArea.Width - this.Width) / 2,
                                     (Screen.PrimaryScreen.WorkingArea.Height - this.Height) / 2);
             flag = true;
-            this.Size = new Size(820, 700);
+            //this.Size = new Size(740,560);
             this.butStart.Enabled = false;
             this.butAll.Enabled = false;
             FillWorkflows();
