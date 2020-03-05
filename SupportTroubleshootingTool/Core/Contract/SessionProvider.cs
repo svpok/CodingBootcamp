@@ -140,10 +140,15 @@ namespace SupportTroubleshootingTool.Core.Contract
                 string path = Path.Combine(_currentSession.SessionOtputFolderPath,
                                             "OutputData",
                                             $@"{from}_{to}");
+                string zipFile = Path.Combine(_currentSession.SessionOtputFolderPath,
+                                            "OutputData",
+                                            $@"{_currentSession.WorkflowName}_{from}_{to}.zip");
+
                 if (!Directory.Exists(path) || flag)
                 {
                     if (flag)
                     {
+                        File.Delete(zipFile);
                         Directory.Delete(path, true);
                     }
                     Directory.CreateDirectory(path);
