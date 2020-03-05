@@ -1,10 +1,7 @@
 ﻿using SupportTroubleshootingTool.Core.Model;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.ServiceProcess;
-using System.Text;
-using System.Threading.Tasks;
 using Microsoft.Web.Administration;
 
 namespace SupportTroubleshootingTool.Core.Handlers
@@ -26,11 +23,18 @@ namespace SupportTroubleshootingTool.Core.Handlers
             int timeoutMilliseconds = 10000;
             try
             {
-                TimeSpan timeout = TimeSpan.FromMilliseconds(timeoutMilliseconds);
-                service.Stop();
-                service.WaitForStatus(ServiceControllerStatus.Stopped, timeout);
-                service.Start();
-                service.WaitForStatus(ServiceControllerStatus.Running, timeout);
+                if (service.Status == ServiceControllerStatus.Stopped)
+                {
+                    service.Start();
+                }
+                else
+                {
+                    TimeSpan timeout = TimeSpan.FromMilliseconds(timeoutMilliseconds);
+                    service.Stop();
+                    service.WaitForStatus(ServiceControllerStatus.Stopped, timeout);
+                    service.Start();
+                    service.WaitForStatus(ServiceControllerStatus.Running, timeout);
+                }
             }
             catch (Exception e)
             {
@@ -64,6 +68,11 @@ namespace SupportTroubleshootingTool.Core.Handlers
             HashSet<string> iisPools = new HashSet<string>();
             try
             {
+                ServiceController service = new ServiceController("WAS");
+                if(service.Status == ServiceControllerStatus.Stopped)
+                {
+                    service.Start();
+                }
                 if (session.LogLevel != LogLevelEnum.Current)
                 {
                     if (traceInfos != null)
