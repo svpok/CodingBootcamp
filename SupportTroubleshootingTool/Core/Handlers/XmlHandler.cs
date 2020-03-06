@@ -1,8 +1,6 @@
 ﻿using SupportTroubleshootingTool.Core.Model;
 using System;
-using System.Linq;
 using System.Collections.Generic;
-using System.Windows.Forms;
 
 namespace SupportTroubleshootingTool.Core.Handlers
 {

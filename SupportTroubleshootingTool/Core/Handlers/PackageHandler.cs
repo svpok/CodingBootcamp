@@ -1,12 +1,8 @@
 ﻿using SupportTroubleshootingTool.Core.Model;
 using SupportTroubleshootingTool.Core.Utilities;
 using System;
-using System.Collections.Generic;
 using System.IO;
 using System.IO.Compression;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SupportTroubleshootingTool.Core.Handlers
 {
@@ -50,7 +46,7 @@ namespace SupportTroubleshootingTool.Core.Handlers
             catch(Exception ex)
             {
                 new Logger().WriteError($"Faild to compress file:{ex.Message}");
-                throw ex;
+                throw new NonCriticalException($"Failed to Compress file{ex.Message}");
             }
         }
     }

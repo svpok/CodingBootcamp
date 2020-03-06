@@ -35,13 +35,13 @@ namespace SupportTroubleshootingTool.Core.Contract
                             Directory.CreateDirectory(outputfolder);
                         }
                         fileinfo.CopyTo($"{outputfolder}/{fileinfo.Name}");
+                        new Utilities.Logger().WriteInfo($"File {fileinfo.Name} copied to folder {outputfolder} ");
                     }
                 }
-                new Utilities.Logger().WriteInfo($"Files from folder {sourcefolder}copied to folder{outputfolder}according to {filter} filter");
             }catch(Exception ex)
             {
                 new Utilities.Logger().WriteError(ex);
-                throw ex;
+                throw new NonCriticalException($"Failed to Copy Files {ex.Message}");
             }
 
         }
@@ -67,8 +67,8 @@ namespace SupportTroubleshootingTool.Core.Contract
             }
             catch (Exception ex)
             {
-                new Logger().WriteError($"faild to Collecting trace files and log files:{ex.Message}");
-                throw ex;
+                new Logger().WriteError($"faild to Collect trace files and log files:{ex.Message}");
+                throw new NonCriticalException($"Failed to Copy Files {ex.Message}");
             }
         }
     }

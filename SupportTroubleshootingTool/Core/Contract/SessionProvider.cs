@@ -154,7 +154,7 @@ namespace SupportTroubleshootingTool.Core.Contract
                     Directory.CreateDirectory(path);
                     //Create Output folder for this collect operation
                     //Collect Log events (EVLogHandler)
-                    new EVLogHandler(_currentSession).CollectData();
+                    //new EVLogHandler(_currentSession).CollectData();
                     //Collect file logs (FileLogHandler)
                     //Collect traces (TraceHanler)
                     new FilesHandler(_currentSession).CollectData();

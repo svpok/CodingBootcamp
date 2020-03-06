@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Xml.Serialization;
-using System.IO;
 using System.Xml;
-using SupportTroubleshootingTool.Core.Contract;
 namespace SupportTroubleshootingTool.Core.Model
 {
     [Serializable]

@@ -1,12 +1,9 @@
 ﻿using SupportTroubleshootingTool.Core.Model;
 using SupportTroubleshootingTool.Core.Utilities;
 using System;
-using System.Windows.Forms;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Diagnostics.Eventing.Reader;
 using System.IO;
-using System.Linq;
 
 namespace SupportTroubleshootingTool.Core.Handlers
 {

@@ -1,19 +1,13 @@
 
-﻿using SupportTroubleshootingTool.Core.Contract;
+using SupportTroubleshootingTool.Core.Contract;
 using SupportTroubleshootingTool.Core.Model;
-using SupportTroubleshootingTool.Core.Utilities;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace SupportTroubleshootingTool.UI
-{ 
+{
     public partial class NewSessionFormUi : Form
     {
         private WorkflowProvider _workflowProvider { get; set; }
